@@ -1,0 +1,15 @@
+# general translations
+btn_control.logo: 'cms'
+btn_control.loged_as: 'Welcome: '
+btn_control.logout: 'Logout'
+btn_control.change_password: 'Change password'
+btn_control.profile: 'Edit profile'
+
+# login window
+btn_control.title: 'cms'
+btn_control.login_title: 'Login'
+btn_control.login_username: 'Username'
+btn_control.login_password: 'Password'
+btn_control.login_button: 'Sign in'
+btn_control.login_remember_me: 'Remember me'
+btn_control.login_reset_password: 'Forgot my password'

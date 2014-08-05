@@ -4,16 +4,17 @@
 {% block body %}
     <div class="container">
         {% if app.session.flashbag.peekAll|length > 0 %}
-            <div class="row-fluid">
-                <div class="span12">{{ session_flash() }}</div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">{{ session_flash() }}</div>
             </div>
         {% endif %}
+
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 {% block fos_user_content %}{% endblock fos_user_content %}
                 {% block forgot_password_link %}
                     {% if 'resetting' not in app.request.pathInfo and 'profile' not in app.request.pathInfo %}
-                        <a href="{{ path('fos_user_resetting_request') }}" class="forgot_password fadeInDownPw">{{ 'Forgot my password.' | trans }}</a>
+                        <a href="{{ path('fos_user_resetting_request') }}" class="forgot_password fadeInDownPw">{{ 'btn_control.login_reset_password' | trans }}</a>
                     {% endif %}
                 {% endblock %}
             </div>
