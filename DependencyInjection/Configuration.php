@@ -1,6 +1,6 @@
 <?php
 
-namespace Btn\BaseBundle\DependencyInjection;
+namespace Btn\AdminBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,13 +18,8 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('btn_base');
-        $rootNode
-            ->children()
-                ->scalarNode('livereload_port')->end()
-                ->scalarNode('livereload_enabled')->end()
-                ->variableNode('doctrine')->end()
-            ->end();
+        $rootNode = $treeBuilder->root('btn_admin');
+        $rootNode->end();
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
