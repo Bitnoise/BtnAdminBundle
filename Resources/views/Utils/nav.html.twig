@@ -1,0 +1,84 @@
+{% set route_active = app.request.attributes.get('_route') %}
+
+{% macro menu_active_class(route_name, route_active) %}
+    {% if
+        route_active == route_name or
+        route_active == route_name ~ '_show' or
+        route_active == route_name ~ '_new' or
+        route_active == route_name ~ '_create' or
+        route_active == route_name ~ '_edit' or
+        route_active == route_name ~ '_update' or
+        route_active == route_name ~ '_delete'
+    %} active{% endif %}
+{% endmacro %}
+
+{% macro submenu_active_class(sub_items, route_active) %}
+    {% import _self as control %}
+    {% for nav_sub_item in sub_items %}
+        {{ control.menu_active_class(nav_sub_item.cp_route_name, route_active) }}
+    {% endfor %}
+{% endmacro %}
+{% import _self as menu %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-menu">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{ path('control_index') }}">{{ 'btn_control.logo'|trans }}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="header-menu">
+        <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="{{ path('cp_profile') }}" class="dropdown-toggle" data-toggle="dropdown">
+            {% trans %}btn_control.loged_as{% endtrans %}
+            {{ app.user ? app.user.username }}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ path('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-user"></span> {{ 'btn_control.profile'|trans }}</a></li>
+            <li><a href="{{ path('fos_user_change_password') }}"><span class="glyphicon glyphicon-pencil" ></span> {{ 'btn_control.change_password'|trans }}</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> {{ 'btn_control.logout'|trans }}</a></a></li>
+          </ul>
+        </li>
+      </ul>
+
+        <ul class="nav navbar-nav">
+          {% for nav_item in nav_items %}
+            {% if nav_item.skip is not defined or nav_item.skip != true %}
+
+                {% if nav_item.cp_route_name and (nav_item.role is not defined or (nav_item.role is defined and is_granted(nav_item.role) == true)) %}
+                        <li class="{{ menu.menu_active_class(nav_item.cp_route_name, route_active) }}">
+                            <a href="{{ url(nav_item.cp_route_name, (nav_item.cp_route_params is defined ? nav_item.cp_route_params : {})) }}">{{ nav_item.cp_link_text|trans }}</a>
+                        </li>
+                {% elseif nav_item.sub_items is defined %}
+                    <li class="dropdown {{ menu.submenu_active_class(nav_item.sub_items, route_active) }}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.cp_link_text|trans }}<b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            {% for nav_sub_item in nav_item.sub_items %}
+                                {# {% if is_granted(nav_sub_item.role) %} #}
+                                {# TODO: check if we need role here? #}
+                                {% if nav_sub_item.skip is not defined or nav_sub_item.skip != true %}
+                                    <li {# class="{{ menu.menu_active_class(nav_sub_item.cp_route_name, route_active) }}" #}>
+                                        <a href="{{ url(nav_sub_item.cp_route_name, (nav_sub_item.cp_route_params is defined ? nav_sub_item.cp_route_params : {})) }}">{{ nav_sub_item.cp_link_text|trans }}</a>
+                                    </li>
+                                {% endif %}
+                                {# {% endif %} #}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% elseif nav_item.cp_route_name == '' and nav_item.cp_link_text == '' %}
+                    <li class="divider-vertical"></li>
+                {% endif %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
