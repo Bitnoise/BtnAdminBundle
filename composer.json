@@ -17,7 +17,7 @@
         "php": ">=5.3.3",
         "symfony/symfony": "~2.3",
         "doctrine/orm": "~2.2,>=2.2.3",
-        "friendsofsymfony/user-bundle": "2.0.*@dev"
+        "friendsofsymfony/user-bundle": "2.0.*@stable"
     },
     "autoload": {
         "psr-0": { "Btn\\AdminBundle": "" }

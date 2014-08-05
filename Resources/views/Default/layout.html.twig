@@ -1,0 +1,53 @@
+{% from 'BtnAdminBundle:Utils:flash.html.twig' import session_flash %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{{ 'btn_control.title'|trans }}{% endblock %}</title>
+        <base href="{{app.request.schemeAndHttpHost }}">
+        {% block stylesheets %}
+            {% stylesheets
+                "@BtnAdminBundle/Resources/public/css/bootstrap.min.css"
+                "@BtnAdminBundle/Resources/public/css/bootflat.min.css"
+                "@BtnAdminBundle/Resources/public/css/control.css"
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+            {% endstylesheets %}
+        {% endblock %}
+    </head>
+    <body id="body">
+
+        {% block body %}
+
+            {% include 'BtnAdminBundle:Utils:nav.html.twig' with {nav_items: ''} %}
+            <div class="container">
+
+                {{ block('breadcrumb') }}
+
+                {% if app.session.flashbag.peekAll|length > 0 %}
+                    <div class="row-fluid">
+                        <div class="span12">{{ session_flash() }}</div>
+                    </div>
+                {% endif %}
+
+                <div class="row-fluid">
+                    <div class="span12" id="content">
+                        {% block content %}{% endblock %}
+                    </div><!--/span-->
+                </div><!--/row-->
+                <hr>
+                <footer><p>&copy; 2014</p></footer>
+            </div><!--/.fluid-container-->
+        {% endblock %}
+
+        {% block javascripts %}
+            {% javascripts
+                '@BtnAdminBundle/Resources/public/js/jquery-1.10.1.min.js'
+                '@BtnAdminBundle/Resources/public/js/bootstrap.min.js'
+            %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>
