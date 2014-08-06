@@ -4,6 +4,9 @@ btn_control.loged_as: 'Welcome: '
 btn_control.logout: 'Logout'
 btn_control.change_password: 'Change password'
 btn_control.profile: 'Edit profile'
+btn_control.save: 'Save'
+btn_control.delete: 'Delete'
+btn_control.preview: 'Preview'
 
 # login window
 btn_control.title: 'cms'
