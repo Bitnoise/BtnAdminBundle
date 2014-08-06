@@ -6,3 +6,8 @@ body {
 .top-offset {
     margin-top: 25px;
 }
+
+/* bootsrtap confirmation */
+.popover.bottom {
+    left: 0 !important;
+}
