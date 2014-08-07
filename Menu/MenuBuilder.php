@@ -23,15 +23,6 @@ class MenuBuilder
     {
         $menu = $this->factory->createItem('top_menu', array('childrenAttributes' => array('class' => 'nav navbar-nav')));
 
-        $menu->addChild('Home', array(
-            'label' => $this->translator->trans('Home'),
-            'route' => 'cp_homepage'
-        ));
-        $menu->addChild('Home2', array(
-            'label' => $this->translator->trans('Home'),
-            'route' => 'cp_homepage'
-        ));
-
         return $menu;
     }
 
