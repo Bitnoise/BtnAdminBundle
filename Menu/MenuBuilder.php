@@ -19,34 +19,34 @@ class MenuBuilder
         $this->translator = $translator;
     }
 
-    public function createTopMenu(Request $request)
+    public function createMenu(Request $request, $name, $route, array $routeParameters = array(), array $children = array())
     {
-        $menu = $this->factory->createItem('top_menu', array('childrenAttributes' => array('class' => 'nav navbar-nav')));
-        $menu->addChild($this->translator->trans('btn_control.modules'), array(
-            'route' => 'cp_homepage'
-        ));
+        $attributes = array(
+            'label' => $this->translator->trans($name),
+            'route' => $route,
+        );
+        if ($name == 'top_menu') {
+            $attributes ['childrenAttributes'] = array(
+                'class' => 'nav navbar-nav'
+            );
+        } elseif (!empty($children)) {
+            $attributes ['attributes'] = array(
+                'class' => 'dropdown'
+            );
+            $attributes ['childrenAttributes'] = array(
+                'class' => 'dropdown-menu',
+                'role'  => 'menu'
+            );
+            $attributes ['linkAttributes'] = array(
+                'class'       => 'dropdown-toggle',
+                'data-toggle' => 'dropdown',
+            );
+        }
+        $menu = $this->factory->createItem($name, $attributes);
 
-        return $menu;
-    }
 
-    public function addToMenu(Request $request, $menu, $name, $route, $module = null)
-    {
-        if ($module != null) {
-            $menu->getChild($module)
-                ->setAttribute('class', 'dropdown')
-                ->setLinkAttribute('class', 'dropdown-toggle')
-                ->setLinkAttribute('data-toggle', 'dropdown')
-                ->addChild($this->translator->trans($name), array(
-                    'route' => $route
-                ));
-            $menu->getChild($module)
-                ->setChildrenAttribute('class', 'dropdown-menu')
-                ->setChildrenAttribute('role', 'menu')
-            ;
-        } else {
-            $menu->addChild($this->translator->trans($name), array(
-                'route' => $route
-            ));
+        foreach ($children as $child) {
+            $menu->addChild($child);
         }
 
         return $menu;
