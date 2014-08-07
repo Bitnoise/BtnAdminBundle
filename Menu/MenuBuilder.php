@@ -22,6 +22,7 @@ class MenuBuilder
     public function createTopMenu(Request $request)
     {
         $menu = $this->factory->createItem('top_menu', array('childrenAttributes' => array('class' => 'nav navbar-nav')));
+        $menu->addChild($this->translator->trans('btn_control.modules'));
 
         return $menu;
     }
@@ -33,8 +34,7 @@ class MenuBuilder
                 ->setAttribute('class', 'dropdown')
                 ->setLinkAttribute('class', 'dropdown-toggle')
                 ->setLinkAttribute('data-toggle', 'dropdown')
-                ->addChild($name, array(
-                    'label' => $this->translator->trans($name),
+                ->addChild($this->translator->trans($name), array(
                     'route' => $route
                 ));
             $menu->getChild($module)
@@ -42,8 +42,7 @@ class MenuBuilder
                 ->setChildrenAttribute('role', 'menu')
             ;
         } else {
-            $menu->addChild($name, array(
-                'label' => $this->translator->trans($name),
+            $menu->addChild($this->translator->trans($name), array(
                 'route' => $route
             ));
         }
