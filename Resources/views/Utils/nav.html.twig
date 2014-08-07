@@ -49,36 +49,7 @@
           </ul>
         </li>
       </ul>
+        {{ knp_menu_render('top_menu') }}
 
-        <ul class="nav navbar-nav">
-          {% for nav_item in nav_items %}
-            {% if nav_item.skip is not defined or nav_item.skip != true %}
-
-                {% if nav_item.cp_route_name and (nav_item.role is not defined or (nav_item.role is defined and is_granted(nav_item.role) == true)) %}
-                        <li class="{{ menu.menu_active_class(nav_item.cp_route_name, route_active) }}">
-                            <a href="{{ url(nav_item.cp_route_name, (nav_item.cp_route_params is defined ? nav_item.cp_route_params : {})) }}">{{ nav_item.cp_link_text|trans }}</a>
-                        </li>
-                {% elseif nav_item.sub_items is defined %}
-                    <li class="dropdown {{ menu.submenu_active_class(nav_item.sub_items, route_active) }}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.cp_link_text|trans }}<b class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu">
-                            {% for nav_sub_item in nav_item.sub_items %}
-                                {# {% if is_granted(nav_sub_item.role) %} #}
-                                {# TODO: check if we need role here? #}
-                                {% if nav_sub_item.skip is not defined or nav_sub_item.skip != true %}
-                                    <li {# class="{{ menu.menu_active_class(nav_sub_item.cp_route_name, route_active) }}" #}>
-                                        <a href="{{ url(nav_sub_item.cp_route_name, (nav_sub_item.cp_route_params is defined ? nav_sub_item.cp_route_params : {})) }}">{{ nav_sub_item.cp_link_text|trans }}</a>
-                                    </li>
-                                {% endif %}
-                                {# {% endif %} #}
-                            {% endfor %}
-                        </ul>
-                    </li>
-                {% elseif nav_item.cp_route_name == '' and nav_item.cp_link_text == '' %}
-                    <li class="divider-vertical"></li>
-                {% endif %}
-            {% endif %}
-          {% endfor %}
-        </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
