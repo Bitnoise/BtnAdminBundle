@@ -22,7 +22,7 @@ class MenuBuilder
     public function createTopMenu(Request $request)
     {
         $menu = $this->factory->createItem('top_menu', array('childrenAttributes' => array('class' => 'nav navbar-nav')));
-        $menu->addChild($this->translator->trans('btn_control.modules', array(
+        $menu->addChild($this->translator->trans('btn_control.modules'), array(
             'route' => '#'
         ));
 
