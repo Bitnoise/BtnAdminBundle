@@ -1,0 +1,59 @@
+{% from 'BtnAdminBundle:Utils:flash.html.twig' import session_flash %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>{% block title %}{{ 'btn_admin.title'|trans }}{% endblock %}</title>
+            <base href="{{app.request.schemeAndHttpHost }}">
+            {% block stylesheets %}
+                {% stylesheets
+                    "@BtnAdminBundle/Resources/public/css/bootstrap.min.css"
+                    "@BtnAdminBundle/Resources/public/css/bootflat.min.css"
+                    "@BtnAdminBundle/Resources/public/css/control.css"
+                %}
+                    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+                {% endstylesheets %}
+            {% endblock %}
+            {% block javascripts_head %}{% endblock %}
+        {% endblock %}
+    </head>
+    <body id="body">
+
+        {% block body %}
+
+            {% block navbar %}
+                {% include 'BtnAdminBundle:Utils:nav.html.twig' with {nav_items: ''} %}
+            {% endblock %}
+
+            <div class="container-fluid">
+                {{ block('breadcrumb') }}
+                {% if app.session.flashbag.peekAll|length > 0 %}
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">{{ session_flash() }}</div>
+                    </div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="col-md-12" id="content">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+                <hr>
+                <footer><p>&copy; 2014</p></footer>
+            </div>
+        {% endblock %}
+
+        {% block javascripts %}
+            {% javascripts
+                '@BtnAdminBundle/Resources/public/js/jquery-1.11.1.min.js'
+                '@BtnAdminBundle/Resources/public/js/bootstrap.min.js'
+                '@BtnAdminBundle/Resources/public/js/bootstrap.confirm.js'
+                '@BtnAdminBundle/Resources/public/js/control.js'
+            %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>
