@@ -1,25 +1,3 @@
-{% set route_active = app.request.attributes.get('_route') %}
-
-{% macro menu_active_class(route_name, route_active) %}
-    {% if
-        route_active == route_name or
-        route_active == route_name ~ '_show' or
-        route_active == route_name ~ '_new' or
-        route_active == route_name ~ '_create' or
-        route_active == route_name ~ '_edit' or
-        route_active == route_name ~ '_update' or
-        route_active == route_name ~ '_delete'
-    %} active{% endif %}
-{% endmacro %}
-
-{% macro submenu_active_class(sub_items, route_active) %}
-    {% import _self as control %}
-    {% for nav_sub_item in sub_items %}
-        {{ control.menu_active_class(nav_sub_item.cp_route_name, route_active) }}
-    {% endfor %}
-{% endmacro %}
-{% import _self as menu %}
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
