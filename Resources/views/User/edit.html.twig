@@ -9,7 +9,7 @@
     <form action="{{ path('btn_admin_user_delete', {id: user.id}) }}" method="POST">
         <div class="form-group delete-form">
             <div class="col-sm-offset-2 col-sm-10">
-                <a href="{{ path('btn_admin_users_list') }}" class="btn">&laquo; {{ 'btn_admin.back'|trans }}</a>
+                <a href="{{ path('btn_admin_user_list') }}" class="btn">&laquo; {{ 'btn_admin.back'|trans }}</a>
                 {{ form_widget(delete_form) }}
             </div>
         </div>

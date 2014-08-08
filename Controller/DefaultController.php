@@ -10,23 +10,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Btn\AdminBundle\Entity\User;
 
 /**
- * Movie controller.
- *
- * @Route("/control")
+ * @Route()
  */
 class DefaultController extends Controller
 {
     /**
      * The default admin panel view
      *
-     * @Route("/", name="cp_homepage")
+     * @Route("/", name="btn_admin_homepage")
+     * @Route("/", name="btn_admin_index")
      * @Template()
-     *
-     * @return array
      */
     public function indexAction()
     {
         return array();
     }
-
 }

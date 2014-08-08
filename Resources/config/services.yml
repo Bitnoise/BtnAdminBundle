@@ -10,7 +10,7 @@ services:
         class: Knp\Menu\MenuItem
         factory_service: btn_admin.menu_builder
         factory_method: createMenu
-        arguments: ["@request", "top_menu", "cp_homepage", [], []]
+        arguments: ["@request", "top_menu", "btn_admin_homepage", [], []]
         scope: request
         tags:
             - { name: knp_menu.menu, alias: btn_admin_menu_top }
@@ -19,7 +19,7 @@ services:
         class: Knp\Menu\MenuItem
         factory_service: btn_admin.menu_builder
         factory_method: createMenu
-        arguments: ["@request", "btn_admin.modules", "cp_homepage", [], []]
+        arguments: ["@request", "btn_admin.modules", "btn_admin_homepage", [], []]
         scope: request
         tags:
             - { name: btn_admin_menu_item , parent: btn_admin.menu_top }

@@ -11,14 +11,24 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 /**
  * User controller.
  *
- * @Route("/control/user")
+ * @Route("/user")
  */
 class UserController extends Controller
 {
     /**
+     * The user index view
+     *
+     * @Route("/", name="btn_admin_user_index")
+     */
+    public function indexAction()
+    {
+        return $this->forward('BtnAdminBundle:User:list');
+    }
+
+    /**
      * The user list view
      *
-     * @Route("/list", name="btn_admin_users_list")
+     * @Route("/list", name="btn_admin_user_list")
      * @Template()
      */
     public function listAction()
@@ -69,7 +79,7 @@ class UserController extends Controller
             $msg = $this->get('translator')->trans('btn_admin.flash.added');
             $this->getRequest()->getSession()->getFlashBag()->set('success', $msg);
 
-            return $this->redirect($this->generateUrl('btn_admin_users_list'));
+            return $this->redirect($this->generateUrl('btn_admin_user_list'));
         }
 
         return array(
@@ -127,7 +137,7 @@ class UserController extends Controller
             $msg = $this->get('translator')->trans('btn_admin.flash.updated');
             $this->getRequest()->getSession()->getFlashBag()->set('success', $msg);
 
-            return $this->redirect($this->generateUrl('btn_admin_users_list'));
+            return $this->redirect($this->generateUrl('btn_admin_user_list'));
         }
 
         return array(
@@ -163,7 +173,6 @@ class UserController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('btn_admin_users_list'));
+        return $this->redirect($this->generateUrl('btn_admin_user_list'));
     }
-
 }
