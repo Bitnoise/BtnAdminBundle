@@ -2,24 +2,12 @@
 
 namespace Btn\AdminBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+use Btn\AdminBundle\Model\AbstractUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ *
  */
-class User extends BaseUser
+class User extends AbstractUser
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
-
-    public function __construct()
-    {
-        parent::__construct();
-    }
 }

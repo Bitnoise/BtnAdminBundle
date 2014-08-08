@@ -19,10 +19,14 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('btn_admin');
-        $rootNode->end();
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+
+        $rootNode
+            ->children()
+                ->scalarNode('user_class')->isRequired()->cannotBeEmpty()->defaultValue('Btn\\AdminBundle\\Entity\\User')->end()
+                ->scalarNode('user_table_name')->isRequired()->cannotBeEmpty()->defaultValue('btn_user')->end()
+            ->end()
+        ->end()
+        ;
 
         return $treeBuilder;
     }
