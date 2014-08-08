@@ -8,6 +8,11 @@ btn_control.save: 'Save'
 btn_control.delete: 'Delete'
 btn_control.preview: 'Preview'
 btn_control.modules: 'Modules'
+btn_control.create: 'Create'
+btn_control.update: 'Update'
+btn_control.back: 'Back'
+btn_control.actions: 'Actions'
+btn_control.show: 'Show'
 
 # login window
 btn_control.title: 'cms'
