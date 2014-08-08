@@ -17,7 +17,7 @@ class BtnUpdateButton extends AbstractType implements SubmitButtonTypeInterface
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'label' => 'btn_control.update',
+            'label' => 'btn_admin.update',
             'attr'  => array(
                 'class' => 'btn btn-success',
             ),
@@ -37,6 +37,6 @@ class BtnUpdateButton extends AbstractType implements SubmitButtonTypeInterface
      */
     public function getName()
     {
-        return 'btn_update_button';
+        return 'btn_admin_update_button';
     }
 }

@@ -17,7 +17,7 @@ class BtnDeleteButton extends AbstractType implements SubmitButtonTypeInterface
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'label' => 'btn_control.delete',
+            'label' => 'btn_admin.delete',
             'attr'  => array(
                 'class' => 'btn btn-danger',
             ),
@@ -37,6 +37,6 @@ class BtnDeleteButton extends AbstractType implements SubmitButtonTypeInterface
      */
     public function getName()
     {
-        return 'btn_delete_button';
+        return 'btn_admin_delete_button';
     }
 }

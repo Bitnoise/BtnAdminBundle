@@ -17,7 +17,7 @@ class BtnCreateButton extends AbstractType implements SubmitButtonTypeInterface
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'label' => 'btn_control.create',
+            'label' => 'btn_admin.create',
             'attr'  => array(
                 'class' => 'btn btn-success',
             ),
@@ -37,6 +37,6 @@ class BtnCreateButton extends AbstractType implements SubmitButtonTypeInterface
      */
     public function getName()
     {
-        return 'btn_create_button';
+        return 'btn_admin_create_button';
     }
 }

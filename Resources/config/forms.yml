@@ -3,19 +3,19 @@ services:
     btn_admin.form.button.create:
         class: Btn\AdminBundle\Form\Button\BtnCreateButton
         tags:
-            - { name: form.type, alias: btn_create_button }
+            - { name: form.type, alias: btn_admin_create_button }
 
     btn_admin.form.button.delete:
         class: Btn\AdminBundle\Form\Button\BtnDeleteButton
         tags:
-            - { name: form.type, alias: btn_delete_button }
+            - { name: form.type, alias: btn_admin_delete_button }
 
     btn_admin.form.button.save:
         class: Btn\AdminBundle\Form\Button\BtnSaveButton
         tags:
-            - { name: form.type, alias: btn_save_button }
+            - { name: form.type, alias: btn_admin_save_button }
 
     btn_admin.form.button.update:
         class: Btn\AdminBundle\Form\Button\BtnUpdateButton
         tags:
-            - { name: form.type, alias: btn_update_button }
+            - { name: form.type, alias: btn_admin_update_button }

@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ path('cp_homepage') }}">{{ 'btn_control.logo'|trans }}</a>
+        <a class="navbar-brand" href="{{ path('cp_homepage') }}">{{ 'btn_admin.logo'|trans }}</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,15 +37,15 @@
         <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="{{ path('cp_homepage') }}" class="dropdown-toggle" data-toggle="dropdown">
-            {% trans %}btn_control.loged_as{% endtrans %}
+            {% trans %}btn_admin.loged_as{% endtrans %}
             {{ app.user ? app.user.username }}
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ path('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-user"></span> {{ 'btn_control.profile'|trans }}</a></li>
-            <li><a href="{{ path('fos_user_change_password') }}"><span class="glyphicon glyphicon-pencil" ></span> {{ 'btn_control.change_password'|trans }}</a></li>
+            <li><a href="{{ path('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-user"></span> {{ 'btn_admin.profile'|trans }}</a></li>
+            <li><a href="{{ path('fos_user_change_password') }}"><span class="glyphicon glyphicon-pencil" ></span> {{ 'btn_admin.change_password'|trans }}</a></li>
             <li class="divider"></li>
-            <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> {{ 'btn_control.logout'|trans }}</a></a></li>
+            <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> {{ 'btn_admin.logout'|trans }}</a></a></li>
           </ul>
         </li>
       </ul>

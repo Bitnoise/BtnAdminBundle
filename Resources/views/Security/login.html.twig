@@ -3,7 +3,7 @@
 {% block fos_user_content %}
     <div class="panel panel-info">
         <div class="panel-heading">
-                <h3 class="panel-title">{{ 'btn_control.login_title'|trans }}</h3>
+                <h3 class="panel-title">{{ 'btn_admin.login_title'|trans }}</h3>
         </div>
         <div class="panel-body">
             {% if error %}
@@ -13,17 +13,17 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
                 <div class="form-group">
-                    <input type="username" name="_username" class="form-control" placeholder="{{ 'btn_control.login_username'|trans }}" required autofocus>
+                    <input type="username" name="_username" class="form-control" placeholder="{{ 'btn_admin.login_username'|trans }}" required autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="_password" class="form-control" placeholder="{{ 'btn_control.login_password'|trans }}" required>
+                    <input type="password" name="_password" class="form-control" placeholder="{{ 'btn_admin.login_password'|trans }}" required>
                 </div>
 
                 <div class="form-group">
                     <input type="checkbox" name="_remember_me" value="remember-me" id="checkbox">
-                    <label for="checkbox">{{ 'btn_control.login_remember_me'|trans }}</label>
+                    <label for="checkbox">{{ 'btn_admin.login_remember_me'|trans }}</label>
                 </div>
-                <button class="btn btn-primary" name="_submit" type="submit">{{ 'btn_control.login_button'|trans }}</button>
+                <button class="btn btn-primary" name="_submit" type="submit">{{ 'btn_admin.login_button'|trans }}</button>
 
             </form>
         </div>

@@ -17,7 +17,7 @@ class BtnSaveButton extends AbstractType implements SubmitButtonTypeInterface
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'label' => 'btn_control.save',
+            'label' => 'btn_admin.save',
             'attr'  => array(
                 'class' => 'btn btn-success',
             ),
@@ -37,6 +37,6 @@ class BtnSaveButton extends AbstractType implements SubmitButtonTypeInterface
      */
     public function getName()
     {
-        return 'btn_save_button';
+        return 'btn_admin_save_button';
     }
 }
