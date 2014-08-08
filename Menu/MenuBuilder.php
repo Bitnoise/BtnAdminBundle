@@ -1,24 +1,30 @@
 <?php
+
 namespace Btn\AdminBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class MenuBuilder
 {
     private $factory;
 
+    /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
     private $translator;
 
     /**
      * @param FactoryInterface $factory
      */
-    public function __construct(FactoryInterface $factory, $translator)
+    public function __construct(FactoryInterface $factory, TranslatorInterface $translator)
     {
         $this->factory    = $factory;
         $this->translator = $translator;
     }
 
+    /**
+     *
+     */
     public function createMenu(Request $request, $name, $route, array $routeParameters = array(), array $children = array())
     {
         $attributes = array(
