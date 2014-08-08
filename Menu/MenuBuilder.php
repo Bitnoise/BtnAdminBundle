@@ -3,6 +3,7 @@
 namespace Btn\AdminBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
 
@@ -28,9 +29,11 @@ class MenuBuilder
     public function createMenu(Request $request, $name, $route, array $routeParameters = array(), array $children = array())
     {
         $attributes = array(
-            'label' => $this->translator->trans($name),
-            'route' => $route,
+            'label'           => $this->translator->trans($name),
+            'route'           => $route,
+            'routeParameters' => $routeParameters,
         );
+
         if ($name == 'top_menu') {
             $attributes ['childrenAttributes'] = array(
                 'class' => 'nav navbar-nav'
@@ -48,13 +51,25 @@ class MenuBuilder
                 'data-toggle' => 'dropdown',
             );
         }
+
         $menu = $this->factory->createItem($name, $attributes);
 
         foreach ($children as $child) {
-            $menu->addChild($child);
+            $this->addChild($request, $menu, $child);
         }
 
         return $menu;
     }
 
+    /**
+     *
+     */
+    protected function addChild(Request $request, ItemInterface $menu, $child)
+    {
+        if ($child instanceof ItemInterface) {
+            $menu->addChild($child);
+        } else {
+            throw new \Exception(sprinf('Invalid child for addChild() in "%s" ', __CLASS__));
+        }
+    }
 }
