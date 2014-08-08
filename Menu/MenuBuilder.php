@@ -44,7 +44,6 @@ class MenuBuilder
         }
         $menu = $this->factory->createItem($name, $attributes);
 
-
         foreach ($children as $child) {
             $menu->addChild($child);
         }

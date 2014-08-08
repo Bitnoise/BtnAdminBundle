@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class BtnAdminBundle extends Bundle
 {
     /**
-     * @param  ContainerBuilder $container
+     * @param ContainerBuilder $container
      */
     public function build(ContainerBuilder $container)
     {
