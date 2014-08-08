@@ -23,6 +23,7 @@ class BtnAdminExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('btn_admin', array());
+        $container->setParameter('btn_admin.user_class', $config['user_class']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

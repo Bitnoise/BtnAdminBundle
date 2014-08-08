@@ -1,5 +1,22 @@
 services:
 
+    btn_admin.registration.form.type:
+        class: Btn\AdminBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: btn_admin_user_add }
+
+    btn_admin.profile.form.type:
+        class: Btn\AdminBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: btn_admin_edit }
+
+    btn_admin.delete.form.type:
+        class: Btn\AdminBundle\Form\Type\DeleteFormType
+        tags:
+            - { name: form.type, alias: btn_admin_delete }
+
     btn_admin.form.button.create:
         class: Btn\AdminBundle\Form\Button\BtnCreateButton
         tags:
@@ -7,6 +24,8 @@ services:
 
     btn_admin.form.button.delete:
         class: Btn\AdminBundle\Form\Button\BtnDeleteButton
+        arguments:
+            translator: @translator
         tags:
             - { name: form.type, alias: btn_admin_delete_button }
 
