@@ -3,6 +3,9 @@ $('[data-confirm]').confirmation({
     placement: 'bottom',
     onConfirm: function(e, element) {
         e.preventDefault();
-        window.location = element.attr('href');
+        if (typeof element.attr('href') != 'undefined') {
+            window.location = element.attr('href');
+        }
+        element.parents('form').unbind('submit').submit();
     }
 });

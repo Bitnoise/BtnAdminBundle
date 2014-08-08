@@ -13,6 +13,6 @@ body {
 }
 
 /* change password view */
-.fos_user_change_password, .alert.alert-success.fade.in, .fos_user_user_show, .fos_user_profile_edit {
+.fos_user_change_password, .alert.alert-success.fade.in, .fos_user_user_show, .fos_user_profile_edit, .fos_user_registration_register {
     margin-top: 20px;
 }

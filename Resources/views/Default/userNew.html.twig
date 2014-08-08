@@ -1,0 +1,16 @@
+{% extends 'BtnAdminBundle:Default:layout.html.twig' %}
+{% form_theme form 'BtnAdminBundle:Form:fields.html.twig' %}
+
+{% block content %}
+    <form action="{{ path('btn_admin_user_new') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register form-horizontal" role="form">
+        {{ form_widget(form) }}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href="{{ path('btn_admin_users_list') }}" class="btn">
+                    &laquo; {{ 'btn_control.back'|trans }}
+                </a>
+                <button type="btn_admin_create_button"></button>
+            </div>
+        </div>
+    </form>
+{% endblock  %}
