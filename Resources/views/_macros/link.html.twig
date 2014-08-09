@@ -1,5 +1,13 @@
 {% import _self as self %}
 
+{% macro link(label, route, route_params = {}) %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
 {% macro link_default(label, route, route_params = {}) %}
 {% spaceless %}
     <a href="{{ path(route, route_params) }}" class="btn btn-default">
@@ -16,6 +24,38 @@
 {% endspaceless %}
 {% endmacro %}
 
+{% macro link_success(label, route, route_params = {}) %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-success">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro link_info(label, route, route_params = {}) %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-info">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro link_warning(label, route, route_params = {}) %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-warning">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro link_danger(label, route, route_params = {}) %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-danger">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
 {% macro link_back(route, route_params = {}, label = 'btn_admin.back') %}
 {% spaceless %}
     <a href="{{ path(route, route_params) }}" class="btn btn-default btn-back">
@@ -26,7 +66,7 @@
 
 {% macro link_add(route, route_params = {}, label = 'btn_admin.add') %}
 {% spaceless %}
-    <a href="{{ path(route, route_params) }}" class="btn btn-default btn-add">
+    <a href="{{ path(route, route_params) }}" class="btn btn-success btn-add">
         {{ label|trans }}
     </a>
 {% endspaceless %}
