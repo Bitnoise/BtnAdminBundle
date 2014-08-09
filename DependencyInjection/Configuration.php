@@ -26,6 +26,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('user_table_name')->cannotBeEmpty()->defaultValue('btn_user')->end()
                 ->scalarNode('app_name')->defaultValue('App')->end()
                 ->scalarNode('app_year')->defaultValue('2014')->end()
+                ->scalarNode('navbar_menu')->defaultValue('btn_admin_menu_navbar')->end()
 
                 ->arrayNode('assetic')
                     ->addDefaultsIfNotSet()

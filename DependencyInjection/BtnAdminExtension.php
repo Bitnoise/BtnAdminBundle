@@ -27,6 +27,7 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
         $container->setParameter('btn_admin', array());
         $container->setParameter('btn_admin.user_class', $config['user_class']);
         $container->setParameter('btn_admin.app_name', $config['app_name']);
+        $container->setParameter('btn_admin.navbar_menu', $config['navbar_menu']);
         $container->setParameter('btn_admin.assetic.remove_input_files', $config['assetic']['remove_input_files']);
         $container->setParameter('btn_admin.assetic.replace_input_files', $config['assetic']['replace_input_files']);
         $container->setParameter('btn_admin.assetic.ensure_combine', $config['assetic']['ensure_combine']);
@@ -66,13 +67,14 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
             $container->prependExtensionConfig('twig', array(
                 'form' => array(
                     'resources' => array(
-                        'BtnAdminBundle:Form:fields.html.twig'
+                        'BtnAdminBundle:Form:fields.html.twig',
                     )
                 ),
                 'globals' => array(
                     'btn_admin' => array(
-                        'app_name' => $config['app_name'],
-                        'app_year' => $config['app_year'],
+                        'app_name'    => $config['app_name'],
+                        'app_year'    => $config['app_year'],
+                        'navbar_menu' => $config['navbar_menu'],
                     ),
                 )
             ));
