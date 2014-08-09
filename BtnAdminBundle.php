@@ -3,7 +3,7 @@
 namespace Btn\AdminBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Btn\AdminBundle\DependencyInjection\Compiler\MenuItemCompilerPass;
+use Btn\AdminBundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class BtnAdminBundle extends Bundle
@@ -15,7 +15,8 @@ class BtnAdminBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass(new MenuItemCompilerPass());
+        $container->addCompilerPass(new Compiler\MenuItemCompilerPass());
+        $container->addCompilerPass(new Compiler\AsseticVoidCompilerPass());
     }
 
     /**
