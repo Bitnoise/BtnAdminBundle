@@ -5,7 +5,7 @@
     "keywords": [ "bitnoise", "utilities"],
     "homepage": "https://github.com/Bitnoise/BtnAdminBundle",
     "license": "MIT",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Bitnoise Team",
