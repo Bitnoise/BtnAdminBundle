@@ -15,7 +15,7 @@
     ],
     "require": {
         "doctrine/orm": "~2.2,>=2.2.3",
-        "bitnoise/base-bundle": "~2.0.0",
+        "bitnoise/base-bundle": "2.0.*",
         "knplabs/knp-menu-bundle": "~2.0.0",
         "knplabs/knp-paginator-bundle": "~2.4.0",
         "friendsofsymfony/user-bundle": "2.0.*@dev"
