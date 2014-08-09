@@ -16,7 +16,7 @@ class BtnAdminBundle extends Bundle
         parent::build($container);
 
         $container->addCompilerPass(new Compiler\MenuItemCompilerPass());
-        $container->addCompilerPass(new Compiler\AsseticVoidCompilerPass());
+        $container->addCompilerPass(new Compiler\AsseticCompilerPass());
     }
 
     /**

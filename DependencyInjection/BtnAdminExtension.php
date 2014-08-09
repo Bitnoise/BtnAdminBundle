@@ -27,7 +27,9 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
         $container->setParameter('btn_admin', array());
         $container->setParameter('btn_admin.user_class', $config['user_class']);
         $container->setParameter('btn_admin.app_name', $config['app_name']);
-        $container->setParameter('btn_admin.assetic.void_input_files', $config['assetic']['void_input_files']);
+        $container->setParameter('btn_admin.assetic.remove_input_files', $config['assetic']['remove_input_files']);
+        $container->setParameter('btn_admin.assetic.replace_input_files', $config['assetic']['replace_input_files']);
+        $container->setParameter('btn_admin.assetic.ensure_combine', $config['assetic']['ensure_combine']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
