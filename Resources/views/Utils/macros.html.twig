@@ -1,0 +1,5 @@
+{% macro glyphicon(icon, tag = 'span') %}
+{% spaceless %}
+    <{{ tag }} class="glyphicon glyphicon-{{ icon }}"></{{ tag }}>
+{% endspaceless %}
+{% endmacro %}
