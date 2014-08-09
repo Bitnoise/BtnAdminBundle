@@ -1,13 +1,8 @@
-{% from 'BtnAdminBundle:Utils:flash.html.twig' import session_flash %}
 {% extends 'BtnAdminBundle::base.html.twig' %}
 
 {% block body %}
     <div class="container">
-        {% if app.session.flashbag.peekAll|length > 0 %}
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">{{ session_flash() }}</div>
-            </div>
-        {% endif %}
+        {% include 'BtnAdminBundle:_partials:container_session_flash.html.twig' only %}
 
         <div class="row">
             <div class="col-md-6 col-md-offset-3">

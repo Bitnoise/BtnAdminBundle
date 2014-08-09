@@ -1,0 +1,58 @@
+{% import _self as self %}
+
+{% macro link_default(label, route, route_params = {}) %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-default">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro link_primary(label, route, route_params = {}) %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-primary">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro link_back(route, route_params = {}, label = 'btn_admin.back') %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-default btn-back">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro link_add(route, route_params = {}, label = 'btn_admin.add') %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-default btn-add">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro link_edit(route, route_params = {}, label = 'btn_admin.edit') %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-primary btn-edit">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro link_show(route, route_params = {}, label = 'btn_admin.show') %}
+{% spaceless %}
+    <a href="{{ path(route, route_params) }}" class="btn btn-primary btn-show">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro link_delete(route, route_params = {}, label = 'btn_admin.delete') %}
+{% spaceless %}
+    <a href="{{ csrf_path(route, route_params) }}" class="btn btn-danger btn-delete">
+        {{ label|trans }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
