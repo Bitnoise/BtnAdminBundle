@@ -6,7 +6,7 @@
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>{% block title %}{{ 'btn_admin.title'|trans }}{% endblock %}</title>
-            <base href="{{app.request.schemeAndHttpHost }}">
+            <base href="{{ app.request.schemeAndHttpHost }}">
             {% block stylesheets %}
                 {% stylesheets
                     "@BtnAdminBundle/Resources/public/css/bootstrap.min.css"
