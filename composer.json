@@ -5,7 +5,8 @@
     "keywords": [ "bitnoise", "utilities"],
     "homepage": "https://github.com/Bitnoise/BtnAdminBundle",
     "license": "MIT",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Bitnoise Team",
@@ -23,5 +24,10 @@
     "autoload": {
         "psr-0": { "Btn\\AdminBundle": "" }
     },
-    "target-dir": "Btn/AdminBundle"
+    "target-dir": "Btn/AdminBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
+    }
 }
