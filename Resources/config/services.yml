@@ -1,4 +1,5 @@
 services:
+
     btn_admin.abstract_menu_builder:
         class: %btn_admin.abstract_menu_builder_class%
         abstract: true
