@@ -56,6 +56,23 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
 
             $config = $this->getNormalizedConfig($container);
         }
+
+        // add form resource and globals for twig
+        if ($container->hasExtension('twig')) {
+            $container->prependExtensionConfig('twig', array(
+                'form' => array(
+                    'resources' => array(
+                        'BtnAdminBundle:Form:fields.html.twig'
+                    )
+                ),
+                'globals' => array(
+                    'btn_admin' => array(
+                        'app_name' => $config['app_name'],
+                        'app_year' => $config['app_year'],
+                    ),
+                )
+            ));
+        }
     }
 
     /**

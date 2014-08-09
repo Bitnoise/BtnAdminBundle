@@ -24,6 +24,8 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('user_class')->cannotBeEmpty()->defaultValue('Btn\\AdminBundle\\Entity\\User')->end()
                 ->scalarNode('user_table_name')->cannotBeEmpty()->defaultValue('btn_user')->end()
+                ->scalarNode('app_name')->defaultValue('App')->end()
+                ->scalarNode('app_year')->defaultValue('2014')->end()
             ->end()
         ->end()
         ;
