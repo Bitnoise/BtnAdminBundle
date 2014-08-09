@@ -1,4 +1,4 @@
 parameters:
     btn_admin.abstract_menu_builder.class: Btn\AdminBundle\Menu\AbstractMenuBuilder
-    btn_admin.menu.menu_builder.class: Btn\AdminBundle\Menu\MenuBuilder
+    btn_admin.menu_builder.class: Btn\AdminBundle\Menu\MenuBuilder
     btn_admin.menu_item.class: Btn\AdminBundle\Menu\MenuItem
