@@ -32,6 +32,7 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
         $container->setParameter('btn_admin.assetic.ensure_combine', $config['assetic']['ensure_combine']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('parameters.yml');
         $loader->load('services.yml');
         $loader->load('forms.yml');
     }

@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-class MenuItemCompilerPass implements CompilerPassInterface
+class MenuBuilderCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
@@ -16,10 +16,10 @@ class MenuItemCompilerPass implements CompilerPassInterface
 
         $menuItems = array();
 
-        foreach ($container->findTaggedServiceIds('btn_admin_menu_item') as $id => $tags) {
+        foreach ($container->findTaggedServiceIds('btn_admin.menu_item') as $id => $tags) {
             foreach ($tags as $attributes) {
                 if (empty($attributes['parent'])) {
-                    throw new \InvalidArgumentException(sprintf('The parent is not defined in the "btn_admin_menu_item" tag for the service "%s"', $id));
+                    throw new \InvalidArgumentException(sprintf('The parent is not defined in the "btn_admin.menu_item" tag for the service "%s"', $id));
                 }
                 $parent = $attributes['parent'];
                 if (!isset($menuItems[$parent])) {

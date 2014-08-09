@@ -1,25 +1,27 @@
-parameters:
-    control_menu_nav_items: ~
-
 services:
-    btn_admin.menu_builder:
-        class: Btn\AdminBundle\Menu\MenuBuilder
+    btn_admin.abstract_menu_builder:
+        class: %btn_admin.abstract_menu_builder_class%
+        abstract: true
         arguments: ["@knp_menu.factory", "@translator"]
 
-    btn_admin.menu_top:
-        class: Knp\Menu\MenuItem
+    btn_admin.menu_builder:
+        class: %btn_admin.menu_builder_class%
+        parent: btn_admin.abstract_menu_builder
+
+    btn_admin.menu_navbar:
+        class: %btn_admin.menu_item_class%
         factory_service: btn_admin.menu_builder
         factory_method: createMenu
         arguments: ["@request", "top_menu", "btn_admin_homepage", [], []]
         scope: request
         tags:
-            - { name: knp_menu.menu, alias: btn_admin_menu_top }
+            - { name: knp_menu.menu, alias: btn_admin.menu_navbar }
 
-    btn_admin.menu_top_modules:
-        class: Knp\Menu\MenuItem
+    btn_admin.menu_navbar.modules:
+        class: %btn_admin.menu_item_class%
         factory_service: btn_admin.menu_builder
         factory_method: createMenu
         arguments: ["@request", "btn_admin.modules", "btn_admin_homepage", [], []]
         scope: request
         tags:
-            - { name: btn_admin_menu_item , parent: btn_admin.menu_top }
+            - { name: btn_admin.menu_item , parent: btn_admin.menu_navbar }
