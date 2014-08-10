@@ -48,7 +48,7 @@ class UserController extends Controller
     public function newAction(Request $request)
     {
         $userClass = $this->container->getParameter('btn_admin.user_class');
-        $user = new $userClass;
+        $user = new $userClass();
         $form = $this->createForm('btn_admin_user_add', $user);
 
         return array(
