@@ -41,9 +41,10 @@
 {% block form_row %}
 {% spaceless %}
     <div class="form-group {% if errors|length > 0 %}has-error{% endif %}">
+        {% set rowClass = form.vars.label is same as(false) ? 'col-sm-12' : 'col-sm-10' %}
         {% if 'checkbox' in form.vars.block_prefixes %}
             {{ form_label(form) }}
-            <div class="col-sm-10">
+            <div class="{{ rowClass }}">
                 {{ form_errors(form) }}
                 <div class="checkbox">
                     {{ form_widget(form) }}
@@ -51,7 +52,7 @@
             </div>
         {% else %}
             {{ form_label(form) }}
-            <div class="col-sm-10">
+            <div class="{{ rowClass }}">
                 {{ form_errors(form) }}
                 {{ form_widget(form) }}
             </div>
