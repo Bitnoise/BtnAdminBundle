@@ -1,5 +1,14 @@
 services:
 
+    btn_admin.form.handler.entiy:
+        class: %btn_admin.form.handler.entiy_form_handler.class%
+        scope: request
+        arguments:
+            em: @doctrine.orm.entity_manager
+            request: @?request
+
+    btn_admin.form_handler: '@btn_admin.form.handler.entiy'
+
     btn_admin.registration.form.type:
         class: Btn\AdminBundle\Form\Type\RegistrationFormType
         arguments: [%fos_user.model.user.class%]
