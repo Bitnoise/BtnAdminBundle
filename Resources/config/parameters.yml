@@ -3,3 +3,5 @@ parameters:
     btn_admin.menu_builder.class: Btn\AdminBundle\Menu\MenuBuilder
     btn_admin.menu_item.class: Btn\AdminBundle\Menu\MenuItem
     btn_admin.form.handler.entiy_form_handler.class: Btn\AdminBundle\Form\Handler
+    btn_admin.provider.abstract_entity.class: Btn\AdminBundle\Provider\AbstractEntityProvider
+    btn_admin.provider.entity.class: Btn\AdminBundle\Provider\EntityProvider

@@ -1,1 +1,7 @@
 services:
+
+    btn_admin.provider.abstract_entity:
+        class: %btn_admin.provider.abstract_entity.class%
+        abstract: true
+        calls:
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
