@@ -28,6 +28,7 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
         $container->setParameter('btn_admin.user_class', $config['user_class']);
         $container->setParameter('btn_admin.app_name', $config['app_name']);
         $container->setParameter('btn_admin.navbar_menu', $config['navbar_menu']);
+        $container->setParameter('btn_admin.per_page', $config['per_page']);
         $container->setParameter('btn_admin.assetic.remove_input_files', $config['assetic']['remove_input_files']);
         $container->setParameter('btn_admin.assetic.replace_input_files', $config['assetic']['replace_input_files']);
         $container->setParameter('btn_admin.assetic.ensure_combine', $config['assetic']['ensure_combine']);
@@ -61,6 +62,15 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
             ));
 
             $config = $this->getNormalizedConfig($container);
+        }
+
+        if ($container->hasExtension('knp_paginator')) {
+            $container->prependExtensionConfig('knp_paginator', array(
+                'template' => array(
+                    'pagination' => 'BtnAdminBundle:Pagination:bootstrap.html.twig',
+                    // 'sortable'   => 'BtnAdminBundle:Pagination:sortable_link.html.twig',
+                ),
+            ));
         }
 
         // add form resource and globals for twig

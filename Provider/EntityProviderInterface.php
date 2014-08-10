@@ -5,7 +5,9 @@ namespace Btn\AdminBundle\Provider;
 interface EntityProviderInterface
 {
     public function getEntityManager();
-    public function getClassName();
+    public function getClass();
     public function getRepository();
-    public function createEntity();
+    public function create();
+    public function supports($entity);
+    public function delete($entity, $andFlush = true);
 }

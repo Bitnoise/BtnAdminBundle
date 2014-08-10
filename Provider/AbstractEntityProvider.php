@@ -8,16 +8,17 @@ abstract class AbstractEntityProvider implements EntityProviderInterface
 {
     /** @var \Doctrine\ORM\EntityManager $em */
     protected $em;
-    /** @var string $em */
-    protected $className;
+    /** @var string $class */
+    protected $class;
 
     /**
      *
      */
-    public function __construct($className, EntityManager $em = null)
+    public function __construct($class, EntityManager $em = null)
     {
-        $this->className = $className;
-        $this->em        = $em;
+        $this->class = $class;
+        $this->em    = $em;
+
     }
 
     /**
@@ -41,13 +42,13 @@ abstract class AbstractEntityProvider implements EntityProviderInterface
     /**
      *
      */
-    public function getClassName()
+    public function getClass()
     {
-        if (!$this->className) {
+        if (!$this->class) {
             throw new \Exception('Class name not defined');
         }
 
-        return $this->className;
+        return $this->class;
     }
 
     /**
@@ -55,18 +56,42 @@ abstract class AbstractEntityProvider implements EntityProviderInterface
      */
     public function getRepository()
     {
-        return $this->em->getRepository($this->getClassName());
+        return $this->em->getRepository($this->getClass());
     }
 
     /**
      *
      */
-    public function createEntity()
+    public function create()
     {
-        $className = $this->getClassName();
+        $class = $this->getClass();
 
-        $entity = new $className();
+        $entity = new $class();
 
         return $entity;
+    }
+
+    /**
+     *
+     */
+    public function supports($entity)
+    {
+        return is_a($entity, $this->getClass()) ? true : false;
+    }
+
+    /**
+     *
+     */
+    public function delete($entity, $andFlush = true)
+    {
+        if (!$this->supports($entity)) {
+            throw new \Exception('This provider does not supports this entity type');
+        }
+
+        $this->em->remove($entity);
+
+        if ($andFlush) {
+            $this->em->flush($entity);
+        }
     }
 }

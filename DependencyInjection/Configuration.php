@@ -27,6 +27,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('app_name')->defaultValue('App')->end()
                 ->scalarNode('app_year')->defaultValue('2014')->end()
                 ->scalarNode('navbar_menu')->defaultValue('btn_admin_menu_navbar')->end()
+                ->integerNode('per_page')->cannotBeEmpty()->defaultValue(10)->end()
 
                 ->arrayNode('assetic')
                     ->addDefaultsIfNotSet()

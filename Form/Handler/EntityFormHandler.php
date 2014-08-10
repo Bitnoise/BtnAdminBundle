@@ -30,8 +30,8 @@ class EntityFormHandler
      */
     public function handle(FormInterface $form, Request $request = null)
     {
-        if (!$this->request || !$request) {
-            throw new \Exception('No request pased to handler');
+        if (!$this->request && !$request) {
+            throw new \Exception(sprinf('No request pased to form handler'));
         }
 
         $form->handleRequest($request ? $request : $this->request);
