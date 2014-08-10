@@ -35,6 +35,7 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('parameters.yml');
         $loader->load('services.yml');
+        $loader->load('menus.yml');
         $loader->load('forms.yml');
     }
 
