@@ -25,10 +25,10 @@ abstract class AbstractForm extends AbstractType
     {
         parent::buildView($view, $form, $options);
 
-        if (!$form->getParent() && !$view->parent) {
-            $view->vars['attr']['class'] = 'well form-horizontal';
-            $view->vars['attr']['novalidate'] = 'novalidate';
-        }
+        // if (!$form->getParent() && !$view->parent) {
+        //     $view->vars['attr']['class'] = 'well form-horizontal';
+        //     $view->vars['attr']['novalidate'] = 'novalidate';
+        // }
     }
 
     /**
