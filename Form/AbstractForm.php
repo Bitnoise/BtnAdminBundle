@@ -24,6 +24,11 @@ abstract class AbstractForm extends AbstractType
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
+
+        if (!$form->getParent() && !$view->parent) {
+            $view->vars['attr']['class'] = 'well form-horizontal';
+            $view->vars['attr']['novalidate'] = 'novalidate';
+        }
     }
 
     /**
