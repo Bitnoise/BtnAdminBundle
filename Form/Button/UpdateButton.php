@@ -39,6 +39,6 @@ class UpdateButton extends AbstractType implements SubmitButtonTypeInterface
      */
     public function getName()
     {
-        return 'btn_admin_update_button';
+        return 'btn_update';
     }
 }

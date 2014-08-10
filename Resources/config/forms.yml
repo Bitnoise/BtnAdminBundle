@@ -51,4 +51,4 @@ services:
     btn_admin.form.button.update:
         class: %btn_admin.form.button.update.class%
         tags:
-            - { name: form.type, alias: btn_admin_update_button }
+            - { name: form.type, alias: btn_update }

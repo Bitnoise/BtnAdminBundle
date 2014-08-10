@@ -11,7 +11,7 @@ class ProfileFormType extends BaseType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add('update', 'btn_admin_update_button');
+        $builder->add('update', 'btn_update');
     }
 
     public function getName()
