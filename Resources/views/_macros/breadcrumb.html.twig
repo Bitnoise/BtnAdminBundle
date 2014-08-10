@@ -1,6 +1,6 @@
 {% macro breadcrumb(items) %}
     {% if items|length > 0 %}
-        <ul class="breadcrumb">
+        <ol class="breadcrumb">
             {% for url, name in items %}
                 {% if loop.last is defined and loop.index == loop.last %}
                     <li class="active">{{ name|trans }}</li>
@@ -10,6 +10,6 @@
                     </li>
                 {% endif %}
             {% endfor %}
-        </ul>
+        </ol>
     {% endif %}
 {% endmacro %}

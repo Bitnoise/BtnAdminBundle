@@ -1,0 +1,36 @@
+{% import _self as self %}
+
+{% macro header(main, secondar) %}
+{% spaceless %}
+    <h2 class="btn-list-header">
+        {{ main|trans }}
+        {% if secondar %}
+            <small>{{ secondar|trans }}</small>
+        {% endif %}
+    </h2>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro table_class() %}
+{% spaceless %}
+    table table-striped table-bordered table-condensed
+{% endspaceless %}
+{% endmacro %}
+
+{% macro table_start() %}
+{% spaceless %}
+    <table class="{{ self.table_class() }}" >
+{% endspaceless %}
+{% endmacro %}
+
+{% macro col_id_class() %}
+{% spaceless %}
+    btn-control-column-id
+{% endspaceless %}
+{% endmacro %}
+
+{% macro col_act_class() %}
+{% spaceless %}
+    btn-control-column-action
+{% endspaceless %}
+{% endmacro %}

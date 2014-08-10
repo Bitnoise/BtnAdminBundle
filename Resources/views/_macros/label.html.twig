@@ -1,0 +1,35 @@
+{% macro default(label) %}
+{% spaceless %}
+    <span class="label label-default">{{ label|trans }}</span>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro primary(label) %}
+{% spaceless %}
+    <span class="label label-primary">{{ label|trans }}</span>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro success(label) %}
+{% spaceless %}
+    <span class="label label-success">{{ label|trans }}</span>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro info(label) %}
+{% spaceless %}
+    <span class="label label-info">{{ label|trans }}</span>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro warning(label) %}
+{% spaceless %}
+    <span class="label label-warning">{{ label|trans }}</span>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro danger(label) %}
+{% spaceless %}
+    <span class="label label-danger">{{ label|trans }}</span>
+{% endspaceless %}
+{% endmacro %}

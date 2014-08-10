@@ -7,6 +7,10 @@ body {
     margin-top: 25px;
 }
 
+.breadcrumb {
+    margin-bottom: 0;
+}
+
 /* bootsrtap confirmation */
 .popover.bottom {
     left: 0 !important;
@@ -24,3 +28,12 @@ body {
 .btn-back:before {
     content: "\00ab";
 }
+
+.btn-control-column-id {
+    width: 50px;
+}
+
+.btn-control-column-action {
+    width: 200px;
+}
+

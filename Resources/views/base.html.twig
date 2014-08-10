@@ -29,7 +29,7 @@
             {% endblock %}
 
             <div class="container-fluid">
-                {{ block('breadcrumb') }}
+                {% block breadcrumb %}{% endblock %}
                 {% include 'BtnAdminBundle:_partials:container_session_flash.html.twig' only %}
 
                 <div class="row">
