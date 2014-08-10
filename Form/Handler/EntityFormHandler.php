@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManager;
 /**
  *
  */
-class EntityFormHandler
+class EntityFormHandler implements FormHandlerInterface
 {
     /** \Doctrine\ORM\EntityManager $em */
     private $em;

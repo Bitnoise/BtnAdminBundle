@@ -5,3 +5,11 @@ services:
         abstract: true
         calls:
             - [setEntityManager, ['@doctrine.orm.entity_manager']]
+
+    btn_admin.event_listener.control_controller_listener:
+        class: %btn_admin.event_listener.control_controller_listener.class%
+        calls:
+            - [setPerPage, ['%btn_admin.list.per_page%']]
+            - [setFormHandler, ['@btn_admin.form.handler.entiy_form_handler']]
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
