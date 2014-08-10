@@ -2,6 +2,7 @@
 
 namespace Btn\AdminBundle\EventListener;
 
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Btn\AdminBundle\Controller\AbstractControlController;
 use Btn\AdminBundle\Form\Handler\FormHandlerInterface;
@@ -35,6 +36,10 @@ class ControlControllerListener
      */
     public function onKernelController(FilterControllerEvent $event)
     {
+        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
+            return;
+        }
+
         $controller = $event->getController();
 
         if (!is_array($controller)) {
