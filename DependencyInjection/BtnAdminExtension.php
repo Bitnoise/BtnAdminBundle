@@ -25,10 +25,11 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('btn_admin', array());
-        $container->setParameter('btn_admin.user_class', $config['user_class']);
-        $container->setParameter('btn_admin.app_name', $config['app_name']);
-        $container->setParameter('btn_admin.navbar_menu', $config['navbar_menu']);
-        $container->setParameter('btn_admin.per_page', $config['per_page']);
+        $container->setParameter('btn_admin.user.class', $config['user']['class']);
+        $container->setParameter('btn_admin.app.name', $config['app']['name']);
+        $container->setParameter('btn_admin.app.year', $config['app']['year']);
+        $container->setParameter('btn_admin.menu.navbar', $config['menu']['navbar']);
+        $container->setParameter('btn_admin.list.per_page', $config['list']['per_page']);
         $container->setParameter('btn_admin.assetic.remove_input_files', $config['assetic']['remove_input_files']);
         $container->setParameter('btn_admin.assetic.replace_input_files', $config['assetic']['replace_input_files']);
         $container->setParameter('btn_admin.assetic.ensure_combine', $config['assetic']['ensure_combine']);
@@ -57,10 +58,16 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
             $fosUserConfiguration = new FOSUserConfiguration();
             $fosUserConfig        = $this->processConfiguration($fosUserConfiguration, $fosUserConfigs);
 
-            $container->prependExtensionConfig('btn_admin', array(
-                'user_class' => $fosUserConfig['user_class'],
-            ));
+            // set up user class from fos if not set
+            if (empty($config['user']['class'])) {
+                $container->prependExtensionConfig('btn_admin', array(
+                    'user' => array(
+                        'class' => $fosUserConfig['user_class'],
+                    ),
+                ));
+            }
 
+            // refresh config after prepending
             $config = $this->getNormalizedConfig($container);
         }
 
@@ -83,9 +90,13 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
                 ),
                 'globals' => array(
                     'btn_admin' => array(
-                        'app_name'    => $config['app_name'],
-                        'app_year'    => $config['app_year'],
-                        'navbar_menu' => $config['navbar_menu'],
+                        'app' => array(
+                            'name' => $config['app']['name'],
+                            'year' => $config['app']['year'],
+                        ),
+                        'menu' => array(
+                            'navbar' => $config['menu']['navbar'],
+                        ),
                     ),
                 )
             ));

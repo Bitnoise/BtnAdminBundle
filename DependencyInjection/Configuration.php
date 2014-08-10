@@ -22,12 +22,35 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('user_class')->cannotBeEmpty()->defaultValue('Btn\\AdminBundle\\Entity\\User')->end()
-                ->scalarNode('user_table_name')->cannotBeEmpty()->defaultValue('btn_user')->end()
-                ->scalarNode('app_name')->defaultValue('App')->end()
-                ->scalarNode('app_year')->defaultValue('2014')->end()
-                ->scalarNode('navbar_menu')->defaultValue('btn_admin_menu_navbar')->end()
-                ->integerNode('per_page')->cannotBeEmpty()->defaultValue(10)->end()
+
+                ->arrayNode('user')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('class')->cannotBeEmpty()->defaultValue(null)->info('Setup from fos_user by default')->end()
+                    ->end()
+                ->end()
+
+                ->arrayNode('app')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('name')->defaultValue('AppName')->end()
+                        ->scalarNode('year')->defaultValue('2014')->end()
+                    ->end()
+                ->end()
+
+                ->arrayNode('menu')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('navbar')->defaultValue('btn_admin_menu_navbar')->end()
+                    ->end()
+                ->end()
+
+                ->arrayNode('list')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->integerNode('per_page')->cannotBeEmpty()->defaultValue(10)->end()
+                    ->end()
+                ->end()
 
                 ->arrayNode('assetic')
                     ->addDefaultsIfNotSet()

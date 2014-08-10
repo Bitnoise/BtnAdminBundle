@@ -17,4 +17,7 @@
     </li>
 </ul>
 
-{{ knp_menu_render(btn_admin.navbar_menu) }}
+{# render menu from global twig config variable #}
+{% if btn_admin.menu.navbar|default(false) %}
+    {{ knp_menu_render(btn_admin.menu.navbar) }}
+{% endif %}
