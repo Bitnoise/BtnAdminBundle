@@ -21,8 +21,9 @@
         "friendsofsymfony/user-bundle": "2.0.*@dev"
     },
     "autoload": {
-        "psr-4": { "Btn\\AdminBundle\\": "" }
+        "psr-0": { "Btn\\AdminBundle": "" }
     },
+    "target-dir": "Btn/AdminBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "2.0-dev"
