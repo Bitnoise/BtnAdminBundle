@@ -8,13 +8,16 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Translation\TranslatorInterface;
 
 abstract class AbstractType extends BaseAbstractType
 {
-    /** @var string $class class for data class to inject */
+    /** @var string $class */
     protected $class;
     /** @var \Doctrine\ORM\EntityManager $em */
     protected $em;
+    /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
+    protected $translator;
 
     /**
      *
@@ -34,6 +37,14 @@ abstract class AbstractType extends BaseAbstractType
         $this->em = $em;
 
         return $this;
+    }
+
+    /**
+     *
+     */
+    public function setTranslator(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
     }
 
     /**
@@ -58,6 +69,7 @@ abstract class AbstractType extends BaseAbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
+
         if ($this->class) {
             $resolver->setDefaults(array(
                 'data_class' => $this->class,

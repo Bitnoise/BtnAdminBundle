@@ -2,20 +2,22 @@
 
 namespace Btn\AdminBundle\Form\Button;
 
-use Symfony\Component\Form\AbstractType;
+use Btn\AdminBundle\Form\Type\AbstractType;
 use Symfony\Component\Form\SubmitButtonTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  *
  */
-class BtnCreateButton extends AbstractType implements SubmitButtonTypeInterface
+class CreateButton extends AbstractType implements SubmitButtonTypeInterface
 {
     /**
      * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        parent::setDefaultOptions($resolver);
+
         $resolver->setDefaults(array(
             'label' => 'btn_admin.create',
             'attr'  => array(
@@ -37,6 +39,6 @@ class BtnCreateButton extends AbstractType implements SubmitButtonTypeInterface
      */
     public function getName()
     {
-        return 'btn_admin_create_button';
+        return 'btn_create';
     }
 }

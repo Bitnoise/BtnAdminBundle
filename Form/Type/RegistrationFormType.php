@@ -11,7 +11,7 @@ class RegistrationFormType extends BaseType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add('create', 'btn_admin_create_button');
+        $builder->add('create', 'btn_create');
     }
 
     public function getName()

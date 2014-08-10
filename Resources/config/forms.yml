@@ -27,23 +27,23 @@ services:
             - { name: form.type, alias: btn_admin_delete }
 
     btn_admin.form.button.create:
-        class: Btn\AdminBundle\Form\Button\BtnCreateButton
+        class: %btn_admin.form.button.create.class%
         tags:
-            - { name: form.type, alias: btn_admin_create_button }
+            - { name: form.type, alias: btn_create }
 
     btn_admin.form.button.delete:
-        class: Btn\AdminBundle\Form\Button\BtnDeleteButton
-        arguments:
-            translator: @translator
+        class: %btn_admin.form.button.delete.class%
+        calls:
+            - [setTranslator, ['@translator']]
         tags:
-            - { name: form.type, alias: btn_admin_delete_button }
+            - { name: form.type, alias: btn_delete }
 
     btn_admin.form.button.save:
-        class: Btn\AdminBundle\Form\Button\BtnSaveButton
+        class: %btn_admin.form.button.save.class%
         tags:
-            - { name: form.type, alias: btn_admin_save_button }
+            - { name: form.type, alias: btn_save }
 
     btn_admin.form.button.update:
-        class: Btn\AdminBundle\Form\Button\BtnUpdateButton
+        class: %btn_admin.form.button.update.class%
         tags:
             - { name: form.type, alias: btn_admin_update_button }

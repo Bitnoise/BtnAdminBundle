@@ -2,20 +2,22 @@
 
 namespace Btn\AdminBundle\Form\Button;
 
-use Symfony\Component\Form\AbstractType;
+use Btn\AdminBundle\Form\Type\AbstractType;
 use Symfony\Component\Form\SubmitButtonTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  *
  */
-class BtnUpdateButton extends AbstractType implements SubmitButtonTypeInterface
+class UpdateButton extends AbstractType implements SubmitButtonTypeInterface
 {
     /**
      * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        parent::setDefaultOptions($resolver);
+
         $resolver->setDefaults(array(
             'label' => 'btn_admin.update',
             'attr'  => array(

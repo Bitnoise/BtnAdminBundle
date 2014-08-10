@@ -11,7 +11,7 @@ class DeleteFormType extends AbstractType
     {
         $builder
             ->add('id', 'hidden')
-            ->add('delete', 'btn_admin_delete_button')
+            ->add('delete', 'btn_delete')
         ;
     }
 

@@ -5,3 +5,7 @@ parameters:
     btn_admin.form.handler.entiy_form_handler.class: Btn\AdminBundle\Form\Handler\EntityFormHandler
     btn_admin.provider.abstract_entity.class: Btn\AdminBundle\Provider\AbstractEntityProvider
     btn_admin.provider.entity.class: Btn\AdminBundle\Provider\EntityProvider
+    btn_admin.form.button.create.class: Btn\AdminBundle\Form\Button\CreateButton
+    btn_admin.form.button.delete.class: Btn\AdminBundle\Form\Button\DeleteButton
+    btn_admin.form.button.save.class: Btn\AdminBundle\Form\Button\SaveButton
+    btn_admin.form.button.update.class: Btn\AdminBundle\Form\Button\UpdateButton

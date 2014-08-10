@@ -2,32 +2,22 @@
 
 namespace Btn\AdminBundle\Form\Button;
 
-use Symfony\Component\Form\AbstractType;
+use Btn\AdminBundle\Form\Type\AbstractType;
 use Symfony\Component\Form\SubmitButtonTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  *
  */
-class BtnDeleteButton extends AbstractType implements SubmitButtonTypeInterface
+class DeleteButton extends AbstractType implements SubmitButtonTypeInterface
 {
-    /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
-    protected $translator;
-
-    /**
-     *
-     */
-    public function __construct(TranslatorInterface $translator)
-    {
-        $this->translator = $translator;
-    }
-
     /**
      * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        parent::setDefaultOptions($resolver);
+
         $resolver->setDefaults(array(
             'label' => 'btn_admin.delete',
             'attr'  => array(
@@ -50,6 +40,6 @@ class BtnDeleteButton extends AbstractType implements SubmitButtonTypeInterface
      */
     public function getName()
     {
-        return 'btn_admin_delete_button';
+        return 'btn_delete';
     }
 }
