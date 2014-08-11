@@ -74,7 +74,7 @@ abstract class AbstractEntityProvider implements EntityProviderInterface
     /**
      *
      */
-    public function supportsClass($class)
+    public function supports($class)
     {
         return is_a($class, $this->getClass()) ? true : false;
     }
@@ -84,11 +84,29 @@ abstract class AbstractEntityProvider implements EntityProviderInterface
      */
     public function delete($entity, $andFlush = true)
     {
-        if (!$this->supportsClass($entity)) {
+        if (!$this->supports($entity)) {
             throw new \Exception('This provider does not supports this entity type');
         }
 
         $this->em->remove($entity);
+
+        if ($andFlush) {
+            $this->em->flush($entity);
+        }
+    }
+
+    /**
+     *
+     */
+    public function save($entity, $andFlush = true)
+    {
+        if (!$this->supports($entity)) {
+            throw new \Exception('This provider does not supports this entity type');
+        }
+
+        if (!$entity->getId()) {
+            $this->em->persist($entity);
+        }
 
         if ($andFlush) {
             $this->em->flush($entity);

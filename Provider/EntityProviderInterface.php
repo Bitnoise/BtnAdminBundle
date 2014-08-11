@@ -8,6 +8,7 @@ interface EntityProviderInterface
     public function getClass();
     public function getRepository();
     public function create();
-    public function supportsClass($class);
+    public function supports($class);
     public function delete($entity, $andFlush = true);
+    public function save($entity, $andFlush = true);
 }
