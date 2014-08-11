@@ -41,7 +41,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('menu')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('navbar')->defaultValue('btn_admin_menu_navbar')->end()
+                        ->scalarNode('navbar')->defaultValue('btn_admin.menu_navbar')->end()
                     ->end()
                 ->end()
 
