@@ -80,6 +80,6 @@ class AbstractControlController extends AbstractController
             throw new \Exception('Form handler is missing from controller');
         }
 
-        $this->formHandler->handle($form, $request);
+        return $this->formHandler->handle($form, $request);
     }
 }
