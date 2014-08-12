@@ -3,3 +3,25 @@
     <{{ tag }} class="glyphicon glyphicon-{{ icon }}"></{{ tag }}>
 {% endspaceless %}
 {% endmacro %}
+
+{# alias for glyphicon #}
+{% macro gi(icon) %}
+{% spaceless %}
+    {% import _self as icons %}
+    {{ icons.glyphicon(icon) }}
+{% endspaceless %}
+{% endmacro %}
+
+{% macro fontawesome(icon, tag = 'i') %}
+{% spaceless %}
+    <{{ tag }} class="fa fa-{{ icon }}"></{{ tag }}>
+{% endspaceless %}
+{% endmacro %}
+
+{# alias for fontawesome #}
+{% macro fa(icon) %}
+{% spaceless %}
+    {% import _self as icons %}
+    {{ icons.fontawesome(icon) }}
+{% endspaceless %}
+{% endmacro %}
