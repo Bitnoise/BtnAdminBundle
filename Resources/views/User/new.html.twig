@@ -1,5 +1,4 @@
 {% extends 'BtnAdminBundle::base.html.twig' %}
-{% form_theme form 'BtnAdminBundle:Form:fields.html.twig' %}
 
 {% block content %}
     <form action="{{ path('btn_admin_user_create') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register form-horizontal" role="form">

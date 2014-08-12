@@ -1,5 +1,4 @@
 {% extends 'BtnAdminBundle::base.html.twig' %}
-{% form_theme form 'BtnAdminBundle:Form:fields.html.twig' %}
 
 {% block content %}
     <form action="{{ path('btn_admin_user_update', {id: user.id}) }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit form-horizontal" role="form">
