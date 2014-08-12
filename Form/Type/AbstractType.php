@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityManager;
+use Btn\AdminBundle\Provider\EntityProviderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
 abstract class AbstractType extends BaseAbstractType
@@ -16,6 +17,8 @@ abstract class AbstractType extends BaseAbstractType
     protected $class;
     /** @var \Doctrine\ORM\EntityManager $em */
     protected $em;
+    /** @var \Btn\AdminBundle\Provider\EntityProviderInterface $entityProvider */
+    protected $entityProvider;
     /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
     protected $translator;
 
@@ -35,6 +38,16 @@ abstract class AbstractType extends BaseAbstractType
     public function setEntityManager(EntityManager $em)
     {
         $this->em = $em;
+
+        return $this;
+    }
+
+    /**
+     *
+     */
+    public function setEntityProvider(entityProvider $entityProvider)
+    {
+        $this->entityProvider = $entityProvider;
 
         return $this;
     }
