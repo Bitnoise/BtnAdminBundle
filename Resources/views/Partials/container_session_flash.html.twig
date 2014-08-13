@@ -1,6 +1,6 @@
 {% from 'BtnAdminBundle:Macros:flash.html.twig' import session_flash %}
 {% if app.session.flashbag.peekAll|length > 0 %}
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">{{ session_flash() }}</div>
+    <div class="row btn-flash-message">
+        <div class="col-md-12">{{ session_flash() }}</div>
     </div>
 {% endif %}
