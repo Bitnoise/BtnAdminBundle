@@ -1,13 +1,17 @@
 {% extends 'BtnAdminBundle::base.html.twig' %}
 
 {% block content %}
+    <div class="col-md-12 well well-lg">
+        {% block list_header %}{% endblock %}
 
-    {% block list_header %}{% endblock %}
+        {% block list_table %}{% endblock %}
 
-    {% block list_table %}{% endblock %}
+        {% block list_buttons %}{% endblock %}
+    </div>
 
-    {% block list_pagination %}{% endblock %}
-
-    {% block list_buttons %}{% endblock %}
-
+    <div class="row">
+        <div class="col-md-12 text-center">
+            {% block list_pagination %}{% endblock %}
+        </div>
+    </div>
 {% endblock %}
