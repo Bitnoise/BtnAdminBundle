@@ -5,7 +5,8 @@ $('[data-confirm]').confirmation({
         e.preventDefault();
         if (typeof element.attr('href') != 'undefined') {
             window.location = element.attr('href');
+        } else {
+            element.parents('form').unbind('submit').submit();
         }
-        element.parents('form').unbind('submit').submit();
     }
 });
