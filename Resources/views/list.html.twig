@@ -6,8 +6,13 @@
 
         {% block list_table %}{% endblock %}
 
-        {% block list_pagination %}{% endblock %}
 
         {% block list_buttons %}{% endblock %}
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            {% block list_pagination %}{% endblock %}
+        </div>
     </div>
 {% endblock %}
