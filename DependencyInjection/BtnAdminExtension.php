@@ -16,6 +16,8 @@ use FOS\UserBundle\DependencyInjection\Configuration as FOSUserConfiguration;
  */
 class BtnAdminExtension extends Extension implements PrependExtensionInterface
 {
+    private $resourceDir = '/../Resources/config';
+
     /**
      * {@inheritDoc}
      */
@@ -33,8 +35,10 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
         $container->setParameter('btn_admin.assetic.remove_input_files', $config['assetic']['remove_input_files']);
         $container->setParameter('btn_admin.assetic.replace_input_files', $config['assetic']['replace_input_files']);
         $container->setParameter('btn_admin.assetic.ensure_combine', $config['assetic']['ensure_combine']);
+        // $container->setParameter('btn_admin.assetic.base_css', $config['assetic']['base_css']);
+        // $container->setParameter('btn_admin.assetic.base_js', $config['assetic']['base_js']);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . $this->resourceDir));
         $loader->load('parameters.yml');
         $loader->load('services.yml');
         $loader->load('menus.yml');
@@ -46,6 +50,9 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
      */
     public function prepend(ContainerBuilder $container)
     {
+        // Get loader to load more config files if needed
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . $this->resourceDir));
+
         // Get config for this extension
         $configs = $container->getExtensionConfig('btn_admin');
 
@@ -99,6 +106,20 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
                         ),
                     ),
                 )
+            ));
+        }
+
+        // load assets for assetic
+        if ($container->hasExtension('assetic')) {
+            $loader->load('assetic.yml');
+
+            $config = $this->getNormalizedConfig($container);
+            // inject config for base assets from btn_admin to assetic config
+            $container->prependExtensionConfig('assetic', array(
+                'assets' => array(
+                    'btn_admin_base_css' => $config['assetic']['base_css'],
+                    'btn_admin_base_js' => $config['assetic']['base_js'],
+                ),
             ));
         }
     }

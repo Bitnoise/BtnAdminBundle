@@ -1,0 +1,44 @@
+assetic:
+    assets:
+
+        # CSS SECTION ##########################################################
+
+        btn_admin_bootstrap_css:
+            inputs:
+                - @BtnAdminBundle/Resources/public/css/bootstrap.css
+            filters:
+                - cssrewrite
+            output: css/btn-admin-bootstrap.css
+
+        btn_admin_bootstrap_flat_css:
+            inputs:
+                - @BtnAdminBundle/Resources/public/css/bootflat.css
+            output: css/btn-admin-bootstrap-flat.css
+
+        btn_admin_bootstrap_theme_css:
+            inputs:
+                - @BtnAdminBundle/Resources/public/css/bootstrap-theme.css
+            output: css/btn-admin-bootstrap-theme.css
+
+        btn_admin_control_css:
+            inputs:
+                - @BtnAdminBundle/Resources/public/css/control.css
+            output: css/btn-admin-control.css
+
+        # JS SECTION ###########################################################
+
+        btn_admin_jquery_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/jquery-1.11.1.js
+            output: js/btn-admin-jquery.js
+
+        btn_admin_bootstrap_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/bootstrap.js
+            output: js/btn-admin-bootstrap.js
+
+        btn_admin_bootstrap_confirm_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/bootstrap.confirm.js
+                - @BtnAdminBundle/Resources/public/js/confirm.js
+            output: js/btn-admin-bootstrap-confirm.js

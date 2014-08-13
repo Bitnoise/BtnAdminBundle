@@ -55,7 +55,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('assetic')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->booleanNode('ensure_combine')->defaultValue(true)->end()
+                        ->booleanNode('ensure_combine')->info('')->defaultValue(true)->end()
                         ->arrayNode('remove_input_files')
                             ->defaultValue(array())
                             ->prototype('scalar')->end()
@@ -64,6 +64,37 @@ class Configuration implements ConfigurationInterface
                             ->defaultValue(array())
                             ->prototype('scalar')->end()
                         ->end()
+
+                        ->arrayNode('base_css')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->arrayNode('inputs')
+                                    ->defaultValue(array(
+                                        '@btn_admin_bootstrap_css',
+                                        '@btn_admin_bootstrap_flat_css',
+                                        '@btn_admin_control_css',
+                                    ))
+                                    ->prototype('scalar')->end()
+                                ->end()
+                                ->scalarNode('output')->defaultValue('css/btn-admin-base.css')->end()
+                            ->end()
+                        ->end()
+
+                        ->arrayNode('base_js')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->arrayNode('inputs')
+                                    ->defaultValue(array(
+                                        '@btn_admin_jquery_js',
+                                        '@btn_admin_bootstrap_js',
+                                        '@btn_admin_bootstrap_confirm_js',
+                                    ))
+                                    ->prototype('scalar')->end()
+                                ->end()
+                                ->scalarNode('output')->defaultValue('js/btn-admin-base.js')->end()
+                            ->end()
+                        ->end()
+
                     ->end()
                 ->end()
 
