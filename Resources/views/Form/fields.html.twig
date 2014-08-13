@@ -157,3 +157,18 @@
     </div>
 {% endspaceless %}
 {% endblock button_widget %}
+
+
+{% block date_widget -%}
+    {% if widget == 'single_text' -%}
+        {{ block('form_widget_simple') }}
+    {%- else -%}
+        <div {{ block('widget_container_attributes') }} class="btn-select-date">
+            {{- date_pattern|replace({
+                '{{ year }}':  '<div class="col-sm-2 no-left-padding">' ~ form_widget(form.year) ~ '</div>',
+                '{{ month }}': '<div class="col-sm-2 no-left-padding">' ~ form_widget(form.month) ~ '</div>',
+                '{{ day }}':   '<div class="col-sm-2 no-left-padding">' ~ form_widget(form.day) ~ '</div>',
+            })|raw -}}
+        </div>
+    {%- endif %}
+{%- endblock date_widget %}

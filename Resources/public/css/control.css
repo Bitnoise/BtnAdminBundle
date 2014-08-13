@@ -9,6 +9,13 @@ body {
 
 .breadcrumb {
     margin-bottom: 0;
+    border-radius: 0;
+}
+.btn,
+.form-control,
+.breadcrumb-arrow li a {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
 }
 
 /* bootsrtap confirmation */
@@ -37,3 +44,17 @@ body {
     width: 200px;
 }
 
+
+
+/**/
+.well {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+}
+.btn-list-header {
+    font-size: 24px;
+    margin-top: 0px;
+}
+.no-left-padding {
+    padding-left: 0;
+}
