@@ -1,3 +1,7 @@
-_btn_admin_routing_control_controller:
-    resource: "@BtnAdminBundle/Controller/"
+_btn_admin_routing_control_controller_default:
+    resource: "@BtnAdminBundle/Controller/DefaultControlController.php"
+    type:     annotation
+
+_btn_admin_routing_control_controller_user:
+    resource: "@BtnAdminBundle/Controller/UserControlController.php"
     type:     annotation

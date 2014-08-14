@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 /**
  * @Route()
  */
-class DefaultController extends Controller
+class DefaultControlController extends Controller
 {
     /**
      * The default admin panel view

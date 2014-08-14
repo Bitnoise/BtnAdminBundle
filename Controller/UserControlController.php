@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  *
  * @Route("/user")
  */
-class UserController extends Controller
+class UserControlController extends Controller
 {
     /**
      * The user index view
@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function indexAction()
     {
-        return $this->forward('BtnAdminBundle:User:list');
+        return $this->forward('BtnAdminBundle:UserControl:list');
     }
 
     /**
@@ -33,7 +33,7 @@ class UserController extends Controller
      */
     public function listAction()
     {
-        $userClass = $this->container->getParameter('btn_admin.user_class');
+        $userClass = $this->container->getParameter('btn_admin.user.class');
         $users = $this->getDoctrine()->getRepository($userClass)->findAll();
 
         return array('users' => $users);
@@ -47,7 +47,7 @@ class UserController extends Controller
      */
     public function newAction(Request $request)
     {
-        $userClass = $this->container->getParameter('btn_admin.user_class');
+        $userClass = $this->container->getParameter('btn_admin.user.class');
         $user = new $userClass();
         $form = $this->createForm('btn_admin_user_add', $user);
 
@@ -62,7 +62,7 @@ class UserController extends Controller
      *
      * @Route("/", name="btn_admin_user_create")
      * @Method("POST")
-     * @Template("BtnControlBundle:User:new.html.twig")
+     * @Template("BtnControlBundle:UserControl:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -96,7 +96,7 @@ class UserController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-        $userClass  = $this->container->getParameter('btn_admin.user_class');
+        $userClass  = $this->container->getParameter('btn_admin.user.class');
         $user       = $this->getDoctrine()->getRepository($userClass)->findOneById($id);
         $deleteForm = $this->createForm('btn_admin_delete', array('id' => $id));
         $form       = $this->createForm('btn_admin_edit', $user);
@@ -113,14 +113,14 @@ class UserController extends Controller
      *
      * @Route("/{id}", name="btn_admin_user_update")
      * @Method("POST")
-     * @Template("BtnControlBundle:User:edit.html.twig")
+     * @Template("BtnControlBundle:UserControl:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $um = $this->get('fos_user.user_manager');
 
-        $userClass = $this->container->getParameter('btn_admin.user_class');
+        $userClass = $this->container->getParameter('btn_admin.user.class');
         $entity    = $em->getRepository($userClass)->findOneById($id);
 
         if (!$entity) {
@@ -159,7 +159,7 @@ class UserController extends Controller
 
         if ($form->isValid()) {
             $em        = $this->getDoctrine()->getManager();
-            $userClass = $this->container->getParameter('btn_admin.user_class');
+            $userClass = $this->container->getParameter('btn_admin.user.class');
             $entity    = $em->getRepository($userClass)->find($id);
 
             if (!$entity) {
