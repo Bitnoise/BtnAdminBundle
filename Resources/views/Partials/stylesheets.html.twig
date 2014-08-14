@@ -1,3 +1,11 @@
 {% stylesheets '@btn_admin_base_css' %}
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
 {% endstylesheets %}
+
+
+{# don't know what is going on above, frontend part of the js? so just for testing the things below #}
+{% stylesheets
+    '@BtnAdminBundle/Resources/public/js/vendor/ladda/ladda-themeless.min.css'
+%}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
