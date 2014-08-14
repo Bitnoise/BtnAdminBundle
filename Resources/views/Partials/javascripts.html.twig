@@ -11,3 +11,9 @@
 %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
+
+{# @BtnMediaBundle/Resources/public/js/modal.js is temporary, to be removed when asset manager is ready #}
+{% javascripts '@BtnMediaBundle/Resources/public/js/modal.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
