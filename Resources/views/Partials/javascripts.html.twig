@@ -1,3 +1,11 @@
 {% javascripts '@btn_admin_base_js' %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
+
+{# don't know what is going on above, frontend part of the js? so just for testing the things below #}
+{% javascripts
+    '@BtnAdminBundle/Resources/public/js/pubsub.js'
+    '@BtnAdminBundle/Resources/public/js/app.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
