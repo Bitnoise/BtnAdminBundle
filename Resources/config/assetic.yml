@@ -6,8 +6,6 @@ assetic:
         btn_admin_bootstrap_css:
             inputs:
                 - @BtnAdminBundle/Resources/public/css/bootstrap.css
-            filters:
-                - cssrewrite
             output: css/btn-admin-bootstrap.css
 
         btn_admin_bootstrap_flat_css:
