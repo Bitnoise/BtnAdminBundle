@@ -13,7 +13,9 @@ body {
 .alert,
 .btn,
 .form-control,
-.breadcrumb-arrow li a {
+.breadcrumb-arrow li a,
+.input-group-addon,
+.dropdown-menu {
     border-radius: 0 !important;
     -webkit-border-radius: 0 !important;
 }
