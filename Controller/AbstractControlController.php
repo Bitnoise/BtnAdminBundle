@@ -66,7 +66,7 @@ class AbstractControlController extends AbstractController
     /**
      *
      */
-    protected function getPerPage()
+    public function getPerPage()
     {
         return $this->perPage;
     }
@@ -74,7 +74,7 @@ class AbstractControlController extends AbstractController
     /**
      *
      */
-    protected function handleForm(FormInterface $form, Request $request)
+    public function handleForm(FormInterface $form, Request $request)
     {
         if (!$this->formHandler || !$this->formHandler instanceof FormHandlerInterface) {
             throw new \Exception('Form handler is missing from controller');
