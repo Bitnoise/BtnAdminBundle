@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class BtnAdminBundle extends Bundle
 {
     /**
-     * @param ContainerBuilder $container
+     * {@inheritdoc}
      */
     public function build(ContainerBuilder $container)
     {
@@ -20,7 +20,7 @@ class BtnAdminBundle extends Bundle
     }
 
     /**
-     * @return string The Bundle parent name it overrides or null if no parent
+     * {@inheritdoc}
      */
     public function getParent()
     {
