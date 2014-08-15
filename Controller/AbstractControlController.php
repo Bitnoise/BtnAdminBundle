@@ -82,4 +82,24 @@ class AbstractControlController extends AbstractController
 
         return $this->formHandler->handle($form, $request);
     }
+
+    /**
+     *
+     */
+    public function paginate($target, $page = null, $limit = null, array $options = null)
+    {
+        if (null === $page) {
+            $page = $this->getRequest()->query->getInt('page', 1);
+        }
+
+        if (null === $limit) {
+            $limit = $this->getPerPage();
+        }
+
+        if (null === $options) {
+            $options = array();
+        }
+
+        return $this->get('knp_paginator')->paginate($target, $page, $limit, $options);
+    }
 }
