@@ -49,6 +49,7 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->integerNode('per_page')->cannotBeEmpty()->defaultValue(10)->end()
+                        ->booleanNode('breadcrumb')->defaultValue(true)->end()
                     ->end()
                 ->end()
 

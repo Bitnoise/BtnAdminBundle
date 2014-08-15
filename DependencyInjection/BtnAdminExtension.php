@@ -101,6 +101,10 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
                             'name' => $config['app']['name'],
                             'year' => $config['app']['year'],
                         ),
+                        'list' => array(
+                            'per_page'   => $config['list']['per_page'],
+                            'breadcrumb' =>$config['list']['breadcrumb'],
+                        ),
                         'menu' => array(
                             'navbar' => $config['menu']['navbar'],
                         ),
