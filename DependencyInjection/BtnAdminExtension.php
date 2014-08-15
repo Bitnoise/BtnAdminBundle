@@ -3,28 +3,22 @@
 namespace Btn\AdminBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\DependencyInjection\Loader;
+use Btn\BaseBundle\DependencyInjection\AbstractExtension;
 use FOS\UserBundle\DependencyInjection\Configuration as FOSUserConfiguration;
 
 /**
- * This is the class that loads and manages your bundle configuration
  *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class BtnAdminExtension extends Extension implements PrependExtensionInterface
+class BtnAdminExtension extends AbstractExtension
 {
-    private $resourceDir = '/../Resources/config';
-
     /**
      * {@inheritDoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
+        parent::load($configs, $container);
+
+        $config = $this->getProcessedConfig($container, $configs);
 
         $container->setParameter('btn_admin', array());
         $container->setParameter('btn_admin.user.class', $config['user']['class']);
@@ -37,12 +31,6 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
         $container->setParameter('btn_admin.assetic.ensure_combine', $config['assetic']['ensure_combine']);
         // $container->setParameter('btn_admin.assetic.base_css', $config['assetic']['base_css']);
         // $container->setParameter('btn_admin.assetic.base_js', $config['assetic']['base_js']);
-
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . $this->resourceDir));
-        $loader->load('parameters.yml');
-        $loader->load('services.yml');
-        $loader->load('menus.yml');
-        $loader->load('forms.yml');
     }
 
     /**
@@ -50,14 +38,13 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
      */
     public function prepend(ContainerBuilder $container)
     {
+        parent::prepend($container);
+
         // Get loader to load more config files if needed
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . $this->resourceDir));
+        $loader = $this->getConfigLoader($container, __DIR__);
 
-        // Get config for this extension
-        $configs = $container->getExtensionConfig('btn_admin');
-
-        // Process configuraton to gen normalized version
-        $config = $this->getNormalizedConfig($container);
+        // Process configuraton
+        $config = $this->getProcessedConfig($container);
 
         // setup user_class from FOSUserBundle Configuration
         if ($container->hasExtension('fos_user')) {
@@ -75,7 +62,7 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
             }
 
             // refresh config after prepending
-            $config = $this->getNormalizedConfig($container);
+            $config = $this->getProcessedConfig($container);
         }
 
         if ($container->hasExtension('knp_paginator')) {
@@ -115,9 +102,7 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
 
         // load assets for assetic
         if ($container->hasExtension('assetic')) {
-            $loader->load('assetic.yml');
-
-            $config = $this->getNormalizedConfig($container);
+            $config = $this->getProcessedConfig($container);
             // inject config for base assets from btn_admin to assetic config
             $container->prependExtensionConfig('assetic', array(
                 'assets' => array(
@@ -126,18 +111,5 @@ class BtnAdminExtension extends Extension implements PrependExtensionInterface
                 ),
             ));
         }
-    }
-
-    /**
-     *
-     */
-    protected function getNormalizedConfig(ContainerBuilder $container)
-    {
-        $configs = $container->getExtensionConfig($this->getAlias());
-
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
-
-        return $config;
     }
 }
