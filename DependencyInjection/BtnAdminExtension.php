@@ -29,8 +29,7 @@ class BtnAdminExtension extends AbstractExtension
         $container->setParameter('btn_admin.assetic.remove_input_files', $config['assetic']['remove_input_files']);
         $container->setParameter('btn_admin.assetic.replace_input_files', $config['assetic']['replace_input_files']);
         $container->setParameter('btn_admin.assetic.ensure_combine', $config['assetic']['ensure_combine']);
-        // $container->setParameter('btn_admin.assetic.base_css', $config['assetic']['base_css']);
-        // $container->setParameter('btn_admin.assetic.base_js', $config['assetic']['base_js']);
+        $container->setParameter('btn_admin.assetic.skip_missing_assets', $config['assetic']['skip_missing_assets']);
     }
 
     /**

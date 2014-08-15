@@ -57,6 +57,7 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->booleanNode('ensure_combine')->info('')->defaultValue(true)->end()
+                        ->booleanNode('skip_missing_assets')->defaultValue(false)->end()
                         ->arrayNode('remove_input_files')
                             ->defaultValue(array())
                             ->prototype('scalar')->end()

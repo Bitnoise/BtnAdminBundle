@@ -17,11 +17,7 @@ class AsseticCompilerPass implements CompilerPassInterface
         $removeInputFiles  = $container->getParameter('btn_admin.assetic.remove_input_files');
         $replaceInputFiles = $container->getParameter('btn_admin.assetic.replace_input_files');
         $ensureCombine     = $container->getParameter('btn_admin.assetic.ensure_combine');
-
-        // if ther is nothig to do then leve it as it is
-        if (!$removeInputFiles && !$replaceInputFiles) {
-            return;
-        }
+        $skipMissingAssets = $container->getParameter('btn_admin.assetic.skip_missing_assets');
 
         // Change asset factory to custom one with remove/replace functionality
         $container->setParameter('assetic.asset_factory.class', 'Btn\\AdminBundle\\Factory\\AssetFactory');
@@ -31,5 +27,7 @@ class AsseticCompilerPass implements CompilerPassInterface
         $definition->addMethodCall('setRemoveInputFiles', array($removeInputFiles));
         $definition->addMethodCall('setReplaceInputFiles', array($replaceInputFiles));
         $definition->addMethodCall('setEnsureCombine', array($ensureCombine));
+        $definition->addMethodCall('setEnsureCombine', array($ensureCombine));
+        $definition->addMethodCall('setSkipMissingAssets', array($skipMissingAssets));
     }
 }

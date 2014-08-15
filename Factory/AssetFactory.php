@@ -15,6 +15,9 @@ class AssetFactory extends BaseAssetFactory
     /** @var boolean $ensureCombine */
     protected $ensureCombine = true;
 
+    /** @var boolean $skipMissingAssets */
+    protected $skipMissingAssets = false;
+
     /**
      *
      */
@@ -64,10 +67,34 @@ class AssetFactory extends BaseAssetFactory
     }
 
     /**
+     *
+     */
+    public function setSkipMissingAssets($skipMissingAssets)
+    {
+        $this->skipMissingAssets = (boolean) $skipMissingAssets;
+    }
+
+    /**
+     *
+     */
+    public function getSkipMissingAssets()
+    {
+        return $this->skipMissingAssets;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function createAsset($inputs = array(), $filters = array(), array $options = array())
     {
+        // prevent trying to fetch not existing input asset files on production while generating twig cache
+        if ($this->skipMissingAssets && 'cli' !== php_sapi_name() && !$this->isDebug()) {
+            if (0 === count($filters) && !empty($options['output'])) {
+                return parent::createAsset(array(), $filters, $options);
+            }
+        }
+
+        // filter input based on config settings
         $filteredInputs = $this->filterInputs($inputs);
 
         if ($this->ensureCombine && empty($options['combine']) && array_diff($filteredInputs, $inputs)) {
