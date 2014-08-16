@@ -44,7 +44,7 @@ abstract class AbstractForm extends AbstractType
             }
 
             if ($options['loading']) {
-                $view->vars['attr']['data-loading'] = $options['loading'];
+                $view->vars['attr']['data-btn-loading'] = $options['loading'];
             }
         }
     }
