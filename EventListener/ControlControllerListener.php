@@ -137,7 +137,6 @@ class ControlControllerListener
             return $matches[1];
         }
 
-
         throw new \Exception(sprintf('Could not get controller name from "%s"', $className));
     }
 }
