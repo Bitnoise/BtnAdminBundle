@@ -25,10 +25,9 @@ abstract class AbstractForm extends AbstractType
     {
         parent::buildView($view, $form, $options);
 
-        $view->vars['fieldset'] = $options['fieldset'];
-        $view->vars['legend']   = $options['legend'];
-
         if (!$form->getParent() && !$view->parent) {
+            $view->vars['fieldset'] = $options['fieldset'];
+            $view->vars['legend']   = $options['legend'];
             $view->vars['attr']['novalidate'] = 'novalidate';
             if (!isset($view->vars['attr']['class'])) {
                 $view->vars['attr']['class'] = '';
