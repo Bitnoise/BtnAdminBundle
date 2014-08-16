@@ -55,10 +55,14 @@ class AbstractControlController extends AbstractController
     public function getEntityProvider()
     {
         if (!$this->entityProvider || !$this->entityProvider instanceof EntityProvider) {
-            throw new \Exception('Entity provider is missing from controller');
+            throw new \Exception('Entity provider is missing in controller');
         }
 
         $entityProviderId = $this->entityProvider->getProviderId();
+
+        if (!$entityProviderId) {
+            throw new \Exception('Entity provider id is missing in controller');
+        }
 
         return $this->get($entityProviderId);
     }
