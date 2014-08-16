@@ -1,14 +1,7 @@
 parameters:
-    btn_admin.provider.entity.class: Btn\AdminBundle\Provider\EntityProvider
-    btn_admin.provider.abstract_entity.class: Btn\AdminBundle\Provider\AbstractEntityProvider
     btn_admin.event_listener.control_controller_listener.class: Btn\AdminBundle\EventListener\ControlControllerListener
 
 services:
-    btn_admin.provider.abstract_entity:
-        class: %btn_admin.provider.abstract_entity.class%
-        abstract: true
-        calls:
-            - [setEntityManager, ['@doctrine.orm.entity_manager']]
 
     btn_admin.event_listener.control_controller_listener:
         class: %btn_admin.event_listener.control_controller_listener.class%

@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityManager;
-use Btn\AdminBundle\Provider\EntityProviderInterface;
+use Btn\BaseBundle\Provider\EntityProviderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Btn\BaseBundle\Assetic\Loader\AssetLoaderInterface;
 
@@ -18,7 +18,7 @@ abstract class AbstractType extends BaseAbstractType
     protected $class;
     /** @var \Doctrine\ORM\EntityManager $em */
     protected $em;
-    /** @var \Btn\AdminBundle\Provider\EntityProviderInterface $entityProvider */
+    /** @var \Btn\BaseBundle\Provider\EntityProviderInterface $entityProvider */
     protected $entityProvider;
     /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
     protected $translator;
