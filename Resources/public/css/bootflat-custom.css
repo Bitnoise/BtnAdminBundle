@@ -7,6 +7,7 @@ body {
     padding-top: 50px;
     background: rgb(241, 242, 246);
 }
+
 .well,
 .breadcrumb,
 .pagination > li > a, .pagination > li > span,
@@ -15,20 +16,43 @@ body {
 .form-control,
 .breadcrumb-arrow li a,
 .input-group-addon,
-.dropdown-menu {
+.dropdown-menu,
+.panel,
+.panel-heading,
+.panel-body {
     border-radius: 0 !important;
     -webkit-border-radius: 0 !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
+
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="url"],
+input[type="password"],
+.ui-autocomplete-input,
+textarea,
+.uneditable-input {
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
 .btn-flash-message .alert {
     margin: 0 !important;
 }
+
 /* bootsrtap confirmation */
 .popover.bottom {
     left: 0 !important;
 }
+
 .btn-back:before {
     content: "\00ab";
 }
+
 .breadcrumb {
     margin: 0;
 }
@@ -41,6 +65,7 @@ body {
 .top-offset {
     margin-top: 25px;
 }
+
 .no-left-padding {
     padding-left: 0;
 }
@@ -63,21 +88,15 @@ body {
  * BtnAdmin specific things
  *
  **************************/
-.delete-form > div { padding-left: 5px; }
-.delete-form a { float: left; margin-right: 10px;}
-
-/* btn-admin is a proper name here used in macro but we still need some backward compatibility */
-.btn-admin-column-id,
-.btn-control-column-id {
+.btn-admin-column-id  {
     width: 50px;
 }
 
-.btn-admin-column-action,
-.btn-control-column-action {
+.btn-admin-column-action {
     width: 200px;
 }
 
-.btn-list-header {
+.btn-admin-list-header {
     font-size: 24px;
     margin-top: 0px;
 }

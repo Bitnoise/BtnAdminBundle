@@ -11,6 +11,7 @@ assetic:
         btn_admin_bootstrap_flat_css:
             inputs:
                 - @BtnAdminBundle/Resources/public/css/bootflat.css
+                - @BtnAdminBundle/Resources/public/css/bootflat-custom.css
             output: css/btn-admin-bootstrap-flat.css
 
         btn_admin_bootstrap_theme_css:

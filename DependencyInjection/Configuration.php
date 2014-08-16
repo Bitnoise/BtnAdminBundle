@@ -78,7 +78,6 @@ class Configuration implements ConfigurationInterface
                                     ->defaultValue(array(
                                         '@btn_admin_bootstrap_css',
                                         '@btn_admin_bootstrap_flat_css',
-                                        '@btn_admin_control_css',
                                     ))
                                     ->prototype('scalar')->end()
                                 ->end()
