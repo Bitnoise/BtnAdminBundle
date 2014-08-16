@@ -27,12 +27,12 @@ body {
 }
 
 .form-control,
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="search"],
-input[type="url"],
-input[type="password"],
+input[type="text"].form-control,
+input[type="email"].form-control,
+input[type="tel"].form-control,
+input[type="search"].form-control,
+input[type="url"].form-control,
+input[type="password"].form-control,
 .ui-autocomplete-input,
 textarea,
 .uneditable-input {
