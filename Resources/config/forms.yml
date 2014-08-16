@@ -12,6 +12,8 @@ services:
         arguments:
             em: @doctrine.orm.entity_manager
 
+    btn_admin.entity_form_handler: @btn_admin.form.handler.entiy_form
+
     btn_admin.form.handler.entiy_form.request_aware:
         class: %btn_admin.form.handler.entiy_form.request_aware.class%
         scope: request
