@@ -1,7 +1,13 @@
+{# load btn base admin assets #}
 {% javascripts '@btn_admin_base_js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
-{# @BtnMediaBundle/Resources/public/js/modal.js is temporary, to be removed when asset manager is ready #}
-{% javascripts '@BtnMediaBundle/Resources/public/js/modal.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
+{# load assets from asset storage #}
+{% for asset in btn_get_assets('javascripts') %}
+    <script src="{{  asset(btn_get_asset_src(asset)) }}"></script>
+{% endfor %}
+
+<script>
+    // launch app
+    BtnAdminApp.init();
+</script>

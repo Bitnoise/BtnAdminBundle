@@ -1,3 +1,8 @@
+{# load btn base admin assets #}
 {% stylesheets '@btn_admin_base_css' %}
-    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
 {% endstylesheets %}
+{# load assets from asset storage #}
+{% for asset in btn_get_assets('stylesheets') %}
+    <link rel="stylesheet" href="{{ asset(btn_get_asset_src(asset)) }}" type="text/css">
+{% endfor %}
