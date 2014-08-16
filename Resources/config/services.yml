@@ -12,6 +12,6 @@ services:
             reader: @annotation_reader
         calls:
             - [setPerPage, ['%btn_admin.list.per_page%']]
-            - [setFormHandler, ['@btn_admin.form.handler.entiy_form_handler']]
+            - [setFormHandler, ['@btn_admin.form.handler.entiy_form']]
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }

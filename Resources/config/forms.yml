@@ -6,19 +6,20 @@ parameters:
     btn_admin.form.button.save.class: Btn\AdminBundle\Form\Button\SaveButton
     btn_admin.form.button.update.class: Btn\AdminBundle\Form\Button\UpdateButton
 
-    btn_admin.form.handler.entiy_form_handler:
-        class: %btn_admin.form.handler.entiy_form_handler.class%
+services:
+    btn_admin.form.handler.entiy_form:
+        class: %btn_admin.form.handler.entiy_form.class%
         arguments:
             em: @doctrine.orm.entity_manager
 
-    btn_admin.form.handler.entiy_form_handler.request_aware:
-        class: %btn_admin.form.handler.entiy_form_handler.request_aware.class%
+    btn_admin.form.handler.entiy_form.request_aware:
+        class: %btn_admin.form.handler.entiy_form.request_aware.class%
         scope: request
         arguments:
             em: @doctrine.orm.entity_manager
             request: @?request
 
-    btn_admin.form_handler: '@btn_admin.form.handler.entiy_form_handler.request_aware'
+    btn_admin.form_handler: @btn_admin.form.handler.entiy_form.request_aware
 
     btn_admin.registration.form.type:
         class: Btn\AdminBundle\Form\Type\RegistrationFormType
