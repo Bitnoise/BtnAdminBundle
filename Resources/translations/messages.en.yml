@@ -1,5 +1,5 @@
 # general translations
-btn_admin.logo: 'cms'
+btn_admin.id: 'Id'
 btn_admin.loged_as: 'Welcome: '
 btn_admin.logout: 'Logout'
 btn_admin.list: 'List'
