@@ -90,6 +90,16 @@ class ControlControllerListener
                     $indexTemplate  = $templatePrefix . 'index.html.twig';
                     $crudSettings->setIndexTemplate($indexTemplate);
                 }
+                // if provider id is not set then generate automaticly from controller
+                if (null === $crudSettings->getProviderId()) {
+                    $providerId = $this->bundleHelper->getProviderId($controller[0]);
+                    $crudSettings->setProviderId($providerId);
+                }
+                // if form id is not set then generate automaticly from controller
+                if (null === $crudSettings->getFormId()) {
+                    $formId = $this->bundleHelper->getFormId($controller[0]);
+                    $crudSettings->setFormId($formId);
+                }
 
                 $controller[0]->setCrudSettings($crudSettings);
             }
