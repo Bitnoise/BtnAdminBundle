@@ -25,10 +25,17 @@ abstract class AbstractForm extends AbstractType
     {
         parent::buildView($view, $form, $options);
 
-        // if (!$form->getParent() && !$view->parent) {
-        //     $view->vars['attr']['class'] = 'well form-horizontal';
-        //     $view->vars['attr']['novalidate'] = 'novalidate';
-        // }
+        $view->vars['fieldset'] = $options['fieldset'];
+        $view->vars['legend']   = $options['legend'];
+
+        if (!$form->getParent() && !$view->parent) {
+            $view->vars['attr']['novalidate'] = 'novalidate';
+            if (!isset($view->vars['attr']['class'])) {
+                $view->vars['attr']['class'] = '';
+            }
+            $view->vars['attr']['class'] .= ' form-horizontal';
+            $view->vars['role'] = $options['role'];
+        }
     }
 
     /**
@@ -37,5 +44,17 @@ abstract class AbstractForm extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
+
+        $resolver->setDefaults(array(
+            'fieldset' => true,
+            'legend'   => false,
+            'role'     => 'form',
+        ));
+
+        $resolver->setOptional(array(
+            'fieldset',
+            'legend',
+            'role',
+        ));
     }
 }

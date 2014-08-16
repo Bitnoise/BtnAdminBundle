@@ -136,8 +136,17 @@
 
 {% block form %}
 {% spaceless %}
-    {{ form_start(form, {'attr': {'class':'form-horizontal'}}) }}
+    {{ form_start(form) }}
+    {% if fieldset %}
+        <fieldset>
+    {% endif %}
+    {% if legend %}
+        <legend>{{ legend|trans }}</legend>
+    {% endif %}
     {{ form_widget(form) }}
+    {% if fieldset %}
+        </fieldset>
+    {% endif %}
     {{ form_end(form) }}
 {% endspaceless %}
 {% endblock form %}
