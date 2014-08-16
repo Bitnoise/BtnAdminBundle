@@ -26,11 +26,6 @@ services:
         tags:
             - { name: form.type, alias: btn_admin_edit }
 
-    btn_admin.delete.form.type:
-        class: Btn\AdminBundle\Form\Type\DeleteFormType
-        tags:
-            - { name: form.type, alias: btn_admin_delete }
-
     btn_admin.form.button.create:
         class: %btn_admin.form.button.create.class%
         tags:
