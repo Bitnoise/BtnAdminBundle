@@ -45,11 +45,15 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
 
+                ->arrayNode('breadcrumb')->canBeDisabled()->end()
+
                 ->arrayNode('list')
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->integerNode('per_page')->cannotBeEmpty()->defaultValue(10)->end()
-                        ->booleanNode('breadcrumb')->defaultValue(true)->end()
+                        ->scalarNode('date_format')->defaultValue('Y-m-d')->end()
+                        ->scalarNode('time_format')->defaultValue('H:i:s')->end()
+                        ->scalarNode('date_time_format')->defaultValue('Y-m-d H:i:s')->end()
                     ->end()
                 ->end()
 

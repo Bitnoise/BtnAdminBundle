@@ -91,8 +91,13 @@ class BtnAdminExtension extends AbstractExtension
                             'year' => $config['app']['year'],
                         ),
                         'list' => array(
-                            'per_page'   => $config['list']['per_page'],
-                            'breadcrumb' =>$config['list']['breadcrumb'],
+                            'per_page'         => $config['list']['per_page'],
+                            'date_format'      => $config['list']['date_format'],
+                            'time_format'      => $config['list']['time_format'],
+                            'date_time_format' => $config['list']['date_time_format'],
+                        ),
+                        'breadcrumb' => array(
+                            'enabled' => $config['breadcrumb']['enabled'],
                         ),
                         'menu' => array(
                             'navbar' => $config['menu']['navbar'],
