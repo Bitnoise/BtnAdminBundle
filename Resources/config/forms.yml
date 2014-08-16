@@ -23,6 +23,11 @@ services:
 
     btn_admin.form_handler: @btn_admin.form.handler.entiy_form.request_aware
 
+    btn_admin.form.abstract:
+        abstract: true
+        calls:
+            - [setAssetLoader, ['@btn_base.asset_loader']]
+
     btn_admin.registration.form.type:
         class: Btn\AdminBundle\Form\Type\RegistrationFormType
         arguments: [%fos_user.model.user.class%]

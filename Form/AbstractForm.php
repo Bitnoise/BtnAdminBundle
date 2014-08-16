@@ -16,6 +16,10 @@ abstract class AbstractForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
+
+        if ($options['loading']) {
+            $this->assetLoader->load('btn_admin_loading');
+        }
     }
 
     /**
@@ -38,6 +42,10 @@ abstract class AbstractForm extends AbstractType
             if ($options['role']) {
                 $view->vars['attr']['role'] = $options['role'];
             }
+
+            if ($options['loading']) {
+                $view->vars['attr']['data-loading'] = $options['loading'];
+            }
         }
     }
 
@@ -52,12 +60,14 @@ abstract class AbstractForm extends AbstractType
             'fieldset' => true,
             'legend'   => false,
             'role'     => 'form',
+            'loading'  => true,
         ));
 
         $resolver->setOptional(array(
             'fieldset',
             'legend',
             'role',
+            'loading',
         ));
     }
 }

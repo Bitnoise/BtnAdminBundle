@@ -66,6 +66,7 @@ assetic:
         btn_admin_spin_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/js/vendor/spin.js/spin.js
+                - @BtnAdminBundle/Resources/public/js/spin.init.js
             output: js/btn-admin.spin.js
 
         btn_admin_ladda_js:
@@ -76,6 +77,7 @@ assetic:
 
         btn_admin_loading_js:
             inputs:
+                - @btn_admin_spin_js
                 - @btn_admin_ladda_js
             output: js/btn-admin.loading.js
 
