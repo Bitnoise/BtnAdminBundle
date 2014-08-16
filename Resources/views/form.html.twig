@@ -1,0 +1,18 @@
+{% extends 'BtnAdminBundle::base.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-lg">
+                {% block form_content %}
+                    {# base block to override #}
+                {% endblock %}
+                <div class="btn-group">
+                    {% block form_buttons %}
+                        {# base block to override #}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
