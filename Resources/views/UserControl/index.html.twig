@@ -1,0 +1,16 @@
+{% from 'BtnAdminBundle:Macros:icon.html.twig' import gi %}
+{% extends 'BtnAdminBundle:BaseCrud:index.html.twig' %}
+
+{% block list_table_head_columns %}
+    <th>{% trans %}btn_admin.user.username{% endtrans %}</th>
+    <th>{% trans %}btn_admin.user.email{% endtrans %}</th>
+    <th>{% trans %}btn_admin.user.enabled{% endtrans %}</th>
+    <th>{% trans %}btn_admin.user.last_login{% endtrans %}</th>
+{% endblock %}
+
+{% block list_table_body_columns %}
+    <td>{{ entity.username }}</td>
+    <td>{{ entity.email }}</td>
+    <td>{{ entity.enabled ? gi('ok') : gi('remove') }}</td>
+    <td>{{ entity.lastLogin|date(btn_admin.list.date_time_format) }}</td>
+{% endblock %}
