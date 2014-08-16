@@ -21,7 +21,7 @@ class SaveButton extends AbstractType implements SubmitButtonTypeInterface
         $resolver->setDefaults(array(
             'label' => 'btn_admin.save',
             'attr'  => array(
-                'class' => 'btn btn-success',
+                'class' => 'btn btn-success btn-save',
             ),
         ));
     }

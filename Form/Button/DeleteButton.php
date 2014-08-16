@@ -21,7 +21,7 @@ class DeleteButton extends AbstractType implements SubmitButtonTypeInterface
         $resolver->setDefaults(array(
             'label' => 'btn_admin.delete',
             'attr'  => array(
-                'class'        => 'btn btn-danger',
+                'class'        => 'btn btn-danger btn-delete',
                 'data-confirm' => $this->translator->trans('btn_admin.confirm_delete'),
             ),
         ));
