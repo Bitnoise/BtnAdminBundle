@@ -45,7 +45,7 @@ abstract class AbstractType extends BaseAbstractType
     /**
      *
      */
-    public function setEntityProvider(entityProvider $entityProvider)
+    public function setEntityProvider(EntityProviderInterface $entityProvider)
     {
         $this->entityProvider = $entityProvider;
 
