@@ -28,6 +28,16 @@ class CrudSettings extends EntityProvider
     /**
      *
      */
+    public function setFormId($formId)
+    {
+        $this->formId = $formId;
+
+        return $this;
+    }
+
+    /**
+     *
+     */
     public function setIndexTemplate($indexTemplate)
     {
         $this->indexTemplate = $indexTemplate;
