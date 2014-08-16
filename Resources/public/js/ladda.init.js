@@ -1,9 +1,9 @@
 (function(PubSub, Ladda, $, undefined){
 
     var addFormLoadingEvent = function() {
-        $('form[data-loading]')
-            .filter(':not([data-loading-binded])')
-            .data('loading-binded', true)
+        $('form[data-btn-loading]')
+            .filter(':not([data-btn-loading-binded])')
+            .attr('data-btn-loading-binded', true)
             .on('submit', function(e){
                 var button = $(this).find('.ladda-button');
                 if (button.length) {
