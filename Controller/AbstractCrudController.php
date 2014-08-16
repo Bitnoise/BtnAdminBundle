@@ -2,10 +2,8 @@
 
 namespace Btn\AdminBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Btn\AdminBundle\Annotation\CrudSettings;
 
 /**
