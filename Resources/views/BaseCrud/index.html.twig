@@ -1,0 +1,51 @@
+{% from 'BtnAdminBundle:Macros:breadcrumb.html.twig' import bcr %}
+{% import 'BtnAdminBundle:Macros:link.html.twig' as lnk %}
+{% import 'BtnAdminBundle:Macros:list.html.twig' as lst %}
+{% extends 'BtnAdminBundle::list.html.twig' %}
+
+{% block breadcrumb %}
+    {{ bcr({route_index: 'btn_admin.list'}) }}
+{% endblock %}
+
+{% block list_header %}
+    {{ lst.header(list_header) }}
+{% endblock %}
+
+{% block list_table %}
+    <table class="{{ lst.table_class() }}">
+        <thead>
+            {% block list_table_head %}
+                <tr>
+                    <th class="{{ lst.col_id_class() }}">{% trans %}btn_admin.id{% endtrans %}</th>
+                    {% block list_table_head_columns %}
+                        {# base block to override #}
+                    {% endblock %}
+                    <th class="{{ lst.col_act_class }}">{% trans %}btn_admin.actions{% endtrans %}</th>
+                </tr>
+            {% endblock %}
+        </thead>
+        <tbody>
+            {% block list_table_body %}
+                {% for entity in pagination %}
+                    <tr>
+                        <td class="{{ lst.col_id_class() }}">{{ entity.id }}</td>
+                        {% block list_table_body_columns %}
+                            {# base block to override #}
+                        {% endblock %}
+                        <td class="{{ lst.col_act_class }}">
+                            {{ lnk.edit(route_update, { id: entity.id }) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endblock %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block list_pagination %}
+    {{ knp_pagination_render(pagination) }}
+{% endblock %}
+
+{% block list_buttons %}
+    {{ lnk.add(route_create) }}
+{% endblock %}

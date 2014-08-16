@@ -1,0 +1,16 @@
+{% from 'BtnAdminBundle:Macros:breadcrumb.html.twig' import bcr %}
+{% import 'BtnAdminBundle:Macros:link.html.twig' as lnk %}
+{% extends 'BtnAdminBundle::form.html.twig' %}
+
+{% block form_content %}
+    {{ form(form) }}
+{% endblock %}
+
+{% block form_buttons %}
+    {{ lnk.back(route_index) }}
+    {{ lnk.delete(route_delete, { id: entity.id }) }}
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ bcr({(route_index): 'btn_admin.list', route_edit: 'btn_admin.update'}) }}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% from 'BtnAdminBundle:Macros:breadcrumb.html.twig' import bcr %}
+{% import 'BtnAdminBundle:Macros:link.html.twig' as lnk %}
+{% extends 'BtnAdminBundle::form.html.twig' %}
+
+{% block form_content %}
+    {{ form(form) }}
+{% endblock %}
+
+{% block form_buttons %}
+    {{ lnk.back(route_index) }}
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ bcr({(route_index): 'btn_admin.list', route_create: 'btn_admin.create'}) }}
+{% endblock %}
