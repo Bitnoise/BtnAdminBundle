@@ -88,7 +88,7 @@ class BaseCrudController extends AbstractCrudController
         $this->validateCsrfTokenOrThrowException($this->getRoutePrefix() . '_delete', $csrf_token);
 
         $entityProvider = $this->getEntityProvider();
-        $entity         = $this->findEntityOr404($id, $entityProvider->getClass());
+        $entity         = $this->findEntityOr404($entityProvider->getClass(), $id);
 
         $entityProvider->delete($entity);
 
