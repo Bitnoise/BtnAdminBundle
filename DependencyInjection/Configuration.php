@@ -92,7 +92,7 @@ class Configuration implements ConfigurationInterface
                                     ->defaultValue(array(
                                         '@btn_admin_jquery_js',
                                         '@btn_admin_bootstrap_js',
-                                        '@btn_admin_bootstrap_confirm_js',
+                                        '@btn_admin_confirm_js',
                                     ))
                                     ->prototype('scalar')->end()
                                 ->end()
