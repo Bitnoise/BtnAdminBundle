@@ -143,7 +143,7 @@
     {% if legend %}
         <legend>{{ legend|trans }}</legend>
     {% endif %}
-    {{ form_widget(form) }}
+    {{ form_widget(form, {attr: null}) }}
     {% if fieldset %}
         </fieldset>
     {% endif %}
