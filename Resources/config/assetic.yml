@@ -60,6 +60,7 @@ assetic:
         btn_admin_ladda_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/js/vendor/ladda-bootstrap/ladda.js
+                - @BtnAdminBundle/Resources/public/js/ladda.init.js
             output: js/btn-admin.ladda.js
 
         btn_admin_jstree_js:
