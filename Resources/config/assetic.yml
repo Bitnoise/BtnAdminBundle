@@ -19,10 +19,10 @@ assetic:
                 - @BtnAdminBundle/Resources/public/css/bootstrap-theme.css
             output: css/btn-admin-bootstrap-theme.css
 
-        btn_admin_control_css:
+        btn_admin_ladda_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/css/control.css
-            output: css/btn-admin-control.css
+                - @BtnAdminBundle/Resources/public/css/vendor/ladda-bootstrap/ladda-themeless.css
+            output: css/btn-admin-ladda.css
 
         # JS SECTION ###########################################################
 
@@ -41,3 +41,18 @@ assetic:
                 - @BtnAdminBundle/Resources/public/js/bootstrap.confirm.js
                 - @BtnAdminBundle/Resources/public/js/confirm.js
             output: js/btn-admin-bootstrap-confirm.js
+
+        btn_admin_pubsub_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/vendor/pubsub-js/pubsub.js
+            output: js/btn-admin.pubsub.js
+
+        btn_admin_spin_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/vendor/spin.js/spin.js
+            output: js/btn-admin.spin.js
+
+        btn_admin_ladda_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/vendor/ladda-bootstrap/ladda.js
+            output: js/btn-admin.ladda.js
