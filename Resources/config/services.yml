@@ -13,7 +13,8 @@ services:
     btn_admin.event_listener.control_controller_listener:
         class: %btn_admin.event_listener.control_controller_listener.class%
         arguments:
-            reader: @annotation_reader
+            annotationReader: @annotation_reader
+            bundleHelper: @btn_base.helper.bundle
         calls:
             - [setPerPage, ['%btn_admin.list.per_page%']]
             - [setFormHandler, ['@btn_admin.form.handler.entiy_form']]

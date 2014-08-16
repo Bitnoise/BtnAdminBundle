@@ -24,7 +24,7 @@ class ControlControllerListener
     /**
      *
      */
-    public function __construct(Reader $annotationReader)
+    public function __construct(Reader $annotationReader, BundleHelper $bundleHelper)
     {
         $this->annotationReader = $annotationReader;
         $this->bundleHelper     = $bundleHelper;
