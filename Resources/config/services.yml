@@ -2,6 +2,10 @@ parameters:
     btn_admin.event_listener.control_controller_listener.class: Btn\AdminBundle\EventListener\ControlControllerListener
 
 services:
+    btn_admin.provider.user:
+        class: %btn_base.provider.entity.class%
+        parent: btn_base.provider.abstract_entity
+        arguments: [%btn_admin.user.class%]
 
     btn_admin.event_listener.control_controller_listener:
         class: %btn_admin.event_listener.control_controller_listener.class%
