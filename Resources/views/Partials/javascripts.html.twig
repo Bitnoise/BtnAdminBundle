@@ -1,13 +1,15 @@
-{# load btn base admin assets #}
-{% javascripts '@btn_admin_base_js' %}
-    <script src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{# load assets from asset storage #}
-{% for asset in btn_get_assets('javascripts') %}
-    <script src="{{  asset(btn_get_asset_src(asset)) }}"></script>
-{% endfor %}
+<!-- javascripts end -->
+    {# load btn base admin assets #}
+    {% javascripts '@btn_admin_base_js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {# load assets from asset storage #}
+    {% for asset in btn_get_assets('javascripts') %}
+        <script src="{{  asset(btn_get_asset_src(asset)) }}"></script>
+    {% endfor %}
 
-<script>
-    // launch app
-    BtnAdminApp.init();
-</script>
+    <script>
+        // launch app
+        BtnAdminApp.init();
+    </script>
+<!-- javascripts end -->
