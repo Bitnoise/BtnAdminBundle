@@ -42,7 +42,7 @@ class BaseCrudController extends AbstractCrudController
         if ($this->handleForm($form, $request)) {
             $this->setFlash('btn_admin.flash.created');
 
-            return $this->redirect($this->generatePrefixedUrl('edit', array('id' => $entity->getId())));
+            return $this->redirect($this->generatePrefixedUrl('update', array('id' => $entity->getId())));
         }
 
         return $this->render($this->crudSettings->getCreateTemplate(), array(
