@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class BaseCrudController extends AbstractCrudController
 {
     /**
-     * @Route("/")
+     * @Route("/", methods={"GET", "POST"})
      */
     public function indexAction(Request $request)
     {
