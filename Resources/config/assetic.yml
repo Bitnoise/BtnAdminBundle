@@ -24,6 +24,11 @@ assetic:
                 - @BtnAdminBundle/Resources/public/css/vendor/ladda-bootstrap/ladda-themeless.css
             output: css/btn-admin.ladda.css
 
+        btn_admin_loading_css:
+            inputs:
+                - @btn_admin_ladda_css
+            output: css/btn-admin.loading.css
+
         btn_admin_jstree_css:
             inputs:
                 - BtnAdminBundle/Resources/public/css/vendor/jstree/style.css
@@ -62,6 +67,11 @@ assetic:
                 - @BtnAdminBundle/Resources/public/js/vendor/ladda-bootstrap/ladda.js
                 - @BtnAdminBundle/Resources/public/js/ladda.init.js
             output: js/btn-admin.ladda.js
+
+        btn_admin_loading_js:
+            inputs:
+                - @btn_admin_ladda_js
+            output: js/btn-admin.loading.js
 
         btn_admin_jstree_js:
             inputs:
