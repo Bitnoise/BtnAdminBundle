@@ -58,9 +58,9 @@ class AbstractControlController extends AbstractController
             throw new \Exception('Entity provider is missing from controller');
         }
 
-        $entityProviderServiceId = $this->entityProvider->getServiceId();
+        $entityProviderId = $this->entityProvider->getProviderId();
 
-        return $this->get($entityProviderServiceId);
+        return $this->get($entityProviderId);
     }
 
     /**
