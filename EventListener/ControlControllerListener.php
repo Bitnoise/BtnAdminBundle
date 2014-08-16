@@ -4,6 +4,7 @@ namespace Btn\AdminBundle\EventListener;
 
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Btn\BaseBundle\Helper\BundleHelper;
 use Btn\AdminBundle\Controller\AbstractControlController;
 use Btn\AdminBundle\Controller\AbstractCrudController;
 use Btn\AdminBundle\Form\Handler\FormHandlerInterface;
@@ -11,12 +12,10 @@ use Doctrine\Common\Annotations\Reader;
 
 class ControlControllerListener
 {
-    /** @var \ReflectionClass[] $reflectionClasses of \Btn\AdminBundle\Controller\AbstractControlController */
-    protected $reflectionClasses = array();
     /** @var \Doctrine\Common\Annotations\Reader $annotationReader */
     protected $annotationReader;
-    /** @var \Doctrine\Common\Annotations\Reader $annotationReader */
-    protected $container;
+    /** @var \Btn\BaseBundle\Helper\BundleHelper $bundleHelper */
+    protected $bundleHelper;
     /** @var int $perPage */
     private $perPage;
     /** @var \Btn\AdminBundle\Form\Handler\FormHandlerInterface $formHandler */
@@ -28,6 +27,7 @@ class ControlControllerListener
     public function __construct(Reader $annotationReader)
     {
         $this->annotationReader = $annotationReader;
+        $this->bundleHelper     = $bundleHelper;
     }
 
     /**
@@ -71,7 +71,7 @@ class ControlControllerListener
             }
 
             $entityProviderClass = 'Btn\\AdminBundle\\Annotation\\EntityProvider';
-            $r = $this->getReflectionClass($controller[0]);
+            $r = $this->bundleHelper->getReflectionClass($controller[0]);
             $entityProvider = $this->annotationReader->getClassAnnotation($r, $entityProviderClass);
             if ($entityProvider) {
                 $controller[0]->setEntityProvider($entityProvider);
@@ -81,14 +81,13 @@ class ControlControllerListener
         // handel CrudSettings specific resolutions
         if ($controller[0] instanceof AbstractCrudController) {
             $crudSettingsClass = 'Btn\\AdminBundle\\Annotation\\CrudSettings';
-            $r = $this->getReflectionClass($controller[0]);
+            $r = $this->bundleHelper->getReflectionClass($controller[0]);
             $crudSettings = $this->annotationReader->getClassAnnotation($r, $crudSettingsClass);
             if ($crudSettings) {
                 // if index template is not set then generate automaticly from controller
                 if (null === $crudSettings->getIndexTemplate()) {
-                    $bundleName     = $this->getBundleName($controller[0]);
-                    $controllerName = $this->getControllerName($controller[0]);
-                    $indexTemplate  = $bundleName . ':' . $controllerName . ':' . 'index.html.twig';
+                    $templatePrefix = $this->bundleHelper->getTemplatePrefix($controller[0]);
+                    $indexTemplate  = $templatePrefix . 'index.html.twig';
                     $crudSettings->setIndexTemplate($indexTemplate);
                 }
 
@@ -97,46 +96,4 @@ class ControlControllerListener
         }
     }
 
-    /**
-     *
-     */
-    protected function getReflectionClass(AbstractControlController $controller)
-    {
-        $hash = spl_object_hash($controller);
-        if (!isset($this->reflectionClasses[$hash])) {
-            $this->reflectionClass[$hash] = new \ReflectionClass($controller);
-        }
-
-        return $this->reflectionClass[$hash];
-    }
-
-    /**
-     *
-     */
-    protected function getBundleName(AbstractControlController $controller)
-    {
-        $r  = $this->getReflectionClass($controller);
-        $ns = $r->getNamespaceName();
-
-        if (preg_match(('~[A-Za-z\\\\0-9]+Bundle~'), $ns, $matches)) {
-            return str_replace('\\', '', $matches[0]);
-        }
-
-        throw new \Exception(sprintf('Could not get bundle name from "%s"', $ns));
-    }
-
-    /**
-     *
-     */
-    protected function getControllerName(AbstractControlController $controller)
-    {
-        $r  = $this->getReflectionClass($controller);
-        $cn = $r->getShortName();
-
-        if (preg_match(('~([A-Za-z0-9]+)Controller~'), $cn, $matches)) {
-            return $matches[1];
-        }
-
-        throw new \Exception(sprintf('Could not get controller name from "%s"', $className));
-    }
 }
