@@ -58,6 +58,8 @@ abstract class AbstractType extends BaseAbstractType
     public function setTranslator(TranslatorInterface $translator)
     {
         $this->translator = $translator;
+
+        return $this;
     }
 
     /**
