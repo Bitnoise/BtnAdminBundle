@@ -33,8 +33,11 @@ abstract class AbstractForm extends AbstractType
                 $view->vars['attr']['class'] = '';
             }
             $view->vars['attr']['class'] .= ' form-horizontal';
-            $view->vars['role'] = $options['role'];
             $view->vars['attr']['class'] = trim($view->vars['attr']['class']);
+
+            if ($options['role']) {
+                $view->vars['attr']['role'] = $options['role'];
+            }
         }
     }
 
