@@ -1,5 +1,5 @@
 {% macro breadcrumb(items) %}
-    {% if items|length > 0 %}
+    {% if btn_admin.breadcrumb.enabled and items|length > 0 %}
         <ol class="breadcrumb breadcrumb-arrow">
             {% for url, name in items %}
                 {% if loop.last is defined and loop.index == loop.last %}
@@ -12,4 +12,32 @@
             {% endfor %}
         </ol>
     {% endif %}
+{% endmacro %}
+
+{# alias for breadcrumb #}
+{% macro bc(items) %}
+{% spaceless %}
+    {% import _self as self %}
+    {{ self.breadcrumb(items) }}
+{% endspaceless %}
+{% endmacro %}
+
+{% macro breadcrumb_row(items) %}
+    {% import _self as self %}
+    {% set breadcrumb = self.breadcrumb(items) %}
+    {% if breadcrumb %}
+        <div class="row">
+            <div class="col-md-12">
+                {{ breadcrumb }}
+            </div>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{# alias for breadcrumb_row #}
+{% macro bcr(items) %}
+{% spaceless %}
+    {% import _self as self %}
+    {{ self.breadcrumb_row(items) }}
+{% endspaceless %}
 {% endmacro %}
