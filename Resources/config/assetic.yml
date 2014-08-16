@@ -31,7 +31,7 @@ assetic:
 
         btn_admin_jstree_css:
             inputs:
-                - BtnAdminBundle/Resources/public/css/vendor/jstree/style.css
+                - @BtnAdminBundle/Resources/public/css/vendor/jstree/style.css
             output: css/btn-admin.jstree.css
 
         # JS SECTION ###########################################################
