@@ -108,3 +108,7 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
     font-size: 24px;
     margin-top: 0px;
 }
+
+.btn-admin-node-title {
+  font-size: 12px;
+}
