@@ -86,10 +86,10 @@
 {% endspaceless %}
 {% endmacro %}
 
-{% macro delete(route, route_params = {}, label = 'btn_admin.delete') %}
+{% macro delete(route, route_params = {}, label = 'btn_admin.delete', confirm = 'btn_admin.confirm_delete') %}
 {% spaceless %}
-    <a href="{{ csrf_path(route, route_params) }}" class="btn btn-danger btn-delete">
-        {{ label|trans }}
+    <a href="{{ csrf_path(route, route_params) }}" data-btn-confirm="{{ confirm|trans }}" class="btn btn-danger btn-delete ladda-button">
+        <span class="ladda-label">{{ label|trans }}</span>
     </a>
 {% endspaceless %}
 {% endmacro %}
