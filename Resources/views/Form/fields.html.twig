@@ -137,14 +137,14 @@
 {% block form %}
 {% spaceless %}
     {{ form_start(form) }}
-    {% if fieldset %}
+    {% if fieldset|default() %}
         <fieldset>
     {% endif %}
-    {% if legend %}
+    {% if legend|default() %}
         <legend>{{ legend|trans }}</legend>
     {% endif %}
     {{ form_widget(form, {attr: null}) }}
-    {% if fieldset %}
+    {% if fieldset|default() %}
         </fieldset>
     {% endif %}
     {{ form_end(form) }}
