@@ -26,10 +26,6 @@ class BtnAdminExtension extends AbstractExtension
         $container->setParameter('btn_admin.app.year', $config['app']['year']);
         $container->setParameter('btn_admin.menu.navbar', $config['menu']['navbar']);
         $container->setParameter('btn_admin.list.per_page', $config['list']['per_page']);
-        $container->setParameter('btn_admin.assetic.remove_input_files', $config['assetic']['remove_input_files']);
-        $container->setParameter('btn_admin.assetic.replace_input_files', $config['assetic']['replace_input_files']);
-        $container->setParameter('btn_admin.assetic.ensure_combine', $config['assetic']['ensure_combine']);
-        $container->setParameter('btn_admin.assetic.skip_missing_assets', $config['assetic']['skip_missing_assets']);
 
         // override knp paginator class
         $container->setParameter('knp_paginator.class', 'Btn\\AdminBundle\\Pager\\Paginator');
