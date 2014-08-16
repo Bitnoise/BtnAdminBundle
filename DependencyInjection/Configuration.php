@@ -81,7 +81,7 @@ class Configuration implements ConfigurationInterface
                                     ))
                                     ->prototype('scalar')->end()
                                 ->end()
-                                ->scalarNode('output')->defaultValue('css/btn-admin-base.css')->end()
+                                ->scalarNode('output')->defaultValue('css/btn-admin.base.css')->end()
                             ->end()
                         ->end()
 
@@ -96,7 +96,7 @@ class Configuration implements ConfigurationInterface
                                     ))
                                     ->prototype('scalar')->end()
                                 ->end()
-                                ->scalarNode('output')->defaultValue('js/btn-admin-base.js')->end()
+                                ->scalarNode('output')->defaultValue('js/btn-admin.base.js')->end()
                             ->end()
                         ->end()
 
