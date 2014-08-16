@@ -29,8 +29,11 @@
 {% endspaceless %}
 {% endmacro %}
 
-{% macro col_act_class() %}
+{% macro col_act_class(size) %}
 {% spaceless %}
     btn-admin-column-action
+    {% if size %}
+        btn-admin-column-action-{{ size }}
+    {% endif %}
 {% endspaceless %}
 {% endmacro %}

@@ -88,12 +88,20 @@ textarea,
  * BtnAdmin specific things
  *
  **************************/
-.btn-admin-column-id  {
+th.btn-admin-column-id  {
     width: 50px;
 }
 
-.btn-admin-column-action {
+th.btn-admin-column-action {
     width: 200px;
+}
+
+th.btn-admin-column-action.btn-admin-column-action-sm {
+    width: 100px;
+}
+
+th.btn-admin-column-action.btn-admin-column-action-lg {
+    width: 300px;
 }
 
 .btn-admin-list-header {
