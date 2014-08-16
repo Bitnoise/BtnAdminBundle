@@ -4,11 +4,12 @@ namespace Btn\AdminBundle\Annotation;
 
 /**
  * @Annotation
+ * @Target({"CLASS"})
  */
 class EntityProvider
 {
-    /** @var string $serviceId */
-    private $serviceId;
+    /** @var string $providerId */
+    protected $providerId;
 
     /**
      *
@@ -16,7 +17,7 @@ class EntityProvider
     public function __construct($options)
     {
         if (isset($options['value'])) {
-            $options['serviceId'] = $options['value'];
+            $options['providerId'] = $options['value'];
             unset($options['value']);
         }
 
@@ -32,8 +33,8 @@ class EntityProvider
     /**
      *
      */
-    public function getServiceId()
+    public function getProviderId()
     {
-        return $this->serviceId;
+        return $this->providerId;
     }
 }
