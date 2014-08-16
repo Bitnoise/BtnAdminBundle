@@ -33,6 +33,16 @@ class EntityProvider
     /**
      *
      */
+    public function setProviderId($providerId)
+    {
+        $this->providerId = $providerId;
+
+        return $this;
+    }
+
+    /**
+     *
+     */
     public function getProviderId()
     {
         return $this->providerId;
