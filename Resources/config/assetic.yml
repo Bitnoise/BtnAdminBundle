@@ -36,6 +36,12 @@ assetic:
 
         # JS SECTION ###########################################################
 
+        btn_admin_app_js:
+            inputs:
+                - @btn_admin_pubsub_js
+                - @BtnAdminBundle/Resources/public/js/app.js
+            output: js/btn-admin.app.js
+
         btn_admin_jquery_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/js/vendor/jquery/jquery-1.11.1.js
