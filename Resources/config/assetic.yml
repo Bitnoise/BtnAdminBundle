@@ -45,7 +45,7 @@ assetic:
             inputs:
                 - @BtnAdminBundle/Resources/public/js/bootstrap.confirm.js
                 - @BtnAdminBundle/Resources/public/js/confirm.js
-            output: js/btn-admin-bootstrap-confirm.js
+            output: js/btn-admin.bootstrap-confirm.js
 
         btn_admin_pubsub_js:
             inputs:
