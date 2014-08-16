@@ -10,7 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityManager;
 use Btn\AdminBundle\Provider\EntityProviderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
-use Btn\AdminBundle\Manager\AssetManagerInterface;
+use Btn\BaseBundle\Assetic\Loader\AssetLoaderInterface;
 
 abstract class AbstractType extends BaseAbstractType
 {
@@ -22,8 +22,9 @@ abstract class AbstractType extends BaseAbstractType
     protected $entityProvider;
     /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
     protected $translator;
-    /** @var \Btn\AdminBundle\Manager\AssetManagerInterface $assetManager */
-    protected $assetManager;
+    /** @var \Btn\BaseBundle\Assetic\Loader\AssetLoaderInterface $assetLoader */
+    protected $assetLoader;
+
     /**
      *
      */
@@ -67,9 +68,9 @@ abstract class AbstractType extends BaseAbstractType
     /**
      *
      */
-    public function setAssetManager(AssetManagerInterface $assetManager)
+    public function setAssetLoader(AssetLoaderInterface $assetLoader)
     {
-        $this->assetManager = $assetManager;
+        $this->assetLoader = $assetLoader;
 
         return $this;
     }
