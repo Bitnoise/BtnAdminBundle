@@ -20,7 +20,6 @@ class BtnAdminExtension extends AbstractExtension
 
         $config = $this->getProcessedConfig($container, $configs);
 
-        $container->setParameter('btn_admin', array());
         $container->setParameter('btn_admin.user.class', $config['user']['class']);
         $container->setParameter('btn_admin.app.name', $config['app']['name']);
         $container->setParameter('btn_admin.app.year', $config['app']['year']);
