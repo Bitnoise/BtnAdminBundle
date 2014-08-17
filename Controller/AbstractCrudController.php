@@ -27,7 +27,12 @@ abstract class AbstractCrudController extends AbstractControlController
      */
     public function getRoutePrefix()
     {
-        return $this->crudSettings->getRoutePrefix();
+        $routePrefix = $this->crudSettings->getRoutePrefix();
+        if (!$routePrefix) {
+            throw new \Exception('Route prefix is not set');
+        }
+
+        return $routePrefix;
     }
 
     /**
