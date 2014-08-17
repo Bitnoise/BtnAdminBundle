@@ -5,7 +5,7 @@ parameters:
     btn_admin.form.button.delete.class: Btn\AdminBundle\Form\Button\DeleteButton
     btn_admin.form.button.save.class: Btn\AdminBundle\Form\Button\SaveButton
     btn_admin.form.button.update.class: Btn\AdminBundle\Form\Button\UpdateButton
-    btn_admin.form.type.colorpicker: Btn\AdminBundle\Form\Type\ColorpickerType
+    btn_admin.form.type.color.class: Btn\AdminBundle\Form\Type\ColorType
 
 services:
     btn_admin.form.handler.entiy_form:
@@ -63,9 +63,9 @@ services:
         tags:
             - { name: form.type, alias: btn_update }
 
-    btn_admin.form.type.colorpicker:
-        class: %btn_admin.form.type.colorpicker%
+    btn_admin.form.type.color:
+        class: %btn_admin.form.type.color.class%
         calls:
             - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
-            - { name: form.type, alias: btn_colorpicker }
+            - { name: form.type, alias: btn_color }
