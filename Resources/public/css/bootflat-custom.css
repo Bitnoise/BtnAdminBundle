@@ -8,6 +8,10 @@ body {
     background: rgb(241, 242, 246);
 }
 
+h2 small {
+    color: #777777;
+}
+
 .well,
 .breadcrumb,
 .pagination > li > a, .pagination > li > span,
