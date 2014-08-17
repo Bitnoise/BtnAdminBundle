@@ -27,18 +27,17 @@ var BtnApp = {
             break;
         }
     },
-    getOnce: function(selector)
-    {
-        return jQuery('[data-' + selector + ']')
-            .filter(':not([data-' + selector + '-binded])')
-            .attr('data-' + selector + '-binded', true)
-        ;
-    }
 };
 
 // handy tools
 BtnApp.tools = {
     log: function(msg) {
         BtnApp.data.debug ? console.log(msg) : null;
+    },
+    getOnce: function(selector) {
+        return jQuery('[data-' + selector + ']')
+            .filter(':not([data-' + selector + '-binded])')
+            .attr('data-' + selector + '-binded', true)
+        ;
     }
 }
