@@ -3,9 +3,16 @@ var BtnApp = {
     data: {
         debug: true
     },
-    init: function() {
-        BtnApp.tools.log('init main admin app');
-        PubSub.publish('btn_admin.ready');
+    init: function(callback) {
+        switch (typeof callback) {
+          case 'function':
+            PubSub.subscribe('btn_admin.init', callback);
+            break;
+          case 'undefined':
+            this.tools.log('btn_admin.init');
+            PubSub.publish('btn_admin.init');
+            break;
+        }
     },
     ready: function(callback) {
         switch (typeof callback) {
@@ -13,6 +20,7 @@ var BtnApp = {
             PubSub.subscribe('btn_admin.ready', callback);
             break;
           case 'undefined':
+            this.tools.log('btn_admin.ready');
             PubSub.publish('btn_admin.ready');
             break;
         }
