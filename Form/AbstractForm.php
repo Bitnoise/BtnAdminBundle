@@ -30,8 +30,8 @@ abstract class AbstractForm extends AbstractType
         parent::buildView($view, $form, $options);
 
         if (!$form->getParent() && !$view->parent) {
-            $view->vars['fieldset'] = $options['fieldset'];
-            $view->vars['legend']   = $options['legend'];
+            $view->vars['fieldset'] = isset($options['fieldset']) ? $options['fieldset'] : null;
+            $view->vars['legend']   = isset($options['legend']) ? $options['legend'] : null;
             $view->vars['attr']['novalidate'] = 'novalidate';
             if (!isset($view->vars['attr']['class'])) {
                 $view->vars['attr']['class'] = '';
@@ -39,11 +39,11 @@ abstract class AbstractForm extends AbstractType
             $view->vars['attr']['class'] .= ' form-horizontal';
             $view->vars['attr']['class'] = trim($view->vars['attr']['class']);
 
-            if ($options['role']) {
+            if (isset($options['role'])) {
                 $view->vars['attr']['role'] = $options['role'];
             }
 
-            if ($options['loading']) {
+            if (isset($options['loading'])) {
                 $view->vars['attr']['data-btn-loading'] = $options['loading'];
             }
         }
