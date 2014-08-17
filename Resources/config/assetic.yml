@@ -39,6 +39,11 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/pick-a-color/css/pick-a-color-1.2.3.css
             output: css/btn_admin.colorpicker.css
 
+        btn_admin_datetimepicker_css:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css
+            output: css/btn_admin.datetimepicker.css
+
         # JS SECTION ###########################################################
 
         btn_admin_app_js:
@@ -98,3 +103,9 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/pick-a-color/js/pick-a-color.1.2.3.js
                 - @BtnAdminBundle/Resources/public/js/colorpicker.init.js
             output: js/btn_admin.colorpicker.js
+
+        btn_admin_datetimepicker_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js
+                - @BtnAdminBundle/Resources/public/js/datetimepicker.init.js
+            output: css/btn_admin.datetimepicker.js
