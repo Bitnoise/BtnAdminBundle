@@ -112,3 +112,8 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
 .btn-admin-tree-title {
   font-size: 12px;
 }
+
+.dropdown-menu.color-menu {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+}

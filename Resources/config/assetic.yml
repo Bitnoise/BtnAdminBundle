@@ -34,6 +34,11 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/jstree/css/style.css
             output: css/btn-admin.jstree.css
 
+        btn_admin_colorpicker_css:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/pick-a-color/css/pick-a-color-1.2.3.css
+            output: css/btn_admin.colorpicker.css
+
         # JS SECTION ###########################################################
 
         btn_admin_app_js:
@@ -86,3 +91,10 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/jstree/js/jstree.js
                 - @BtnAdminBundle/Resources/public/js/jstree.init.js
             output: js/btn-admin.jstree.js
+
+        btn_admin_colorpicker_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/tinycolor/js/tinycolor.js
+                - @BtnAdminBundle/Resources/public/vendor/pick-a-color/js/pick-a-color.1.2.3.js
+                - @BtnAdminBundle/Resources/public/js/colorpicker.init.js
+            output: js/btn-admin.colorpicker.js
