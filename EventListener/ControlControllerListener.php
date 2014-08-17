@@ -92,9 +92,9 @@ class ControlControllerListener
                     $crudSettings->setProviderId($providerId);
                 }
                 // if form id is not set then generate automaticly from controller
-                if (null === $crudSettings->getFormId()) {
-                    $formId = $this->bundleHelper->getFormId($controller[0]);
-                    $crudSettings->setFormId($formId);
+                if (null === $crudSettings->getFormAlias()) {
+                    $formAlias = $this->bundleHelper->getFormAlias($controller[0]);
+                    $crudSettings->setFormAlias($formAlias);
                 }
                 // if route prefix is not set then generate automaticly from controller
                 if (null === $crudSettings->getRoutePrefix()) {

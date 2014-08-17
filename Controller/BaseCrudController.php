@@ -34,7 +34,7 @@ class BaseCrudController extends AbstractCrudController
     {
         $entity = $this->getEntityProvider()->create();
 
-        $form = $this->createForm($this->crudSettings->getFormId(), $entity, array(
+        $form = $this->createForm($this->crudSettings->getFormAlias(), $entity, array(
             'legend' => $this->getTransKeyFromRoute(),
             'action' => $this->generatePrefixedUrl('create'),
         ));
@@ -61,7 +61,7 @@ class BaseCrudController extends AbstractCrudController
 
         $updateActionUrl = $this->generatePrefixedUrl('update', array('id' => $id));
 
-        $form = $this->createForm($this->crudSettings->getFormId(), $entity, array(
+        $form = $this->createForm($this->crudSettings->getFormAlias(), $entity, array(
             'legend' => $this->getTransKeyFromRoute(),
             'action' => $updateActionUrl,
         ));

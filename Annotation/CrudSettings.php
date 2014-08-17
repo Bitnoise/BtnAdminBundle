@@ -9,7 +9,7 @@ namespace Btn\AdminBundle\Annotation;
 class CrudSettings extends EntityProvider
 {
     /** @var string $form form alias for create/update actions */
-    protected $formId         = null;
+    protected $formAlias      = null;
     /** @var string $routePrefix route prefix to generate index/create/update routes */
     protected $routePrefix    = null;
     /** @var string $indexTemplate */
@@ -22,9 +22,9 @@ class CrudSettings extends EntityProvider
     /**
      *
      */
-    public function setFormId($formId)
+    public function setFormAlias($formAlias)
     {
-        $this->formId = $formId;
+        $this->formAlias = $formAlias;
 
         return $this;
     }
@@ -32,9 +32,9 @@ class CrudSettings extends EntityProvider
     /**
      *
      */
-    public function getFormId()
+    public function getFormAlias()
     {
-        return $this->formId;
+        return $this->formAlias;
     }
 
     /**
