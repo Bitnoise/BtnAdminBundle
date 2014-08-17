@@ -44,6 +44,12 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css
             output: css/btn_admin.datetimepicker.css
 
+        btn_admin_jquery_ui_css:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/jquery-ui/css/jquery-ui.css
+            output: css/btn_admin.jquery-ui.css
+
+
         # JS SECTION ###########################################################
 
         btn_admin_app_js:
@@ -109,3 +115,8 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js
                 - @BtnAdminBundle/Resources/public/js/datetimepicker.init.js
             output: css/btn_admin.datetimepicker.js
+
+        btn_admin_jquery_ui_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/jquery-ui/js/jquery-ui.js
+            output: js/btn_admin.jquery-ui.js
