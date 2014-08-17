@@ -7,7 +7,7 @@
         });
     };
 
-    app.ready(function() {
+    app.init(function() {
         addEvents();
     });
 

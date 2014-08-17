@@ -16,7 +16,7 @@
         });
     };
 
-    app.ready(function() {
+    app.init(function() {
         addEvent();
     });
 
