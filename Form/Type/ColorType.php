@@ -7,7 +7,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Btn\AdminBundle\Form\DataTransformer\ColorTransformer;
 use Btn\AdminBundle\Validator\Constraints as BtnAssert;
 
-class ColorpickerType extends AbstractType
+class ColorType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -52,6 +52,6 @@ class ColorpickerType extends AbstractType
      */
     public function getName()
     {
-        return 'btn_colorpicker';
+        return 'btn_color';
     }
 }
