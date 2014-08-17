@@ -96,6 +96,11 @@ class ControlControllerListener
                     $formId = $this->bundleHelper->getFormId($controller[0]);
                     $crudSettings->setFormId($formId);
                 }
+                // if route prefix is not set then generate automaticly from controller
+                if (null === $crudSettings->getRoutePrefix()) {
+                    $routePrefix = $this->bundleHelper->getRoutePrefix($controller[0]);
+                    $crudSettings->setRoutePrefix($routePrefix);
+                }
 
                 $controller[0]->setCrudSettings($crudSettings);
             }
