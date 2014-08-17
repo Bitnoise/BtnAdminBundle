@@ -1,7 +1,7 @@
-(function(app, bootbox, $, undefined){
+(function(app, $, bootbox, undefined){
 
     var addEvent = function() {
-        app.getOnce('btn-confirm').each(function(){
+        app.tools.getOnce('btn-confirm').each(function(){
             var element = $(this);
             if (element.is('a')) {
                 element.on('click', function(e){
@@ -20,8 +20,8 @@
         addEvent();
     });
 
-    PubSub.refresh(function() {
+    app.refresh(function() {
         addEvent();
     });
 
-})(BtnApp, bootbox, jQuery);
+})(BtnApp, jQuery, bootbox);
