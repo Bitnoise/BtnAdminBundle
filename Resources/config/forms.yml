@@ -7,6 +7,7 @@ parameters:
     btn_admin.form.button.update.class: Btn\AdminBundle\Form\Button\UpdateButton
     btn_admin.form.type.color.class: Btn\AdminBundle\Form\Type\ColorType
     btn_admin.form.type.date_time.class: Btn\AdminBundle\Form\Type\DateTimeType
+    btn_admin.form.type.embeded.class: Btn\AdminBundle\Form\Type\EmbededType
 
 services:
     btn_admin.form.handler.entiy_form:
@@ -77,3 +78,11 @@ services:
             - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
             - { name: form.type, alias: btn_datetime }
+
+    btn_admin.form.type.embeded:
+        class: %btn_admin.form.type.embeded.class%
+        calls:
+            - [setAssetLoader, ['@btn_base.asset_loader']]
+            - [setTranslator, ['@translator']]
+        tags:
+            - { name: form.type, alias: btn_embeded }

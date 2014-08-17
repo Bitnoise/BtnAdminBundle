@@ -41,3 +41,7 @@ btn_admin.flash.created: 'Created successfully'
 btn_admin.flash.deleted: 'Deleted successfully'
 btn_admin.flash.updated: 'Updated successfully'
 btn_admin.flash.saved: 'Saved successfully'
+
+# Forms
+btn_admin.form.type.embeded.add: 'Add'
+btn_admin.form.type.ebmeded.remove: 'Remove'
