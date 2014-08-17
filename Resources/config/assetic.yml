@@ -49,7 +49,6 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/jquery-ui/css/jquery-ui.css
             output: css/btn_admin.jquery-ui.css
 
-
         # JS SECTION ###########################################################
 
         btn_admin_app_js:
