@@ -117,4 +117,16 @@ abstract class AbstractType extends BaseAbstractType
             ));
         }
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function trans($id, array $parameters = array(), $domain = null, $locale = null)
+    {
+        if (!$this->translator) {
+            throw new \Exception('Translator was not injectet into form');
+        }
+
+        return $this->translator->trans($id, $parameters, $domain, $locale);
+    }
 }
