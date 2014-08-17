@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManager;
 use Btn\BaseBundle\Provider\EntityProviderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Btn\BaseBundle\Assetic\Loader\AssetLoaderInterface;
+use Symfony\Component\Routing\RouterInterface;
 
 abstract class AbstractType extends BaseAbstractType
 {
@@ -24,6 +25,8 @@ abstract class AbstractType extends BaseAbstractType
     protected $translator;
     /** @var \Btn\BaseBundle\Assetic\Loader\AssetLoaderInterface $assetLoader */
     protected $assetLoader;
+    /** @var \Symfony\Component\Routing\RouterInterface $router */
+    protected $router;
 
     /**
      *
@@ -71,6 +74,16 @@ abstract class AbstractType extends BaseAbstractType
     public function setAssetLoader(AssetLoaderInterface $assetLoader)
     {
         $this->assetLoader = $assetLoader;
+
+        return $this;
+    }
+
+    /**
+     *
+     */
+    public function setRouter(RouterInterface $router)
+    {
+        $this->router = $router;
 
         return $this;
     }
