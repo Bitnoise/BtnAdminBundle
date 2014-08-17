@@ -1,17 +1,44 @@
 // main app object
-var BtnAdminApp = {
+var BtnApp = {
     data: {
         debug: true
     },
     init: function() {
-        BtnAdminApp.tools.log('init main admin app');
-        PubSub.publish('btn_admin.is_ready');
+        BtnApp.tools.log('init main admin app');
+        PubSub.publish('btn_admin.ready');
     },
+    ready: function(callback) {
+        switch (typeof callback) {
+          case 'function':
+            PubSub.subscribe('btn_admin.ready', callback);
+            break;
+          case 'undefined':
+            PubSub.publish('btn_admin.ready');
+            break;
+        }
+    },
+    refresh: function(callback) {
+        switch (typeof callback) {
+          case 'function':
+            PubSub.subscribe('btn_admin.refresh', callback);
+            break;
+          case 'undefined':
+            PubSub.publish('btn_admin.refresh');
+            break;
+        }
+    },
+    getOnce: function(selector)
+    {
+        return jQuery('[data-' + selector + ']')
+            .filter(':not([data-' + selector + '-binded])')
+            .attr('data-' + selector + '-binded', true)
+        ;
+    }
 };
 
 // handy tools
-BtnAdminApp.tools = {
+BtnApp.tools = {
     log: function(msg) {
-        BtnAdminApp.data.debug ? console.log(msg) : null;
+        BtnApp.data.debug ? console.log(msg) : null;
     }
 }
