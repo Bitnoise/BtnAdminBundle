@@ -8,14 +8,26 @@ namespace Btn\AdminBundle\Annotation;
  */
 class CrudSettings extends EntityProvider
 {
-    /** @var string $form form alias for new/create/update actions */
-    protected $formId;
+    /** @var string $form form alias for create/update actions */
+    protected $formId         = null;
+    /** @var string $routePrefix route prefix to generate index/create/update routes */
+    protected $routePrefix    = null;
     /** @var string $indexTemplate */
     protected $indexTemplate  = null;
     /** @var string $createTemplate */
     protected $createTemplate = 'BtnAdminBundle:BaseCrud:create.html.twig';
     /** @var string $editTemplate */
     protected $updateTemplate = 'BtnAdminBundle:BaseCrud:update.html.twig';
+
+    /**
+     *
+     */
+    public function setFormId($formId)
+    {
+        $this->formId = $formId;
+
+        return $this;
+    }
 
     /**
      *
@@ -28,11 +40,19 @@ class CrudSettings extends EntityProvider
     /**
      *
      */
-    public function setFormId($formId)
+    public function setRoutePrefix($routePrefix)
     {
-        $this->formId = $formId;
+        $this->routePrefix = $routePrefix;
 
         return $this;
+    }
+
+    /**
+     *
+     */
+    public function getRoutePrefix()
+    {
+        return $this->routePrefix;
     }
 
     /**
