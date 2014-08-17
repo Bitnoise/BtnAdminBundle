@@ -6,23 +6,23 @@ assetic:
         btn_admin_bootstrap_css:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/bootstrap/css/bootstrap.css
-            output: css/btn-admin.bootstrap.css
+            output: css/btn_admin.bootstrap.css
 
         btn_admin_bootstrap_flat_css:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/bootflat/css/bootflat.css
                 - @BtnAdminBundle/Resources/public/css/bootflat-custom.css
-            output: css/btn-admin.bootstrap-flat.css
+            output: css/btn_admin.bootstrap-flat.css
 
         btn_admin_bootstrap_theme_css:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/bootstrap/css/bootstrap-theme.css
-            output: css/btn-admin.bootstrap-theme.css
+            output: css/btn_admin.bootstrap-theme.css
 
         btn_admin_ladda_css:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/ladda-bootstrap/css/ladda-themeless.css
-            output: css/btn-admin.ladda.css
+            output: css/btn_admin.ladda.css
 
         btn_admin_loading_css:
             inputs:
@@ -45,56 +45,56 @@ assetic:
             inputs:
                 - @btn_admin_pubsub_js
                 - @BtnAdminBundle/Resources/public/js/app.js
-            output: js/btn-admin.app.js
+            output: js/btn_admin.app.js
 
         btn_admin_jquery_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/jquery/js/jquery-1.11.1.js
-            output: js/btn-admin.jquery.js
+            output: js/btn_admin.jquery.js
 
         btn_admin_bootstrap_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/bootstrap/js/bootstrap.js
-            output: js/btn-admin.bootstrap.js
+            output: js/btn_admin.bootstrap.js
 
         btn_admin_confirm_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/bootbox.js/js/bootbox.js
                 - @BtnAdminBundle/Resources/public/js/confirm.init.js
-            output: js/btn-admin.confirm.js
+            output: js/btn_admin.confirm.js
 
         btn_admin_pubsub_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/pubsub-js/js/pubsub.js
-            output: js/btn-admin.pubsub.js
+            output: js/btn_admin.pubsub.js
 
         btn_admin_spin_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/spin.js/js/spin.js
                 - @BtnAdminBundle/Resources/public/js/spin.init.js
-            output: js/btn-admin.spin.js
+            output: js/btn_admin.spin.js
 
         btn_admin_ladda_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/ladda-bootstrap/js/ladda.js
                 - @BtnAdminBundle/Resources/public/js/ladda.init.js
-            output: js/btn-admin.ladda.js
+            output: js/btn_admin.ladda.js
 
         btn_admin_loading_js:
             inputs:
                 - @btn_admin_spin_js
                 - @btn_admin_ladda_js
-            output: js/btn-admin.loading.js
+            output: js/btn_admin.loading.js
 
         btn_admin_jstree_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/jstree/js/jstree.js
                 - @BtnAdminBundle/Resources/public/js/jstree.init.js
-            output: js/btn-admin.jstree.js
+            output: js/btn_admin.jstree.js
 
         btn_admin_colorpicker_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/tinycolor/js/tinycolor.js
                 - @BtnAdminBundle/Resources/public/vendor/pick-a-color/js/pick-a-color.1.2.3.js
                 - @BtnAdminBundle/Resources/public/js/colorpicker.init.js
-            output: js/btn-admin.colorpicker.js
+            output: js/btn_admin.colorpicker.js
