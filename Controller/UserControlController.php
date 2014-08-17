@@ -10,6 +10,6 @@ use Btn\AdminBundle\Annotation\Crud;
  * @Route("/user")
  * @Crud()
  */
-class UserControlController extends BaseCrudController
+class UserControlController extends CrudController
 {
 }

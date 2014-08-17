@@ -15,9 +15,9 @@ class CrudSettings extends EntityProvider
     /** @var string $indexTemplate */
     protected $indexTemplate  = null;
     /** @var string $createTemplate */
-    protected $createTemplate = 'BtnAdminBundle:BaseCrud:create.html.twig';
+    protected $createTemplate = 'BtnAdminBundle:Crud:create.html.twig';
     /** @var string $editTemplate */
-    protected $updateTemplate = 'BtnAdminBundle:BaseCrud:update.html.twig';
+    protected $updateTemplate = 'BtnAdminBundle:Crud:update.html.twig';
 
     /**
      *

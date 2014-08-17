@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 /**
  *
  */
-class BaseCrudController extends AbstractCrudController
+class CrudController extends AbstractCrudController
 {
     /**
      * @Route("/", methods={"GET", "POST"})
