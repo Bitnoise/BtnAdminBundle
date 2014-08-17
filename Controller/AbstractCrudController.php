@@ -27,9 +27,7 @@ abstract class AbstractCrudController extends AbstractControlController
      */
     public function getRoutePrefix()
     {
-        $route = $this->getRequest()->attributes->get('_route');
-
-        return substr($route, 0, strrpos($route, '_'));
+        return $this->crudSettings->getRoutePrefix();
     }
 
     /**
