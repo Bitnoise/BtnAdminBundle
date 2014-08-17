@@ -5,23 +5,23 @@ assetic:
 
         btn_admin_bootstrap_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/css/vendor/bootstrap/bootstrap.css
+                - @BtnAdminBundle/Resources/public/vendor/bootstrap/css/bootstrap.css
             output: css/btn-admin.bootstrap.css
 
         btn_admin_bootstrap_flat_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/css/vendor/bootflat/bootflat.css
+                - @BtnAdminBundle/Resources/public/vendor/bootflat/css/bootflat.css
                 - @BtnAdminBundle/Resources/public/css/bootflat-custom.css
             output: css/btn-admin.bootstrap-flat.css
 
         btn_admin_bootstrap_theme_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/css/vendor/bootstrap/bootstrap-theme.css
+                - @BtnAdminBundle/Resources/public/vendor/bootstrap/css/bootstrap-theme.css
             output: css/btn-admin.bootstrap-theme.css
 
         btn_admin_ladda_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/css/vendor/ladda-bootstrap/ladda-themeless.css
+                - @BtnAdminBundle/Resources/public/vendor/ladda-bootstrap/css/ladda-themeless.css
             output: css/btn-admin.ladda.css
 
         btn_admin_loading_css:
@@ -31,7 +31,7 @@ assetic:
 
         btn_admin_jstree_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/css/vendor/jstree/style.css
+                - @BtnAdminBundle/Resources/public/vendor/jstree/css/style.css
             output: css/btn-admin.jstree.css
 
         # JS SECTION ###########################################################
@@ -44,34 +44,34 @@ assetic:
 
         btn_admin_jquery_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/vendor/jquery/jquery-1.11.1.js
+                - @BtnAdminBundle/Resources/public/vendor/jquery/js/jquery-1.11.1.js
             output: js/btn-admin.jquery.js
 
         btn_admin_bootstrap_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/vendor/bootstrap/bootstrap.js
+                - @BtnAdminBundle/Resources/public/vendor/bootstrap/js/bootstrap.js
             output: js/btn-admin.bootstrap.js
 
         btn_admin_confirm_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/vendor/bootbox.js/bootbox.js
+                - @BtnAdminBundle/Resources/public/vendor/bootbox.js/js/bootbox.js
                 - @BtnAdminBundle/Resources/public/js/confirm.init.js
             output: js/btn-admin.confirm.js
 
         btn_admin_pubsub_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/vendor/pubsub-js/pubsub.js
+                - @BtnAdminBundle/Resources/public/vendor/pubsub-js/js/pubsub.js
             output: js/btn-admin.pubsub.js
 
         btn_admin_spin_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/vendor/spin.js/spin.js
+                - @BtnAdminBundle/Resources/public/vendor/spin.js/js/spin.js
                 - @BtnAdminBundle/Resources/public/js/spin.init.js
             output: js/btn-admin.spin.js
 
         btn_admin_ladda_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/vendor/ladda-bootstrap/ladda.js
+                - @BtnAdminBundle/Resources/public/vendor/ladda-bootstrap/js/ladda.js
                 - @BtnAdminBundle/Resources/public/js/ladda.init.js
             output: js/btn-admin.ladda.js
 
@@ -83,6 +83,6 @@ assetic:
 
         btn_admin_jstree_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/vendor/jstree/jstree.js
+                - @BtnAdminBundle/Resources/public/vendor/jstree/js/jstree.js
                 - @BtnAdminBundle/Resources/public/js/jstree.init.js
             output: js/btn-admin.jstree.js
