@@ -113,7 +113,8 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
   font-size: 12px;
 }
 
-.dropdown-menu.color-menu {
+.dropdown-menu.color-menu,
+.dropdown-menu.datetimepicker {
     background-color: #ffffff;
     border: 1px solid #cccccc;
 }
