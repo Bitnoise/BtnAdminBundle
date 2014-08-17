@@ -51,10 +51,6 @@ class ControlControllerListener
      */
     public function onKernelController(FilterControllerEvent $event)
     {
-        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
-            return;
-        }
-
         $controller = $event->getController();
 
         if (!is_array($controller)) {
