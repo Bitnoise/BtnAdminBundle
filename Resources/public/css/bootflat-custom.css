@@ -74,6 +74,10 @@ textarea,
     padding-left: 0;
 }
 
+.no-right-padding {
+    padding-right: 0;
+}
+
 /*************************
  *
  * FOS user for reset password fixes
