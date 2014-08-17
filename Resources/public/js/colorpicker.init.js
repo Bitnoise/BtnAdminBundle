@@ -2,8 +2,9 @@
 
     var addEvents = function() {
         app.getOnce('btn-colorpicker').each(function() {
-            $(this).pickAColor({
-                allowBlank: $(this).attr('required') ? false : true,
+            var element = $(this);
+            element.pickAColor({
+                allowBlank: element.attr('required') ? false : true,
                 inlineDropdown: true,
             });
         });
