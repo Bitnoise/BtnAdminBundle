@@ -4,6 +4,8 @@ namespace Btn\AdminBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Btn\AdminBundle\Form\DataTransformer\ColorTransformer;
+use Btn\AdminBundle\Validator\Constraints as BtnAssert;
 
 class ColorpickerType extends AbstractType
 {
@@ -13,6 +15,8 @@ class ColorpickerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
+
+        $builder->addModelTransformer(new ColorTransformer());
 
         $this->assetLoader->load('btn_admin_colorpicker');
     }
@@ -25,7 +29,10 @@ class ColorpickerType extends AbstractType
         parent::setDefaultOptions($resolver);
 
         $resolver->setDefaults(array(
-            'attr'  => array(
+            'constraints' => array(
+                new BtnAssert\Color(),
+            ),
+            'attr' => array(
                 'data-btn-colorpicker' => true,
                 'class' => 'btn-colorpicker',
             ),
