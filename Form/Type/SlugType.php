@@ -49,7 +49,7 @@ class SlugType extends AbstractType
 
         $resolver->setDefaults(array(
             'label'       => 'btn_admin.form.type.slug.label',
-            'slug_source' => null,
+            'slug_source' => 'title',
         ));
     }
 
