@@ -6,6 +6,22 @@
 {% endspaceless %}
 {% endblock form_widget_simple %}
 
+{% block text_widget %}
+    {% if addon %}
+        <div class="input-group">
+            {% if addon_pre %}
+                <span class="input-group-addon">{{ addon_pre|trans }}</span>
+            {% endif %}
+            {{ block('form_widget_simple') }}
+            {% if addon_post %}
+                <span class="input-group-addon">{{ addon_post|trans }}</span>
+            {% endif %}
+        </div>
+    {% else %}
+        {{ block('form_widget_simple') }}
+    {% endif %}
+{% endblock %}
+
 {% block textarea_widget %}
 {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
 {% spaceless %}
