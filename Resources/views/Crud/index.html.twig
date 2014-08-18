@@ -33,7 +33,7 @@
                             {# base block to override #}
                         {% endblock %}
                         <td class="{{ lst.col_act_class }}">
-                            {{ lnk.edit(route_update, { id: entity.id }) }}
+                            {{ lnk.edit(route_edit, { id: entity.id }) }}
                         </td>
                     </tr>
                 {% endfor %}
@@ -47,5 +47,5 @@
 {% endblock %}
 
 {% block list_buttons %}
-    {{ lnk.add(route_create) }}
+    {{ lnk.add(route_new) }}
 {% endblock %}

@@ -22,13 +22,21 @@ class CrudController extends AbstractCrudController
             'list_header'  => $this->getTransKeyFromRoute(),
             'pagination'   => $this->paginate($entities),
             'route_index'  => $this->getPrefixedRoute('index'),
-            'route_create' => $this->getPrefixedRoute('create'),
-            'route_update' => $this->getPrefixedRoute('update'),
+            'route_new'    => $this->getPrefixedRoute('new'),
+            'route_edit'   => $this->getPrefixedRoute('edit'),
         ));
     }
 
     /**
-     * @Route("/create", methods={"GET", "POST"})
+     * @Route("/new", methods={"GET"})
+     */
+    public function newAction(Request $request)
+    {
+        return $this->createAction($request);
+    }
+
+    /**
+     * @Route("/create", methods={"POST"})
      */
     public function createAction(Request $request)
     {
@@ -42,7 +50,7 @@ class CrudController extends AbstractCrudController
         if ($this->handleForm($form, $request)) {
             $this->setFlash('btn_admin.flash.created');
 
-            return $this->redirect($this->generatePrefixedUrl('update', array('id' => $entity->getId())));
+            return $this->redirect($this->generatePrefixedUrl('edit', array('id' => $entity->getId())));
         }
 
         return $this->render($this->crudSettings->getCreateTemplate(), array(
@@ -53,23 +61,29 @@ class CrudController extends AbstractCrudController
     }
 
     /**
-     * @Route("/{id}/update", requirements={"id" = "\d+"}, methods={"GET", "POST"}))
+     * @Route("/{id}/edit", requirements={"id" = "\d+"}, methods={"GET"}))
+     */
+    public function editAction(Request $request, $id)
+    {
+        return $this->updateAction($request, $id);
+    }
+
+    /**
+     * @Route("/{id}/update", requirements={"id" = "\d+"}, methods={"POST"}))
      */
     public function updateAction(Request $request, $id)
     {
         $entity = $this->findEntityOr404($this->getEntityProvider()->getClass(), $id);
 
-        $updateActionUrl = $this->generatePrefixedUrl('update', array('id' => $id));
-
         $form = $this->createForm($this->crudSettings->getFormAlias(), $entity, array(
             'legend' => $this->getTransKeyFromRoute(),
-            'action' => $updateActionUrl,
+            'action' => $this->generatePrefixedUrl('update', array('id' => $id)),
         ));
 
         if ($this->handleForm($form, $request)) {
             $this->setFlash('btn_admin.flash.updated');
 
-            return $this->redirect($updateActionUrl);
+            return $this->redirect($this->generatePrefixedUrl('edit', array('id' => $id)));
         }
 
         return $this->render($this->crudSettings->getUpdateTemplate(), array(
