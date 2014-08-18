@@ -46,5 +46,18 @@ btn_admin.flash.saved: 'Saved successfully'
 # Forms
 btn_admin.form.type.embeded.add: 'Add'
 btn_admin.form.type.ebmeded.remove: 'Remove'
-
 btn_admin.form.type.slug.label: 'Nice URL'
+
+# User crud
+btn_admin.usercontrol_index: 'User list'
+btn_admin.usercontrol_new: 'User new'
+btn_admin.usercontrol_create: 'User create'
+btn_admin.usercontrol_edit: 'User edit'
+btn_admin.usercontrol_update: 'User update'
+
+btn_admin.user.username: 'Username'
+btn_admin.user.email: 'Email'
+btn_admin.user.password: 'Password'
+btn_admin.user.password_confirm: 'Password confirm'
+btn_admin.user.enabled: 'Enabled'
+btn_admin.user.last_login: 'Last login'

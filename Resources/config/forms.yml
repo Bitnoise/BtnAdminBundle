@@ -10,6 +10,7 @@ parameters:
     btn_admin.form.type.embeded.class: Btn\AdminBundle\Form\Type\EmbededType
     btn_admin.form.extension.text_type.class: Btn\AdminBundle\Form\Extension\TextTypeExtension
     btn_admin.form.type.slug.class: Btn\AdminBundle\Form\Type\SlugType
+    btn_admin.form.user_control.class: Btn\AdminBundle\Form\UserControlForm
 
 services:
     btn_admin.form.handler.entiy_form:
@@ -32,18 +33,6 @@ services:
         abstract: true
         calls:
             - [setAssetLoader, ['@btn_base.asset_loader']]
-
-    btn_admin.registration.form.type:
-        class: Btn\AdminBundle\Form\Type\RegistrationFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: btn_admin_user_add }
-
-    btn_admin.profile.form.type:
-        class: Btn\AdminBundle\Form\Type\ProfileFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: btn_admin_edit }
 
     btn_admin.form.button.create:
         class: %btn_admin.form.button.create.class%
@@ -100,3 +89,12 @@ services:
             - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
             - { name: form.type, alias: btn_slug }
+
+    btn_admin.form.user_control:
+        class: %btn_admin.form.user_control.class%
+        parent: btn_admin.form.abstract
+        calls:
+            - [setClass, [%btn_admin.user.class%]]
+        tags:
+            - { name: form.type, alias: btn_admin_form_user_control }
+
