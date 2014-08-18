@@ -120,9 +120,24 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
 .btn-admin-tree-title {
   font-size: 12px;
 }
-
+/*************************
+ *
+ * Colorpicker/datepicker specific things
+ *
+ **************************/
 .dropdown-menu.color-menu,
 .dropdown-menu.datetimepicker {
     background-color: #ffffff;
     border: 1px solid #cccccc;
+}
+.pick-a-color-markup .color-preview,
+.pick-a-color-markup .color-box,
+.pick-a-color-markup .color-menu-tabs .tab,
+.pick-a-color-markup .color-menu-tabs .tab-active {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    -webkit-border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    -webkit-border-top-left-radius: 0 !important;
 }
