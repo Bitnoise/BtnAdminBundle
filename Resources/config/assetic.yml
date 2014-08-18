@@ -30,6 +30,8 @@ assetic:
             output: css/btn-admin.loading.css
 
         btn_admin_jstree_css:
+            filters:
+                - cssrewrite
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/jstree/css/style.css
             output: css/btn-admin.jstree.css

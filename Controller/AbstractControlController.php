@@ -92,7 +92,7 @@ class AbstractControlController extends AbstractController
      */
     public function paginate($target, $page = null, $limit = null, array $options = null)
     {
-        $paginator = $this->get('paginator');
+        $paginator = $this->get('knp_paginator');
 
         if (null === $page) {
             $pageParameterName = $paginator->getDefaultOption('pageParameterName');
