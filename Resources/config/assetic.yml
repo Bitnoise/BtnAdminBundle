@@ -126,3 +126,9 @@ assetic:
             inputs:
                 - @BtnAdminBundle/Resources/public/js/embeded.js
             output: js/btn_admin.embeded.js
+
+        btn_admin_slugify_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/jq.slugify.js
+                - @BtnAdminBundle/Resources/public/js/jq.slugify.init.js
+            output: js/btn_admin.slugify.js

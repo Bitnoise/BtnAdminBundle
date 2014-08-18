@@ -46,3 +46,5 @@ btn_admin.flash.saved: 'Saved successfully'
 # Forms
 btn_admin.form.type.embeded.add: 'Add'
 btn_admin.form.type.ebmeded.remove: 'Remove'
+
+btn_admin.form.type.slug.label: 'Nice URL'

@@ -197,3 +197,8 @@
         </div>
     {%- endif %}
 {%- endblock date_widget %}
+
+{% block btn_slug_widget %}
+    {% set attr = attr|merge({'data-slug-source-selector': '#' ~ parent[slug_source].vars.id}) %}
+    {{ block('text_widget') }}
+{% endblock %}

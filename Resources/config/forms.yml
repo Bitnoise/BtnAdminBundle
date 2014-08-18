@@ -9,6 +9,7 @@ parameters:
     btn_admin.form.type.date_time.class: Btn\AdminBundle\Form\Type\DateTimeType
     btn_admin.form.type.embeded.class: Btn\AdminBundle\Form\Type\EmbededType
     btn_admin.form.extension.text_type.class: Btn\AdminBundle\Form\Extension\TextTypeExtension
+    btn_admin.form.type.slug.class: Btn\AdminBundle\Form\Type\SlugType
 
 services:
     btn_admin.form.handler.entiy_form:
@@ -92,3 +93,10 @@ services:
         class: %btn_admin.form.extension.text_type.class%
         tags:
             - { name: form.type_extension, alias: text }
+
+    btn_admin.form.type.slug:
+        class: %btn_admin.form.type.slug.class%
+        calls:
+            - [setAssetLoader, ['@btn_base.asset_loader']]
+        tags:
+            - { name: form.type, alias: btn_slug }
