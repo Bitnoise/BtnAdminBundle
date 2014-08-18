@@ -12,7 +12,7 @@
             // prevent default
             e.preventDefault();
             // remove the whole container form
-            formContainer.remove();
+            formContainer.parent('.form-row').remove();
         });
     }
 
