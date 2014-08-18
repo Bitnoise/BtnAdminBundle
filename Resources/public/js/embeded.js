@@ -80,7 +80,7 @@
                     regEx      = new RegExp(parent.data('prototype-replacement'), 'g'),
                     formsLimit = parent.data('prototype-limit') ? parent.data('prototype-limit') : defaultFormsLimit;
                 //check - add new form only if there is no limit (formsLimit ==0) or standard count check
-                if (formsLimit == 0 || (formsLimit >= parent.data('index')) ) {
+                if (formsLimit == 0 || (formsLimit > parent.children('.form-row').length) ) {
                     // add a new form (see next code block)
                     addForm(parent, $(this), regEx);
                 } else {
