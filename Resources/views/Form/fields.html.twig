@@ -9,12 +9,12 @@
 {% block text_widget %}
     {% if addon %}
         <div class="input-group">
-            {% if addon_pre %}
-                <span class="input-group-addon">{{ addon_pre|trans }}</span>
+            {% if addon_prepend %}
+                <span class="input-group-addon">{{ addon_prepend|trans }}</span>
             {% endif %}
             {{ block('form_widget_simple') }}
-            {% if addon_post %}
-                <span class="input-group-addon">{{ addon_post|trans }}</span>
+            {% if addon_append %}
+                <span class="input-group-addon">{{ addon_append|trans }}</span>
             {% endif %}
         </div>
     {% else %}

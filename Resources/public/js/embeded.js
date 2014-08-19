@@ -37,6 +37,10 @@
 
         //re-add form triggers - if prototype has embeded prototype in
         addEmbededFormTriggers(collectionSelector);
+
+        if (BtnApp) {
+            BtnApp.refresh(newForm);
+        }
     }
     //add "Add" button to the end of embedded forms
     function addEmbededFormTriggers(collectionsSelector) {
