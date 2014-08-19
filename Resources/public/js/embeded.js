@@ -8,7 +8,7 @@
     function addEmbededFormDeleteTrigger(formContainer, button) {
         formContainer.append(button);
 
-        button.on('click', function(e) {
+        button.on('click btnRemove', function(e) {
             // prevent default
             e.preventDefault();
             // remove the whole container form

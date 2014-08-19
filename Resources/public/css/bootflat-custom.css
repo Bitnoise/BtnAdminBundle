@@ -61,6 +61,15 @@ textarea,
     margin: 0;
 }
 
+.bootbox .modal-body {
+    padding-top: 15px;
+}
+
+.bootbox .bootbox-body {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 /*************************
  *
  * Utilities

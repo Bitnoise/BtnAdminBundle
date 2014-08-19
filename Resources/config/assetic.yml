@@ -72,6 +72,7 @@ assetic:
         btn_admin_confirm_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/bootbox.js/js/bootbox.js
+                - @BtnAdminBundle/Resources/public/vendor/bootstrap-confirm-button/bootstrap-confirm-button.js
                 - @BtnAdminBundle/Resources/public/js/confirm.init.js
             output: js/btn_admin.confirm.js
 
