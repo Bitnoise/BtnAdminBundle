@@ -30,8 +30,8 @@ var BtnApp = {
 
 // handy tools
 BtnApp.tools = {
-    log: function(msg) {
-        BtnApp.data.debug ? console.log(msg) : null;
+    log: function() {
+        BtnApp.data.debug ? console.log.apply(console, arguments) : null;
     },
     isNode: function(o){
         return (typeof Node === "object" ? o instanceof Node : o && typeof o === "object" && typeof o.nodeType === "number" && typeof o.nodeName==="string");
