@@ -3,37 +3,28 @@ var BtnApp = {
     data: {
         debug: true
     },
-    init: function(callback) {
-        switch (typeof callback) {
-          case 'function':
-            PubSub.subscribe('btn_admin.init', callback);
-            break;
-          case 'undefined':
-            this.tools.log('btn_admin.init');
-            PubSub.publish('btn_admin.init');
-            break;
+    triggerState: function (state, input) {
+        var statePrefixed = 'btn_admin.' + state;
+        switch (typeof input) {
+            case 'function':
+                PubSub.subscribe(statePrefixed, input);
+                break;
+            case 'object':
+            case 'undefined':
+                var parms = {context: this.tools.getContext(input)};
+                this.tools.log(statePrefixed, parms);
+                PubSub.publish(statePrefixed, parms);
+                break;
         }
     },
-    ready: function(callback) {
-        switch (typeof callback) {
-          case 'function':
-            PubSub.subscribe('btn_admin.ready', callback);
-            break;
-          case 'undefined':
-            this.tools.log('btn_admin.ready');
-            PubSub.publish('btn_admin.ready');
-            break;
-        }
+    init: function(input) {
+        this.triggerState('init', input);
     },
-    refresh: function(callback) {
-        switch (typeof callback) {
-          case 'function':
-            PubSub.subscribe('btn_admin.refresh', callback);
-            break;
-          case 'undefined':
-            PubSub.publish('btn_admin.refresh');
-            break;
-        }
+    ready: function(input) {
+        this.triggerState('ready', input);
+    },
+    refresh: function(input) {
+        this.triggerState('refresh', input);
     },
 };
 
