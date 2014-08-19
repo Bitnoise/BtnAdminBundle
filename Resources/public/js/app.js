@@ -33,6 +33,9 @@ BtnApp.tools = {
     log: function() {
         BtnApp.data.debug ? console.log.apply(console, arguments) : null;
     },
+    warn: function() {
+        BtnApp.data.debug ? console.warn.apply(console, arguments) : null;
+    },
     isNode: function(o){
         return (typeof Node === "object" ? o instanceof Node : o && typeof o === "object" && typeof o.nodeType === "number" && typeof o.nodeName==="string");
     },
