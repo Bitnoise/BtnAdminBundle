@@ -70,6 +70,11 @@ textarea,
     font-weight: bold;
 }
 
+.form-row.ui-sortable-handle {
+    cursor: move;
+    background-color: #ffffff;
+}
+
 /*************************
  *
  * Utilities
