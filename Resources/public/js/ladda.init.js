@@ -1,6 +1,35 @@
 (function(app, $, Ladda, undefined){
 
-    var addEvent = function() {
+    // register new tool funciton
+    app.tools.loadingButton = function(obj) {
+        var button = $(obj);
+
+        if (!button.hasClass('btn') || button.attr('type') == 'text') {
+            BtnApp.tools.warn('not suppoerted for loadingButton', button);
+            return;
+        }
+
+        // wrap button in Ladda classes
+        if (!button.hasClass('ladda-button')) {
+            button.addClass('ladda-button');
+            button.attr('data-style', 'expand-right');
+            var span = $('<span>').addClass('ladda-label').html(button.html());
+            button.empty().append(span);
+        }
+
+        var ladaObject = button.data('ladda-object');
+
+        // if object not found then create and store in button
+        if (!ladaObject) {
+            ladaObject = Ladda.create(button.get(0));
+            button.data('ladda-object', ladaObject);
+        }
+
+        return ladaObject;
+    };
+
+    // Add events
+    var addEvents = function() {
         app.tools.getOnce('btn-loading').each(function() {
             var element = $(this);
             if (element.is('form')) {
@@ -16,11 +45,11 @@
     };
 
     app.init(function() {
-        addEvent();
+        addEvents();
     });
 
     app.refresh(function() {
-        addEvent();
+        addEvents();
     });
 
 })(BtnApp, jQuery, Ladda);
