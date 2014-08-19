@@ -132,3 +132,8 @@ assetic:
                 - @BtnAdminBundle/Resources/public/js/jq.slugify.js
                 - @BtnAdminBundle/Resources/public/js/jq.slugify.init.js
             output: js/btn_admin.slugify.js
+
+        btn_admin_sortable_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/sortable.js
+            output: js/btn_admin.sortable.js
