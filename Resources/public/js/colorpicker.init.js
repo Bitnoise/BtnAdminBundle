@@ -1,7 +1,7 @@
 (function(app, $, undefined){
 
-    var addEvents = function() {
-        app.tools.getOnce('btn-colorpicker').each(function() {
+    var addEvents = function(context) {
+        app.tools.getOnce('btn-colorpicker', context).each(function() {
             var element = $(this);
             element.pickAColor({
                 allowBlank: element.attr('required') ? false : true,
@@ -10,12 +10,12 @@
         });
     };
 
-    app.init(function() {
-        addEvents();
+    app.init(function(msg, data) {
+        addEvents(data.context);
     });
 
-    app.refresh(function() {
-        addEvents();
+    app.refresh(function(msg, data) {
+        addEvents(data.context);
     });
 
 })(BtnApp, jQuery);
