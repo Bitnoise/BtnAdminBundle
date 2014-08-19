@@ -84,6 +84,7 @@ assetic:
         btn_admin_spin_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/spin.js/js/spin.js
+                - @BtnAdminBundle/Resources/public/vendor/spin.js/js/jquery.spin.js
                 - @BtnAdminBundle/Resources/public/js/spin.init.js
             output: js/btn_admin.spin.js
 
