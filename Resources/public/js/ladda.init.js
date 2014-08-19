@@ -34,11 +34,14 @@
             var element = $(this);
             if (element.is('form')) {
                 element.on('submit', function() {
-                    var button = $(this).find('.ladda-button');
+                    var button = $(this).find('.btn-save, .btn-update, .btn-create');
                     if (button.length) {
-                        var l = Ladda.create(button.get(0));
-                        l.start();
+                        l = app.tools.loadingButton(button);
+                        if (l) {
+                            l.start();
+                        }
                     }
+
                 });
             }
         });

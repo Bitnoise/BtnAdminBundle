@@ -21,8 +21,7 @@ class CreateButton extends AbstractType implements SubmitButtonTypeInterface
         $resolver->setDefaults(array(
             'label' => 'btn_admin.create',
             'attr'  => array(
-                'class'      => 'btn btn-success btn-create ladda-button',
-                'data-style' => 'expand-right',
+                'class' => 'btn btn-success btn-create',
             ),
         ));
     }

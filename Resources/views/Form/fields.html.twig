@@ -177,7 +177,7 @@
     {% endif %}
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="{{ type|default('button') }}" {{ block('button_attributes') }}><span class="ladda-label">{{ label|trans({}, translation_domain) }}</span></button>
+            <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
         </div>
     </div>
 {% endspaceless %}
