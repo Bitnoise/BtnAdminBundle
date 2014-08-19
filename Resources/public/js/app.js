@@ -52,6 +52,8 @@ BtnApp.tools = {
             return document;
         }
     },
+    getOnce: function(selector, context) {
+        return jQuery(context || document).find('[data-' + selector + ']')
             .filter(':not([data-' + selector + '-binded])')
             .attr('data-' + selector + '-binded', true)
         ;
