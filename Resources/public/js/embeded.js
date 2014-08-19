@@ -43,11 +43,10 @@
         }
     }
     //add "Add" button to the end of embedded forms
-    function addEmbededFormTriggers(collectionsSelector) {
-        collections = $(collectionsSelector);
+    function addEmbededFormTriggers(collections) {
         //check if collection has button already - was appended
         var buttonObject;
-        collections.each(function() {
+        $(collections).each(function() {
             //add "remove" form button
             if ($(this).data('prototype-remove')) {
                 buttonObject = $($(this).data('prototype-remove')).addClass(removeButtonSelector);
@@ -69,11 +68,38 @@
         });
     }
 
+    var bindSortable = function(collections) {
+        if (typeof $.fn.sortable === 'undefined') {
+            return;
+        }
+
+        collections.each(function(){
+            var binded = $(this);
+            if (binded.attr('data-sortable')) {
+                binded.sortable();
+                binded.disableSelection();
+                //update name attr on sort stop - set it to the current position
+                binded.on('sortstop', function() {
+                    binded.children('.ui-sortable-handle').each(function(index){
+                        var row = $(this);
+                        var fields = row.find('select, input, textarea');
+                        fields.each(function(){
+                            var field = $(this);
+                            field.attr('name', field.attr('name').replace( /\[\d+\]/g, '[' + (index + 1) + ']'));
+                        })
+                    })
+                });
+            };
+        });
+    };
+
     jQuery(document).ready(function() {
 
-        if ($(collectionSelector).length) {
+        var collections = $(collectionSelector);
 
-            addEmbededFormTriggers(collectionSelector);
+        if (collections.length) {
+            addEmbededFormTriggers(collections);
+            bindSortable(collections);
 
             //handle click - add form based on embeded prototype
             $(document).on('click', '.' + addButtonSelector, function(e) {

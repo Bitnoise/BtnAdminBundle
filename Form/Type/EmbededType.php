@@ -17,6 +17,10 @@ class EmbededType extends AbstractType
         parent::buildForm($builder, $options);
 
         $this->assetLoader->load('btn_admin_embeded_js');
+
+        if ($options['sortable']) {
+            $this->assetLoader->load('btn_admin_jquery_ui');
+        }
     }
 
     /**
@@ -42,6 +46,9 @@ class EmbededType extends AbstractType
         if ($o['allow_add'] && $o['prototype_limit']) {
             $a['data-prototype-limit'] = $o['prototype_limit'];
         }
+        if ($o['sortable']) {
+            $a['data-sortable'] = $o['sortable'];
+        }
     }
 
     /**
@@ -55,12 +62,14 @@ class EmbededType extends AbstractType
             'prototype_add',
             'prototype_remove',
             'prototype_limit',
+            'sortable',
         ));
 
         $resolver->setDefaults(array(
             'prototype_add'    => 'btn_admin.form.type.embeded.add',
             'prototype_remove' => 'btn_admin.form.type.ebmeded.remove',
             'prototype_limit'  => null,
+            'sortable'         => false,
         ));
     }
 
