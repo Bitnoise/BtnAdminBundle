@@ -33,8 +33,25 @@ BtnApp.tools = {
     log: function(msg) {
         BtnApp.data.debug ? console.log(msg) : null;
     },
-    getOnce: function(selector) {
-        return jQuery('[data-' + selector + ']')
+    isNode: function(o){
+        return (typeof Node === "object" ? o instanceof Node : o && typeof o === "object" && typeof o.nodeType === "number" && typeof o.nodeName==="string");
+    },
+    isElement: function(o){
+        return (typeof HTMLElement === "object" ? o instanceof HTMLElement : o && typeof o === "object" && o !== null && o.nodeType === 1 && typeof o.nodeName==="string");
+    },
+    getContext: function(input) {
+        if ('undefined' === typeof input) {
+            return document;
+        } else if (this.isElement(input)) {
+            return input; // regulat input
+        } else if (input.context) {
+            return input.context; // object with context key
+        } else if (1 === input.length && this.isElement(input[0])) {
+            return input[0]; // probably one element jquery object
+        } else {
+            return document;
+        }
+    },
             .filter(':not([data-' + selector + '-binded])')
             .attr('data-' + selector + '-binded', true)
         ;
