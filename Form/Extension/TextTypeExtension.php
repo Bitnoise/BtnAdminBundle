@@ -14,9 +14,9 @@ class TextTypeExtension extends AbstractTypeExtension
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['addon_pre'] = isset($options['addon_pre']) ? $options['addon_pre'] : null;
-        $view->vars['addon_post'] = isset($options['addon_post']) ? $options['addon_post'] : null;
-        $view->vars['addon'] = (!empty($options['addon_pre']) || !empty($options['addon_post'])) ? true : false;
+        $view->vars['addon_prepend'] = isset($options['addon_prepend']) ? $options['addon_prepend'] : null;
+        $view->vars['addon_append'] = isset($options['addon_append']) ? $options['addon_append'] : null;
+        $view->vars['addon'] = (!empty($options['addon_prepend']) || !empty($options['addon_append'])) ? true : false;
     }
 
     /**
@@ -25,13 +25,13 @@ class TextTypeExtension extends AbstractTypeExtension
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'addon_pre'  => null,
-            'addon_post' => null,
+            'addon_prepend'  => null,
+            'addon_append' => null,
         ));
 
         $resolver->setOptional(array(
-            'addon_pre',
-            'addon_post',
+            'addon_prepend',
+            'addon_append',
         ));
     }
 
