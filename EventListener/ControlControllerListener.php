@@ -70,6 +70,11 @@ class ControlControllerListener
             $r = $this->bundleHelper->getReflectionClass($controller[0]);
             $entityProvider = $this->annotationReader->getClassAnnotation($r, $entityProviderClass);
             if ($entityProvider) {
+                // if provider id is not set then generate automaticly from controller
+                if (null === $entityProvider->getProviderId()) {
+                    $providerId = $this->bundleHelper->getProviderId($controller[0]);
+                    $entityProvider->setProviderId($providerId);
+                }
                 $controller[0]->setEntityProvider($entityProvider);
             }
         }

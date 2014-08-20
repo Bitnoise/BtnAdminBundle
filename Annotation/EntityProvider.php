@@ -9,7 +9,7 @@ namespace Btn\AdminBundle\Annotation;
 class EntityProvider
 {
     /** @var string $providerId */
-    protected $providerId;
+    protected $providerId = null;
 
     /**
      *
