@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EmbededType extends AbstractType
+class EmbeddedType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -16,7 +16,7 @@ class EmbededType extends AbstractType
     {
         parent::buildForm($builder, $options);
 
-        $this->assetLoader->load('btn_admin_embeded_js');
+        $this->assetLoader->load('btn_admin_embedded_js');
 
         if ($options['sortable']) {
             $this->assetLoader->load('btn_admin_jquery_ui');
@@ -89,6 +89,6 @@ class EmbededType extends AbstractType
      */
     public function getName()
     {
-        return 'btn_embeded';
+        return 'btn_embedded';
     }
 }

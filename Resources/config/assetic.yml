@@ -124,10 +124,10 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/jquery-ui/js/jquery-ui.js
             output: js/btn_admin.jquery-ui.js
 
-        btn_admin_embeded_js:
+        btn_admin_embedded_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/embeded.js
-            output: js/btn_admin.embeded.js
+                - @BtnAdminBundle/Resources/public/js/embedded.js
+            output: js/btn_admin.embedded.js
 
         btn_admin_slugify_js:
             inputs:

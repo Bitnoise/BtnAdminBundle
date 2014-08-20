@@ -5,7 +5,7 @@
         removeButtonSelector = 'remove-button'
         defaultFormsLimit    = 0;
 
-    function addEmbededFormDeleteTrigger(formContainer, button) {
+    function addEmbeddedFormDeleteTrigger(formContainer, button) {
         formContainer.append(button);
 
         button.on('click btnRemove', function(e) {
@@ -16,7 +16,7 @@
         });
     }
 
-    //add embeded form based on collection prototype
+    //add embedded form based on collection prototype
     function addForm(collectionHolder, newElement, regEx) {
         // Get the data-prototype
         var prototypeForm = collectionHolder.data('prototype');
@@ -35,15 +35,15 @@
         var newForm = $(newFormPrototype);
         newElement.before(newForm);
 
-        //re-add form triggers - if prototype has embeded prototype in
-        addEmbededFormTriggers(collectionSelector);
+        //re-add form triggers - if prototype has embedded prototype in
+        addEmbeddedFormTriggers(collectionSelector);
 
         if (BtnApp) {
             BtnApp.refresh(newForm);
         }
     }
     //add "Add" button to the end of embedded forms
-    function addEmbededFormTriggers(collections) {
+    function addEmbeddedFormTriggers(collections) {
         //check if collection has button already - was appended
         var buttonObject;
         $(collections).each(function() {
@@ -53,7 +53,7 @@
                 //append "remove" button at the end of each form container - but only if doesn't exist
                 $(this).find('>div').each(function() {
                     if (!$(this).find('.' + removeButtonSelector).length > 0) {
-                        addEmbededFormDeleteTrigger($(this).find('>div:first'), buttonObject.clone());
+                        addEmbeddedFormDeleteTrigger($(this).find('>div:first'), buttonObject.clone());
                     };
                 });
 
@@ -62,7 +62,7 @@
             buttonObject = $($(this).data('prototype-add')).addClass(addButtonSelector);
             if (!$(this).find('.' + buttonObject.attr('class').replace(/ /g, '.')).length > 0 && $(this).data('prototype-add')) {
                 $(this).append(buttonObject);
-                //set index - number of embeded forms
+                //set index - number of embedded forms
                 $(this).data('index', $(this).find('>div').length + 1); // >div.length - this should be a number of already emeded forms
             };
         });
@@ -98,10 +98,10 @@
         var collections = $(collectionSelector);
 
         if (collections.length) {
-            addEmbededFormTriggers(collections);
+            addEmbeddedFormTriggers(collections);
             bindSortable(collections);
 
-            //handle click - add form based on embeded prototype
+            //handle click - add form based on embedded prototype
             $(document).on('click', '.' + addButtonSelector, function(e) {
                 // prevent default behavior
                 e.preventDefault();
