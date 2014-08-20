@@ -53,12 +53,6 @@ assetic:
 
         # JS SECTION ###########################################################
 
-        btn_admin_app_js:
-            inputs:
-                - @btn_admin_pubsub_js
-                - @BtnAdminBundle/Resources/public/js/app.js
-            output: js/btn_admin.app.js
-
         btn_admin_jquery_js:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/jquery/js/jquery-1.11.1.js
@@ -75,11 +69,6 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/bootstrap-confirm-button/bootstrap-confirm-button.js
                 - @BtnAdminBundle/Resources/public/js/confirm.init.js
             output: js/btn_admin.confirm.js
-
-        btn_admin_pubsub_js:
-            inputs:
-                - @BtnAdminBundle/Resources/public/vendor/pubsub-js/js/pubsub.js
-            output: js/btn_admin.pubsub.js
 
         btn_admin_spin_js:
             inputs:
