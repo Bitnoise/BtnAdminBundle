@@ -12,7 +12,7 @@ use Btn\AdminBundle\Form\EventListener\AddSaveButtonSubscriber;
 abstract class AbstractForm extends AbstractType
 {
     /** @var boolean $addSaveButtonSubscriber */
-    protected $addSaveButtonSubscriber = true;
+    private $addSaveButtonSubscriber = true;
 
     /**
      * {@inheritdoc}
@@ -77,5 +77,21 @@ abstract class AbstractForm extends AbstractType
             'role',
             'loading',
         ));
+    }
+
+    /**
+     *
+     */
+    protected function disableAddSaveButtonSubscriber()
+    {
+        $this->addSaveButtonSubscriber = false;
+    }
+
+    /**
+     *
+     */
+    protected function enableAddSaveButtonSubscriber()
+    {
+        $this->addSaveButtonSubscriber = true;
     }
 }
