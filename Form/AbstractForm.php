@@ -7,15 +7,23 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Btn\AdminBundle\Form\EventListener\AddSaveButtonSubscriber;
 
 abstract class AbstractForm extends AbstractType
 {
+    /** @var boolean $addSaveButtonSubscriber */
+    protected $addSaveButtonSubscriber = true;
+
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
+
+        if ($this->addSaveButtonSubscriber) {
+            $builder->addEventSubscriber(new AddSaveButtonSubscriber());
+        }
 
         if ($options['loading']) {
             $this->assetLoader->load('btn_admin_loading');
