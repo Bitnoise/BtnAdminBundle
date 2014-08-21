@@ -4,7 +4,6 @@
 
         app.tools.getOnce('btn-remove', context).each(function(){
             var element = $(this);
-            console.log('confirm');
             if ($.fn.btsConfirmButton) {
                 element.off('click').btsConfirmButton({className: null}, function(e) {
                     if (element.is('a')) {
