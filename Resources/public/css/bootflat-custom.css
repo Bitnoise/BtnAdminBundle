@@ -44,6 +44,16 @@ textarea,
     font-size: 14px;
 }
 
+.checkbox-inline label,
+.radio-inline label {
+    font-weight: normal;
+}
+
+.form-horizontal .radio,
+.form-horizontal .checkbox {
+    padding-left: 20px;
+}
+
 .btn-flash-message .alert {
     margin: 0 !important;
 }

@@ -58,7 +58,15 @@
 {% spaceless %}
     <div class="form-group form-row {% if errors|length > 0 %}has-error{% endif %}">
         {% set rowClass = form.vars.label is same as(false) ? 'col-sm-12' : 'col-sm-10' %}
-        {% if 'checkbox' in form.vars.block_prefixes %}
+        {% if 'radio' in form.vars.block_prefixes and form.vars.checked is defined %}
+            {{ form_label(form) }}
+            <div class="{{ rowClass }}">
+                {{ form_errors(form) }}
+                <div class="radio">
+                    {{ form_widget(form) }}
+                </div>
+            </div>
+        {% elseif 'checkbox' in form.vars.block_prefixes and form.vars.checked is defined %}
             {{ form_label(form) }}
             <div class="{{ rowClass }}">
                 {{ form_errors(form) }}
@@ -120,35 +128,15 @@
 {% spaceless %}
     {{ form_errors(form) }}
     <div {{ block('widget_container_attributes') }}>
-    {% for child in form %}
-        <div class="checkbox">
-            {{ form_widget(child) }}
-            {{ form_label(child) }}
-        </div>
-    {% endfor %}
+        {% for child in form %}
+            <div class="{{ multiple ? 'checkbox' : 'radio' }}{{ inline ? '-inline' }}">
+                {{ form_widget(child) }}
+                {{ form_label(child) }}
+            </div>
+        {% endfor %}
     </div>
 {% endspaceless %}
 {% endblock choice_widget_expanded %}
-
-{% block radio_widget %}
-{% spaceless %}
-    {% if not compound %}
-        {% set label_attr = label_attr|merge({'for': id}) %}
-    {% endif %}
-    {% if required %}
-        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
-    {% endif %}
-    {% if label is empty %}
-        {% set label = name|humanize %}
-    {% endif %}
-
-    <label {% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
-        <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
-        {{ label|trans({}, translation_domain)|raw }}
-    </label>
-
-{% endspaceless %}
-{% endblock radio_widget %}
 
 {% block form %}
 {% spaceless %}
@@ -186,7 +174,6 @@
     {% endif %}
 {% endspaceless %}
 {% endblock button_widget %}
-
 
 {% block date_widget -%}
     {% if widget == 'single_text' -%}

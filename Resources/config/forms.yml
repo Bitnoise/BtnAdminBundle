@@ -13,6 +13,7 @@ parameters:
     btn_admin.form.user_control.class: Btn\AdminBundle\Form\UserControlForm
     btn_admin.form.extension.text_type.class: Btn\AdminBundle\Form\Extension\TextTypeExtension
     btn_admin.form.extension.submit_type.class: Btn\AdminBundle\Form\Extension\SubmitTypeExtension
+    btn_admin.form.extension.choice_type.class: Btn\AdminBundle\Form\Extension\ChoiceTypeExtension
 
 services:
     # Handlers
@@ -115,3 +116,8 @@ services:
         class: %btn_admin.form.extension.submit_type.class%
         tags:
             - { name: form.type_extension, alias: submit }
+
+    btn_admin.form.extension.choice_type:
+        class: %btn_admin.form.extension.choice_type.class%
+        tags:
+            - { name: form.type_extension, alias: choice }
