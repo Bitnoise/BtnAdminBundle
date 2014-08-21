@@ -14,7 +14,7 @@ class AddSaveButtonSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FormEvents::PRE_SET_DATA => 'preSetData'
+            FormEvents::PRE_SET_DATA => array('preSetData', -255),
         );
     }
 
