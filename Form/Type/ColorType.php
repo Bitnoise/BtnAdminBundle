@@ -33,8 +33,8 @@ class ColorType extends AbstractType
                 new BtnAssert\Color(),
             ),
             'attr' => array(
-                'data-btn-colorpicker' => true,
-                'class' => 'btn-colorpicker',
+                'btn-colorpicker' => true,
+                'class'           => 'btn-colorpicker',
             ),
         ));
     }

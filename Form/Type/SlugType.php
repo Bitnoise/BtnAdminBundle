@@ -26,7 +26,7 @@ class SlugType extends AbstractType
     {
         parent::buildView($view, $form, $options);
 
-        $view->vars['attr']['data-btn-slug'] = true;
+        $view->vars['attr']['btn-slug'] = true;
 
         if ($options['slug_source'] && $form->getParent()->has($options['slug_source'])) {
             $view->vars['slug_source'] = $options['slug_source'];

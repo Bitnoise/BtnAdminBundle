@@ -20,7 +20,7 @@
             if (element.is('a')) {
                 element.on('click', function(e){
                     e.preventDefault();
-                    bootbox.confirm(element.attr('data-btn-confirm'), function(result){
+                    bootbox.confirm(element.attr('btn-confirm'), function(result){
                         if (result) {
                             if (app.tools.loadingButton) {
                                 app.tools.loadingButton(element).start();

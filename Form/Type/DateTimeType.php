@@ -28,9 +28,9 @@ class DateTimeType extends AbstractType
             'widget' => 'single_text',
             'format' => 'yyyy-MM-dd HH:mm:ss',
             'attr'  => array(
-                'data-btn-datetimepicker' => true,
-                'data-date-format'  => 'yyyy-mm-dd hh:ii:ss',
-                'class'             => 'btn-datetime btn-datetimepicker',
+                'btn-datetimepicker' => true,
+                'data-date-format'   => 'yyyy-mm-dd hh:ii:ss',
+                'class'              => 'btn-datetime btn-datetimepicker',
             ),
         ));
     }
