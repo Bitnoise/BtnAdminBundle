@@ -8,11 +8,12 @@ parameters:
     btn_admin.form.type.color.class: Btn\AdminBundle\Form\Type\ColorType
     btn_admin.form.type.date_time.class: Btn\AdminBundle\Form\Type\DateTimeType
     btn_admin.form.type.embedded.class: Btn\AdminBundle\Form\Type\EmbeddedType
-    btn_admin.form.extension.text_type.class: Btn\AdminBundle\Form\Extension\TextTypeExtension
     btn_admin.form.type.slug.class: Btn\AdminBundle\Form\Type\SlugType
     btn_admin.form.user_control.class: Btn\AdminBundle\Form\UserControlForm
+    btn_admin.form.extension.text_type.class: Btn\AdminBundle\Form\Extension\TextTypeExtension
 
 services:
+    # Handlers
     btn_admin.form.handler.entiy_form:
         class: %btn_admin.form.handler.entiy_form.class%
         arguments:
@@ -29,11 +30,21 @@ services:
 
     btn_admin.form_handler: @btn_admin.form.handler.entiy_form.request_aware
 
+    # Forms
     btn_admin.form.abstract:
         abstract: true
         calls:
-            - [setAssetLoader, ['@btn_base.asset_loader']]
+            - [setAssetLoader, [@btn_base.asset_loader]]
 
+    btn_admin.form.user_control:
+        class: %btn_admin.form.user_control.class%
+        parent: btn_admin.form.abstract
+        calls:
+            - [setClass, [%btn_admin.user.class%]]
+        tags:
+            - { name: form.type, alias: btn_admin_form_user_control }
+
+    # Types
     btn_admin.form.button.create:
         class: %btn_admin.form.button.create.class%
         tags:
@@ -59,42 +70,37 @@ services:
     btn_admin.form.type.color:
         class: %btn_admin.form.type.color.class%
         calls:
-            - [setAssetLoader, ['@btn_base.asset_loader']]
+            - [setAssetLoader, [@btn_base.asset_loader]]
         tags:
             - { name: form.type, alias: btn_color }
 
     btn_admin.form.type.date_time:
         class: %btn_admin.form.type.date_time.class%
         calls:
-            - [setAssetLoader, ['@btn_base.asset_loader']]
+            - [setAssetLoader, [@btn_base.asset_loader]]
         tags:
             - { name: form.type, alias: btn_datetime }
 
     btn_admin.form.type.embedded:
         class: %btn_admin.form.type.embedded.class%
         calls:
-            - [setAssetLoader, ['@btn_base.asset_loader']]
-            - [setTranslator, ['@translator']]
+            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setTranslator, [@translator]]
         tags:
             - { name: form.type, alias: btn_embedded }
-
-    btn_admin.form.extension.text_type:
-        class: %btn_admin.form.extension.text_type.class%
-        tags:
-            - { name: form.type_extension, alias: text }
 
     btn_admin.form.type.slug:
         class: %btn_admin.form.type.slug.class%
         calls:
-            - [setAssetLoader, ['@btn_base.asset_loader']]
+            - [setAssetLoader, [@btn_base.asset_loader]]
         tags:
             - { name: form.type, alias: btn_slug }
 
-    btn_admin.form.user_control:
-        class: %btn_admin.form.user_control.class%
-        parent: btn_admin.form.abstract
         calls:
-            - [setClass, [%btn_admin.user.class%]]
         tags:
-            - { name: form.type, alias: btn_admin_form_user_control }
+    # Extensions
+    btn_admin.form.extension.text_type:
+        class: %btn_admin.form.extension.text_type.class%
+        tags:
+            - { name: form.type_extension, alias: text }
 
