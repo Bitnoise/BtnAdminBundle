@@ -1,14 +1,29 @@
-$('[bind-jstree]')
-    .jstree({
-    "core" : {
-        "animation" : 0
-    }
-});
+(function(app, $, undefined){
 
-$('[data-change-jstree]')// listen for event
-    .on('changed.jstree', function (e, data) {
-        if (typeof data.node !== 'undefined' && data.node.a_attr.href !== '#' && e.target.getAttribute('data-change-jstree') === 'reload') {
-            window.location = data.node.a_attr.href;
-        };
-    })
-;
+    var addEvents = function(context) {
+        app.tools.findOnce('btn-jstree', context).each(function() {
+            var element = $(this);
+            element.jstree({
+                'core' : {
+                    'animation' : 0
+                }
+            });
+            if (element.attr('btn-jstree-change')) {
+                element.on('changed.jstree', function (e, data) {
+                    if (typeof data.node !== 'undefined' && data.node.a_attr.href !== '#' && e.target.getAttribute('btn-jstree-change') === 'reload') {
+                        window.location = data.node.a_attr.href;
+                    };
+                })
+            }
+        });
+    };
+
+    app.init(function(msg, data) {
+        addEvents(data.context);
+    });
+
+    app.refresh(function(msg, data) {
+        addEvents(data.context);
+    });
+
+})(BtnApp, jQuery);
