@@ -9,6 +9,7 @@ parameters:
     btn_admin.form.type.date_time.class: Btn\AdminBundle\Form\Type\DateTimeType
     btn_admin.form.type.embedded.class: Btn\AdminBundle\Form\Type\EmbeddedType
     btn_admin.form.type.slug.class: Btn\AdminBundle\Form\Type\SlugType
+    btn_admin.form.type.hidden_entity.class: Btn\AdminBundle\Form\Type\HiddenEntityType
     btn_admin.form.user_control.class: Btn\AdminBundle\Form\UserControlForm
     btn_admin.form.extension.text_type.class: Btn\AdminBundle\Form\Extension\TextTypeExtension
     btn_admin.form.extension.submit_type.class: Btn\AdminBundle\Form\Extension\SubmitTypeExtension
@@ -97,8 +98,13 @@ services:
         tags:
             - { name: form.type, alias: btn_slug }
 
+    btn_admin.form.type.hidden_entity:
+        class: %btn_admin.form.type.hidden_entity.class%
         calls:
+            - [setEntityManager, [@doctrine.orm.entity_manager]]
         tags:
+            - { name: form.type, alias: btn_hidden_entity }
+
     # Extensions
     btn_admin.form.extension.text_type:
         class: %btn_admin.form.extension.text_type.class%
