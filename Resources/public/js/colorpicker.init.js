@@ -1,7 +1,7 @@
 (function(app, $, undefined){
 
     var addEvents = function(context) {
-        app.tools.getOnce('btn-colorpicker', context).each(function() {
+        app.tools.findOnce('btn-colorpicker', context).each(function() {
             var element = $(this);
             element.pickAColor({
                 allowBlank: element.attr('required') ? false : true,

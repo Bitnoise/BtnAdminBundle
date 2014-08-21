@@ -30,7 +30,7 @@
 
     // Add events
     var addEvents = function() {
-        app.tools.getOnce('btn-loading').each(function() {
+        app.tools.findOnce('btn-loading').each(function() {
             var element = $(this);
             if (element.is('form')) {
                 element.on('submit', function() {

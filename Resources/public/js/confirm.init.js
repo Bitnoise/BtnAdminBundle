@@ -2,7 +2,7 @@
 
     var addEvents = function(context) {
 
-        app.tools.getOnce('btn-remove', context).each(function(){
+        app.tools.findOnce('btn-remove', context).each(function(){
             var element = $(this);
             if ($.fn.btsConfirmButton) {
                 element.off('click').btsConfirmButton({className: null}, function(e) {
@@ -15,7 +15,7 @@
             }
         });
 
-        app.tools.getOnce('btn-confirm', context).each(function(){
+        app.tools.findOnce('btn-confirm', context).each(function(){
             var element = $(this);
             if (element.is('a')) {
                 element.on('click', function(e){

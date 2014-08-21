@@ -1,7 +1,7 @@
 (function(app, $, undefined){
 
     var addEvents = function() {
-        app.tools.getOnce('btn-datetimepicker').each(function() {
+        app.tools.findOnce('btn-datetimepicker').each(function() {
             var element = $(this);
             element.datetimepicker();
         });
