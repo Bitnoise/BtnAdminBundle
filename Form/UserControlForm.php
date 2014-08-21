@@ -3,7 +3,6 @@
 namespace Btn\AdminBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Btn\AdminBundle\Form\AbstractForm;
 
 class UserControlForm extends AbstractForm
 {

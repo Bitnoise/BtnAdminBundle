@@ -74,8 +74,6 @@ class EmbeddedType extends AbstractType
         ));
     }
 
-
-
     /**
      * {@inheritdoc}
      */

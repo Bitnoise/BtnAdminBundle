@@ -2,7 +2,6 @@
 
 namespace Btn\AdminBundle\EventListener;
 
-use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Btn\BaseBundle\Helper\BundleHelper;
 use Btn\AdminBundle\Controller\AbstractControlController;
