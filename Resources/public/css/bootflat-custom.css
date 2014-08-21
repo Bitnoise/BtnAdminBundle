@@ -70,9 +70,21 @@ textarea,
     font-weight: bold;
 }
 
-.form-row.ui-sortable-handle {
+.ui-sortable-handle {
     cursor: move;
-    background-color: #ffffff;
+    -moz-transition: outline .5s;
+    -webkit-transition: outline .5s;
+    transition: outline .5s;
+    outline-offset: 0;
+    outline: 1px dashed transparent;
+}
+
+.ui-sortable-handle:hover {
+    outline: 1px dashed #cecece;
+}
+
+.ui-sortable-handle.ui-sortable-helper {
+    background-color: #fefefe;
 }
 
 /*************************
