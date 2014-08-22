@@ -6,6 +6,7 @@
     "homepage": "https://github.com/Bitnoise/BtnAdminBundle",
     "license": "MIT",
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Bitnoise Team",
@@ -21,10 +22,25 @@
         "friendsofsymfony/user-bundle": "2.0.*@dev",
         "bitnoise/base-bundle": "2.0.*"
     },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "~2.0.0",
+        "fabpot/php-cs-fixer": "~0.5.0",
+        "phpmd/phpmd" : "~2.0.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://bitnoise.github.io/packages/"
+        }
+    ],
     "autoload": {
         "psr-0": { "Btn\\AdminBundle": "" }
     },
     "target-dir": "Btn/AdminBundle",
+    "config": {
+        "preferred-install": "dist",
+        "bin-dir": "bin"
+    },
     "extra": {
         "branch-alias": {
             "dev-2.0": "2.0-dev"
