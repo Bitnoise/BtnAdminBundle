@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class DateTimeType extends AbstractType
+class DateType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -30,14 +30,15 @@ class DateTimeType extends AbstractType
             'autoclose',
         ));
 
-        $resolver->setAllowedTypes(array(
-            'autoclose' => array('bool'),
-        ));
-
         $resolver->setDefaults(array(
-            'widget'    => 'single_text',
-            'format'    => 'yyyy-MM-dd HH:mm:ss',
-            'autoclose' => true,
+            'widget' => 'single_text',
+            'format' => 'yyyy-MM-dd',
+            'attr'  => array(
+                'data-date-format'    => 'yyyy-mm-dd',
+                'data-min-view'       => 2,
+                'data-date-autoclose' => true,
+                'class'               => 'btn-date btn-datepicker',
+            ),
         ));
     }
 
@@ -49,7 +50,8 @@ class DateTimeType extends AbstractType
         parent::buildView($view, $form, $options);
 
         $view->vars['attr']['btn-datetimepicker']  = true;
-        $view->vars['attr']['data-date-format']    = 'yyyy-mm-dd hh:ii:ss';
+        $view->vars['attr']['data-date-format']    = 'yyyy-mm-dd';
+        $view->vars['attr']['data-min-view']       = 2;
 
         if (isset($options['autoclose'])) {
             $view->vars['attr']['data-date-autoclose'] = $options['autoclose'];
@@ -59,7 +61,7 @@ class DateTimeType extends AbstractType
             $view->vars['attr']['class'] = '';
         }
 
-        $view->vars['attr']['class'] = trim($view->vars['attr']['class'] . ' btn-datetime btn-datetimepicker');
+        $view->vars['attr']['class'] = trim($view->vars['attr']['class'] . ' btn-date btn-datepicker');
     }
 
     /**
@@ -75,6 +77,6 @@ class DateTimeType extends AbstractType
      */
     public function getName()
     {
-        return 'btn_datetime';
+        return 'btn_date';
     }
 }
