@@ -6,9 +6,6 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Btn\AdminBundle\Annotation\CrudSettings;
 
-/**
- *
- */
 abstract class AbstractCrudController extends AbstractControlController
 {
     /** $var \Btn\AdminBundle\Annotation\CrudSettings $crudSettings */
