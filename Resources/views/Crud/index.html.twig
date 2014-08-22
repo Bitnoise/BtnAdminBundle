@@ -33,7 +33,11 @@
                             {# base block to override #}
                         {% endblock %}
                         <td class="{{ lst.col_act_class }}">
-                            {{ lnk.edit(route_edit, { id: entity.id }) }}
+                            {% block list_table_row_action_pre %}{% endblock %}
+                            {% block list_table_row_action %}
+                                {{ lnk.edit(route_edit, { id: entity.id }) }}
+                            {% endblock %}
+                            {% block list_table_row_action_post %}{% endblock %}
                         </td>
                     </tr>
                 {% endfor %}
