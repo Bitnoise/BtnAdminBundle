@@ -1,0 +1,15 @@
+{
+  "name": "bitnoise-admin-bundle",
+  "version": "2.0.0-dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bitnoise/BtnAdminBundle"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-phpcs": "~0.2.0",
+    "grunt-phpmd": "~0.1.0",
+    "grunt-exec": "~0.4.6"
+  }
+}
