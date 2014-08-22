@@ -4,6 +4,8 @@ namespace Btn\AdminBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Btn\AdminBundle\Event\CrudEvent;
+use Btn\AdminBundle\CrudEvents;
 
 class CrudController extends AbstractCrudController
 {
@@ -47,6 +49,8 @@ class CrudController extends AbstractCrudController
         if ($this->handleForm($form, $request)) {
             $this->setFlash('btn_admin.flash.created');
 
+            $this->get('event_dispacher')->dispatch(CrudEvents::ENTITY_CREATED, new CrudEvent($entity));
+
             return $this->redirect($this->generatePrefixedUrl('edit', array('id' => $entity->getId())));
         }
 
@@ -80,6 +84,8 @@ class CrudController extends AbstractCrudController
         if ($this->handleForm($form, $request)) {
             $this->setFlash('btn_admin.flash.updated');
 
+            $this->get('event_dispacher')->dispatch(CrudEvents::ENTITY_UPDATED, new CrudEvent($entity));
+
             return $this->redirect($this->generatePrefixedUrl('edit', array('id' => $id)));
         }
 
@@ -100,6 +106,8 @@ class CrudController extends AbstractCrudController
 
         $entityProvider = $this->getEntityProvider();
         $entity         = $this->findEntityOr404($entityProvider->getClass(), $id);
+
+        $this->get('event_dispacher')->dispatch(CrudEvents::ENTITY_DELETED, new CrudEvent($entity));
 
         $entityProvider->delete($entity);
 
