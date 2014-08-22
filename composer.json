@@ -27,7 +27,7 @@
     "target-dir": "Btn/AdminBundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0-dev"
+            "dev-2.0": "2.0-dev"
         }
     }
 }
