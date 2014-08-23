@@ -64,4 +64,5 @@ btn_admin.user.enabled: 'Enabled'
 btn_admin.user.last_login: 'Last login'
 
 # Profile
+btn_admin.profile: 'Profile'
 btn_admin_profilecontrol_edit: 'Profile edit'
