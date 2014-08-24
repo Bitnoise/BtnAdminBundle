@@ -4,7 +4,6 @@ namespace Btn\AdminBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Btn\AdminBundle\Form\AbstractForm;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
 class ChangePasswordControlForm extends AbstractForm
