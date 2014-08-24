@@ -6,6 +6,9 @@
             <div class="well well-lg">
                 {% block form_content %}
                     {# base block to override #}
+                    {% if form is defined %}
+                        {{ form(form) }}
+                    {% endif %}
                 {% endblock %}
                 <div class="btn-group">
                     {% block form_buttons %}
