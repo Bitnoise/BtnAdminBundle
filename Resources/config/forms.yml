@@ -1,6 +1,5 @@
 parameters:
     btn_admin.form.handler.entiy_form.class: Btn\AdminBundle\Form\Handler\EntityFormHandler
-    btn_admin.form.handler.entiy_form.request_aware.class: Btn\AdminBundle\Form\Handler\EntityFormHandler
     btn_admin.form.button.create.class: Btn\AdminBundle\Form\Button\CreateButton
     btn_admin.form.button.delete.class: Btn\AdminBundle\Form\Button\DeleteButton
     btn_admin.form.button.save.class: Btn\AdminBundle\Form\Button\SaveButton
@@ -26,14 +25,14 @@ services:
 
     btn_admin.entity_form_handler: @btn_admin.form.handler.entiy_form
 
-    btn_admin.form.handler.entiy_form.request_aware:
-        class: %btn_admin.form.handler.entiy_form.request_aware.class%
-        scope: request
-        arguments:
-            em: @doctrine.orm.entity_manager
-            request: @?request
+    btn_admin.form_handler: @btn_admin.entity_form_handler
 
-    btn_admin.form_handler: @btn_admin.form.handler.entiy_form.request_aware
+    btn_admin.form.handler.user_form:
+        class: %btn_admin.form.handler.user_form.class%
+        arguments:
+            userManager: @fos_user.user_manager
+
+    btn_admin.form.handler.user: @btn_admin.form.handler.user_form
 
     # Forms
     btn_admin.form.abstract:

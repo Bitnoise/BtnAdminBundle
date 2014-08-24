@@ -11,39 +11,32 @@ use Doctrine\ORM\EntityManager;
  */
 class EntityFormHandler implements FormHandlerInterface
 {
-    /** \Doctrine\ORM\EntityManager $em */
-    private $em;
-    /** \Symfony\Component\HttpFoundation\Request $requset */
-    protected $request;
+    /** \Doctrine\ORM\EntityManager $entityManager */
+    private $entityManager;
 
     /**
      *
      */
-    public function __construct(EntityManager $em, Request $request = null)
+    public function __construct(EntityManager $entityManager)
     {
-        $this->em      = $em;
-        $this->request = $request;
+        $this->entityManager = $entityManager;
     }
 
     /**
      *
      */
-    public function handle(FormInterface $form, Request $request = null)
+    public function handle(FormInterface $form, Request $request)
     {
-        if (!$this->request && !$request) {
-            throw new \Exception(sprinf('No request passed to form handler'));
-        }
-
-        $form->handleRequest($request ? $request : $this->request);
+        $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entity = $form->getData();
 
             if (!$entity->getId()) {
-                $this->em->persist($entity);
+                $this->entityManager->persist($entity);
             }
 
-            $this->em->flush($entity);
+            $this->entityManager->flush($entity);
 
             return true;
         }

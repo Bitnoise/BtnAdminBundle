@@ -7,5 +7,5 @@ use Symfony\Component\HttpFoundation\Request;
 
 interface FormHandlerInterface
 {
-    public function handle(FormInterface $form, Request $request = null);
+    public function handle(FormInterface $form, Request $request);
 }
