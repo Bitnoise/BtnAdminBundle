@@ -9,7 +9,7 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: '.jshintrc'
             },
-            bundle: ['src/Resources/public/js/*.js', '*.json', 'Gruntfile.js']
+            bundle: ['src/Btn/AdminBundle/Resources/public/js/**/*.js', '*.json', 'Gruntfile.js']
         },
 
         phpcsfixer: {
