@@ -73,6 +73,7 @@ class BtnAdminExtension extends AbstractExtension
             $container->prependExtensionConfig('twig', array(
                 'form' => array(
                     'resources' => array(
+                        'BtnAdminBundle:Form:layout.html.twig',
                         'BtnAdminBundle:Form:fields.html.twig',
                     )
                 ),

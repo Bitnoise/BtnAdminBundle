@@ -1,0 +1,190 @@
+{% block form_widget_simple %}
+{% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+{% spaceless %}
+    {% set type = type|default('text') %}
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block text_widget %}
+    {% if addon %}
+        <div class="input-group">
+            {% if addon_prepend %}
+                <span class="input-group-addon">{{ addon_prepend|trans }}</span>
+            {% endif %}
+            {{ block('form_widget_simple') }}
+            {% if addon_append %}
+                <span class="input-group-addon">{{ addon_append|trans }}</span>
+            {% endif %}
+        </div>
+    {% else %}
+        {{ block('form_widget_simple') }}
+    {% endif %}
+{% endblock %}
+
+{% block textarea_widget %}
+{% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+{% spaceless %}
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+{% endspaceless %}
+{% endblock textarea_widget %}
+
+{% block choice_widget_collapsed %}
+{% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+{% spaceless %}
+    {% if required and empty_value is none and not empty_value_in_choices %}
+        {% set required = false %}
+    {% endif %}
+    <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+        {% if empty_value is not none %}
+            <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+        {% endif %}
+        {% if preferred_choices|length > 0 %}
+            {% set options = preferred_choices %}
+            {{ block('choice_widget_options') }}
+            {% if choices|length > 0 and separator is not none %}
+                <option disabled="disabled">{{ separator }}</option>
+            {% endif %}
+        {% endif %}
+        {% set options = choices %}
+        {{ block('choice_widget_options') }}
+    </select>
+{% endspaceless %}
+{% endblock choice_widget_collapsed %}
+
+{% block button_label %}{% endblock %}
+
+{% block form_row %}
+{% spaceless %}
+    <div class="form-group form-row {% if errors|length > 0 %}has-error{% endif %}">
+        {% set rowClass = form.vars.label is same as(false) ? 'col-sm-12' : 'col-sm-10' %}
+        {% if 'radio' in form.vars.block_prefixes and form.vars.checked is defined %}
+            {{ form_label(form) }}
+            <div class="{{ rowClass }}">
+                {{ form_errors(form) }}
+                <div class="radio">
+                    {{ form_widget(form) }}
+                </div>
+            </div>
+        {% elseif 'checkbox' in form.vars.block_prefixes and form.vars.checked is defined %}
+            {{ form_label(form) }}
+            <div class="{{ rowClass }}">
+                {{ form_errors(form) }}
+                <div class="checkbox">
+                    {{ form_widget(form) }}
+                </div>
+            </div>
+        {% else %}
+            {{ form_label(form) }}
+            <div class="{{ rowClass }}">
+                {{ form_errors(form) }}
+                {{ form_widget(form) }}
+            </div>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block form_label %}
+{% spaceless %}
+{% if label is not sameas(false) %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    {% if not compound %}
+        {% set label_attr = label_attr|merge({'for': id}) %}
+    {% endif %}
+    {% if required %}
+        {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' required'}) %}
+    {% endif %}
+    {% if form.parent.parent is null or (form.parent is defined and form.parent.vars.choices is not defined) %}
+        {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' col-sm-2 control-label'}) %}
+    {% endif %}
+    <label{% for attrname,attrvalue in label_attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
+        {{ label|trans({}, translation_domain) }}
+    </label>
+{% endif %}
+
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <div class="text-danger">
+        {% for error in errors %}
+            {{
+                error.messagePluralization is null
+                    ? error.messageTemplate|trans(error.messageParameters, 'validators')
+                    : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+            }}<br/>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{% block choice_widget_expanded %}
+{% spaceless %}
+    {{ form_errors(form) }}
+    <div {{ block('widget_container_attributes') }}>
+        {% for child in form %}
+            <div class="{{ multiple ? 'checkbox' : 'radio' }}{{ inline ? '-inline' }}">
+                {{ form_widget(child) }}
+                {{ form_label(child) }}
+            </div>
+        {% endfor %}
+    </div>
+{% endspaceless %}
+{% endblock choice_widget_expanded %}
+
+{% block form %}
+{% spaceless %}
+    {{ form_start(form) }}
+    {% if fieldset|default() %}
+        <fieldset>
+    {% endif %}
+    {% if legend|default() %}
+        <legend>{{ legend|trans }}</legend>
+    {% endif %}
+    {{ form_widget(form, {attr: null}) }}
+    {% if fieldset|default() %}
+        </fieldset>
+    {% endif %}
+    {{ form_end(form) }}
+{% endspaceless %}
+{% endblock form %}
+
+{% block button_widget %}
+{% spaceless %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    {% if 'btn' not in attr.class|default('')|split(' ') %}
+        {% set attr = attr|merge({'class': 'btn btn-default' ~ (attr.class is defined ? ' ' ~ attr.class)}) %}
+    {% endif %}
+    {% if row %}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+    {% endif %}
+                <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+    {% if row %}
+            </div>
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock button_widget %}
+
+{% block date_widget -%}
+    {% if widget == 'single_text' -%}
+        {{ block('form_widget_simple') }}
+    {%- else -%}
+        <div {{ block('widget_container_attributes') }} class="btn-select-date">
+            {{- date_pattern|replace({
+                '{{ year }}':  '<div class="col-sm-2 no-left-padding">' ~ form_widget(form.year) ~ '</div>',
+                '{{ month }}': '<div class="col-sm-2 no-left-padding">' ~ form_widget(form.month) ~ '</div>',
+                '{{ day }}':   '<div class="col-sm-2 no-left-padding">' ~ form_widget(form.day) ~ '</div>',
+            })|raw -}}
+        </div>
+    {%- endif %}
+{%- endblock date_widget %}
