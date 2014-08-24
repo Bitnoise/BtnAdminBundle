@@ -39,6 +39,30 @@ class UserControlController extends CrudController
     }
 
     /**
+     * @Route("/change-password", name="btn_admin_usercontrol_changepassword", methods={"GET", "POST"})
+     * @Template()
+     */
+    public function changePasswordAction(Request $request)
+    {
+        $this->checkUserAccessOrThrowAccessDeniedException();
+
+        $form = $this->createForm('btn_admin_form_change_password_control', $this->getUser(), array(
+            'action' => $this->generateUrl('btn_admin_usercontrol_changepassword'),
+            'legend' => 'btn_admin_usercontrol_changepassword',
+        ));
+
+        if ($this->handleForm($form, $request)) {
+            $this->setFlash('btn_admin.flash.updated');
+
+            return $this->redirect($this->generateUrl('btn_admin_usercontrol_profile'));
+        }
+
+        return array(
+            'form' => $form->createView(),
+        );
+    }
+
+    /**
      *
      */
     protected function checkUserAccessOrThrowAccessDeniedException()
