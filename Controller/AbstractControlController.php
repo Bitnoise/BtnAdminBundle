@@ -81,7 +81,7 @@ class AbstractControlController extends AbstractController
     public function handleForm(FormInterface $form, Request $request)
     {
         if (!$this->formHandler || !$this->formHandler instanceof FormHandlerInterface) {
-            throw new \Exception('Form handler is missing from controller');
+            throw new \Exception(sprintf('Form handler was not injected to "%s"', __CLASS__));
         }
 
         return $this->formHandler->handle($form, $request);
