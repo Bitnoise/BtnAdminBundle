@@ -5,7 +5,3 @@ _btn_admin_routing_control_controller_default:
 _btn_admin_routing_control_controller_user:
     resource: "@BtnAdminBundle/Controller/UserControlController.php"
     type:     annotation
-
-_btn_admin_routing_control_controller_profile:
-    resource: "@BtnAdminBundle/Controller/ProfileControlController.php"
-    type:     annotation

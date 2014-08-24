@@ -65,4 +65,4 @@ btn_admin.user.last_login: 'Last login'
 
 # Profile
 btn_admin.profile: 'Profile'
-btn_admin_profilecontrol_edit: 'Profile edit'
+btn_admin_usercontrol_profile: 'Profile edit'
