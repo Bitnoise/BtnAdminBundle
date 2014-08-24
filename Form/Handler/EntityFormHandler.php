@@ -37,13 +37,13 @@ class EntityFormHandler implements FormHandlerInterface
         $form->handleRequest($request ? $request : $this->request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
+            $entity = $form->getData();
 
-            if (!$data->getId()) {
-                $this->em->persist($data);
+            if (!$entity->getId()) {
+                $this->em->persist($entity);
             }
 
-            $this->em->flush($data);
+            $this->em->flush($entity);
 
             return true;
         }
