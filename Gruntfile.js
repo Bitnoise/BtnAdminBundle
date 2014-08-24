@@ -56,6 +56,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-phpmd');
 
     // Default task.
-    grunt.registerTask('hint', ['jshint', 'phpcsfixer', 'phpcs', 'phpmd']);
-    grunt.registerTask('default', ['hint']);
+    grunt.registerTask('test', ['jshint', 'phpcsfixer', 'phpmd']);
+    grunt.registerTask('default', ['test']);
 };
