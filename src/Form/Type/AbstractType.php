@@ -17,8 +17,8 @@ abstract class AbstractType extends BaseAbstractType
 {
     /** @var string $class */
     protected $class;
-    /** @var \Doctrine\ORM\EntityManager $em */
-    protected $em;
+    /** @var \Doctrine\ORM\EntityManager $entityManager */
+    protected $entityManager;
     /** @var \Btn\BaseBundle\Provider\EntityProviderInterface $entityProvider */
     protected $entityProvider;
     /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
@@ -41,9 +41,9 @@ abstract class AbstractType extends BaseAbstractType
     /**
      *
      */
-    public function setEntityManager(EntityManager $em)
+    public function setEntityManager(EntityManager $entityManager)
     {
-        $this->em = $em;
+        $this->entityManager = $entityManager;
 
         return $this;
     }
