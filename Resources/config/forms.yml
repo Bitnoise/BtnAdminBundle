@@ -13,6 +13,7 @@ parameters:
     btn_admin.form.type.hidden_entity.class: Btn\AdminBundle\Form\Type\HiddenEntityType
     btn_admin.form.user_control.class: Btn\AdminBundle\Form\UserControlForm
     btn_admin.form.profile_control.class: Btn\AdminBundle\Form\ProfileControlForm
+    btn_admin.form.change_password_control.class: Btn\AdminBundle\Form\ChangePasswordControlForm
     btn_admin.form.extension.text_type.class: Btn\AdminBundle\Form\Extension\TextTypeExtension
     btn_admin.form.extension.submit_type.class: Btn\AdminBundle\Form\Extension\SubmitTypeExtension
     btn_admin.form.extension.choice_type.class: Btn\AdminBundle\Form\Extension\ChoiceTypeExtension
@@ -24,16 +25,12 @@ services:
         arguments:
             em: @doctrine.orm.entity_manager
 
-    btn_admin.entity_form_handler: @btn_admin.form.handler.entiy_form
-
-    btn_admin.form_handler: @btn_admin.entity_form_handler
+    btn_admin.form_handler: @btn_admin.form.handler.entiy_form
 
     btn_admin.form.handler.user_form:
         class: %btn_admin.form.handler.user_form.class%
         arguments:
             userManager: @fos_user.user_manager
-
-    btn_admin.form.handler.user: @btn_admin.form.handler.user_form
 
     # Forms
     btn_admin.form.abstract:
@@ -56,6 +53,14 @@ services:
             - [setClass, [%btn_admin.user.class%]]
         tags:
             - { name: form.type, alias: btn_admin_form_profile_control }
+
+    btn_admin.form.change_password_control:
+        class: %btn_admin.form.change_password_control.class%
+        parent: btn_admin.form.abstract
+        calls:
+            - [setClass, [%btn_admin.user.class%]]
+        tags:
+            - { name: form.type, alias: btn_admin_form_change_password_control }
 
     # Types
     btn_admin.form.button.create:
