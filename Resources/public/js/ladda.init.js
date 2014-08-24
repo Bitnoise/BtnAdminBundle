@@ -1,10 +1,11 @@
-(function(app, $, Ladda, undefined){
+/* global BtnApp, Ladda, jQuery */
+(function(app, Ladda, $, undefined){
 
     // register new tool funciton
     app.tools.loadingButton = function(obj) {
         var button = $(obj);
 
-        if (!button.hasClass('btn') || button.attr('type') == 'text') {
+        if (!button.hasClass('btn') || button.attr('type') === 'text') {
             BtnApp.tools.warn('not suppoerted for loadingButton', button);
             return;
         }
@@ -36,7 +37,7 @@
                 element.on('submit', function() {
                     var button = $(this).find('.btn-save, .btn-update, .btn-create');
                     if (button.length) {
-                        l = app.tools.loadingButton(button);
+                        var l = app.tools.loadingButton(button);
                         if (l) {
                             l.start();
                         }
@@ -55,4 +56,4 @@
         addEvents();
     });
 
-})(BtnApp, jQuery, Ladda);
+})(BtnApp, Ladda, jQuery);

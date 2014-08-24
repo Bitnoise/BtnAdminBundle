@@ -1,11 +1,12 @@
-(function(app, $, bootbox, undefined){
+/* global BtnApp, bootbox, jQuery */
+(function(app, bootbox, $, undefined){
 
     var addEvents = function(context) {
 
         app.tools.findOnce('btn-remove', context).each(function(){
             var element = $(this);
             if ($.fn.btsConfirmButton) {
-                element.off('click').btsConfirmButton({className: null}, function(e) {
+                element.off('click').btsConfirmButton({className: null}, function() {
                     if (element.is('a')) {
                         window.location.href = element.attr('href');
                     } else {
@@ -41,4 +42,4 @@
         addEvents(data.context);
     });
 
-})(BtnApp, jQuery, bootbox);
+})(BtnApp, bootbox, jQuery);

@@ -1,8 +1,8 @@
+/* global BtnApp, jQuery */
 (function ($) {
-    var collections,
-        collectionSelector   = '[data-prototype]',
+    var collectionSelector   = '[data-prototype]',
         addButtonSelector    = 'add-button',
-        removeButtonSelector = 'remove-button'
+        removeButtonSelector = 'remove-button',
         defaultFormsLimit    = 0;
 
     function addEmbeddedFormDeleteTrigger(formContainer, button) {
@@ -52,19 +52,19 @@
                 buttonObject = $($(this).data('prototype-remove')).addClass(removeButtonSelector);
                 //append "remove" button at the end of each form container - but only if doesn't exist
                 $(this).find('>div').each(function() {
-                    if (!$(this).find('.' + removeButtonSelector).length > 0) {
+                    if (!$(this).find('.' + removeButtonSelector).length) {
                         addEmbeddedFormDeleteTrigger($(this).find('>div:first'), buttonObject.clone());
-                    };
+                    }
                 });
 
-            };
+            }
             //created "add" button based on prototype-add
             buttonObject = $($(this).data('prototype-add')).addClass(addButtonSelector);
-            if (!$(this).find('.' + buttonObject.attr('class').replace(/ /g, '.')).length > 0 && $(this).data('prototype-add')) {
+            if (!$(this).find('.' + buttonObject.attr('class').replace(/ /g, '.')).length && $(this).data('prototype-add')) {
                 $(this).append(buttonObject);
                 //set index - number of embedded forms
                 $(this).data('index', $(this).find('>div').length + 1); // >div.length - this should be a number of already emeded forms
-            };
+            }
         });
     }
 
@@ -86,10 +86,10 @@
                         fields.each(function(){
                             var field = $(this);
                             field.attr('name', field.attr('name').replace( /\[\d+\]/g, '[' + (index + 1) + ']'));
-                        })
-                    })
+                        });
+                    });
                 });
-            };
+            }
         });
     };
 
@@ -110,14 +110,14 @@
                     regEx      = new RegExp(parent.data('prototype-replacement'), 'g'),
                     formsLimit = parent.data('prototype-limit') ? parent.data('prototype-limit') : defaultFormsLimit;
                 //check - add new form only if there is no limit (formsLimit ==0) or standard count check
-                if (formsLimit == 0 || (formsLimit > parent.children('.form-row').length) ) {
+                if (formsLimit === 0 || (formsLimit > parent.children('.form-row').length) ) {
                     // add a new form (see next code block)
                     addForm(parent, $(this), regEx);
                 } else {
                     //show some limit message ?
                 }
             });
-        };
+        }
     });
 
 })(jQuery);

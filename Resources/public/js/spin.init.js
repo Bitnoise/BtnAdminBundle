@@ -1,4 +1,5 @@
-(function(app, $, undefined){
+/* global BtnApp, Spinner, jQuery */
+(function(app, Spinner, $, undefined){
 
     var opts = {
         lines: 17, // The number of lines to draw
@@ -29,7 +30,7 @@
         var spinner = element.data('spinner');
 
         if (!spinner) {
-            var spinner = new Spinner(opts);
+            spinner = new Spinner(opts);
             element.data('spinner', spinner);
         }
 
@@ -44,8 +45,8 @@
 
                 return spinner;
             }
-        }
+        };
 
     };
 
-})(BtnApp, jQuery);
+})(BtnApp, Spinner, jQuery);

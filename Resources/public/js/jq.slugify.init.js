@@ -1,3 +1,4 @@
+/* global BtnApp, jQuery */
 (function(app, $, undefined){
 
     var addEvents = function() {

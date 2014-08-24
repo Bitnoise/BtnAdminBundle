@@ -1,8 +1,6 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
-    var assetsBanner = '/*! <%= pkg.name %> - v<%= pkg.version %> <%= grunt.template.today("dd-mm-yyyy HH:mm:ss") %> */\n';
-
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -60,5 +58,3 @@ module.exports = function(grunt) {
     grunt.registerTask('hint', ['jshint', 'phpcs', 'phpmd', 'exec:phpcs_hint']);
     grunt.registerTask('default', ['hint']);
 };
-
-// sudo gem install em-websocket

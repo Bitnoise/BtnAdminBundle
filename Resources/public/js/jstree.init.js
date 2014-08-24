@@ -1,3 +1,4 @@
+/* global BtnApp, jQuery */
 (function(app, $, undefined){
 
     var addEvents = function(context) {
@@ -12,8 +13,8 @@
                 element.on('changed.jstree', function (e, data) {
                     if (typeof data.node !== 'undefined' && data.node.a_attr.href !== '#' && e.target.getAttribute('btn-jstree-change') === 'reload') {
                         window.location = data.node.a_attr.href;
-                    };
-                })
+                    }
+                });
             }
         });
     };
