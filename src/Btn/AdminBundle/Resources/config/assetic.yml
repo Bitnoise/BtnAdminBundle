@@ -48,7 +48,9 @@ assetic:
 
         btn_admin_jquery_ui_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/jquery-ui/css/jquery-ui.css
+                # - @BtnAdminBundle/Resources/public/vendor/jquery-ui/css/jquery-ui.css
+                - @BtnAdminBundle/Resources/public/vendor/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.custom.css
+                - @BtnAdminBundle/Resources/public/vendor/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.theme.css
             output: css/btn_admin.jquery-ui.css
 
         # JS SECTION ###########################################################
