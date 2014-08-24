@@ -1,0 +1,15 @@
+{% extends "BtnAdminBundle::panel.html.twig" %}
+
+{% block panel_title %}{% trans %}btn_admin.resetting.title{% endtrans %}{% endblock %}
+
+{% block panel_body %}
+    {% if invalid_username is defined %}
+        <div class="alert alert-danger">{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</div>
+    {% endif %}
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST">
+        <div class="form-group">
+            <input type="username" name="username" class="form-control" placeholder="{{ 'resetting.request.username'|trans({}, 'FOSUserBundle')|trim(':') }}" required autofocus>
+        </div>
+        <button class="btn btn-primary" name="_submit" type="submit">{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}</button>
+    </form>
+{% endblock %}

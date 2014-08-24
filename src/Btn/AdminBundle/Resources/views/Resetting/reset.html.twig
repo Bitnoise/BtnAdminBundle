@@ -1,0 +1,16 @@
+{% extends "BtnAdminBundle::panel.html.twig" %}
+
+{% block panel_title %}{% trans %}btn_admin.resetting.title{% endtrans %}{% endblock %}
+
+{% block panel_body %}
+    <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST">
+
+        {{ form_row(form.new.first) }}
+        {{ form_row(form.new.second) }}
+
+        <button class="btn btn-primary" name="_submit" type="submit">{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}</button>
+
+        {{ form_rest(form) }}
+    </form>
+
+{% endblock %}

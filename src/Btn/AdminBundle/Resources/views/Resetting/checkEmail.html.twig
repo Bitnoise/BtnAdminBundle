@@ -1,0 +1,8 @@
+{% from "BtnAdminBundle:Macros:flash.html.twig" import flash %}
+{% extends "FOSUserBundle::panel.html.twig" %}
+
+{% block panel_title %}{% trans %}btn_admin.resetting.title{% endtrans %}{% endblock %}
+
+{% block panel_body %}
+    {{ flash('success', 'resetting.check_email', false, false, '', 'FOSUserBundle', {'%email%': email}) }}
+{% endblock %}

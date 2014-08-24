@@ -30,12 +30,16 @@ btn_admin.confirm_delete: 'Are you sure you want to delete this?'
 
 # login window
 btn_admin.title: 'cms'
-btn_admin.login_title: 'Login'
-btn_admin.login_username: 'Username'
-btn_admin.login_password: 'Password'
-btn_admin.login_button: 'Sign in'
-btn_admin.login_remember_me: 'Remember me'
-btn_admin.login_reset_password: 'Forgot my password'
+btn_admin.login.title: 'Login'
+btn_admin.login.username: 'Username'
+btn_admin.login.password: 'Password'
+btn_admin.login.button: 'Sign in'
+btn_admin.login.remember_me: 'Remember me'
+btn_admin.login.reset_password: 'Forgot my password'
+
+# Forgot my password
+btn_admin.resetting.title: 'Reset your password'
+
 
 # flashes
 btn_admin.flash.added: 'Added successfully'
