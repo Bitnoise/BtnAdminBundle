@@ -97,6 +97,10 @@ textarea,
     background-color: #fefefe;
 }
 
+.btn-google-map {
+    height: 300px;
+}
+
 /*************************
  *
  * Utilities

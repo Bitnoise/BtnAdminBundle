@@ -125,3 +125,8 @@ assetic:
                 - @BtnAdminBundle/Resources/public/js/jq.slugify.js
                 - @BtnAdminBundle/Resources/public/js/jq.slugify.init.js
             output: js/btn_admin.slugify.js
+
+        btn_admin_addresspicker_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/jquery-addresspicker/js/jquery.ui.addresspicker.js
+            output: js/btn_admin.addresspicker.js

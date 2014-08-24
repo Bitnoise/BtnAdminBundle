@@ -2,3 +2,58 @@
     {% set attr = attr|merge({'data-slug-source-selector': '#' ~ parent[slug_source].vars.id}) %}
     {{ block('text_widget') }}
 {% endblock %}
+
+{% block btn_google_map_widget %}
+    <div id="{{ id }}_gmap_address_widget"></div>
+    <div id="{{ id }}_input">{{ block('form_widget') }}</div>
+    <div id="{{ id }}_map" class="btn-google-map"></div>
+
+    <script>
+
+        window.google || document.write('<script src="//maps.googleapis.com/maps/api/js">\x3C/script>');
+
+        (function(app, undefined){
+            var addEvents = function() {
+                var addresspickerMap = $('#{{ form.address.vars.id }}').addresspicker({
+                    reverseGeocode: true,
+                    mapOptions: {
+                        zoom: {{ form.zoom.vars.value|default(5) }},
+                        center: new google.maps.LatLng(46, 2),
+                        scrollwheel: false,
+                        mapTypeId: '{{ form.maptypeid.vars.value|default('roadmap') }}'
+                    },
+                    elements: {
+                        map:           '#{{ id }}_map',
+                        locality:      '#{{ form.locality.vars.id }}',
+                        sublocality:   '#{{ form.sublocality.vars.id }}',
+                        country:       '#{{ form.country.vars.id }}',
+                        route:         '#{{ form.route.vars.id }}',
+                        street_number: '#{{ form.streetNumber.vars.id }}',
+                        postal_code:   '#{{ form.postalCode.vars.id }}',
+                        lat:           '#{{ form.lat.vars.id }}',
+                        lng:           '#{{ form.lng.vars.id }}'
+                    }
+                });
+
+                var gmarker = addresspickerMap.addresspicker('marker');
+                gmarker.setVisible(true);
+                addresspickerMap.addresspicker('updatePosition');
+
+                var map = addresspickerMap.addresspicker('map');
+
+                google.maps.event.addListener(map, 'zoom_changed', function() {
+                    $('#{{ form.zoom.vars.id }}').val(map.getZoom());
+                });
+
+                google.maps.event.addListener(map, 'maptypeid_changed', function() {
+                    $('#{{ form.maptypeid.vars.id }}').val(map.getMapTypeId());
+                });
+            };
+
+            app.init(function() {
+                addEvents();
+            });
+
+        })(BtnApp);
+    </script>
+{% endblock %}
