@@ -17,6 +17,13 @@ abstract class AbstractCrudController extends AbstractControlController
     public function setCrudSettings(CrudSettings $crudSettings)
     {
         $this->crudSettings = $crudSettings;
+
+        // set handler from crud settings
+        $formHandlerId = $this->crudSettings->getFormHandlerId();
+        if ($formHandlerId) {
+            $formHandler = $this->get($formHandlerId);
+            $this->setFormHandler($formHandler);
+        }
     }
 
     /**
