@@ -88,7 +88,7 @@ class ControlControllerListener
                 // if index template is not set then generate automaticly from controller
                 if (null === $crudSettings->getIndexTemplate()) {
                     $templatePrefix = $this->bundleHelper->getTemplatePrefix($controller[0]);
-                    $indexTemplate  = $templatePrefix . 'index.html.twig';
+                    $indexTemplate  = $templatePrefix.'index.html.twig';
                     $crudSettings->setIndexTemplate($indexTemplate);
                 }
                 // if provider id is not set then generate automaticly from controller

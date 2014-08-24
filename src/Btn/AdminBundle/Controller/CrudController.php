@@ -102,7 +102,7 @@ class CrudController extends AbstractCrudController
      */
     public function deleteAction($id, $csrf_token)
     {
-        $this->validateCsrfTokenOrThrowException($this->getRoutePrefix() . '_delete', $csrf_token);
+        $this->validateCsrfTokenOrThrowException($this->getRoutePrefix().'_delete', $csrf_token);
 
         $entityProvider = $this->getEntityProvider();
         $entity         = $this->findEntityOr404($entityProvider->getClass(), $id);

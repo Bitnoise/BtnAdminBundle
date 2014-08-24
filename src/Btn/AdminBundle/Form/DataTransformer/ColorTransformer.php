@@ -27,6 +27,6 @@ class ColorTransformer implements DataTransformerInterface
             return null;
         }
 
-        return '#' . ltrim($color, '#');
+        return '#'.ltrim($color, '#');
     }
 }

@@ -31,18 +31,18 @@ class EmbeddedType extends AbstractType
         parent::buildView($view, $form, $options);
 
         // aliases
-        $attr =& $view->vars['attr'];
-        $opt  =& $options;
+        $attr = & $view->vars['attr'];
+        $opt  = & $options;
 
         $attr['data-prototype-replacement'] = $opt['prototype_name'];
         if ($opt['allow_add'] && $opt['prototype_add']) {
             $attr['data-prototype-add'] = '<button type="button" class="btn btn-success btn-sm btn-add">'
-                . $this->trans($opt['prototype_add']) . '</button>';
+                .$this->trans($opt['prototype_add']).'</button>';
         }
         if ($opt['allow_delete'] && $opt['prototype_remove']) {
             $attr['data-prototype-remove'] = '<button type="button" btn-remove="true" class="btn btn-danger btn-sm btn-remove">'
-                . $this->trans($opt['prototype_remove'])
-                . '</button>';
+                .$this->trans($opt['prototype_remove'])
+                .'</button>';
         }
         if ($opt['allow_add'] && $opt['prototype_limit']) {
             $attr['data-prototype-limit'] = $opt['prototype_limit'];

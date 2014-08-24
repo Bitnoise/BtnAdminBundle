@@ -61,7 +61,7 @@ class DateType extends AbstractType
             $view->vars['attr']['class'] = '';
         }
 
-        $view->vars['attr']['class'] = trim($view->vars['attr']['class'] . ' btn-date btn-datepicker');
+        $view->vars['attr']['class'] = trim($view->vars['attr']['class'].' btn-date btn-datepicker');
     }
 
     /**

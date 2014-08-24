@@ -44,7 +44,7 @@ abstract class AbstractCrudController extends AbstractControlController
      */
     public function getPrefixedRoute($route)
     {
-        return $this->getRoutePrefix() . '_' . $route;
+        return $this->getRoutePrefix().'_'.$route;
     }
 
     /**

@@ -59,7 +59,7 @@ class DateTimeType extends AbstractType
             $view->vars['attr']['class'] = '';
         }
 
-        $view->vars['attr']['class'] = trim($view->vars['attr']['class'] . ' btn-datetime btn-datetimepicker');
+        $view->vars['attr']['class'] = trim($view->vars['attr']['class'].' btn-datetime btn-datetimepicker');
     }
 
     /**
