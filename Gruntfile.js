@@ -9,52 +9,53 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: '.jshintrc'
             },
-            bundle: ['Resources/public/js/*.js', '*.json', 'Gruntfile.js']
+            bundle: ['src/Resources/public/js/*.js', '*.json', 'Gruntfile.js']
+        },
+
+        phpcsfixer: {
+            options: {
+                bin: 'vendor/bin/php-cs-fixer',
+                level: 'all',
+                ignoreExitCode: false,
+                verbose: true,
+                diff: false,
+                dryRun: true
+            },
+            bundle: {
+                dir: 'src/'
+            }
         },
 
         phpcs: {
             options: {
-                bin: 'bin/phpcs',
+                bin: 'vendor/bin/phpcs',
                 standard: 'PSR2'
             },
             bundle: {
-                dir: ['*']
+                dir: ['src/']
             }
         },
 
         phpmd: {
             options: {
-                bin: 'bin/phpmd',
+                bin: 'vendor/bin/phpmd',
                 reportFormat: 'text',
-                rulesets: 'codesize,unusedcode'
+                rulesets: 'codesize,unusedcode,naming'
             },
             bundle: {
-                dir: ['*']
+                dir: 'src/'
             }
-        },
-
-        exec: {
-            phpcs_hint: {
-                cmd: 'bin/php-cs-fixer fix --level=all --dry-run --diff --verbose .',
-                stdout: true,
-                stderr: true,
-            },
-            phpcs_fix: {
-                cmd: 'bin/php-cs-fixer fix --level=all .',
-                stdout: true,
-                stderr: true,
-            },
         }
 
     });
 
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-php-cs-fixer');
     grunt.loadNpmTasks('grunt-phpcs');
     grunt.loadNpmTasks('grunt-phpmd');
-    grunt.loadNpmTasks('grunt-exec');
 
     // Default task.
-    grunt.registerTask('hint', ['jshint', 'phpcs', 'phpmd', 'exec:phpcs_hint']);
+    grunt.registerTask('hint', ['jshint', 'phpcsfixer', 'phpcs', 'phpmd']);
     grunt.registerTask('default', ['hint']);
 };
