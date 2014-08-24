@@ -16,7 +16,7 @@ class ColorValidator extends ConstraintValidator
             return;
         }
 
-        if (!preg_match('~^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$~', $value, $matches)) {
+        if (!preg_match('~^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$~', $value)) {
             $this->context->addViolation($constraint->message);
         }
     }
