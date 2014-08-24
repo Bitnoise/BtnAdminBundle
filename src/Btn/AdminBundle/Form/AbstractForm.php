@@ -37,6 +37,7 @@ abstract class AbstractForm extends AbstractType
 
     /**
      * {@inheritdoc}
+     * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {

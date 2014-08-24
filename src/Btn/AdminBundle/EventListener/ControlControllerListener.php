@@ -46,7 +46,8 @@ class ControlControllerListener
     }
 
     /**
-     *
+     * @SuppressWarnings(PHPMD.NPathComplexity)
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      */
     public function onKernelController(FilterControllerEvent $event)
     {

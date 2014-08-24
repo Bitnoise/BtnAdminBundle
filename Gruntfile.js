@@ -40,7 +40,7 @@ module.exports = function(grunt) {
             options: {
                 bin: 'vendor/bin/phpmd',
                 reportFormat: 'text',
-                rulesets: 'codesize,unusedcode,naming'
+                rulesets: 'phpmd-rules.xml'
             },
             bundle: {
                 dir: 'src/'
