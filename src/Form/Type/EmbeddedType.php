@@ -31,24 +31,24 @@ class EmbeddedType extends AbstractType
         parent::buildView($view, $form, $options);
 
         // aliases
-        $a =& $view->vars['attr'];
-        $o =& $options;
+        $attr =& $view->vars['attr'];
+        $opt  =& $options;
 
-        $a['data-prototype-replacement'] = $o['prototype_name'];
-        if ($o['allow_add'] && $o['prototype_add']) {
-            $a['data-prototype-add'] = '<button type="button" class="btn btn-success btn-sm btn-add">'
-                . $this->trans($o['prototype_add']) . '</button>';
+        $attr['data-prototype-replacement'] = $opt['prototype_name'];
+        if ($opt['allow_add'] && $opt['prototype_add']) {
+            $attr['data-prototype-add'] = '<button type="button" class="btn btn-success btn-sm btn-add">'
+                . $this->trans($opt['prototype_add']) . '</button>';
         }
-        if ($o['allow_delete'] && $o['prototype_remove']) {
-            $a['data-prototype-remove'] = '<button type="button" btn-remove="true" class="btn btn-danger btn-sm btn-remove">'
-                . $this->trans($o['prototype_remove'])
+        if ($opt['allow_delete'] && $opt['prototype_remove']) {
+            $attr['data-prototype-remove'] = '<button type="button" btn-remove="true" class="btn btn-danger btn-sm btn-remove">'
+                . $this->trans($opt['prototype_remove'])
                 . '</button>';
         }
-        if ($o['allow_add'] && $o['prototype_limit']) {
-            $a['data-prototype-limit'] = $o['prototype_limit'];
+        if ($opt['allow_add'] && $opt['prototype_limit']) {
+            $attr['data-prototype-limit'] = $opt['prototype_limit'];
         }
-        if ($o['sortable']) {
-            $a['data-sortable'] = $o['sortable'];
+        if ($opt['sortable']) {
+            $attr['data-sortable'] = $opt['sortable'];
         }
     }
 
