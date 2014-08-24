@@ -36,6 +36,7 @@
     "autoload": {
         "psr-0": { "Btn\\AdminBundle": "src/" }
     },
+    "target-dir": "Btn/AdminBundle",
     "extra": {
         "branch-alias": {
             "dev-2.0": "2.0-dev"
