@@ -6,10 +6,7 @@ php:
 
 install:
     - composer install
+    - npm install -g grunt-cli
     - npm install
 
 script: grunt test
-
-branches:
-  only:
-    - 2.0
