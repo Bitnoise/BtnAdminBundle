@@ -10,12 +10,12 @@ use Btn\AdminBundle\Model\UserInterface;
 
 /**
  * @Route("/user")
- * @Crud()
+ * @Crud(formHandlerId="btn_admin.form.handler.user_form")
  */
 class UserControlController extends CrudController
 {
     /**
-     * @Route("/profile", methods={"GET"}, name="btn_admin_usercontrol_profile", methods={"GET", "POST"})
+     * @Route("/profile", name="btn_admin_usercontrol_profile", methods={"GET", "POST"})
      * @Template()
      */
     public function profileAction(Request $request)
