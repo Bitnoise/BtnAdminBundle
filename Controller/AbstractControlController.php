@@ -11,13 +11,13 @@ use Btn\AdminBundle\Annotation\EntityProvider;
 class AbstractControlController extends AbstractController
 {
     /** @var int $perPage */
-    private $perPage;
+    protected $perPage;
 
     /** @var \Btn\AdminBundle\Form\Handler\FormHandlerInterface $formHandler */
-    private $formHandler;
+    protected $formHandler;
 
     /** @var \Btn\AdminBundle\Annotation\EntityProvider $entityProvider */
-    private $entityProvider;
+    protected $entityProvider;
 
     /**
      *
