@@ -9,3 +9,7 @@ install:
     - npm install
 
 script: grunt test
+
+branches:
+  only:
+    - 2.0
