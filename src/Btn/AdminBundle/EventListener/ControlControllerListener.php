@@ -66,8 +66,8 @@ class ControlControllerListener
             }
 
             $entityProviderClass = 'Btn\\AdminBundle\\Annotation\\EntityProvider';
-            $r = $this->bundleHelper->getReflectionClass($controller[0]);
-            $entityProvider = $this->annotationReader->getClassAnnotation($r, $entityProviderClass);
+            $reflectionClass = $this->bundleHelper->getReflectionClass($controller[0]);
+            $entityProvider  = $this->annotationReader->getClassAnnotation($reflectionClass, $entityProviderClass);
             if ($entityProvider) {
                 // if provider id is not set then generate automaticly from controller
                 if (null === $entityProvider->getProviderId()) {
@@ -81,8 +81,8 @@ class ControlControllerListener
         // handel CrudSettings specific resolutions
         if ($controller[0] instanceof AbstractCrudController) {
             $crudSettingsClass = 'Btn\\AdminBundle\\Annotation\\CrudSettings';
-            $r = $this->bundleHelper->getReflectionClass($controller[0]);
-            $crudSettings = $this->annotationReader->getClassAnnotation($r, $crudSettingsClass);
+            $reflectionClass = $this->bundleHelper->getReflectionClass($controller[0]);
+            $crudSettings    = $this->annotationReader->getClassAnnotation($reflectionClass, $crudSettingsClass);
             if ($crudSettings) {
                 // if index template is not set then generate automaticly from controller
                 if (null === $crudSettings->getIndexTemplate()) {
