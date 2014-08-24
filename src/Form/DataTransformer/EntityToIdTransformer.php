@@ -8,8 +8,8 @@ use Doctrine\ORM\EntityManager;
 
 class EntityToIdTransformer implements DataTransformerInterface
 {
-    /** @var \Doctrine\ORM\EntityManager $em */
-    protected $em;
+    /** @var \Doctrine\ORM\EntityManager $entityManager */
+    protected $entityManager;
 
     /** @var string $class */
     protected $class;
@@ -17,10 +17,10 @@ class EntityToIdTransformer implements DataTransformerInterface
     /**
      *
      */
-    public function __construct(EntityManager $em, $class)
+    public function __construct(EntityManager $entityManager, $class)
     {
-        $this->em    = $em;
-        $this->class = $class;
+        $this->entityManager = $entityManager;
+        $this->class         = $class;
     }
 
     /**
@@ -44,7 +44,7 @@ class EntityToIdTransformer implements DataTransformerInterface
             return null;
         }
 
-        $entity = $this->em->getRepository($this->class)->find($id);
+        $entity = $this->entityManager->getRepository($this->class)->find($id);
 
         if (null === $entity) {
             throw new TransformationFailedException();
