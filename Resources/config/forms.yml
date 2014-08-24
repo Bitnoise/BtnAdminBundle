@@ -1,5 +1,6 @@
 parameters:
     btn_admin.form.handler.entiy_form.class: Btn\AdminBundle\Form\Handler\EntityFormHandler
+    btn_admin.form.handler.user_form.class: Btn\AdminBundle\Form\Handler\UserFormHandler
     btn_admin.form.button.create.class: Btn\AdminBundle\Form\Button\CreateButton
     btn_admin.form.button.delete.class: Btn\AdminBundle\Form\Button\DeleteButton
     btn_admin.form.button.save.class: Btn\AdminBundle\Form\Button\SaveButton
