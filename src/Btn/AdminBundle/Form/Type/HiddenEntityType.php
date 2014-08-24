@@ -15,7 +15,7 @@ class HiddenEntityType extends AbstractType
     {
         parent::buildForm($builder, $options);
 
-        $transformer = new EntityToIdTransformer($this->em, $options['class']);
+        $transformer = new EntityToIdTransformer($this->entityManager, $options['class']);
         $builder->addModelTransformer($transformer);
     }
 
