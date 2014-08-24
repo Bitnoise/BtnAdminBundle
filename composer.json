@@ -34,12 +34,7 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Btn\\AdminBundle": "" }
-    },
-    "target-dir": "Btn/AdminBundle",
-    "config": {
-        "preferred-install": "dist",
-        "bin-dir": "bin"
+        "psr-0": { "Btn\\AdminBundle\\": "src/" }
     },
     "extra": {
         "branch-alias": {
