@@ -31,7 +31,7 @@ class EntityFormHandler implements FormHandlerInterface
     public function handle(FormInterface $form, Request $request = null)
     {
         if (!$this->request && !$request) {
-            throw new \Exception(sprinf('No request pased to form handler'));
+            throw new \Exception(sprinf('No request passed to form handler'));
         }
 
         $form->handleRequest($request ? $request : $this->request);
