@@ -11,7 +11,7 @@ class CrudSettings extends EntityProvider
     /** @var string $form form alias for create/update actions */
     protected $formAlias      = null;
     /** @var string $formHandlerId form handler service id */
-    protected $formHandlerId  = 'btn_admin.form.handler.entiy_form';
+    protected $formHandlerId  = 'btn_admin.form.handler.entity_form';
     /** @var string $routePrefix route prefix to generate index/create/update routes */
     protected $routePrefix    = null;
     /** @var string $indexTemplate */

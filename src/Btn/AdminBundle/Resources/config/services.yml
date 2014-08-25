@@ -14,6 +14,6 @@ services:
             bundleHelper: @btn_base.helper.bundle
         calls:
             - [setPerPage, ['%btn_admin.list.per_page%']]
-            - [setFormHandler, ['@btn_admin.form.handler.entiy_form']]
+            - [setFormHandler, ['@btn_admin.form.handler.entity_form']]
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }

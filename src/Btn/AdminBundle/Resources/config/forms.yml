@@ -1,5 +1,5 @@
 parameters:
-    btn_admin.form.handler.entiy_form.class: Btn\AdminBundle\Form\Handler\EntityFormHandler
+    btn_admin.form.handler.entity_form.class: Btn\AdminBundle\Form\Handler\EntityFormHandler
     btn_admin.form.handler.user_form.class: Btn\AdminBundle\Form\Handler\UserFormHandler
     btn_admin.form.button.create.class: Btn\AdminBundle\Form\Button\CreateButton
     btn_admin.form.button.delete.class: Btn\AdminBundle\Form\Button\DeleteButton
@@ -21,12 +21,12 @@ parameters:
 
 services:
     # Handlers
-    btn_admin.form.handler.entiy_form:
-        class: %btn_admin.form.handler.entiy_form.class%
+    btn_admin.form.handler.entity_form:
+        class: %btn_admin.form.handler.entity_form.class%
         arguments:
             em: @doctrine.orm.entity_manager
 
-    btn_admin.form_handler: @btn_admin.form.handler.entiy_form
+    btn_admin.form_handler: @btn_admin.form.handler.entity_form
 
     btn_admin.form.handler.user_form:
         class: %btn_admin.form.handler.user_form.class%
