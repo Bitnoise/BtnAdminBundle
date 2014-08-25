@@ -35,9 +35,10 @@ class DateTimeType extends AbstractType
         ));
 
         $resolver->setDefaults(array(
-            'widget'    => 'single_text',
-            'format'    => 'yyyy-MM-dd HH:mm:ss',
-            'autoclose' => true,
+            'widget'      => 'single_text',
+            'format'      => 'yyyy-MM-dd HH:mm:ss',
+            'date_format' => 'yyyy-mm-dd hh:ii:ss',
+            'autoclose'   => true,
         ));
     }
 
@@ -49,7 +50,7 @@ class DateTimeType extends AbstractType
         parent::buildView($view, $form, $options);
 
         $view->vars['attr']['btn-datetimepicker']  = true;
-        $view->vars['attr']['data-date-format']    = 'yyyy-mm-dd hh:ii:ss';
+        $view->vars['attr']['data-date-format']    = $options['date_format'];
 
         if (isset($options['autoclose'])) {
             $view->vars['attr']['data-date-autoclose'] = $options['autoclose'];

@@ -28,17 +28,18 @@ class DateType extends AbstractType
 
         $resolver->setOptional(array(
             'autoclose',
+            'date_format',
+        ));
+
+        $resolver->setAllowedTypes(array(
+            'autoclose' => array('bool'),
         ));
 
         $resolver->setDefaults(array(
-            'widget' => 'single_text',
-            'format' => 'yyyy-MM-dd',
-            'attr'  => array(
-                'data-date-format'    => 'yyyy-mm-dd',
-                'data-min-view'       => 2,
-                'data-date-autoclose' => true,
-                'class'               => 'btn-date btn-datepicker',
-            ),
+            'widget'      => 'single_text',
+            'format'      => 'yyyy-MM-dd',
+            'date_format' => 'yyyy-mm-dd',
+            'autoclose'   => true
         ));
     }
 
@@ -50,7 +51,7 @@ class DateType extends AbstractType
         parent::buildView($view, $form, $options);
 
         $view->vars['attr']['btn-datetimepicker']  = true;
-        $view->vars['attr']['data-date-format']    = 'yyyy-mm-dd';
+        $view->vars['attr']['data-date-format']    = $options['date_format'];
         $view->vars['attr']['data-min-view']       = 2;
 
         if (isset($options['autoclose'])) {
