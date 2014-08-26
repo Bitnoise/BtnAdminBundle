@@ -35,7 +35,7 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Btn\\AdminBundle\\": "src/" }
+        "psr-4": { "Btn\\AdminBundle\\": "src/Btn/AdminBundle" }
     },
     "extra": {
         "branch-alias": {
