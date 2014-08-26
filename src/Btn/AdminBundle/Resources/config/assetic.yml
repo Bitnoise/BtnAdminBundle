@@ -11,6 +11,11 @@ assetic:
                 - cssrewrite
             output: css/btn_admin.bootstrap.css
 
+        btn_admin_bootstrap_flat_css_map:
+            inputs:
+                - bundles/btnadmin/vendor/bootflat/css/bootflat.css.map
+            output: css/bootflat.css.map
+
         btn_admin_bootstrap_flat_css:
             inputs:
                 # - @BtnAdminBundle/Resources/public/vendor/bootflat/css/bootflat.css
