@@ -5,13 +5,19 @@ assetic:
 
         btn_admin_bootstrap_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/bootstrap/css/bootstrap.css
+                # - @BtnAdminBundle/Resources/public/vendor/bootstrap/css/bootstrap.css
+                - bundles/btnadmin/vendor/bootstrap/css/bootstrap.css
+            filters:
+                - cssrewrite
             output: css/btn_admin.bootstrap.css
 
         btn_admin_bootstrap_flat_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/bootflat/css/bootflat.css
+                # - @BtnAdminBundle/Resources/public/vendor/bootflat/css/bootflat.css
+                - bundles/btnadmin/vendor/bootflat/css/bootflat.css
                 - @BtnAdminBundle/Resources/public/css/bootflat-custom.css
+            filters:
+                - cssrewrite
             output: css/btn_admin.bootstrap-flat.css
 
         btn_admin_bootstrap_theme_css:
@@ -30,10 +36,11 @@ assetic:
             output: css/btn-admin.loading.css
 
         btn_admin_jstree_css:
-            # filters:
-            #     - cssrewrite
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/jstree/css/style.css
+                # - @BtnAdminBundle/Resources/public/vendor/jstree/css/style.css
+                - bundles/btnadmin/vendor/jstree/css/style.css
+            filters:
+                - cssrewrite
             output: css/btn-admin.jstree.css
 
         btn_admin_colorpicker_css:
