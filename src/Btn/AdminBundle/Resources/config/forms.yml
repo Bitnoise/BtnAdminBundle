@@ -8,6 +8,7 @@ parameters:
     btn_admin.form.type.color.class: Btn\AdminBundle\Form\Type\ColorType
     btn_admin.form.type.date_time.class: Btn\AdminBundle\Form\Type\DateTimeType
     btn_admin.form.type.date.class: Btn\AdminBundle\Form\Type\DateType
+    btn_admin.form.type.wysiwyg.class: Btn\AdminBundle\Form\Type\WysiwygType
     btn_admin.form.type.embedded.class: Btn\AdminBundle\Form\Type\EmbeddedType
     btn_admin.form.type.slug.class: Btn\AdminBundle\Form\Type\SlugType
     btn_admin.form.type.hidden_entity.class: Btn\AdminBundle\Form\Type\HiddenEntityType
@@ -107,6 +108,10 @@ services:
         tags:
             - { name: form.type, alias: btn_date }
 
+    btn_admin.form.type.wysiwyg:
+        class: %btn_admin.form.type.wysiwyg.class%
+        tags:
+            - { name: form.type, alias: btn_wysiwyg }
 
     btn_admin.form.type.embedded:
         class: %btn_admin.form.type.embedded.class%
