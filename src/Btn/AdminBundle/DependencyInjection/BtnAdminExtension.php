@@ -40,6 +40,9 @@ class BtnAdminExtension extends AbstractExtension
         // Process configuraton
         $config = $this->getProcessedConfig($container);
 
+        // get config loader
+        $loader = $this->getConfigLoader($container);
+
         // setup user_class from FOSUserBundle Configuration
         if ($container->hasExtension('fos_user')) {
             $fosUserConfigs       = $container->getExtensionConfig('fos_user');
@@ -110,6 +113,11 @@ class BtnAdminExtension extends AbstractExtension
                     'btn_admin_base_js' => $config['assetic']['base_js'],
                 ),
             ));
+        }
+
+        // load ivory_ck_editor configuration
+        if ($container->hasExtension('ivory_ck_editor')) {
+            $loader->load('ivory_ck_editor.yml');
         }
     }
 }
