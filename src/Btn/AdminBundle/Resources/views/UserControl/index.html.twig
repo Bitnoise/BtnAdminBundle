@@ -14,3 +14,9 @@
     <td>{{ entity.enabled ? gi('ok') : gi('remove') }}</td>
     <td>{{ entity.lastLogin|date(btn_admin.list.date_time_format) }}</td>
 {% endblock %}
+
+{% block list_table_row_action_post %}
+    {% if is_granted('ROLE_ALLOWED_TO_SWITCH') %}
+        {{ lnk.success('btn_admin.login_as_user', 'btn_admin_defaultcontrol_index', {'_switch_user': entity.username}) }}
+    {% endif %}
+{% endblock %}
