@@ -6,15 +6,15 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class WysiwygType extends AbstractType
 {
-    /** @var string $filebrowserBrowseRoute */
-    protected $filebrowserBrowseRoute;
+    /** @var string $filebrowserRoute */
+    protected $filebrowserRoute;
 
     /**
      *
      */
-    public function setFilebrowserBrowseRoute($filebrowserBrowseRoute)
+    public function setFilebrowserRoute($filebrowserRoute)
     {
-        $this->filebrowserBrowseRoute = $filebrowserBrowseRoute;
+        $this->filebrowserRoute = $filebrowserRoute;
     }
 
     /**
@@ -24,10 +24,10 @@ class WysiwygType extends AbstractType
     {
         parent::setDefaultOptions($resolver);
 
-        if ($this->filebrowserBrowseRoute) {
+        if ($this->filebrowserRoute) {
             $resolver->setDefaults(array(
                 'config' => array(
-                    'filebrowserBrowseRoute' => $this->filebrowserBrowseRoute,
+                    'filebrowserBrowseRoute' => $this->filebrowserRoute,
                 ),
             ));
         }
