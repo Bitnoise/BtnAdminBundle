@@ -11,6 +11,7 @@
     "grunt-php-cs-fixer": "~0.0.5",
     "grunt-exec": "~0.4.6",
     "grunt-phpcs": "~0.2.0",
-    "grunt-phpmd": "~0.1.0"
+    "grunt-phpmd": "~0.1.0",
+    "grunt-phpcpd": "~0.1.3"
   }
 }

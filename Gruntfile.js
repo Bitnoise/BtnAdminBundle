@@ -45,6 +45,16 @@ module.exports = function(grunt) {
             bundle: {
                 dir: 'src/'
             }
+        },
+
+        phpcpd: {
+            options: {
+                bin: 'vendor/bin/phpcpd',
+                quiet: true
+            },
+            bundle: {
+                dir: 'src/'
+            }
         }
 
     });
@@ -54,8 +64,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-php-cs-fixer');
     grunt.loadNpmTasks('grunt-phpcs');
     grunt.loadNpmTasks('grunt-phpmd');
+    grunt.loadNpmTasks('grunt-phpcpd');
 
     // Default task.
-    grunt.registerTask('test', ['jshint', 'phpcsfixer', 'phpmd']);
+    grunt.registerTask('test', ['jshint', 'phpcsfixer', 'phpmd', 'phpcpd']);
     grunt.registerTask('default', ['test']);
 };
