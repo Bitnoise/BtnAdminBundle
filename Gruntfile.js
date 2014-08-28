@@ -65,6 +65,10 @@ module.exports = function(grunt) {
             bundle: {
                 dir: 'src/'
             }
+        },
+
+        exec: {
+          twig_lint: 'vendor/bin/twig-lint lint src/ --ansi'
         }
 
     });
@@ -76,8 +80,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-phpcs');
     grunt.loadNpmTasks('grunt-phpmd');
     grunt.loadNpmTasks('grunt-phpcpd');
+    grunt.loadNpmTasks('grunt-exec');
 
     // Default task.
-    grunt.registerTask('test', ['jshint', 'phpcsfixer', 'phpmd', 'phpcpd', 'phpcs']);
+    grunt.registerTask('test', ['jshint', 'csslint', 'phpcsfixer', 'phpmd', 'phpcpd', 'phpcs', 'exec:twig_lint']);
     grunt.registerTask('default', ['test']);
 };
