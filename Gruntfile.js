@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: 'tests-settings/.jshintrc'
             },
             bundle: ['src/Btn/AdminBundle/Resources/public/js/**/*.js', '*.json', 'Gruntfile.js']
         },
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
             options: {
                 bin: 'vendor/bin/phpmd',
                 reportFormat: 'text',
-                rulesets: 'phpmd-rules.xml'
+                rulesets: 'tests-settings/phpmd-rules.xml'
             },
             bundle: {
                 dir: 'src/'
