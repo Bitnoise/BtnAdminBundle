@@ -1,14 +1,19 @@
 language: php
+
 php:
-- 5.5
-- 5.4
-- 5.3
+    - 5.6
+    - 5.5
+    - 5.4
+    - 5.3
+
 install:
-- composer install
-- npm install -g grunt-cli
-- npm install
+    - composer install
+    - npm install -g grunt-cli
+    - npm install
+
 script: grunt test
+
 notifications:
-  hipchat:
-    rooms:
-      secure: AS7HOc13u5kvFFJ7hcmxQbE9M6tgTXOdsfPtHYGcrSJUKXwukVrbfDYaOmrNpI+MLINcYC7DVQLQtKNzNnnj7P0PoIQcUITx7o3sBQ3TLDvaawcVJJyR4htk1ra2u09jo94ePcor1NvBMGAZYNDu+Imqvo045dwcSydYoSwLWBU=
+    hipchat:
+        rooms:
+            secure: AS7HOc13u5kvFFJ7hcmxQbE9M6tgTXOdsfPtHYGcrSJUKXwukVrbfDYaOmrNpI+MLINcYC7DVQLQtKNzNnnj7P0PoIQcUITx7o3sBQ3TLDvaawcVJJyR4htk1ra2u09jo94ePcor1NvBMGAZYNDu+Imqvo045dwcSydYoSwLWBU=
