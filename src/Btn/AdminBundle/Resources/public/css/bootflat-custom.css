@@ -24,10 +24,10 @@ h2 small {
 .panel,
 .panel-heading,
 .panel-body {
-    border-radius: 0 !important;
-    -webkit-border-radius: 0 !important;
     -webkit-appearance: none;
     -moz-appearance: none;
+    -webkit-border-radius: 0 !important;
+    border-radius: 0 !important;
 }
 
 .form-control,
@@ -154,7 +154,7 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
 
 .btn-admin-list-header {
     font-size: 24px;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .btn-admin-tree-title {
@@ -174,10 +174,10 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
 .pick-a-color-markup .color-box,
 .pick-a-color-markup .color-menu-tabs .tab,
 .pick-a-color-markup .color-menu-tabs .tab-active {
-    border-radius: 0 !important;
     -webkit-border-radius: 0 !important;
-    border-top-right-radius: 0 !important;
+    border-radius: 0 !important;
     -webkit-border-top-right-radius: 0 !important;
-    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
     -webkit-border-top-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
 }
