@@ -29,6 +29,7 @@ module.exports = function(grunt) {
         phpcs: {
             options: {
                 bin: 'vendor/bin/phpcs',
+                extensions: 'php',
                 standard: 'PSR2'
             },
             bundle: {
@@ -67,6 +68,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-phpcpd');
 
     // Default task.
-    grunt.registerTask('test', ['jshint', 'phpcsfixer', 'phpmd', 'phpcpd']);
+    grunt.registerTask('test', ['jshint', 'phpcsfixer', 'phpmd', 'phpcpd', 'phpcs']);
     grunt.registerTask('default', ['test']);
 };
