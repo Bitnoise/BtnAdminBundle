@@ -8,6 +8,7 @@
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-csslint": "~0.2.0",
         "grunt-php-cs-fixer": "~0.0.5",
         "grunt-exec": "~0.4.6",
         "grunt-phpcs": "~0.2.0",

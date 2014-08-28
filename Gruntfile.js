@@ -12,6 +12,15 @@ module.exports = function(grunt) {
             bundle: ['src/Btn/AdminBundle/Resources/public/js/**/*.js', '*.json', 'Gruntfile.js']
         },
 
+        csslint: {
+            options: {
+                csslintrc: 'tests-settings/.csslintrc',
+            },
+            bundle: {
+                src: ['src/Btn/AdminBundle/Resources/public/css/**/*.css']
+            }
+        },
+
         phpcsfixer: {
             options: {
                 bin: 'vendor/bin/php-cs-fixer',
@@ -62,6 +71,7 @@ module.exports = function(grunt) {
 
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-php-cs-fixer');
     grunt.loadNpmTasks('grunt-phpcs');
     grunt.loadNpmTasks('grunt-phpmd');
