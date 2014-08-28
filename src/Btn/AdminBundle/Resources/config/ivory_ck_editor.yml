@@ -102,6 +102,7 @@ ivory_ck_editor:
                     name: document
                     items:
                         - Source
+                        - Templates
                 - /
                 -
                     name: styles
