@@ -63,7 +63,7 @@ abstract class AbstractMenuBuilder
     }
 
     /**
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     *
      */
     protected function addChild(Request $request, ItemInterface $menu, $child)
     {
