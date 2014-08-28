@@ -19,7 +19,9 @@ class MenuBuilderCompilerPass implements CompilerPassInterface
         foreach ($container->findTaggedServiceIds('btn_admin.menu_item') as $id => $tags) {
             foreach ($tags as $attributes) {
                 if (empty($attributes['parent'])) {
-                    throw new \InvalidArgumentException(sprintf('The parent is not defined in the "btn_admin.menu_item" tag for the service "%s"', $id));
+                    throw new \InvalidArgumentException(
+                        sprintf('The parent is not defined in the "btn_admin.menu_item" tag for the service "%s"', $id)
+                    );
                 }
                 $parent = $attributes['parent'];
                 if (!isset($menuItems[$parent])) {

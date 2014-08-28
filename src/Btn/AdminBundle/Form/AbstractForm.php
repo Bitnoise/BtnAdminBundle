@@ -29,8 +29,11 @@ abstract class AbstractForm extends AbstractType
             if ($this->assetLoader) {
                 $this->assetLoader->load('btn_admin_loading');
             } else {
-                throw new \Exception(sprintf('Asset loader is missing in "%s".'
-                    .' Extend @btn_admin.form.abstract or inject it via setAssetLoader()', __CLASS__));
+                throw new \Exception(sprintf(
+                    'Asset loader is missing in "%s". '
+                    .'Extend @btn_admin.form.abstract service or inject it via setAssetLoader()',
+                    __CLASS__
+                ));
             }
         }
     }

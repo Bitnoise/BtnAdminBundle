@@ -27,12 +27,12 @@ abstract class AbstractMenuBuilder
     /**
      *
      */
-    public function createMenu(Request $request, $name, $route, array $routeParameters = array(), array $children = array())
+    public function createMenu(Request $request, $name, $route, array $routeParams = array(), array $children = array())
     {
         $attributes = array(
             'label'           => $this->translator->trans($name),
             'route'           => $route,
-            'routeParameters' => $routeParameters,
+            'routeParameters' => $routeParams,
         );
 
         if ($name == 'top_menu') {

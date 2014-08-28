@@ -2,7 +2,7 @@
 
 namespace Btn\AdminBundle\Controller;
 
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface as UrlGenInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Btn\AdminBundle\Annotation\CrudSettings;
 
@@ -50,7 +50,7 @@ abstract class AbstractCrudController extends AbstractControlController
     /**
      * Generate route with route prefix for crud controller
      */
-    public function generatePrefixedUrl($route, $parameters = array(), $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
+    public function generatePrefixedUrl($route, $parameters = array(), $referenceType = UrlGenInterface::ABSOLUTE_PATH)
     {
         return $this->generateUrl($this->getPrefixedRoute($route), $parameters, $referenceType);
     }

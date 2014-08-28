@@ -40,7 +40,8 @@ class EmbeddedType extends AbstractType
                 .$this->trans($opt['prototype_add']).'</button>';
         }
         if ($opt['allow_delete'] && $opt['prototype_remove']) {
-            $attr['data-prototype-remove'] = '<button type="button" btn-remove="true" class="btn btn-danger btn-sm btn-remove">'
+            $attr['data-prototype-remove'] = ''
+                .'<button type="button" btn-remove="true" class="btn btn-danger btn-sm btn-remove">'
                 .$this->trans($opt['prototype_remove'])
                 .'</button>';
         }
