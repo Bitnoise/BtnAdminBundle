@@ -1,6 +1,6 @@
 /* global BtnApp, bootbox, jQuery */
 (function(app, bootbox, $, undefined){
-
+    'use strict';
     var addEvents = function(context) {
 
         app.tools.findOnce('btn-remove', context).each(function(){

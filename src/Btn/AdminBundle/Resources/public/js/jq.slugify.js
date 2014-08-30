@@ -1,6 +1,6 @@
 /* global jQuery */
 (function ($) {
-
+    'use strict';
     $.fn.slugify = function (source, options) {
         var $target = this;
         var $source = $(source);

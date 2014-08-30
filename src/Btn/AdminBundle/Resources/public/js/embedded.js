@@ -1,5 +1,6 @@
 /* global BtnApp, jQuery */
 (function ($) {
+    'use strict';
     var collectionSelector   = '[data-prototype]',
         addButtonSelector    = 'add-button',
         removeButtonSelector = 'remove-button',

@@ -1,6 +1,6 @@
 /* global BtnApp, Ladda, jQuery */
 (function(app, Ladda, $, undefined){
-
+    'use strict';
     // register new tool funciton
     app.tools.loadingButton = function(obj) {
         var button = $(obj);

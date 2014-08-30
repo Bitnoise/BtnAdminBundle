@@ -1,6 +1,6 @@
 /* global BtnApp, Spinner, jQuery */
 (function(app, Spinner, $, undefined){
-
+    'use strict';
     var opts = {
         lines: 17, // The number of lines to draw
         length: 31, // The length of each line

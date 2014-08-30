@@ -1,6 +1,6 @@
 /* global BtnApp, jQuery */
 (function(app, $, undefined){
-
+    'use strict';
     var addEvents = function(context) {
         app.tools.findOnce('btn-colorpicker', context).each(function() {
             var element = $(this);
