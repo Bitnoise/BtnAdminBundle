@@ -118,6 +118,10 @@ textarea,
     padding-right: 0;
 }
 
+.full-width {
+    max-width: 100%;
+}
+
 /*************************
  *
  * FOS user for reset password fixes
