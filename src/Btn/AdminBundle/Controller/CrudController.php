@@ -12,7 +12,7 @@ class CrudController extends AbstractCrudController
     /**
      * @Route("/", methods={"GET", "POST"})
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $repo     = $this->getEntityProvider()->getRepository();
         $entities = $repo->findAll();
@@ -100,7 +100,7 @@ class CrudController extends AbstractCrudController
     /**
      * @Route("/{id}/delete/{csrf_token}", requirements={"id" = "\d+"}, methods={"GET"})
      */
-    public function deleteAction($id, $csrf_token)
+    public function deleteAction(Request $request, $id, $csrf_token)
     {
         $this->validateCsrfTokenOrThrowException($this->getRoutePrefix().'_delete', $csrf_token);
 
