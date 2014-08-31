@@ -5,6 +5,8 @@
     {% endstylesheets %}
     {# load assets from asset storage #}
     {% for asset in btn_get_assets('stylesheets') %}
-        <link rel="stylesheet" href="{{ asset(btn_get_asset_src(asset)) }}" type="text/css">
+        {% btn_asset asset %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+        {% endbtn_asset %}
     {% endfor %}
 <!-- stylesheets end -->

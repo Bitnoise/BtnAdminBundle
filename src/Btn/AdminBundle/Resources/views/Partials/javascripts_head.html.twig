@@ -5,6 +5,8 @@
     {% endjavascripts %}
     {# load assets from asset storage #}
     {% for asset in btn_get_assets('javascripts_head') %}
-        <script src="{{ asset(btn_get_asset_src(asset)) }}"></script>
+        {% btn_asset asset %}
+            <script src="{{ asset_url }}"></script>
+        {% endbtn_asset %}
     {% endfor %}
 <!-- javascripts_head end -->
