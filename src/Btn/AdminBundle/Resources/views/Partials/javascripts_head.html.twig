@@ -1,8 +1,8 @@
 <!-- javascripts_head start -->
     {# load btn base admin assets #}
-    {% javascripts '@btn_base_app_js' %}
+    {% btn_asset 'btn_base_app_js' %}
         <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    {% endbtn_asset %}
     {# load assets from asset storage #}
     {% for asset in btn_get_assets('javascripts_head') %}
         {% btn_asset asset %}
