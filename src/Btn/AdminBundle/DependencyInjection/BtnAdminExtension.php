@@ -110,7 +110,7 @@ class BtnAdminExtension extends AbstractExtension
             $container->prependExtensionConfig('assetic', array(
                 'assets' => array(
                     'btn_admin_base_css' => $config['assetic']['base_css'],
-                    'btn_admin_base_js' => $config['assetic']['base_js'],
+                    'btn_admin_base_js'  => $config['assetic']['base_js'],
                 ),
             ));
         }
