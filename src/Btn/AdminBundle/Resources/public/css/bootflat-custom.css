@@ -213,5 +213,7 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
 .select2-container-multi .select2-choices .select2-search-choice,
 .select2-drop {
     -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
 }
