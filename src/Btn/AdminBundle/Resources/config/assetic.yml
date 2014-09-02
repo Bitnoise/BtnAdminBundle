@@ -65,6 +65,15 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.theme.css
             output: css/btn_admin.jquery-ui.css
 
+        btn_admin_select2_css:
+            inputs:
+                - bundles/btnadmin/vendor/select2/css/select2.css
+                # - bundles/btnadmin/vendor/select2/css/select2-bootstrap.css
+                - bundles/btnadmin/vendor/select2-bootstrap-css/css/select2-bootstrap.css
+            filters:
+                - cssrewrite
+            output: css/btn_admin.select2.css
+
         # JS SECTION ###########################################################
 
         btn_admin_jquery_js:
@@ -142,3 +151,10 @@ assetic:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/jquery-addresspicker/js/jquery.ui.addresspicker.js
             output: js/btn_admin.addresspicker.js
+
+        btn_admin_select2_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/select2/js/select2.js
+                - @BtnAdminBundle/Resources/public/vendor/select2/js/select2_locale_pl.js
+                - @BtnAdminBundle/Resources/public/js/select2.init.js
+            output: css/btn_admin.select2.js
