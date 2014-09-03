@@ -157,4 +157,4 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/select2/js/select2.js
                 - @BtnAdminBundle/Resources/public/vendor/select2/js/select2_locale_pl.js
                 - @BtnAdminBundle/Resources/public/js/select2.init.js
-            output: css/btn_admin.select2.js
+            output: js/btn_admin.select2.js
