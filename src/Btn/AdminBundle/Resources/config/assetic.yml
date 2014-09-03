@@ -74,6 +74,11 @@ assetic:
                 - cssrewrite
             output: css/btn_admin.select2.css
 
+        btn_admin_sortable_css:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/jquery-sortable/css/jquery-sortable.css
+            output: css/btn_admin.sortable.css
+
         # JS SECTION ###########################################################
 
         btn_admin_jquery_js:
@@ -158,3 +163,9 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/select2/js/select2_locale_pl.js
                 - @BtnAdminBundle/Resources/public/js/select2.init.js
             output: js/btn_admin.select2.js
+
+        btn_admin_sortable_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/vendor/jquery-sortable/js/jquery-sortable.js
+                - @BtnAdminBundle/Resources/public/js/sortable.init.js
+            output: js/btn_admin.sortable.js
