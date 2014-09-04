@@ -185,3 +185,35 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
     -webkit-border-top-left-radius: 0 !important;
     border-top-left-radius: 0 !important;
 }
+/*************************
+ *
+ * Select2 specific things
+ *
+ **************************/
+.select2-container .select2-choices .select2-search-field input,
+.select2-container .select2-choice,
+.select2-container .select2-choices {
+    -webkit-box-shadow: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border-color: #aab2bd !important;
+}
+
+.select2-container.select2-dropdown-open .select2-choice,
+.select2-container.select2-dropdown-open .select2-choices {
+    border-color: #3bafda !important;
+}
+
+.select2-container-active .select2-choice,
+.select2-container-multi.select2-container-active .select2-choices {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.select2-container-multi .select2-choices .select2-search-choice,
+.select2-drop {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
