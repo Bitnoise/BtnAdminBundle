@@ -35,24 +35,6 @@ abstract class AbstractMenuBuilder
             'routeParameters' => $routeParams,
         );
 
-        if ($name == 'top_menu') {
-            $attributes['childrenAttributes'] = array(
-                'class' => 'nav navbar-nav'
-            );
-        } elseif (!empty($children)) {
-            $attributes['attributes'] = array(
-                'class' => 'dropdown'
-            );
-            $attributes['childrenAttributes'] = array(
-                'class' => 'dropdown-menu',
-                'role'  => 'menu'
-            );
-            $attributes['linkAttributes'] = array(
-                'class'       => 'dropdown-toggle',
-                'data-toggle' => 'dropdown',
-            );
-        }
-
         $menu = $this->factory->createItem($name, $attributes);
 
         foreach ($children as $child) {
