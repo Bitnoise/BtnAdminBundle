@@ -45,14 +45,12 @@
         $(context).on('click', trigger.selector, function() {
             allowDnD = !allowDnD;
             trigger.toggleClass('btn-success').toggleClass('btn-danger');
-            // .toggle(
-            //     function(){
-            //       $(this).text('start');
-            //     },
-            //     function(){
-            //       $(this).text('stop');
-            //     }
-            // );
+            //update text and btn-dnd property
+            trigger.prop('btn-dnd', function(idx, oldProp) {
+                $(this).text($(this).prop('btn-dnd') ? $(this).attr('btn-start-txt') : $(this).attr('btn-stop-txt'));
+
+                return !oldProp;
+            });
 
             return false;
         });
