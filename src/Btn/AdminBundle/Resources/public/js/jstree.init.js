@@ -6,8 +6,8 @@
     //init and bind jstree events
     var addEvents = function(context) {
         app.tools.findOnce('btn-jstree', context).each(function() {
-            var element = $(this),
-                spinner = app.tools.loadingContent(element);
+            var element = $(this);
+            var spinner = app.tools.loadingContent(element);
 
             element.jstree({
                 'core': {
