@@ -217,3 +217,11 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
 }
+/*************************
+ *
+ * Fix breadcrumb styles
+ *
+ **************************/
+.breadcrumb-arrow li:not(:first-child) {
+    margin-left: 0px !important;
+}
