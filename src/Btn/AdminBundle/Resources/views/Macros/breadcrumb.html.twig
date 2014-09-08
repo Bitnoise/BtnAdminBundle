@@ -3,13 +3,13 @@
         <ol class="breadcrumb breadcrumb-arrow">
             {% for key, item in items %}
                 {% if item is not iterable %}
-                    {% set item = {route: key, parms: [], label: item} %}
+                    {% set item = {route: key, params: [], label: item} %}
                 {% endif %}
                 {% if loop.last is defined and loop.index == loop.last %}
                     <li class="active"><span>{{ item.label|trans }}</span></li>
                 {% else %}
                     <li>
-                        <a href="{{ path(item.route, item.parms) }}">{{ item.label|trans }}</a>
+                        <a href="{{ path(item.route, item.params) }}">{{ item.label|trans }}</a>
                     </li>
                 {% endif %}
             {% endfor %}
