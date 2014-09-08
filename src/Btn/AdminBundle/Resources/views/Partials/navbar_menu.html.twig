@@ -19,5 +19,5 @@
 
 {# render menu from global twig config variable #}
 {% if btn_admin.menu.navbar|default(false) %}
-    {{ knp_menu_render(btn_admin.menu.navbar) }}
+    {{ knp_menu_render(btn_admin.menu.navbar, {'template': 'BtnAdminBundle:Menu:navbar.html.twig'}) }}
 {% endif %}

@@ -1,0 +1,63 @@
+{% extends 'BtnAdminBundle:Menu:bootstrap.html.twig' %}
+
+{% block root %}
+{% set listAttributes = item.childrenAttributes|merge({'class': 'nav navbar-nav' }) %}
+{{ block('list') -}}
+{% endblock %}
+
+{% block item %}
+{% import "knp_menu.html.twig" as macros %}
+{% if item.displayed %}
+    {%- set attributes = item.attributes %}
+    {%- set is_dropdown = attributes.dropdown|default(true) %}
+
+{# unset bootstrap specific attributes #}
+    {%- set attributes = attributes|merge({'dropdown': null}) %}
+
+{# building the class of the item #}
+    {%- set classes = item.attribute('class') is not empty ? [item.attribute('class')] : [] %}
+    {%- if matcher.isCurrent(item) %}
+        {%- set classes = classes|merge([options.currentClass]) %}
+    {%- elseif matcher.isAncestor(item, options.depth) %}
+        {%- set classes = classes|merge([options.ancestorClass]) %}
+    {%- endif %}
+    {%- if item.actsLikeFirst %}
+        {%- set classes = classes|merge([options.firstClass]) %}
+    {%- endif %}
+    {%- if item.actsLikeLast %}
+        {%- set classes = classes|merge([options.lastClass]) %}
+    {%- endif %}
+
+{# building the class of the children #}
+    {%- set childrenClasses = item.childrenAttribute('class') is not empty ? [item.childrenAttribute('class')] : ['dropdown-menu'] %}
+    {%- set childrenClasses = childrenClasses|merge(['menu_level_' ~ item.level]) %}
+
+{# putting classes together #}
+    {% if item.hasChildren %}
+        {% if item.level == 1 %}
+            {%- set classes = classes|merge(['dropdown']) %}
+        {% else %}
+            {%- set classes = classes|merge(['dropdown-submenu']) %}
+        {% endif %}
+    {% endif %}
+    {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
+    {%- set listAttributes = item.childrenAttributes|merge({'class': childrenClasses|join(' ') }) %}
+
+    {% if item.hasChildren and options.depth is not sameas(0) and is_dropdown %}
+        <li{{ macros.attributes(attributes) }}>
+            {{ block('dropdownElement') }}
+    {# render the list of children#}
+            {{ block('list') }}
+        </li>
+
+    {% else %}
+        <li{{ macros.attributes(attributes) }}>
+            {%- if item.uri is not empty and (not item.current or options.currentAsLink) %}
+                {{ block('linkElement') }}
+            {%- else %}
+                {{ block('spanElement') }}
+            {%- endif %}
+        </li>
+    {%- endif %}
+{% endif %}
+{% endblock %}

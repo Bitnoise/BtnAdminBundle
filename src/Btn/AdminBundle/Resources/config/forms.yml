@@ -13,6 +13,7 @@ parameters:
     btn_admin.form.type.slug.class: Btn\AdminBundle\Form\Type\SlugType
     btn_admin.form.type.hidden_entity.class: Btn\AdminBundle\Form\Type\HiddenEntityType
     btn_admin.form.type.google_map.class: Btn\AdminBundle\Form\Type\GoogleMapType
+    btn_admin.form.type.select2.class: Btn\AdminBundle\Form\Type\Select2Type
     btn_admin.form.user_control.class: Btn\AdminBundle\Form\UserControlForm
     btn_admin.form.profile_control.class: Btn\AdminBundle\Form\ProfileControlForm
     btn_admin.form.change_password_control.class: Btn\AdminBundle\Form\ChangePasswordControlForm
@@ -141,6 +142,26 @@ services:
             - [setAssetLoader, [@btn_base.asset_loader]]
         tags:
             - { name: form.type, alias: btn_google_map }
+
+    btn_admin.form.type.select2:
+        class: %btn_admin.form.type.select2.class%
+        abstract: true
+        calls:
+            - [setAssetLoader, [@btn_base.asset_loader]]
+
+    btn_admin.form.type.select2_choice:
+        parent: btn_admin.form.type.select2
+        calls:
+            - [setParent, [choice]]
+        tags:
+            - { name: form.type, alias: btn_select2_choice }
+
+    btn_admin.form.type.select2_hidden:
+        parent: btn_admin.form.type.select2
+        calls:
+            - [setParent, [hidden]]
+        tags:
+            - { name: form.type, alias: btn_select2_hidden }
 
     # Extensions
     btn_admin.form.extension.text_type:

@@ -62,6 +62,14 @@ class BtnAdminExtension extends AbstractExtension
             $config = $this->getProcessedConfig($container);
         }
 
+        if ($container->hasExtension('knp_menu')) {
+            $container->prependExtensionConfig('knp_menu', array(
+                'twig' => array(
+                    'template' => 'BtnAdminBundle:Menu:bootstrap.html.twig',
+                ),
+            ));
+        }
+
         if ($container->hasExtension('knp_paginator')) {
             $container->prependExtensionConfig('knp_paginator', array(
                 'template' => array(
