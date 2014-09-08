@@ -1,12 +1,15 @@
 {% macro breadcrumb(items) %}
     {% if btn_admin.breadcrumb.enabled and items|length > 0 %}
         <ol class="breadcrumb breadcrumb-arrow">
-            {% for url, name in items %}
+            {% for key, item in items %}
+                {% if item is not iterable %}
+                    {% set item = {route: key, parms: [], label: item} %}
+                {% endif %}
                 {% if loop.last is defined and loop.index == loop.last %}
-                    <li class="active"><span>{{ name|trans }}</span></li>
+                    <li class="active"><span>{{ item.label|trans }}</span></li>
                 {% else %}
                     <li>
-                        <a href="{{ path(url) }}">{{ name|trans }}</a>
+                        <a href="{{ path(item.route, item.parms) }}">{{ item.label|trans }}</a>
                     </li>
                 {% endif %}
             {% endfor %}
