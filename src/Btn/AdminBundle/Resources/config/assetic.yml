@@ -134,7 +134,7 @@ assetic:
             inputs:
                 - @BtnAdminBundle/Resources/public/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js
                 - @BtnAdminBundle/Resources/public/js/datetimepicker.init.js
-            output: css/btn_admin.datetimepicker.js
+            output: js/btn_admin.datetimepicker.js
 
         btn_admin_jquery_ui_js:
             inputs:
