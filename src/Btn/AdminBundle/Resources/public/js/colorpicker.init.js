@@ -6,6 +6,8 @@
             var element = $(this);
             element.pickAColor({
                 allowBlank: element.attr('required') ? false : true,
+                allowHexFocus: false,
+                allowButtonTab: false,
                 inlineDropdown: true,
             });
         });
