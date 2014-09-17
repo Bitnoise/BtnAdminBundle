@@ -12,7 +12,7 @@
             element.jstree({
                 'core': {
                     'animation' : 0,
-                    'check_callback' : function (operation, node, node_parent, node_position, more) {
+                    'check_callback' : function (operation, node) {
                         // operation can be 'create_node', 'rename_node', 'delete_node', 'move_node' or 'copy_node'
                         //if operation is move_node and node is draggable
                         return (operation === 'move_node' && node.data.jstree.draggable && allowDnD) ? true : false;
@@ -45,21 +45,21 @@
                 spinner.start();
                 //call back-end - change tree sort in the DB
                 var xhr = $.ajax({
-                    type: "POST",
+                    type: 'POST',
                     url: element.attr('btn-sort-tree'),
                     data: params,
                     dataType: 'json'
                 });
 
-                xhr.success(function(data){
+                xhr.success(function(){
                     allowDnD = true;
                 });
 
-                xhr.error(function(data){
+                xhr.error(function(){
                     allowDnD = false;
                 });
                 //always stop spinner on ajax done
-                xhr.done(function(data){
+                xhr.done(function(){
                     spinner.stop();
                 });
             });
