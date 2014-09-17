@@ -3,6 +3,11 @@ assetic:
 
         # CSS SECTION ##########################################################
 
+        btn_admin_bootstrap_css_map:
+            inputs:
+                - bundles/btnadmin/vendor/bootstrap/css/bootstrap.css.map
+            output: css/bootstrap.css.map
+
         btn_admin_bootstrap_css:
             inputs:
                 # - @BtnAdminBundle/Resources/public/vendor/bootstrap/css/bootstrap.css
