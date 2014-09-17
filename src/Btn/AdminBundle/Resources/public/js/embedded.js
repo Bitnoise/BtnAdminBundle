@@ -78,7 +78,7 @@
             var binded = $(this);
             if (binded.attr('data-sortable')) {
                 binded.sortable();
-                binded.disableSelection();
+                // binded.disableSelection();
                 //update name attr on sort stop - set it to the current position
                 binded.on('sortstop', function() {
                     binded.children('.ui-sortable-handle').each(function(index){
