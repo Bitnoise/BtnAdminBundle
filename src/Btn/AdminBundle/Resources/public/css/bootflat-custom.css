@@ -223,5 +223,5 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
  *
  **************************/
 .breadcrumb-arrow li:not(:first-child) {
-    margin-left: 0px !important;
+    margin-left: 0 !important;
 }
