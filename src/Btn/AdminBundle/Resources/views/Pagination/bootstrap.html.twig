@@ -21,6 +21,7 @@
         </ul>
     {% else %}
 
+        {% set show_edges = show_edges|default(false) %}
         {% set prev_label = prev_label|default('&laquo;') %}
         {% set next_label = next_label|default('&raquo;') %}
 
@@ -37,6 +38,21 @@
                 <li class="disabled"><span>{{ prev_label|raw }}</span></li>
             {% endif %}
 
+            {% if show_edges and startPage > 1 %}
+                <li>
+                    <a href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
+                </li>
+                {% if startPage == 3 %}
+                    <li>
+                        <a href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
+                    </li>
+                {% elseif startPage != 2 %}
+                <li class="disabled">
+                    <span>&hellip;</span>
+                </li>
+                {% endif %}
+            {% endif %}
+
             {% for page in pagesInRange %}
                 {% if page != current %}
                     <li><a href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a></li>
@@ -44,6 +60,23 @@
                     <li class="active"><span>{{ page }}</span></li>
                 {% endif %}
             {% endfor %}
+
+            {% if show_edges and pageCount > endPage %}
+                {% if pageCount > (endPage + 1) %}
+                    {% if pageCount > (endPage + 2) %}
+                        <li class="disabled">
+                            <span>&hellip;</span>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">{{ pageCount -1 }}</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+                <li>
+                    <a href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
+                </li>
+            {% endif %}
 
             {% if next is defined %}
                 <li><a href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ next_label|raw }}</a></li>
