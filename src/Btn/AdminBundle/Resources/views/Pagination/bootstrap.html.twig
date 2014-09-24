@@ -3,7 +3,7 @@
 
 {% if pageCount > 1 %}
     {% if style is defined and style == 'pager' %}
-        {% set prev_label = prev_label|default(btn_admin.preview) %}
+        {% set prev_label = prev_label|default(btn_admin.previous) %}
         {% set next_label = next_label|default(btn_admin.next) %}
         {% set aligned = aligned|default(false) %}
 
