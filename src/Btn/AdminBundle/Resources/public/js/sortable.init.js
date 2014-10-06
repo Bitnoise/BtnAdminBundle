@@ -13,9 +13,13 @@
                       onDrop: function (item, container, _super) {
                         var url = element.attr('btn-sortable');
                         if (url) {
+                            var spinner = app.tools.loadingContent(element);
+                            spinner.start();
                             var data = element.sortable('serialize').get();
                             var jsonString = JSON.stringify(data, null, ' ');
-                            jQuery.post(url, jsonString);
+                            jQuery.post(url, jsonString).always(function() {
+                                spinner.stop();
+                            });;
                         }
                         _super(item, container);
                       }
