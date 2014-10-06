@@ -9,7 +9,16 @@
                     containerSelector: 'table',
                     itemPath: '> tbody',
                     itemSelector: 'tr',
-                    placeholder: '<tr class="placeholder"/>'
+                    placeholder: '<tr class="placeholder"/>',
+                      onDrop: function (item, container, _super) {
+                        var url = element.attr('btn-sortable');
+                        if (url) {
+                            var data = element.sortable('serialize').get();
+                            var jsonString = JSON.stringify(data, null, ' ');
+                            jQuery.post(url, jsonString);
+                        }
+                        _super(item, container);
+                      }
                 });
             }
         });
