@@ -19,7 +19,7 @@
                             var jsonString = JSON.stringify(data, null, ' ');
                             jQuery.post(url, jsonString).always(function() {
                                 spinner.stop();
-                            });;
+                            });
                         }
                         _super(item, container);
                       }
