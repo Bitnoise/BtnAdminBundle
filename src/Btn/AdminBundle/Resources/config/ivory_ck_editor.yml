@@ -98,6 +98,7 @@ ivory_ck_editor:
                         - Image
                         - Table
                         - HorizontalRule
+                        - Iframe
                 -
                     name: document
                     items:
@@ -115,3 +116,4 @@ ivory_ck_editor:
                     name: 'colors'
                     items: ['TextColor','BGColor']
             uiColor: '#ffffff'
+            extraPlugins: 'iframe'
