@@ -5,7 +5,7 @@
         app.tools.findOnce('btn-sortable', context).each(function() {
             var element = $(this);
             if (element.is('table')) {
-                element.addClass('sorted_table').sortable({
+                var options = {
                     containerSelector: 'table',
                     itemPath: '> tbody',
                     itemSelector: 'tr',
@@ -23,7 +23,11 @@
                         }
                         _super(item, container);
                       }
-                });
+                };
+                if ($('table').find('td.move-position').length > 0) {
+                    options['handle'] = 'td.move-position';
+                }
+                element.addClass('sorted_table').sortable(options);
             }
         });
     };
