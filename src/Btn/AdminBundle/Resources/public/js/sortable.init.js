@@ -25,7 +25,7 @@
                       }
                 };
                 if ($('table').find('td.move-position').length > 0) {
-                    options['handle'] = 'td.move-position';
+                    options.handle = 'td.move-position';
                 }
                 element.addClass('sorted_table').sortable(options);
             }
