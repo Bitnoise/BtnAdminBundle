@@ -1,5 +1,6 @@
 parameters:
     btn_admin.event_listener.control_controller_listener.class: Btn\AdminBundle\EventListener\ControlControllerListener
+    btn_admin.event_listener.resetting_subscriber.class: Btn\AdminBundle\EventListener\ResettingSubscriber
 
 services:
     btn_admin.provider.user:
@@ -17,3 +18,10 @@ services:
             - [setFormHandler, ['@btn_admin.form.handler.entity_form']]
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+    btn_admin.event_listener.resetting_subscriber:
+        class: %btn_admin.event_listener.resetting_subscriber.class%
+        arguments:
+            router: @router
+        tags:
+            - { name: kernel.event_subscriber }

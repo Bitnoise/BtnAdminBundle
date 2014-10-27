@@ -40,7 +40,9 @@ btn_admin.login.reset_password: 'Forgot my password'
 
 # Forgot my password
 btn_admin.resetting.title: 'Reset your password'
-
+btn_admin.resetting.form.new_password: 'New password'
+btn_admin.resetting.form.new_password_confirmation: 'Confirm new password'
+btn_admin.resetting.form.submit: 'Change password'
 
 # flashes
 btn_admin.flash.added: 'Added successfully'

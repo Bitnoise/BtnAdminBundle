@@ -4,13 +4,17 @@
 
 {% block panel_body %}
     <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST">
-
-        {{ form_row(form.new.first) }}
-        {{ form_row(form.new.second) }}
-
-        <button class="btn btn-primary" name="_submit" type="submit">{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}</button>
-
-        {{ form_rest(form) }}
+        {{ form_errors(form) }}
+        {{ form_errors(form.plainPassword.first) }}
+        <div class="form-group">
+            <input type="password" name="{{ form.plainPassword.first.vars.full_name }}" class="form-control" placeholder="{{ 'btn_admin.resetting.form.new_password'|trans }}" required autofocus>
+        </div>
+        {{ form_errors(form.plainPassword.second) }}
+        <div class="form-group">
+            <input type="password" name="{{ form.plainPassword.second.vars.full_name }}" class="form-control" placeholder="{{ 'btn_admin.resetting.form.new_password_confirmation'|trans }}" required>
+        </div>
+        <button class="btn btn-primary" name="_submit" type="submit">{{ 'btn_admin.resetting.form.submit'|trans }}</button>
+        {{ form_widget(form._token) }}
     </form>
 
 {% endblock %}
