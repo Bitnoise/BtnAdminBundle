@@ -3,7 +3,6 @@
 namespace Btn\AdminBundle\Model;
 
 use Gedmo\Sortable\Entity\Repository\SortableRepository;
-use Gedmo\Sortable\SortableListener;
 
 class AbstractSortableRepository extends SortableRepository
 {
