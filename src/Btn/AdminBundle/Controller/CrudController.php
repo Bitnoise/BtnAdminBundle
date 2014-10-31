@@ -15,7 +15,7 @@ class CrudController extends AbstractCrudController
     public function indexAction(Request $request)
     {
         $repo     = $this->getEntityProvider()->getRepository();
-        $entities = $repo->findAll();
+        $entities = method_exists($repo, 'findAllForCrudIndex') ? $repo->findAllForCrudIndex() : $repo->findAll();
 
         return $this->render($this->crudSettings->getIndexTemplate(), array(
             'list_header'  => $this->getTransKeyFromRoute(),
