@@ -12,7 +12,10 @@
 {% endblock %}
 
 {% block list_table %}
-    <table class="{{ lst.table_class() }}">
+    {% block list_table_start -%}
+        <table class="{{ lst.table_class() }}">
+    {%- endblock %}
+    {% block list_table_thead -%}
         <thead>
             {% block list_table_head %}
                 <tr>
@@ -24,10 +27,14 @@
                 </tr>
             {% endblock %}
         </thead>
+    {%- endblock %}
+    {% block list_table_tbody %}
         <tbody>
             {% block list_table_body %}
                 {% for entity in pagination %}
-                    <tr>
+                    {% block list_table_body_row_start -%}
+                        <tr data-id="{{ entity.id }}" >
+                    {%- endblock %}
                         <td class="{{ lst.col_id_class() }}">{{ entity.id }}</td>
                         {% block list_table_body_columns %}
                             {# base block to override #}
@@ -43,6 +50,7 @@
                 {% endfor %}
             {% endblock %}
         </tbody>
+    {% endblock %}
     </table>
 {% endblock %}
 
