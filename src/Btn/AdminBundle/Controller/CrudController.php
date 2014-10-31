@@ -20,6 +20,7 @@ class CrudController extends AbstractCrudController
         return $this->render($this->crudSettings->getIndexTemplate(), array(
             'list_header'  => $this->getTransKeyFromRoute(),
             'pagination'   => $this->paginate($entities),
+            'route_prefix' => $this->getRoutePrefix(),
             'route_index'  => $this->getPrefixedRoute('index'),
             'route_new'    => $this->getPrefixedRoute('new'),
             'route_edit'   => $this->getPrefixedRoute('edit'),
