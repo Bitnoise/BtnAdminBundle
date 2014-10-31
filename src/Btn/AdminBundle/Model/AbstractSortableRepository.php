@@ -3,9 +3,33 @@
 namespace Btn\AdminBundle\Model;
 
 use Gedmo\Sortable\Entity\Repository\SortableRepository;
+use Gedmo\Sortable\SortableListener;
 
 class AbstractSortableRepository extends SortableRepository
 {
+    /**
+     *
+     */
+    public function disableListener()
+    {
+        $evm  = $this->getEntityManager()->getEventManager();
+
+        $evm->removeEventSubscriber($this->listener);
+    }
+
+    /**
+     *
+     */
+    public function enableListener()
+    {
+        $evm  = $this->getEntityManager()->getEventManager();
+
+        $evm->addEventSubscriber($this->listener);
+    }
+
+    /**
+     *
+     */
     public function updatePositions($input, $offset = 0)
     {
         foreach ($input as $key => $item) {
