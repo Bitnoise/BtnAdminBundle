@@ -9,6 +9,14 @@ class AbstractSortableRepository extends SortableRepository
     /**
      *
      */
+    public function findAllForCrudIndex()
+    {
+        return $this->findBy(array(), array('position' => 'ASC'));
+    }
+
+    /**
+     *
+     */
     public function disableListener()
     {
         $evm  = $this->getEntityManager()->getEventManager();

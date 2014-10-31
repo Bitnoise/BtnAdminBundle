@@ -1,0 +1,17 @@
+{% extends 'BtnAdminBundle:Crud:index.html.twig' %}
+
+{% do btn_load_assets(['btn_admin_loading', 'btn_admin_sortable']) %}
+
+{% block list_table_start %}
+    <table class="{{ lst.table_class() }}" btn-sortable="{{ path(route_prefix ~ '_position') }}">
+{% endblock %}
+
+{% block list_table_head_columns %}
+    {{ parent() }}
+    <th class="text-center">{{ 'btn_admin.position'|trans }}</th>
+{% endblock %}
+
+{% block list_table_body_columns %}
+    {{ parent() }}
+    <td class="move-position text-center"><i class="glyphicon glyphicon-move"></i></td>
+{% endblock %}
