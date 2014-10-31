@@ -21,7 +21,7 @@ class AbstractSortableRepository extends SortableRepository
             if (!$entity) {
                 throw new \Exception(sprintf('Entity with id %s was not found', $item['id']));
             }
-            $entity->setPosition(++$position);
+            $entity->setPosition($position++);
         }
     }
 }
