@@ -174,3 +174,8 @@ assetic:
                 - @BtnAdminBundle/Resources/public/vendor/jquery-sortable/js/jquery-sortable.js
                 - @BtnAdminBundle/Resources/public/js/sortable.init.js
             output: js/btn_admin.sortable.js
+
+        btn_admin_ajax_reload_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/ajax-reload.init.js
+            output: js/btn_admin.ajax-reload.js
