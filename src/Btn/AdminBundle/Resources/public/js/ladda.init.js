@@ -34,16 +34,25 @@
         app.tools.findOnce('btn-loading').each(function() {
             var element = $(this);
             if (element.is('form')) {
-                element.on('submit', function() {
-                    var button = $(this).find('.btn-save, .btn-update, .btn-create');
-                    if (button.length) {
-                        var l = app.tools.loadingButton(button);
-                        if (l) {
-                            l.start();
+                var button = element.find('.btn-save, .btn-update, .btn-create');
+                if (button.length) {
+                    button.on('click', function(){
+                        element.find('input[btn-stub]').remove();
+                        var stub = $('<input btn-stub type="hidden"/>').attr({
+                            name: $(this).attr('name'),
+                            value: $(this).attr('value')
+                        });
+                        stub.appendTo(element);
+                    });
+                    element.on('submit', function() {
+                        if (button.length) {
+                            var l = app.tools.loadingButton(button);
+                            if (l) {
+                                l.start();
+                            }
                         }
-                    }
-
-                });
+                    });
+                }
             }
         });
     };
