@@ -164,12 +164,12 @@
     {% if 'btn' not in attr.class|default('')|split(' ') %}
         {% set attr = attr|merge({'class': 'btn btn-default' ~ (attr.class is defined ? ' ' ~ attr.class)}) %}
     {% endif %}
-    {% if row %}
+    {% if row|default() %}
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
     {% endif %}
                 <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
-    {% if row %}
+    {% if row|default() %}
             </div>
         </div>
     {% endif %}
