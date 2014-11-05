@@ -16,10 +16,12 @@ class ChoiceTypeExtension extends AbstractTypeExtension
     {
         parent::buildView($view, $form, $options);
 
-        $view->vars['inline'] = (!empty($options['inline']) || !empty($options['inline'])) ? true : false;
-        if (isset($options['ajax-reload'])) {
+        $opt =& $options;
+
+        $view->vars['inline'] = (!empty($opt['inline']) || !empty($opt['inline'])) ? true : false;
+        if (isset($opt['ajax-reload'])) {
             $this->assetLoader->load(array('btn_admin_loading', 'btn_admin_ajax_reload'));
-            $view->vars['attr']['btn-ajax-reload'] = is_string($options['ajax-reload']) ? $options['ajax-reload'] : null;
+            $view->vars['attr']['btn-ajax-reload'] = is_string($opt['ajax-reload']) ? $opt['ajax-reload'] : null;
         }
     }
 
