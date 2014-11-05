@@ -19,9 +19,9 @@ class ChoiceTypeExtension extends AbstractTypeExtension
         $opt =& $options;
 
         $view->vars['inline'] = (!empty($opt['inline']) || !empty($opt['inline'])) ? true : false;
-        if (isset($opt['ajax-reload'])) {
+        if (isset($opt['ajax_reload'])) {
             $this->assetLoader->load(array('btn_admin_loading', 'btn_admin_ajax_reload'));
-            $view->vars['attr']['btn-ajax-reload'] = is_string($opt['ajax-reload']) ? $opt['ajax-reload'] : null;
+            $view->vars['attr']['btn-ajax-reload'] = is_string($opt['ajax_reload']) ? $opt['ajax_reload'] : null;
         }
     }
 
@@ -38,7 +38,7 @@ class ChoiceTypeExtension extends AbstractTypeExtension
 
         $resolver->setOptional(array(
             'inline',
-            'ajax-reload',
+            'ajax_reload',
         ));
     }
 
