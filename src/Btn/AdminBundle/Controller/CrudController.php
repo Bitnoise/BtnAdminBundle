@@ -17,13 +17,11 @@ class CrudController extends AbstractCrudController
         $repo     = $this->getEntityProvider()->getRepository();
         $entities = method_exists($repo, 'findAllForCrudIndex') ? $repo->findAllForCrudIndex() : $repo->findAll();
 
-        return $this->render($this->crudSettings->getIndexTemplate(), array(
-            'list_header'  => $this->getTransKeyFromRoute(),
-            'pagination'   => $this->paginate($entities),
-            'route_prefix' => $this->getRoutePrefix(),
-            'route_index'  => $this->getPrefixedRoute('index'),
-            'route_new'    => $this->getPrefixedRoute('new'),
-            'route_edit'   => $this->getPrefixedRoute('edit'),
+        return $this->render($this->crudSettings->getIndexTemplate(), array_merge(
+            $this->getIndexBaseParameters(),
+            array(
+                'pagination' => $this->paginate($entities),
+            )
         ));
     }
 
@@ -115,5 +113,19 @@ class CrudController extends AbstractCrudController
         $this->setFlash('btn_admin.flash.deleted');
 
         return $this->redirect($this->generatePrefixedUrl('index'));
+    }
+
+    /**
+     *
+     */
+    protected function getIndexBaseParameters()
+    {
+        return array(
+            'list_header'  => $this->getTransKeyFromRoute(),
+            'route_prefix' => $this->getRoutePrefix(),
+            'route_index'  => $this->getPrefixedRoute('index'),
+            'route_new'    => $this->getPrefixedRoute('new'),
+            'route_edit'   => $this->getPrefixedRoute('edit'),
+        );
     }
 }
