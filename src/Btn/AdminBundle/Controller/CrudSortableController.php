@@ -26,7 +26,7 @@ class CrudSortableController extends CrudController
         $data = json_decode($request->getContent(), true);
 
         $items = isset($data['items']) ? $data['items'] : $data[0];
-        $offset = isset($data['offset']) ? (int)$data['offset'] : 0;
+        $offset = isset($data['offset']) ? (int) $data['offset'] : 0;
 
         $repo->updatePositions($items, $offset);
         $repo->disableListener();
