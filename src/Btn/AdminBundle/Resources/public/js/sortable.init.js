@@ -10,19 +10,20 @@
                     itemPath: '> tbody',
                     itemSelector: 'tr',
                     placeholder: '<tr class="placeholder"/>',
-                      onDrop: function (item, container, _super) {
+                    onDrop: function (item, container, _super) {
                         var url = element.attr('btn-sortable');
                         if (url) {
                             var spinner = app.tools.loadingContent(element);
                             spinner.start();
-                            var data = element.sortable('serialize').get();
+                            var data = {items: element.sortable('serialize').get()[0]};
+                            data.offset = parseInt(element.attr('data-offset') || 0, 10);
                             var jsonString = JSON.stringify(data, null, ' ');
                             jQuery.post(url, jsonString).always(function() {
                                 spinner.stop();
                             });
                         }
                         _super(item, container);
-                      }
+                    }
                 };
                 if ($('table').find('td.move-position').length > 0) {
                     options.handle = 'td.move-position';

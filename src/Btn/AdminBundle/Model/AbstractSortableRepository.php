@@ -45,7 +45,7 @@ class AbstractSortableRepository extends SortableRepository
             }
         }
 
-        $position = $offset;
+        $position = (int) $offset;
 
         foreach ($input as $item) {
             $entity = $this->findOneById($item['id']);
