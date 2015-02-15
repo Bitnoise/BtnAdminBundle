@@ -16,7 +16,7 @@ class ChoiceTypeExtension extends AbstractTypeExtension
     {
         parent::buildView($view, $form, $options);
 
-        $opt =& $options;
+        $opt = & $options;
 
         $view->vars['inline'] = (!empty($opt['inline']) || !empty($opt['inline'])) ? true : false;
         if (isset($opt['ajax_reload'])) {

@@ -24,7 +24,7 @@ class ColorTransformer implements DataTransformerInterface
     public function reverseTransform($color)
     {
         if (!$color) {
-            return null;
+            return;
         }
 
         return '#'.ltrim($color, '#');

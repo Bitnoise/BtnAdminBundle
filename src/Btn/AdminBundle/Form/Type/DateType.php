@@ -39,7 +39,7 @@ class DateType extends AbstractType
             'widget'      => 'single_text',
             'format'      => 'yyyy-MM-dd',
             'date_format' => 'yyyy-mm-dd',
-            'autoclose'   => true
+            'autoclose'   => true,
         ));
     }
 

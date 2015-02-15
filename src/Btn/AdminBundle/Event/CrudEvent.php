@@ -16,7 +16,6 @@ class CrudEvent extends Event
     {
         if (!is_object($entity) || !method_exists($entity, 'getId')) {
             throw new \Exception('This doesn\'t look like entity to me');
-
         }
 
         $this->entity = $entity;

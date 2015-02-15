@@ -86,7 +86,7 @@ class BtnAdminExtension extends AbstractExtension
                     'resources' => array(
                         'BtnAdminBundle:Form:layout.html.twig',
                         'BtnAdminBundle:Form:fields.html.twig',
-                    )
+                    ),
                 ),
                 'globals' => array(
                     'btn_admin' => array(
@@ -107,7 +107,7 @@ class BtnAdminExtension extends AbstractExtension
                             'navbar' => $config['menu']['navbar'],
                         ),
                     ),
-                )
+                ),
             ));
         }
 

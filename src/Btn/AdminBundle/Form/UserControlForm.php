@@ -20,10 +20,10 @@ class UserControlForm extends AbstractForm
             ->add('plainPassword', 'repeated', array(
                 'type'            => 'password',
                 'first_options'   => array(
-                    'label' => 'btn_admin.user.password'
+                    'label' => 'btn_admin.user.password',
                 ),
                 'second_options'  => array(
-                    'label' => 'btn_admin.user.password_confirm'
+                    'label' => 'btn_admin.user.password_confirm',
                 ),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
