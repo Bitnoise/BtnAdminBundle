@@ -52,7 +52,7 @@ abstract class AbstractMenuBuilder
         if ($child instanceof ItemInterface) {
             $menu->addChild($child);
         } else {
-            throw new \Exception(sprinf('Invalid child for addChild() in "%s" ', __CLASS__));
+            throw new \Exception(sprintf('Invalid child for addChild() in "%s" ', __CLASS__));
         }
     }
 }
