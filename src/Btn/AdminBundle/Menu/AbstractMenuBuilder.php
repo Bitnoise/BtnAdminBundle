@@ -29,6 +29,10 @@ abstract class AbstractMenuBuilder
      */
     public function createMenu(Request $request, $name, $route, array $routeParams = array(), array $children = array())
     {
+        if (null === $route && 0 === count($children)) {
+            return;
+        }
+
         $attributes = array(
             'label'           => $this->translator->trans($name),
             'route'           => $route,
@@ -38,7 +42,9 @@ abstract class AbstractMenuBuilder
         $menu = $this->factory->createItem($name, $attributes);
 
         foreach ($children as $child) {
-            $this->addChild($request, $menu, $child);
+            if (null !== $child) {
+                $this->addChild($request, $menu, $child);
+            }
         }
 
         return $menu;
