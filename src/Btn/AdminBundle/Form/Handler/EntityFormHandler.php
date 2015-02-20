@@ -14,12 +14,16 @@ class EntityFormHandler implements FormHandlerInterface
     /** \Doctrine\ORM\EntityManager $entityManager */
     private $entityManager;
 
+    /** @var boolean $globalFlush */
+    private $globalFlush;
+
     /**
      *
      */
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
+        $this->globalFlush   = false;
     }
 
     /**
@@ -36,9 +40,29 @@ class EntityFormHandler implements FormHandlerInterface
                 $this->entityManager->persist($entity);
             }
 
-            $this->entityManager->flush($entity);
+            if ($this->globalFlush) {
+                $this->entityManager->flush();
+            } else {
+                $this->entityManager->flush($entity);
+            }
 
             return true;
         }
+    }
+
+    /**
+     *
+     */
+    public function enableGlobalFlush()
+    {
+        $this->globalFlush = true;
+    }
+
+    /**
+     *
+     */
+    public function disableGlobalFlush()
+    {
+        $this->globalFlush = false;
     }
 }
