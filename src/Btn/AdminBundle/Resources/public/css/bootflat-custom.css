@@ -185,6 +185,18 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
     -webkit-border-top-left-radius: 0 !important;
     border-top-left-radius: 0 !important;
 }
+/** hide date field in table header */
+.datetimepicker.btn-time .datetimepicker-minutes .switch {
+    visibility: hidden;
+}
+.datetimepicker.btn-time .datetimepicker-minutes {
+    margin-top: -38px;
+}
+.datetimepicker.btn-time .datetimepicker-minutes .prev,
+.datetimepicker.btn-time .datetimepicker-minutes .next {
+    position: relative;
+    top: 38px;
+}
 /*************************
  *
  * Select2 specific things

@@ -5,6 +5,9 @@
         app.tools.findOnce('btn-datetimepicker').each(function() {
             var element = $(this);
             element.datetimepicker();
+            if (element.hasClass('btn-time')) {
+                element.data('datetimepicker').picker.addClass('btn-time');
+            }
         });
     };
 
