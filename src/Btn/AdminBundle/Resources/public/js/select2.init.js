@@ -8,7 +8,7 @@
             if ('string' === typeof options) {
                 options = $.parseJSON(options);
             }
-            element.select2(options);
+            element.select2(options || {});
         });
     };
 
