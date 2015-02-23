@@ -9,7 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 class Select2Type extends AbstractType
 {
     /** @var array $avliableParents */
-    protected $avliableParents = array('choice', 'hidden');
+    protected $avliableParents = array('choice', 'hidden', 'entity');
     /** @var string $parent */
     protected $parent;
 

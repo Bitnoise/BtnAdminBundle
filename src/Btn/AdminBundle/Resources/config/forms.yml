@@ -171,6 +171,13 @@ services:
         tags:
             - { name: form.type, alias: btn_select2_hidden }
 
+    btn_admin.form.type.select2_entity:
+        parent: btn_admin.form.type.select2
+        calls:
+            - [setParent, [entity]]
+        tags:
+            - { name: form.type, alias: btn_select2_entity }
+
     # Extensions
     btn_admin.form.extension.text_type:
         class: %btn_admin.form.extension.text_type.class%
