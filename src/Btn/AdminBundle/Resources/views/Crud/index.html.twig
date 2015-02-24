@@ -8,7 +8,12 @@
 {% endblock %}
 
 {% block list_header %}
-    {{ lst.header(list_header) }}
+    {% if filter_form is defined and filter_form %}
+        <div class="pull-right">{{ form(filter_form) }}</div>
+        <div class="pull-left">{{ lst.header(list_header) }}</div>
+    {% else %}
+        {{ lst.header(list_header) }}
+    {% endif %}
 {% endblock %}
 
 {% block list_table %}

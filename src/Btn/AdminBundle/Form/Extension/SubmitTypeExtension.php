@@ -17,6 +17,7 @@ class SubmitTypeExtension extends AbstractTypeExtension
         parent::buildView($view, $form, $options);
 
         $view->vars['row'] = $options['row'];
+        $view->vars['button'] = true;
     }
 
     /**

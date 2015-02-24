@@ -24,6 +24,16 @@ abstract class AbstractCrudController extends AbstractControlController
             $formHandler = $this->get($formHandlerId);
             $this->setFormHandler($formHandler);
         }
+        // set filter from crud settings
+        $filterId = $this->crudSettings->getFilterId();
+        if ($filterId && $this->has($filterId)) {
+            $filter = $this->get($filterId);
+            // autoinject entity provider to filter if not present
+            if (!$filter->hasEntityProvider()) {
+                $filter->setEntityProvider($this->getEntityProvider());
+            }
+            $this->setFilter($filter);
+        }
     }
 
     /**

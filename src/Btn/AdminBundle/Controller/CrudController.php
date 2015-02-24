@@ -14,13 +14,24 @@ class CrudController extends AbstractCrudController
      */
     public function indexAction(Request $request)
     {
-        $repo     = $this->getEntityProvider()->getRepository();
-        $entities = method_exists($repo, 'findAllForCrudIndex') ? $repo->findAllForCrudIndex() : $repo->findAll();
+        if ($this->hasFilter()) {
+            $filter     = $this->getFilter();
+            $filterForm = $filter->createForm(null, array(
+                'action' => $this->generatePrefixedUrl('index'),
+            ));
+            $filter->applyFilters();
+            $entities   = $filter->getQuery();
+        } else {
+            $repo       = $this->getEntityProvider()->getRepository();
+            $entities   = method_exists($repo, 'findAllForCrudIndex') ? $repo->findAllForCrudIndex() : $repo->findAll();
+            $filterForm = null;
+        }
 
         return $this->render($this->crudSettings->getIndexTemplate(), array_merge(
             $this->getIndexBaseParameters(),
             array(
-                'pagination' => $this->paginate($entities),
+                'filter_form' => $filterForm ? $filterForm->createView() : null,
+                'pagination'  => $this->paginate($entities),
             )
         ));
     }

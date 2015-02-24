@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Btn\AdminBundle\Form\Handler\FormHandlerInterface;
 use Btn\AdminBundle\Annotation\EntityProvider;
+use Btn\BaseBundle\Filter\FilterInterface;
 
 class AbstractControlController extends AbstractController
 {
@@ -18,6 +19,9 @@ class AbstractControlController extends AbstractController
 
     /** @var \Btn\AdminBundle\Annotation\EntityProvider $entityProvider */
     protected $entityProvider;
+
+    /** @var \Btn\BaseBundle\Filter\FilterInterface $filter */
+    protected $filter;
 
     /**
      *
@@ -65,6 +69,36 @@ class AbstractControlController extends AbstractController
         }
 
         return $this->get($entityProviderId);
+    }
+
+    /**
+     *
+     */
+    public function hasFilter()
+    {
+        return $this->filter ? true : false;
+    }
+
+    /**
+     *
+     */
+    public function setFilter(FilterInterface $filter)
+    {
+        $this->filter = $filter;
+
+        return $this;
+    }
+
+    /**
+     *
+     */
+    public function getFilter()
+    {
+        if (!$this->filter) {
+            throw new \Exception('Filter is missing in controller');
+        }
+
+        return $this->filter;
     }
 
     /**

@@ -106,6 +106,10 @@ class ControlControllerListener
                     $routePrefix = $this->bundleHelper->getRoutePrefix($controller[0]);
                     $crudSettings->setRoutePrefix($routePrefix);
                 }
+                if (null === $crudSettings->getFilterId()) {
+                    $filterId = $this->bundleHelper->getFilterId($controller[0]);
+                    $crudSettings->setFilterId($filterId);
+                }
 
                 $controller[0]->setCrudSettings($crudSettings);
             }

@@ -5,6 +5,7 @@ parameters:
     btn_admin.form.button.delete.class: Btn\AdminBundle\Form\Button\DeleteButton
     btn_admin.form.button.save.class: Btn\AdminBundle\Form\Button\SaveButton
     btn_admin.form.button.update.class: Btn\AdminBundle\Form\Button\UpdateButton
+    btn_admin.form.button.filter.class: Btn\AdminBundle\Form\Button\FilterButton
     btn_admin.form.type.color.class: Btn\AdminBundle\Form\Type\ColorType
     btn_admin.form.type.date_time.class: Btn\AdminBundle\Form\Type\DateTimeType
     btn_admin.form.type.date.class: Btn\AdminBundle\Form\Type\DateType
@@ -88,6 +89,11 @@ services:
         class: %btn_admin.form.button.update.class%
         tags:
             - { name: form.type, alias: btn_update }
+
+    btn_admin.form.button.filter:
+        class: %btn_admin.form.button.filter.class%
+        tags:
+            - { name: form.type, alias: btn_filter }
 
     btn_admin.form.type.color:
         class: %btn_admin.form.type.color.class%

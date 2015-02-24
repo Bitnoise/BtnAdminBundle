@@ -140,7 +140,6 @@
 {% endblock choice_widget_expanded %}
 
 {% block form %}
-{% spaceless %}
     {{ form_start(form) }}
     {% if fieldset|default() %}
         <fieldset>
@@ -148,13 +147,31 @@
     {% if legend|default() %}
         <legend>{{ legend|trans }}</legend>
     {% endif %}
-    {{ form_widget(form, {attr: null}) }}
+    {% if inline|default() %}
+        {{ block('form_inline') }}
+    {% else %}
+        {{ form_widget(form, {attr: null}) }}
+    {% endif %}
     {% if fieldset|default() %}
         </fieldset>
     {% endif %}
     {{ form_end(form) }}
-{% endspaceless %}
 {% endblock form %}
+
+{% block form_inline %}
+    {% for field in form %}
+        {% if field.vars.button|default() %}
+            {{ form_widget(field) }}
+        {% else %}
+          <div class="form-group">
+            {% if field.vars.label %}
+                <label for="{{ field.vars.id }}">{{ field.vars.label|trans({}, translation_domain) }}</label>
+            {% endif %}
+            {{ form_widget(field) }}
+          </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
 
 {% block button_widget %}
 {% spaceless %}

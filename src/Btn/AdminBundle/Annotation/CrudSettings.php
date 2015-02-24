@@ -12,6 +12,8 @@ class CrudSettings extends EntityProvider
     protected $formAlias      = null;
     /** @var string $formHandlerId form handler service id */
     protected $formHandlerId  = 'btn_admin.form.handler.entity_form';
+    /** @var string $filterId if of service that should handle list filtering */
+    protected $filterId       = null;
     /** @var string $routePrefix route prefix to generate index/create/update routes */
     protected $routePrefix    = null;
     /** @var string $indexTemplate */
@@ -55,6 +57,22 @@ class CrudSettings extends EntityProvider
     public function getFormHandlerId()
     {
         return $this->formHandlerId;
+    }
+
+    /**
+     *
+     */
+    public function setFilterId($filterId)
+    {
+        $this->filterId = $filterId;
+    }
+
+    /**
+     *
+     */
+    public function getFilterId()
+    {
+        return $this->filterId;
     }
 
     /**
