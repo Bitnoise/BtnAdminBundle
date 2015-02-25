@@ -31,6 +31,7 @@ btn_admin.last_login: 'Last login'
 btn_admin.users_list: 'Users list'
 btn_admin.confirm_delete: 'Are you sure you want to delete this?'
 btn_admin.login_as_user: 'Login as user'
+btn_admin.title: 'Title'
 
 # login window
 btn_admin.title: 'cms'
