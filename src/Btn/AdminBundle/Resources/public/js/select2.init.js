@@ -8,7 +8,37 @@
             if ('string' === typeof options) {
                 options = $.parseJSON(options);
             }
-            element.select2(options || {});
+            options = options || {};
+
+            if (element.is('[btn-select2-tree]') && !('formatResult' in options)) {
+                options.formatResult = function(state) {
+                    if (!state.id) {
+                        return state.text; // optgroup
+                    }
+                    var text = state.text;
+
+                    text = text.replace('|_', '&nbsp;');
+                    text = text.replace(/^[\_]+/, function(found) {
+                        return Array(found.length * 4).join('&nbsp;');
+                    });
+
+                    return text;
+                };
+            }
+
+            if (!('formatSelection' in options)) {
+                options.formatSelection = function(state) {
+                    var parent = $(state.element).parent();
+                    var text = state.text.replace(/^[\_|]+/, '');
+                    if ('OPTGROUP' === parent.prop('tagName') && parent.attr('label')) {
+                        return  text + ' <small class="optgroup">('+parent.attr('label')+')</small>';
+                    }
+
+                    return text;
+                };
+            }
+
+            element.select2(options);
         });
     };
 
