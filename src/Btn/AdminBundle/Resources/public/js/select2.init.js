@@ -19,7 +19,7 @@
 
                     text = text.replace('|_', '&nbsp;');
                     text = text.replace(/^[\_]+/, function(found) {
-                        return Array(found.length * 4).join('&nbsp;');
+                        return new Array(found.length * 4).join('&nbsp;');
                     });
 
                     return text;
