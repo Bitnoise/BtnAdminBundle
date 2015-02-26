@@ -5,6 +5,7 @@ namespace Btn\AdminBundle\Form\Type;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class Select2Type extends AbstractType
 {
@@ -42,12 +43,38 @@ class Select2Type extends AbstractType
     /**
      * {@inheritdoc}
      */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        parent::setDefaultOptions($resolver);
+
+        $resolver->setOptional(array(
+            'searchable',
+        ));
+
+        $resolver->setAllowedTypes(array(
+            'searchable' => array('bool', 'integer'),
+        ));
+
+        $resolver->setDefaults(array(
+            'searchable' => true,
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
 
         $view->vars['attr']['btn-select2'] = null;
         $view->vars['attr']['btn-select2-'.$this->parent] = null;
+
+        if (false === $options['searchable']) {
+            $view->vars['attr']['btn-select2-minimum-results-for-search'] = '-1';
+        } elseif (is_int($options['searchable'])) {
+            $view->vars['attr']['btn-select2-minimum-results-for-search'] = $options['searchable'];
+        }
     }
 
     /**

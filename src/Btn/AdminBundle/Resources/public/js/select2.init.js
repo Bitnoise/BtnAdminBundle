@@ -10,6 +10,10 @@
             }
             options = options || {};
 
+            if (element.is('[btn-select2-minimum-results-for-search]') && !('minimumResultsForSearch' in options)) {
+                options.minimumResultsForSearch = parseInt(element.attr('btn-select2-minimum-results-for-search'), 10);
+            }
+
             if (element.is('[btn-select2-tree]') && !('formatResult' in options)) {
                 options.formatResult = function(state) {
                     if (!state.id) {
