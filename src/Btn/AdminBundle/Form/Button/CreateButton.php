@@ -14,9 +14,9 @@ class CreateButton extends AbstractType implements SubmitButtonTypeInterface
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
 
         $resolver->setDefaults(array(
             'label' => 'btn_admin.create',

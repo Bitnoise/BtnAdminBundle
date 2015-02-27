@@ -24,9 +24,9 @@ class TextTypeExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
 
         $resolver->setDefaults(array(
             'addon_prepend'  => null,
