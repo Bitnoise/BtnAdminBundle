@@ -4,7 +4,7 @@ namespace Btn\AdminBundle\Form\Button;
 
 use Btn\AdminBundle\Form\Type\AbstractType;
 use Symfony\Component\Form\SubmitButtonTypeInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  *
@@ -14,7 +14,7 @@ class CreateButton extends AbstractType implements SubmitButtonTypeInterface
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolver $resolver)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
 

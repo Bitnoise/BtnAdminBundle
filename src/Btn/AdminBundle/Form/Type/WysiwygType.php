@@ -2,7 +2,7 @@
 
 namespace Btn\AdminBundle\Form\Type;
 
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class WysiwygType extends AbstractType
 {
@@ -20,7 +20,7 @@ class WysiwygType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolver $resolver)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
 
