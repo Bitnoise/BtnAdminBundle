@@ -20,7 +20,7 @@
         "knplabs/knp-menu-bundle": "~2.0.0",
         "knplabs/knp-paginator-bundle": "~2.4.0",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "egeloen/ckeditor-bundle": "~3.0.0",
+        "egeloen/ckeditor-bundle": "dev-master",
         "bitnoise/base-bundle": "2.1.*"
     },
     "require-dev": {
@@ -34,6 +34,10 @@
         "preferred-install": "source"
     },
     "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adam187/IvoryCKEditorBundle.git"
+        },
         {
             "type": "composer",
             "url": "http://bitnoise.github.io/packages/"
