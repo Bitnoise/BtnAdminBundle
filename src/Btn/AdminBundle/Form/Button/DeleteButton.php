@@ -4,7 +4,7 @@ namespace Btn\AdminBundle\Form\Button;
 
 use Btn\AdminBundle\Form\Type\AbstractType;
 use Symfony\Component\Form\SubmitButtonTypeInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  *
@@ -14,7 +14,7 @@ class DeleteButton extends AbstractType implements SubmitButtonTypeInterface
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolver $resolver)
     {
         parent::setDefaultOptions($resolver);
 
