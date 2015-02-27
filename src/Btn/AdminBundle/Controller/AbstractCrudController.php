@@ -70,7 +70,7 @@ abstract class AbstractCrudController extends AbstractControlController
      */
     public function getTransKeyFromRoute()
     {
-        $route = $this->getRequest()->attributes->get('_route');
+        $route = $this->get('request')->attributes->get('_route');
 
         return preg_replace('~^(btn\_[a-z0-9]+)\_~', '$1.', $route);
     }
