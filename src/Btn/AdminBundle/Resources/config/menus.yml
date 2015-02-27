@@ -22,6 +22,7 @@ services:
             - { name: knp_menu.menu, alias: btn_admin.menu_navbar }
 
     btn_admin.menu_navbar.modules:
+        public: false
         class: %btn_admin.menu_item.class%
         factory: [@btn_admin.menu_builder, createMenu]
         arguments: [@request, btn_admin.menu_navbar.modules.label, btn_admin_defaultcontrol_index, [], []]
