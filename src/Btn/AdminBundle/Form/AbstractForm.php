@@ -6,7 +6,7 @@ use Btn\AdminBundle\Form\Type\AbstractType;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Btn\AdminBundle\Form\EventListener\AddSaveButtonSubscriber;
 
 abstract class AbstractForm extends AbstractType
@@ -69,7 +69,7 @@ abstract class AbstractForm extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolver $resolver)
     {
         parent::setDefaultOptions($resolver);
 

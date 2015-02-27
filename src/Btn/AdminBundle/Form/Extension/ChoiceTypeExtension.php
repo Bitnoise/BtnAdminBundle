@@ -5,7 +5,7 @@ namespace Btn\AdminBundle\Form\Extension;
 use Btn\BaseBundle\Form\Type\AbstractTypeExtension;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ChoiceTypeExtension extends AbstractTypeExtension
 {
@@ -28,7 +28,7 @@ class ChoiceTypeExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolver $resolver)
     {
         parent::setDefaultOptions($resolver);
 
