@@ -82,11 +82,9 @@ class BtnAdminExtension extends AbstractExtension
         // add form resource and globals for twig
         if ($container->hasExtension('twig')) {
             $container->prependExtensionConfig('twig', array(
-                'form' => array(
-                    'resources' => array(
-                        'BtnAdminBundle:Form:layout.html.twig',
-                        'BtnAdminBundle:Form:fields.html.twig',
-                    ),
+                'form_themes' => array(
+                    'BtnAdminBundle:Form:layout.html.twig',
+                    'BtnAdminBundle:Form:fields.html.twig',
                 ),
                 'globals' => array(
                     'btn_admin' => array(
