@@ -3,4 +3,4 @@ _remove_trailing_slash:
     defaults: { _controller: BtnAdminBundle:Redirecting:removeTrailingSlash }
     requirements:
         url: .*/$
-        _method: GET
+        methods: [GET]
