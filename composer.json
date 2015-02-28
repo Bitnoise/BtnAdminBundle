@@ -18,9 +18,9 @@
         "doctrine/orm": "~2.2,>=2.2.3",
         "stof/doctrine-extensions-bundle": "~1.1.0",
         "knplabs/knp-menu-bundle": "~2.0.0",
-        "knplabs/knp-paginator-bundle": "~2.4.0",
-        "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "egeloen/ckeditor-bundle": "dev-master",
+        "knplabs/knp-paginator-bundle": "2.4.x-dev",
+        "friendsofsymfony/user-bundle": "dev-sf26fix",
+        "egeloen/ckeditor-bundle": "dev-fix/asset-helper",
         "bitnoise/base-bundle": "2.1.*"
     },
     "require-dev": {
@@ -35,8 +35,8 @@
     },
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/adam187/IvoryCKEditorBundle.git"
+            "type": "composer",
+            "url": "http://adam187.github.io/packages/"
         },
         {
             "type": "composer",
