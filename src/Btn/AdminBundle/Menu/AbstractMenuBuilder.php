@@ -34,7 +34,7 @@ abstract class AbstractMenuBuilder
         }
 
         $attributes = array(
-            'label'           => $this->translator->trans($name),
+            'label'           => $name,
             'route'           => $route,
             'routeParameters' => $routeParams,
         );
