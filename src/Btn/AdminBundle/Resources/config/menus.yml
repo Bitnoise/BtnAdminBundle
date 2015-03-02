@@ -9,7 +9,7 @@ services:
         class: %btn_admin.abstract_menu_builder.class%
         abstract: true
         arguments:
-            - @knp_menu.factory 
+            - @knp_menu.factory
             - @translator
 
     btn_admin.menu_builder:
