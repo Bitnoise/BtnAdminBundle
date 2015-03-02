@@ -4,7 +4,7 @@
         {% block head %}
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <title>{% block title %}{{ 'btn_admin.title'|trans }}{% endblock %}</title>
+            <title>{% block title %}{{ 'btn_admin.base.title.default'|trans }}{% endblock %}</title>
             <base href="{{ app.request.schemeAndHttpHost ~ app.request.basePath }}">
             {% block stylesheets %}
                 {% include 'BtnAdminBundle:Partials:stylesheets_pre.html.twig' ignore missing only %}
