@@ -5,6 +5,7 @@ parameters:
 
 services:
     btn_admin.abstract_menu_builder:
+        public: false
         class: %btn_admin.abstract_menu_builder.class%
         abstract: true
         arguments: [@knp_menu.factory, @translator]
