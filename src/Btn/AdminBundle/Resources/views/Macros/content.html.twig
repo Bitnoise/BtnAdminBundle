@@ -1,0 +1,8 @@
+{% macro desc_strip(description, length = 50) %}
+    {% set description_striped = description|striptags|slice(0, length) %}
+    {% if description_striped != '' and description_striped != description %}
+        {{ description_striped ~ '...' }}
+    {% else %}
+        {{ description_striped }}
+    {% endif %}
+{% endmacro %}
