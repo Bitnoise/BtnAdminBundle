@@ -16,6 +16,7 @@ parameters:
     btn_admin.form.type.hidden_entity.class: Btn\AdminBundle\Form\Type\HiddenEntityType
     btn_admin.form.type.google_map.class: Btn\AdminBundle\Form\Type\GoogleMapType
     btn_admin.form.type.select2.class: Btn\AdminBundle\Form\Type\Select2Type
+    btn_admin.form.type.youtube.class: Btn\AdminBundle\Form\Type\YoutubeType
     btn_admin.form.type.hr.class: Btn\AdminBundle\Form\Type\HrType
     btn_admin.form.user_control.class: Btn\AdminBundle\Form\UserControlForm
     btn_admin.form.profile_control.class: Btn\AdminBundle\Form\ProfileControlForm
@@ -184,6 +185,11 @@ services:
             - [setParent, [entity]]
         tags:
             - { name: form.type, alias: btn_select2_entity }
+
+    btn_admin.form.type.youtube:
+        class: %btn_admin.form.type.youtube.class%
+        tags:
+            - { name: form.type, alias: btn_youtube }
 
     btn_admin.form.type.hr:
         class: %btn_admin.form.type.hr.class%
