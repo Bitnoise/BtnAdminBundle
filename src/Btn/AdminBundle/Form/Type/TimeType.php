@@ -44,10 +44,8 @@ class TimeType extends AbstractType
             'meridian',
         ));
 
-        $resolver->setAllowedTypes(array(
-            'autoclose' => array('bool'),
-            'meridian'  => array('bool'),
-        ));
+        $resolver->setAllowedTypes('autoclose', array('bool'));
+        $resolver->setAllowedTypes('meridian', array('bool'));
 
         $resolver->setDefaults(array(
             'widget'      => 'single_text',

@@ -30,9 +30,7 @@ class DateTimeType extends AbstractType
             'autoclose',
         ));
 
-        $resolver->setAllowedTypes(array(
-            'autoclose' => array('bool'),
-        ));
+        $resolver->setAllowedTypes('autoclose', array('bool'));
 
         $resolver->setDefaults(array(
             'widget'      => 'single_text',

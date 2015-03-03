@@ -51,9 +51,7 @@ class Select2Type extends AbstractType
             'searchable',
         ));
 
-        $resolver->setAllowedTypes(array(
-            'searchable' => array('bool', 'integer'),
-        ));
+        $resolver->setAllowedTypes('searchable', array('bool', 'integer'));
 
         $resolver->setDefaults(array(
             'searchable' => true,

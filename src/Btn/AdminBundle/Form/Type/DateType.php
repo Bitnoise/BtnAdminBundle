@@ -31,9 +31,7 @@ class DateType extends AbstractType
             'date_format',
         ));
 
-        $resolver->setAllowedTypes(array(
-            'autoclose' => array('bool'),
-        ));
+        $resolver->setAllowedTypes('autoclose', array('bool'));
 
         $resolver->setDefaults(array(
             'widget'      => 'single_text',

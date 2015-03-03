@@ -31,9 +31,7 @@ class SubmitTypeExtension extends AbstractTypeExtension
             'row',
         ));
 
-        $resolver->setAllowedTypes(array(
-            'row' => array('bool'),
-        ));
+        $resolver->setAllowedTypes('row', array('bool'));
 
         $resolver->setDefaults(array(
             'row'  => true,
