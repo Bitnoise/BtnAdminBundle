@@ -43,7 +43,7 @@ class YoutubeType extends AbstractType
     {
         parent::buildView($view, $form, $options);
 
-        $view->vars['preview'] = $options['show_thumbnail'] ? true : false;
+        $view->vars['preview'] = $options['preview'] ? true : false;
         $view->vars['preview_url'] = 'https://www.youtube.com/embed/';
         $view->vars['preview_width'] = 320;
         $view->vars['preview_height'] = 180;
@@ -58,13 +58,13 @@ class YoutubeType extends AbstractType
 
         $resolver->setOptional(array(
             'convert_to_id',
-            'show_thumbnail',
+            'preview',
         ));
 
         $resolver->setDefaults(array(
-            'data_class'     => 'Btn\AdminBundle\ValueObject\Youtube',
-            'convert_to_id'  => true,
-            'show_thumbnail' => false,
+            'data_class'    => 'Btn\AdminBundle\ValueObject\Youtube',
+            'convert_to_id' => true,
+            'preview'       => false,
         ));
     }
 
