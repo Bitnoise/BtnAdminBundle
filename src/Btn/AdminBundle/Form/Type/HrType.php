@@ -14,6 +14,7 @@ class HrType extends AbstractType
         parent::setDefaultOptions($resolver);
 
         $resolver->setDefaults(array(
+            'mapped'   => false,
             'required' => false,
             'label'    => false,
         ));
