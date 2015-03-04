@@ -25,11 +25,11 @@ class YoutubeValidator extends ConstraintValidator
             $this->context->buildViolation($constraint->message)->addViolation();
         }
 
-        if (Youtube::TYPE_ID === $constraint->type && !YoutubeUtil::isValidId($value) ) {
+        if (Youtube::TYPE_ID === $constraint->type && !YoutubeUtil::isValidId($value)) {
             $this->context->buildViolation($constraint->messageId)->addViolation();
         }
 
-        if (Youtube::TYPE_URL === $constraint->type && !YoutubeUtil::isValidUrl($value) ) {
+        if (Youtube::TYPE_URL === $constraint->type && !YoutubeUtil::isValidUrl($value)) {
             $this->context->buildViolation($constraint->messageUrl)->addViolation();
         }
     }
