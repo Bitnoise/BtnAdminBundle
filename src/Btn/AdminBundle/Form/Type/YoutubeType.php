@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Btn\BaseBundle\Util\Youtube;
 use Btn\AdminBundle\Form\DataTransformer\YoutubeTransformer;
+use Btn\AdminBundle\Validator\Constraints as BtnAssets;
 
 class YoutubeType extends AbstractType
 {
@@ -65,6 +66,10 @@ class YoutubeType extends AbstractType
             'data_class'    => 'Btn\AdminBundle\ValueObject\Youtube',
             'convert_to_id' => true,
             'preview'       => false,
+            'empty_data'    => null,
+            'constraints'   => array(
+                new BtnAssets\Youtube(),
+            )
         ));
     }
 

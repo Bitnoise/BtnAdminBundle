@@ -13,7 +13,7 @@ class YoutubeTransformer implements DataTransformerInterface
     public function transform($video)
     {
         if (null === $video) {
-            return "";
+            return;
         }
 
         return Youtube::create($video);
