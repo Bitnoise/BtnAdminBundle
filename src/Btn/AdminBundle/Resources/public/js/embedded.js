@@ -86,7 +86,9 @@
                         var fields = row.find('select, input, textarea');
                         fields.each(function(){
                             var field = $(this);
-                            field.attr('name', field.attr('name').replace( /\[\d+\]/g, '[' + (index) + ']'));
+                            if (field.is('[name]')) {
+                                field.attr('name', field.attr('name').replace( /\[\d+\]/g, '[' + (index) + ']'));
+                            }
                         });
                     });
                 });
