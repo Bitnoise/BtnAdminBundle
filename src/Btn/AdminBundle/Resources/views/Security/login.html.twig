@@ -4,7 +4,7 @@
 
 {% block panel_body %}
     {% if error %}
-        <div class="alert alert-danger">{{ error|trans({}, 'FOSUserBundle') }}</div>
+        <div class="alert alert-danger">{{ error.message|default(error)|trans({}, 'FOSUserBundle') }}</div>
     {% endif %}
     <form action="{{ path("fos_user_security_check") }}" role="form" method="POST">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
