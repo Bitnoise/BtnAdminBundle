@@ -36,7 +36,7 @@ class ChoiceTypeExtension extends AbstractTypeExtension
             'inline' => null,
         ));
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'inline',
             'ajax_reload',
         ));

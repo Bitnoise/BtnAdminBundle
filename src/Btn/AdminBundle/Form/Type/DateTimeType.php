@@ -26,7 +26,7 @@ class DateTimeType extends AbstractType
     {
         parent::configureOptions($resolver);
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'autoclose',
         ));
 

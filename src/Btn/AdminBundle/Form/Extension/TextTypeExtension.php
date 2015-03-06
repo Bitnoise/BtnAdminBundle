@@ -33,7 +33,7 @@ class TextTypeExtension extends AbstractTypeExtension
             'addon_append' => null,
         ));
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'addon_prepend',
             'addon_append',
         ));

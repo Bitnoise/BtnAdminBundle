@@ -80,7 +80,7 @@ abstract class AbstractForm extends AbstractType
             'loading'  => true,
         ));
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'fieldset',
             'legend',
             'role',

@@ -47,7 +47,7 @@ class Select2Type extends AbstractType
     {
         parent::configureOptions($resolver);
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'searchable',
         ));
 

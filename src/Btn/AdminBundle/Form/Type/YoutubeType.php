@@ -57,7 +57,7 @@ class YoutubeType extends AbstractType
     {
         parent::configureOptions($resolver);
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'convert_to_id',
             'preview',
         ));

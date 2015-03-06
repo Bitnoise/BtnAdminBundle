@@ -60,7 +60,7 @@ class EmbeddedType extends AbstractType
     {
         parent::configureOptions($resolver);
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'prototype_add',
             'prototype_remove',
             'prototype_limit',

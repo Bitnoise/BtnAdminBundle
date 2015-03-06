@@ -27,7 +27,7 @@ class SubmitTypeExtension extends AbstractTypeExtension
     {
         parent::configureOptions($resolver);
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'row',
         ));
 
