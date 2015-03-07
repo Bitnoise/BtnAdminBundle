@@ -18,9 +18,9 @@
         "doctrine/orm": "~2.2,>=2.2.3",
         "stof/doctrine-extensions-bundle": "~1.1.0",
         "knplabs/knp-menu-bundle": "~2.0.0",
-        "knplabs/knp-paginator-bundle": "2.4.x-dev",
+        "knplabs/knp-paginator-bundle": "~2.4.2",
         "friendsofsymfony/user-bundle": "dev-sf26fix",
-        "egeloen/ckeditor-bundle": "dev-fix/asset-helper",
+        "egeloen/ckeditor-bundle": "~3.0.1",
         "bitnoise/base-bundle": "2.1.*"
     },
     "require-dev": {
