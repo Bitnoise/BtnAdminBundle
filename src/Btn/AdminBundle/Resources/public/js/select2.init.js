@@ -28,6 +28,10 @@
 
                     return text;
                 };
+            } else if (!('formatResult' in options)) {
+                options.formatResult = function(state) {
+                    return '<span btn-select2-value="'+state.id+'">'+state.text+'</span>';
+                };
             }
 
             if (!('formatSelection' in options)) {
