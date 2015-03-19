@@ -2,10 +2,6 @@
 {% import 'BtnAdminBundle:Macros:link.html.twig' as lnk %}
 {% extends 'BtnAdminBundle::form.html.twig' %}
 
-{% block form_content %}
-    {{ form(form) }}
-{% endblock %}
-
 {% block form_buttons %}
     {{ lnk.back(route_index) }}
 {% endblock %}
