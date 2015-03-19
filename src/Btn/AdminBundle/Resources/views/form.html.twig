@@ -7,13 +7,15 @@
                 {% block form_content %}
                     {# base block to override #}
                     {% if form is defined %}
-                        {{ form(form) }}
+                        {% include 'BtnAdminBundle::_form_content.html.twig' with {form: form} only %}
                     {% endif %}
                 {% endblock %}
                 <div class="btn-group">
+                    {% include 'BtnAdminBundle::_form_buttons_pre.html.twig' ignore missing with {form: form} only %}
                     {% block form_buttons %}
                         {# base block to override #}
                     {% endblock %}
+                    {% include 'BtnAdminBundle::_form_buttons_post.html.twig' ignore missing with {form: form} only %}
                 </div>
             </div>
         </div>

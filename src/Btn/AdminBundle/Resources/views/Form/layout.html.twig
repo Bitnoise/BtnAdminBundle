@@ -150,13 +150,17 @@
     {% if inline|default() %}
         {{ block('form_inline') }}
     {% else %}
-        {{ form_widget(form, {attr: null}) }}
+        {{ block('form_regular') }}
     {% endif %}
     {% if fieldset|default() %}
         </fieldset>
     {% endif %}
     {{ form_end(form) }}
 {% endblock form %}
+
+{% block form_regular %}
+    {{ form_widget(form, {attr: null}) }}
+{% endblock %}
 
 {% block form_inline %}
     {% for field in form %}
