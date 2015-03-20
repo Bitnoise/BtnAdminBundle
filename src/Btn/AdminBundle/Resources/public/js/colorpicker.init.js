@@ -6,6 +6,9 @@
             var element = $(this);
             element.pickAColor({
                 allowBlank: element.attr('required') ? false : true,
+                showSpectrum: element.attr('btn-colorpicker-spectrum') || true,
+                showAdvanced: element.attr('btn-colorpicker-advanced') || true,
+                showBasicColors: element.attr('btn-colorpicker-basic') || true,
                 allowHexFocus: false,
                 allowButtonTab: false,
                 inlineDropdown: true,
