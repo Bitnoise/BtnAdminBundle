@@ -69,7 +69,7 @@ class YoutubeType extends AbstractType
             'empty_data'    => null,
             'constraints'   => array(
                 new BtnAssets\Youtube(),
-            )
+            ),
         ));
     }
 
