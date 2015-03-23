@@ -1,4 +1,4 @@
-/* global BtnApp, bootbox, jQuery */
+/* global BtnApp, jQuery */
 (function(app, $, undefined){
     'use strict';
     var addEvents = function(context) {
@@ -9,7 +9,7 @@
                 var condGroup = element.attr('btn-has-conditional-rows');
                 // hide all from group
                 var condRows = $('[btn-conditional-row-name='+condGroup+']');
-                if (element.attr('type') == 'checkbox') {
+                if (element.attr('type') === 'checkbox') {
                     if (element.attr('readonly') && !element.is(':checked')) {
                         // don't react on disableing readonly field
                     } else {
