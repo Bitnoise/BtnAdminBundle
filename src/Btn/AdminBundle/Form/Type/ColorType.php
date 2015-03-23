@@ -2,6 +2,8 @@
 
 namespace Btn\AdminBundle\Form\Type;
 
+use Symfony\Component\Form\FormView;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Btn\AdminBundle\Form\DataTransformer\ColorTransformer;
@@ -28,8 +30,13 @@ class ColorType extends AbstractType
     {
         parent::configureOptions($resolver);
 
+        $resolver->setOptional(array(
+            'basic_colors',
+        ));
+
         $resolver->setDefaults(array(
-            'constraints' => array(
+            'basic_colors' => null,
+            'constraints'  => array(
                 new BtnAssert\Color(),
             ),
             'attr' => array(
@@ -37,6 +44,22 @@ class ColorType extends AbstractType
                 'class'           => 'btn-colorpicker',
             ),
         ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        parent::buildView($view, $form, $options);
+
+        if (!empty($options['basic_colors'])) {
+            if (is_array($options['basic_colors'])) {
+                $view->vars['attr']['btn-colorpicker-basic-colors'] = json_encode($options['basic_colors']);
+            } elseif (is_string($options['basic_colors'])) {
+                $view->vars['attr']['btn-colorpicker-basic-colors'] = $options['basic_colors'];
+            }
+        }
     }
 
     /**
