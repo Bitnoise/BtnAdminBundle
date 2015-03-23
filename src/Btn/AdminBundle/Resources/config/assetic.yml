@@ -179,3 +179,8 @@ assetic:
             inputs:
                 - @BtnAdminBundle/Resources/public/js/ajax-reload.init.js
             output: js/btn_admin.ajax-reload.js
+
+        btn_admin_conditional_row_js:
+            inputs:
+                - @BtnAdminBundle/Resources/public/js/conditional_row.init.js
+            output: js/btn_admin.conditional_row.js

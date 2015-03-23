@@ -24,6 +24,7 @@ parameters:
     btn_admin.form.extension.text_type.class: Btn\AdminBundle\Form\Extension\TextTypeExtension
     btn_admin.form.extension.submit_type.class: Btn\AdminBundle\Form\Extension\SubmitTypeExtension
     btn_admin.form.extension.choice_type.class: Btn\AdminBundle\Form\Extension\ChoiceTypeExtension
+    btn_admin.form.extension.form_type.class: Btn\AdminBundle\Form\Extension\FormTypeExtension
 
 services:
     # Handlers
@@ -213,3 +214,10 @@ services:
             - [setAssetLoader, [@btn_base.asset_loader]]
         tags:
             - { name: form.type_extension, alias: choice }
+
+    btn_admin.form.extension.form_type:
+        class: %btn_admin.form.extension.form_type.class%
+        calls:
+            - [setAssetLoader, [@btn_base.asset_loader]]
+        tags:
+            - { name: form.type_extension, alias: form }
