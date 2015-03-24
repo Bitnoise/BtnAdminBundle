@@ -12,6 +12,10 @@ h2 small {
     color: #777777;
 }
 
+hr {
+    border-top-color: #e5e5e5;
+}
+
 .well,
 .breadcrumb,
 .pagination > li > a, .pagination > li > span,
