@@ -132,11 +132,13 @@ class CrudController extends AbstractCrudController
     protected function getIndexBaseParameters()
     {
         return array(
-            'list_header'  => $this->getTransKeyFromRoute(),
-            'route_prefix' => $this->getRoutePrefix(),
-            'route_index'  => $this->getPrefixedRoute('index'),
-            'route_new'    => $this->getPrefixedRoute('new'),
-            'route_edit'   => $this->getPrefixedRoute('edit'),
+            'col_act_class' => $this->container->getParameter('btn_admin.list.col_act_class'),
+            'list_header'   => $this->getTransKeyFromRoute(),
+            'route_prefix'  => $this->getRoutePrefix(),
+            'route_index'   => $this->getPrefixedRoute('index'),
+            'route_new'     => $this->getPrefixedRoute('new'),
+            'route_edit'    => $this->getPrefixedRoute('edit'),
+            'route_delete'  => $this->getPrefixedRoute('delete'),
         );
     }
 }

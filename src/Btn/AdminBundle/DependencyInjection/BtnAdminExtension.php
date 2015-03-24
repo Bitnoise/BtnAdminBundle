@@ -25,6 +25,7 @@ class BtnAdminExtension extends AbstractExtension
         $container->setParameter('btn_admin.app.year', $config['app']['year']);
         $container->setParameter('btn_admin.menu.navbar', $config['menu']['navbar']);
         $container->setParameter('btn_admin.list.per_page', $config['list']['per_page']);
+        $container->setParameter('btn_admin.list.col_act_class', $config['list']['col_act_class']);
 
         // override knp paginator class
         $container->setParameter('knp_paginator.class', 'Btn\\AdminBundle\\Pager\\Paginator');

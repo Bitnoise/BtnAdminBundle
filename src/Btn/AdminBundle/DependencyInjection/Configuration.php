@@ -53,6 +53,7 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('date_format')->defaultValue('Y-m-d')->end()
                         ->scalarNode('time_format')->defaultValue('H:i:s')->end()
                         ->scalarNode('date_time_format')->defaultValue('Y-m-d H:i:s')->end()
+                        ->scalarNode('col_act_class')->defaultValue('sm')->end()
                     ->end()
                 ->end()
 
