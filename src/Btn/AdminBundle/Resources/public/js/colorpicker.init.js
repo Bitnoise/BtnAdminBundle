@@ -22,6 +22,8 @@
                 var value = element.attr(attr);
                 if (typeof value === 'string' && value === 'false') {
                     value = false;
+                } else {
+                    value = true;
                 }
                 options[option] = value;
             });
