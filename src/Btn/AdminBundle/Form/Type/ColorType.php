@@ -38,6 +38,8 @@ class ColorType extends AbstractType
         $resolver->setDefaults(array(
             'basic_colors'  => null,
             'show_spectrum' => null,
+            'show_advanced' => null,
+            'show_basic'    => null,
             'constraints'   => array(
                 new BtnAssert\Color(),
             ),
@@ -64,6 +66,12 @@ class ColorType extends AbstractType
         }
         if (null !== $options['show_spectrum']) {
             $view->vars['attr']['btn-colorpicker-spectrum'] = $options['show_spectrum'] ? 'true' : 'false';
+        }
+        if (null !== $options['show_advanced']) {
+            $view->vars['attr']['btn-colorpicker-advanced'] = $options['show_advanced'] ? 'true' : 'false';
+        }
+        if (null !== $options['show_basic']) {
+            $view->vars['attr']['btn-colorpicker-basic'] = $options['show_basic'] ? 'true' : 'false';
         }
     }
 
