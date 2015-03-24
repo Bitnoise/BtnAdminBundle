@@ -45,11 +45,15 @@
                             {# base block to override #}
                         {% endblock %}
                         <td class="{{ lst.col_act_class }}">
-                            {% block list_table_row_action_pre %}{% endblock %}
+                            {% block list_table_row_action_pre %}
+                                {% include 'BtnAdminBundle:Crud:_list_table_row_action_pre.html.twig' ignore missing %}
+                            {% endblock %}
                             {% block list_table_row_action %}
                                 {{ lnk.edit(route_edit, { id: entity.id }) }}
                             {% endblock %}
-                            {% block list_table_row_action_post %}{% endblock %}
+                            {% block list_table_row_action_post %}
+                                {% include 'BtnAdminBundle:Crud:_list_table_row_action_post.html.twig' ignore missing %}
+                            {% endblock %}
                         </td>
                     </tr>
                 {% endfor %}
