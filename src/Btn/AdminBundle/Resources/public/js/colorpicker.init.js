@@ -7,13 +7,24 @@
 
             var options = {
                 allowBlank: element.attr('required') ? false : true,
-                showSpectrum: element.attr('btn-colorpicker-spectrum') || true,
-                showAdvanced: element.attr('btn-colorpicker-advanced') || true,
-                showBasicColors: element.attr('btn-colorpicker-basic') || true,
                 allowHexFocus: false,
                 allowButtonTab: false,
                 inlineDropdown: true,
             };
+
+            var booleanMap = {
+                showSpectrum: 'btn-colorpicker-spectrum',
+                showAdvanced: 'btn-colorpicker-advanced',
+                showBasicColors: 'btn-colorpicker-basic',
+            };
+
+            $.each(booleanMap, function(option, attr) {
+                var value = element.attr(attr);
+                if (typeof value === 'string' && value === 'false') {
+                    value = false;
+                }
+                options[option] = value;
+            });
 
             if (options.showBasicColors) {
                 var basicColors = element.attr('btn-colorpicker-basic-colors');

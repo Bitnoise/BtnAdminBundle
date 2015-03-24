@@ -32,11 +32,13 @@ class ColorType extends AbstractType
 
         $resolver->setOptional(array(
             'basic_colors',
+            'show_spectrum',
         ));
 
         $resolver->setDefaults(array(
-            'basic_colors' => null,
-            'constraints'  => array(
+            'basic_colors'  => null,
+            'show_spectrum' => null,
+            'constraints'   => array(
                 new BtnAssert\Color(),
             ),
             'attr' => array(
@@ -59,6 +61,9 @@ class ColorType extends AbstractType
             } elseif (is_string($options['basic_colors'])) {
                 $view->vars['attr']['btn-colorpicker-basic-colors'] = $options['basic_colors'];
             }
+        }
+        if (null !== $options['show_spectrum']) {
+            $view->vars['attr']['btn-colorpicker-spectrum'] = $options['show_spectrum'] ? 'true' : 'false';
         }
     }
 
