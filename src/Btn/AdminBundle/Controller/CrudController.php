@@ -138,6 +138,7 @@ class CrudController extends AbstractCrudController
             'route_index'   => $this->getPrefixedRoute('index'),
             'route_new'     => $this->getPrefixedRoute('new'),
             'route_edit'    => $this->getPrefixedRoute('edit'),
+            'route_delete'  => $this->getPrefixedRoute('delete'),
         );
     }
 }
