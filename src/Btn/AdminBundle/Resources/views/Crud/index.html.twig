@@ -28,7 +28,7 @@
                     {% block list_table_head_columns %}
                         {# base block to override #}
                     {% endblock %}
-                    <th class="{{ lst.col_act_class('sm') }}">{% trans %}btn_admin.actions{% endtrans %}</th>
+                    <th class="{{ lst.col_act_class(col_act_class) }}">{% trans %}btn_admin.actions{% endtrans %}</th>
                 </tr>
             {% endblock %}
         </thead>
