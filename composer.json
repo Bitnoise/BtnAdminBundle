@@ -19,7 +19,7 @@
         "stof/doctrine-extensions-bundle": "~1.1.0",
         "knplabs/knp-menu-bundle": "~2.0.0",
         "knplabs/knp-paginator-bundle": "~2.4.2",
-        "friendsofsymfony/user-bundle": "dev-sf26fix",
+        "friendsofsymfony/user-bundle": "~2.0.1",
         "egeloen/ckeditor-bundle": "~3.0.1",
         "bitnoise/base-bundle": "2.1.*"
     },
@@ -34,10 +34,6 @@
         "preferred-install": "source"
     },
     "repositories": [
-        {
-            "type": "composer",
-            "url": "http://adam187.github.io/packages/"
-        },
         {
             "type": "composer",
             "url": "http://bitnoise.github.io/packages/"
