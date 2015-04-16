@@ -1,0 +1,83 @@
+# general translations
+btn_admin.id: 'Id'
+btn_admin.loged_as: 'Witaj: '
+btn_admin.logout: 'Wyloguj'
+btn_admin.list: 'Lista'
+btn_admin.new: 'Nowy'
+btn_admin.add: 'Dodaj'
+btn_admin.cancel: 'Anuluj'
+btn_admin.save: 'Zapisz'
+btn_admin.edit: 'Edytuj'
+btn_admin.show: 'Pokaż'
+btn_admin.delete: 'Usuń'
+btn_admin.create: 'Utwórz'
+btn_admin.update: 'Aktualizacjuj'
+btn_admin.select: 'Wybierz'
+btn_admin.back: 'Wstecz'
+btn_admin.filter: 'Filtr'
+btn_admin.previous: 'Poprzedni'
+btn_admin.next: 'Następny'
+btn_admin.preview: 'podgląd'
+btn_admin.modules: 'Moduły'
+btn_admin.username: 'Użytkownik'
+btn_admin.email: 'Email'
+btn_admin.enabled: 'Włączony'
+btn_admin.actions: 'Akcja'
+btn_admin.position: 'Pozycja'
+btn_admin.change_position: 'Zmień pozycję'
+btn_admin.change_password: 'Zmien hasło '
+btn_admin.edit_profile: 'Edytuj profil'
+btn_admin.last_login: 'Ostanie logowanie'
+btn_admin.users_list: 'Lista użytkowników'
+btn_admin.confirm_delete: 'Czy jesteś pewien że chcesz to usunąć?'
+btn_admin.login_as_user: 'Zaloguj jako'
+btn_admin.title: 'Tytuł'
+btn_admin.background_color: 'Kolor tła'
+btn_admin.base.title.default: 'CMS'
+
+# login window
+btn_admin.login.title: 'Logowanie'
+btn_admin.login.username: 'Nazwa użytkownika'
+btn_admin.login.password: 'Hasło'
+btn_admin.login.button: 'Zaloguj'
+btn_admin.login.remember_me: 'Pamiętaj mnie'
+btn_admin.login.reset_password: 'Zapomniałem hasła'
+
+# Forgot my password
+btn_admin.resetting.title: 'Zresetuj hasło'
+btn_admin.resetting.form.new_password: 'Nowe hasło'
+btn_admin.resetting.form.new_password_confirmation: 'Potwierdź nowe hasło'
+btn_admin.resetting.form.submit: 'Zmień hasło'
+
+# flashes
+btn_admin.flash.added: 'Dodano pomyślnie'
+btn_admin.flash.created: 'Utworzono pomyślnie'
+btn_admin.flash.deleted: 'Usunięto pomyślnie'
+btn_admin.flash.updated: 'Zaktualizowano pomyślnie'
+btn_admin.flash.saved: 'Zapisano pomyślnie'
+
+# Forms
+btn_admin.form.type.embeded.add: 'Dodaj'
+btn_admin.form.type.ebmeded.remove: 'Usuń'
+btn_admin.form.type.slug.label: 'Przyjazny URL'
+
+# User crud
+btn_admin.usercontrol_index: 'Lista użytkowników'
+btn_admin.usercontrol_new: 'Dodaj użytkownika'
+btn_admin.usercontrol_create: 'Utwórz użytkownika'
+btn_admin.usercontrol_edit: 'Edytuj użytkownika'
+btn_admin.usercontrol_update: 'Zaktualizuj użytkownika'
+
+btn_admin.user.username: 'Nazwa użytkownika'
+btn_admin.user.email: 'Email'
+btn_admin.user.password: 'Hasło'
+btn_admin.user.password_confirm: 'Potwierdź hasło'
+btn_admin.user.enabled: 'Włączony'
+btn_admin.user.last_login: 'Ostanie logowanie'
+
+# Profile
+btn_admin.profile: 'Profil'
+btn_admin_usercontrol_profile: 'Edytuj profil'
+btn_admin_usercontrol_changepassword: 'Zmień hasło'
+
+btn_admin.menu_navbar.modules.label: 'Moduły'
