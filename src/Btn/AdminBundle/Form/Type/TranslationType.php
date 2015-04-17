@@ -4,7 +4,6 @@ namespace Btn\AdminBundle\Form\Type;
 
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use Btn\AdminBundle\Validator\Constraints as BtnAssets;
 
 class TranslationType extends AbstractType
 {
