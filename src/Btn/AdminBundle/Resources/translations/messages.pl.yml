@@ -34,6 +34,7 @@ btn_admin.login_as_user: 'Zaloguj jako'
 btn_admin.title: 'Tytuł'
 btn_admin.background_color: 'Kolor tła'
 btn_admin.base.title.default: 'CMS'
+btn_admin.all: 'Wszystkie'
 
 # login window
 btn_admin.login.title: 'Logowanie'
