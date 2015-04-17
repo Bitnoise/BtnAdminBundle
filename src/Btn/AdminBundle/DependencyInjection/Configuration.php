@@ -18,6 +18,12 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
 
+                ->arrayNode('locales')
+                    ->defaultValue(array())
+                    ->prototype('scalar')
+                    ->end()
+                ->end()
+
                 ->arrayNode('user')
                     ->addDefaultsIfNotSet()
                     ->children()
