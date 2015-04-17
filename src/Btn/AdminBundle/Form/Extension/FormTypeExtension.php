@@ -29,7 +29,7 @@ class FormTypeExtension extends AbstractTypeExtension
     {
         parent::configureOptions($resolver);
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'label_size',
             'has_conditional_rows',
             'conditional_row_name',
