@@ -38,7 +38,7 @@ class BtnAdminExtension extends AbstractExtension
     {
         parent::prepend($container);
 
-        // Process configuraton
+        // Process configuration
         $config = $this->getProcessedConfig($container);
 
         // get config loader
