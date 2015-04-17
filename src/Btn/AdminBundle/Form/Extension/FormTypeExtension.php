@@ -30,12 +30,14 @@ class FormTypeExtension extends AbstractTypeExtension
         parent::setDefaultOptions($resolver);
 
         $resolver->setOptional(array(
+            'label_size',
             'has_conditional_rows',
             'conditional_row_name',
             'conditional_row_value',
         ));
 
         $resolver->setDefaults(array(
+            'label_size'            => 2,
             'has_conditional_rows'  => false,
             'conditional_row_name'  => null,
             'conditional_row_value' => null,
@@ -63,6 +65,8 @@ class FormTypeExtension extends AbstractTypeExtension
 
         $view->vars['conditional_row_name']  = $options['conditional_row_name'];
         $view->vars['conditional_row_value'] = $options['conditional_row_value'];
+        $view->vars['label_size'] = 'col-sm-'.$options['label_size'];
+        $view->vars['field_size'] = 'col-sm-'.(12 - $options['label_size']);
     }
 
     /**

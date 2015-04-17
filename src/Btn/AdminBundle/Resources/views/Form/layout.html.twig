@@ -64,7 +64,7 @@
             btn-conditional-row-value="{{ conditional_row_value }}"
         {%- endif -%}
      >
-        {% set rowClass = form.vars.label is sameas(false) ? 'col-sm-12' : 'col-sm-10' %}
+        {% set rowClass = form.vars.label is sameas(false) ? 'col-sm-12' : field_size|default('col-sm-10') %}
         {% if 'radio' in form.vars.block_prefixes and form.vars.checked is defined %}
             {{ form_label(form) }}
             <div class="{{ rowClass }}">
@@ -105,7 +105,7 @@
         {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' required'}) %}
     {% endif %}
     {% if form.parent.parent is null or (form.parent is defined and form.parent.vars.choices is not defined) %}
-        {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' col-sm-2 control-label'}) %}
+        {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' ' ~ label_size|default('col-sm-10') ~ ' control-label'}) %}
     {% endif %}
     <label{% for attrname,attrvalue in label_attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
         {{ label|trans({}, translation_domain) }}
