@@ -9,10 +9,14 @@
 
 {% block list_table_head_columns %}
     {{ parent() }}
-    <th class="text-center">{{ 'btn_admin.change_position'|trans }}</th>
+    {% if can_change_position %}
+        <th class="text-center">{{ 'btn_admin.change_position'|trans }}</th>
+    {% endif %}
 {% endblock %}
 
 {% block list_table_body_columns %}
     {{ parent() }}
-    <td class="move-position text-center"><i class="glyphicon glyphicon-move"></i></td>
+    {% if can_change_position %}
+        <td class="move-position text-center"><i class="glyphicon glyphicon-move"></i></td>
+    {% endif %}
 {% endblock %}
