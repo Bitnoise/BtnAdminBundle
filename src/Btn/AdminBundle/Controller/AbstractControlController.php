@@ -130,7 +130,7 @@ class AbstractControlController extends AbstractController
 
         if (null === $page) {
             $pageParameterName = $paginator->getDefaultOption('pageParameterName');
-            $page = $this->get('request')->query->getInt($pageParameterName, 1);
+            $page = $this->get('request_stack')->getCurrentRequest()->query->getInt($pageParameterName, 1);
         }
 
         if (null === $limit) {
