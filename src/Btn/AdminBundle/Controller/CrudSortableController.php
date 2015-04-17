@@ -18,7 +18,7 @@ class CrudSortableController extends CrudController
 
         if (!$repo instanceof AbstractSortableRepository) {
             throw new \Exception(
-                'This action is only avalible for repository that extends '.
+                'This action is only available for repository that extends '.
                 'Btn\\AdminBundle\\Model\\AbstractSortableRepository'
             );
         }
