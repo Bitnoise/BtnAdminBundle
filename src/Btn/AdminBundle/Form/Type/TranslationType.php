@@ -29,7 +29,7 @@ class TranslationType extends AbstractType
             if ($options['type'] === 'text') {
                 $localeOptions = ['label' => false, 'addon_prepend' => 'locale.'.$locale];
             } else {
-                $localeOptions = ['label' => 'locale.' . $locale, 'label_size' => 1];
+                $localeOptions = ['label' => 'locale.'.$locale, 'label_size' => 1];
             }
             $builder->add($locale, $options['type'], $localeOptions);
         }
