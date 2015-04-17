@@ -1,0 +1,12 @@
+{% macro dump(input) %}
+    {% if input is iterable %}
+        <dl>
+            {% for locale, value in input %}
+                <dt>{{ ('locale.' ~ locale)|trans }}</dt>
+                <dd>{{ value }}</dd>
+            {% endfor %}
+        </dl>
+    {% else %}
+        {{ input }}
+    {% endif %}
+{% endmacro %}
