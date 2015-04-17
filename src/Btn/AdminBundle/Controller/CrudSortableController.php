@@ -39,4 +39,24 @@ class CrudSortableController extends CrudController
 
         return $this->renderJson();
     }
+
+    /**
+     * Determine if change position should be available for list
+     *
+     * @return bool
+     */
+    public function canChangePosition()
+    {
+        return true;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getIndexBaseParameters()
+    {
+        return array_merge(parent::getIndexBaseParameters(), array(
+            'can_change_position' => $this->canChangePosition(),
+        ));
+    }
 }
