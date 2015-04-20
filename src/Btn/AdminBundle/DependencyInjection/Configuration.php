@@ -32,6 +32,9 @@ class Configuration implements ConfigurationInterface
                             ->defaultValue(null)
                             ->info('Setup from fos_user by default')
                         ->end()
+                        ->scalarNode('role_manage')
+                            ->defaultValue('ROLE_USER_MANAGE')
+                        ->end()
                     ->end()
                 ->end()
 
