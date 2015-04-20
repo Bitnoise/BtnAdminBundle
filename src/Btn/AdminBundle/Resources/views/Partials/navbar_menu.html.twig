@@ -8,7 +8,9 @@
             <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ path('btn_admin_usercontrol_index') }}">{{ gi('th-list') }} {% trans %}btn_admin.users_list{% endtrans %}</a></li>
+            {% if is_granted(btn_admin.user.role_manage) %}
+                <li><a href="{{ path('btn_admin_usercontrol_index') }}">{{ gi('th-list') }} {% trans %}btn_admin.users_list{% endtrans %}</a></li>
+            {% endif %}
             <li><a href="{{ path('btn_admin_usercontrol_profile') }}">{{ gi('user') }} {% trans %}btn_admin.profile{% endtrans %}</a></li>
             <li><a href="{{ path('btn_admin_usercontrol_changepassword') }}">{{ gi('pencil') }} {% trans %}btn_admin.change_password{% endtrans %}</a></li>
             <li class="divider"></li>

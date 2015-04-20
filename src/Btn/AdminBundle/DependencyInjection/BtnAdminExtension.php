@@ -21,6 +21,7 @@ class BtnAdminExtension extends AbstractExtension
         $config = $this->getProcessedConfig($container, $configs);
 
         $container->setParameter('btn_admin.user.class', $config['user']['class']);
+        $container->setParameter('btn_admin.role_manage', $config['user']['role_manage']);
         $container->setParameter('btn_admin.app.name', $config['app']['name']);
         $container->setParameter('btn_admin.app.year', $config['app']['year']);
         $container->setParameter('btn_admin.menu.navbar', $config['menu']['navbar']);
@@ -90,6 +91,9 @@ class BtnAdminExtension extends AbstractExtension
                 ),
                 'globals' => array(
                     'btn_admin' => array(
+                        'user' => array(
+                            'role_manage' => $config['user']['role_manage'],
+                        ),
                         'app' => array(
                             'name' => $config['app']['name'],
                             'year' => $config['app']['year'],

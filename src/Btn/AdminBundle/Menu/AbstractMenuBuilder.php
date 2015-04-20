@@ -14,13 +14,13 @@ abstract class AbstractMenuBuilder
     protected $factory;
     /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
     protected $translator;
-    /** @var AuthorizationCheckerInterface authorizationChecker */
+    /** @var AuthorizationCheckerInterface $authorizationChecker */
     protected $authorizationChecker;
 
     /**
-     * @param FactoryInterface              $factory
-     * @param TranslatorInterface           $translator
-     * @param AuthorizationCheckerInterface authorizationChecker
+     * @param FactoryInterface                   $factory
+     * @param TranslatorInterface                $translator
+     * @param AuthorizationCheckerInterface|null $authorizationChecker
      */
     public function __construct(
         FactoryInterface $factory,
@@ -73,7 +73,7 @@ abstract class AbstractMenuBuilder
     /**
      * @param Request       $request
      * @param ItemInterface $menu
-     * @param               $child
+     * @param ItemInterface $child
      *
      * @throws \Exception
      */
