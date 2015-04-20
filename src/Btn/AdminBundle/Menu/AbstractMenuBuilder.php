@@ -18,9 +18,9 @@ abstract class AbstractMenuBuilder
     protected $securityContext;
 
     /**
-     * @param FactoryInterface         $factory
-     * @param TranslatorInterface      $translator
-     * @param SecurityContextInterface $securityContext
+     * @param FactoryInterface              $factory
+     * @param TranslatorInterface           $translator
+     * @param SecurityContextInterface|null $securityContext
      */
     public function __construct(
         FactoryInterface $factory,
@@ -73,7 +73,7 @@ abstract class AbstractMenuBuilder
     /**
      * @param Request       $request
      * @param ItemInterface $menu
-     * @param               $child
+     * @param ItemInterface $child
      *
      * @throws \Exception
      */
