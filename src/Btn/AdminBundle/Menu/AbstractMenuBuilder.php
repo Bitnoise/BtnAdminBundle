@@ -11,7 +11,6 @@ abstract class AbstractMenuBuilder
 {
     /** @var \Knp\Menu\FactoryInterface */
     protected $factory;
-
     /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
     protected $translator;
 
@@ -25,7 +24,14 @@ abstract class AbstractMenuBuilder
     }
 
     /**
+     * @param Request     $request
+     * @param string      $name
+     * @param string|null $route
+     * @param array       $routeParams
+     * @param array       $children
      *
+     * @return ItemInterface|void
+     * @throws \Exception
      */
     public function createMenu(Request $request, $name, $route, array $routeParams = array(), array $children = array())
     {
@@ -51,7 +57,11 @@ abstract class AbstractMenuBuilder
     }
 
     /**
+     * @param Request       $request
+     * @param ItemInterface $menu
+     * @param               $child
      *
+     * @throws \Exception
      */
     protected function addChild(Request $request, ItemInterface $menu, $child)
     {
