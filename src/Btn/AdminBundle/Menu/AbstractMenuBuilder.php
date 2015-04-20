@@ -5,6 +5,7 @@ namespace Btn\AdminBundle\Menu;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
 abstract class AbstractMenuBuilder
@@ -13,14 +14,22 @@ abstract class AbstractMenuBuilder
     protected $factory;
     /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
     protected $translator;
+    /** @var SecurityContextInterface $securityContext */
+    protected $securityContext;
 
     /**
-     * @param FactoryInterface $factory
+     * @param FactoryInterface         $factory
+     * @param TranslatorInterface      $translator
+     * @param SecurityContextInterface $securityContext
      */
-    public function __construct(FactoryInterface $factory, TranslatorInterface $translator)
-    {
-        $this->factory    = $factory;
+    public function __construct(
+        FactoryInterface $factory,
+        TranslatorInterface $translator,
+        SecurityContextInterface $securityContext = null
+    ) {
+        $this->factory = $factory;
         $this->translator = $translator;
+        $this->securityContext = $securityContext;
     }
 
     /**
@@ -29,13 +38,18 @@ abstract class AbstractMenuBuilder
      * @param string|null $route
      * @param array       $routeParams
      * @param array       $children
+     * @param string|null $role
      *
      * @return ItemInterface|void
      * @throws \Exception
      */
-    public function createMenu(Request $request, $name, $route, array $routeParams = array(), array $children = array())
+    public function createMenu(Request $request, $name, $route, array $routeParams = array(), array $children = array(), $role = null)
     {
         if (null === $route && 0 === count($children)) {
+            return;
+        }
+
+        if (null !== $role && !$this->securityContext->isGranted($role)) {
             return;
         }
 

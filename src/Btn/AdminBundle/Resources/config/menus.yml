@@ -11,6 +11,7 @@ services:
         arguments:
             - @knp_menu.factory
             - @translator
+            - @?security.context
 
     btn_admin.menu_builder:
         class: %btn_admin.menu_builder.class%
