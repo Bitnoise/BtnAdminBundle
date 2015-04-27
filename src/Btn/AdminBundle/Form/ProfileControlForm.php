@@ -4,6 +4,7 @@ namespace Btn\AdminBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraint;
 
 class ProfileControlForm extends AbstractForm
 {
@@ -33,6 +34,7 @@ class ProfileControlForm extends AbstractForm
 
         $resolver->setDefaults(array(
             'intention'  => 'profile',
+            'validation_groups' => array(Constraint::DEFAULT_GROUP, 'Profile'),
         ));
     }
 
