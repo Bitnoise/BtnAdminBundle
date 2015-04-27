@@ -45,7 +45,7 @@ class UserControlForm extends AbstractForm
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'validation_groups' =>function(FormInterface $form) {
+            'validation_groups' => function (FormInterface $form) {
                 $data = $form->getData();
                 $groups = array(Constraint::DEFAULT_GROUP, 'Profile');
                 if (!$data->getId()) {

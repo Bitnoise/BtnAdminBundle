@@ -12,7 +12,7 @@ class ColorTransformer implements DataTransformerInterface
     public function transform($color)
     {
         if (null === $color) {
-            return "";
+            return '';
         }
 
         return ltrim($color, '#');
