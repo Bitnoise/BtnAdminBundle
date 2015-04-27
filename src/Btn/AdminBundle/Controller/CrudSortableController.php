@@ -10,9 +10,11 @@ class CrudSortableController extends CrudController
 {
     /**
      * @Route("/position", methods={"POST"})
+     *
      * @param Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Exception
      */
     public function positionAction(Request $request)
@@ -41,7 +43,7 @@ class CrudSortableController extends CrudController
     }
 
     /**
-     * Determine if change position should be available for list
+     * Determine if change position should be available for list.
      *
      * @return bool
      */

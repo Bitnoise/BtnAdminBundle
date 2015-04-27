@@ -11,7 +11,7 @@ use Btn\AdminBundle\Form\EventListener\AddSaveButtonSubscriber;
 
 abstract class AbstractForm extends AbstractType
 {
-    /** @var boolean $addSaveButtonSubscriber */
+    /** @var bool $addSaveButtonSubscriber */
     private $addSaveButtonSubscriber = true;
 
     /**
@@ -40,6 +40,7 @@ abstract class AbstractForm extends AbstractType
 
     /**
      * {@inheritdoc}
+     *
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     public function buildView(FormView $view, FormInterface $form, array $options)

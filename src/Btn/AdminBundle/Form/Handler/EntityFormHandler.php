@@ -14,7 +14,7 @@ class EntityFormHandler implements FormHandlerInterface
     /** \Doctrine\ORM\EntityManager $entityManager */
     private $entityManager;
 
-    /** @var boolean $globalFlush */
+    /** @var bool $globalFlush */
     private $globalFlush;
 
     /**

@@ -41,6 +41,7 @@ abstract class AbstractMenuBuilder
      * @param string|null $role
      *
      * @return ItemInterface|void
+     *
      * @throws \Exception
      */
     public function createMenu(Request $request, $name, $route, array $routeParams = array(), array $children = array(), $role = null)

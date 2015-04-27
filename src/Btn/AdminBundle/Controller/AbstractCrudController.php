@@ -12,7 +12,7 @@ abstract class AbstractCrudController extends AbstractControlController
     protected $crudSettings;
 
     /**
-     * Method to inject crud controller annotation
+     * Method to inject crud controller annotation.
      */
     public function setCrudSettings(CrudSettings $crudSettings)
     {
@@ -58,7 +58,7 @@ abstract class AbstractCrudController extends AbstractControlController
     }
 
     /**
-     * Generate route with route prefix for crud controller
+     * Generate route with route prefix for crud controller.
      */
     public function generatePrefixedUrl($route, $parameters = array(), $referenceType = UrlGenInterface::ABSOLUTE_PATH)
     {
