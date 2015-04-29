@@ -24,6 +24,8 @@
         {% set show_edges = show_edges|default(false) %}
         {% set prev_label = prev_label|default('&laquo;') %}
         {% set next_label = next_label|default('&raquo;') %}
+        {% set first_label = first_label|default('&larr;') %}
+        {% set last_label = last_label|default('&rarr;') %}
 
         <ul class="pagination{% if class is not empty %} {{ class }}{% endif %}">
             {% if first_label is defined and first is defined and current != first %}
