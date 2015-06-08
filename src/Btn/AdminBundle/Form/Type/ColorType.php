@@ -30,7 +30,7 @@ class ColorType extends AbstractType
     {
         parent::configureOptions($resolver);
 
-        $resolver->setOptional(array(
+        $resolver->setDefined(array(
             'basic_colors',
             'show_spectrum',
         ));
