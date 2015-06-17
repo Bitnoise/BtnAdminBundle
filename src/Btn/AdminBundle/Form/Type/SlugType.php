@@ -31,6 +31,9 @@ class SlugType extends AbstractType
         if ($options['slug_source'] && $form->getParent()->has($options['slug_source'])) {
             $view->vars['slug_source'] = $options['slug_source'];
             $view->vars['parent']      = $view->parent;
+        } elseif (false === $options['slug_source']) {
+            $view->vars['slug_source'] = false;
+            $view->vars['parent'] = false;
         } else {
             throw new \Exception(sprintf('Could not find slug source field "%s"', $options['slug_source']));
         }
