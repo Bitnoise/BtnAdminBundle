@@ -117,3 +117,4 @@ ivory_ck_editor:
                     items: ['TextColor','BGColor']
             uiColor: '#ffffff'
             extraPlugins: 'iframe'
+            language: %locale%
