@@ -9,7 +9,7 @@ services:
         class: %btn_admin.menu.extension.class%
         public: false
         tags:
-            - { name: knp_menu.factory_extension }
+            - { name: knp_menu.factory_extension, priority: -20 }
 
     btn_admin.abstract_menu_builder:
         public: false
