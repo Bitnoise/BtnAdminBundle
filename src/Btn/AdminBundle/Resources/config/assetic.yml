@@ -184,3 +184,8 @@ assetic:
             inputs:
                 - @BtnAdminBundle/Resources/public/js/conditional_row.init.js
             output: js/btn_admin.conditional_row.js
+
+        btn_admin_translator_js:
+            inputs:
+                bundles/bazingajstranslation/js/translator.min.js
+            output: js/btn_admin.translator.js

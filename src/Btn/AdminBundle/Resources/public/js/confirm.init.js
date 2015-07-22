@@ -1,12 +1,19 @@
-/* global BtnApp, bootbox, jQuery */
-(function(app, bootbox, $, undefined){
+/* global BtnApp, bootbox, jQuery, Translator */
+(function(app, bootbox, $, Translator, undefined){
     'use strict';
     var addEvents = function(context) {
 
         app.tools.findOnce('btn-remove', context).each(function(){
             var element = $(this);
             if ($.fn.btsConfirmButton) {
-                element.off('click').btsConfirmButton({className: null}, function() {
+                var options = {className: null};
+                if (element.attr('btn-remove-msg')) {
+                    options.msg = element.attr('btn-remove-msg');
+                } else if (Translator) {
+                    options.msg = Translator.trans('btn_admin.btn_remove.msg');
+                }
+                console.log(options);
+                element.off('click').btsConfirmButton(options, function() {
                     if (element.is('a')) {
                         window.location.href = element.attr('href');
                     } else {
@@ -42,4 +49,4 @@
         addEvents(data.context);
     });
 
-})(BtnApp, bootbox, jQuery);
+})(BtnApp, bootbox, jQuery, Translator || null);

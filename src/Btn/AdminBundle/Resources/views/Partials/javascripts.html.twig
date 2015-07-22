@@ -1,4 +1,10 @@
 <!-- javascripts start -->
+    {% if btn_bundle_is_enabled('BazingaJsTranslationBundle') %}
+        {% btn_asset 'btn_admin_translator_js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endbtn_asset %}
+        <script src="{{ url('bazinga_jstranslation_js', { domain: 'btn_javascript' }) }}"></script>
+    {% endif %}
     {# load btn base admin assets #}
     {% btn_asset 'btn_admin_base_js' %}
         <script src="{{ asset_url }}"></script>

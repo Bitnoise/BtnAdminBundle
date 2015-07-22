@@ -21,6 +21,7 @@
         "knplabs/knp-paginator-bundle": "~2.4.2",
         "friendsofsymfony/user-bundle": "~2.0.1",
         "egeloen/ckeditor-bundle": "~3.0.1",
+        "willdurand/js-translation-bundle": "~2.2.2",
         "bitnoise/base-bundle": "2.1.*"
     },
     "require-dev": {
