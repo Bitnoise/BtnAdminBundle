@@ -49,4 +49,4 @@
         addEvents(data.context);
     });
 
-})(BtnApp, bootbox, jQuery, Translator || null);
+})(BtnApp, bootbox, jQuery, (typeof Translator != 'undefined') ? Translator : null);
