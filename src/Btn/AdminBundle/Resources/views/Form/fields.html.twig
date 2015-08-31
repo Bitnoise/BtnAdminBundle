@@ -12,11 +12,12 @@
 
     <script>
 
-        window.google || document.write('<script src="//maps.googleapis.com/maps/api/js">\x3C/script>');
+        window.google || document.write('<script src="//maps.googleapis.com/maps/api/js?language={{ app.request.locale }}">\x3C/script>');
 
         (function(app, undefined){
             var addEvents = function() {
                 var addresspickerMap = $('#{{ form.address.vars.id }}').addresspicker({
+                    language: '{{ app.request.locale }}',
                     reverseGeocode: true,
                     mapOptions: {
                         zoom: {{ form.zoom.vars.value|default(5) }},
