@@ -12,7 +12,6 @@
                 } else if (Translator) {
                     options.msg = Translator.trans('btn_admin.btn_remove.msg');
                 }
-                console.log(options);
                 element.off('click').btsConfirmButton(options, function() {
                     if (element.is('a')) {
                         window.location.href = element.attr('href');
