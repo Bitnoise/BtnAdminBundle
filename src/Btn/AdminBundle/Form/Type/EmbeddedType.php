@@ -51,6 +51,11 @@ class EmbeddedType extends AbstractType
         if ($opt['sortable']) {
             $attr['data-sortable'] = $opt['sortable'];
         }
+
+        $attr['data-sortable-start-index'] = '1';
+        if (is_object($view->vars['value'])) {
+            $attr['data-sortable-start-index'] = '0';
+        }
     }
 
     /**
