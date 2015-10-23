@@ -81,15 +81,17 @@
                 // binded.disableSelection();
                 //update name attr on sort stop - set it to the current position
                 binded.on('sortstop', function() {
-                    binded.children('.ui-sortable-handle').each(function(index){
+                    var rowIndex =  parseInt(binded.attr('data-sortable-start-index'), 10);
+                    binded.children('.ui-sortable-handle').each(function(){
                         var row = $(this);
                         var fields = row.find('select, input, textarea');
                         fields.each(function(){
                             var field = $(this);
                             if (field.is('[name]')) {
-                                field.attr('name', field.attr('name').replace( /\[\d+\]/g, '[' + (index) + ']'));
+                                field.attr('name', field.attr('name').replace( /\[\d+\]/g, '[' + (rowIndex) + ']'));
                             }
                         });
+                        rowIndex++;
                     });
                 });
             }
