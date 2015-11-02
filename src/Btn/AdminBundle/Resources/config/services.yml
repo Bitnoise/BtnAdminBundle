@@ -1,6 +1,8 @@
 parameters:
     btn_admin.event_listener.control_controller_listener.class: Btn\AdminBundle\EventListener\ControlControllerListener
     btn_admin.event_listener.resetting_subscriber.class: Btn\AdminBundle\EventListener\ResettingSubscriber
+    btn_admin.event_listener.index_state_store_subscriber.class: Btn\AdminBundle\EventListener\IndexStateStoreSubscriber
+    btn_admin.routing.url_generator.class: Btn\AdminBundle\Routing\UrlGenerator
 
 services:
     btn_admin.provider.user:
@@ -25,3 +27,14 @@ services:
             router: @router
         tags:
             - { name: kernel.event_subscriber }
+
+    btn_admin.event_listener.index_state_store_subscriber:
+        class: %btn_admin.event_listener.index_state_store_subscriber.class%
+        tags:
+            - { name: kernel.event_subscriber }
+
+    btn_admin.routing.url_generator:
+        class: %btn_admin.routing.url_generator.class%
+        arguments:
+            router: @router
+            session: @session

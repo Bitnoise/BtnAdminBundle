@@ -1,0 +1,10 @@
+parameters:
+    btn_admin.twig.path.class: Btn\AdminBundle\Twig\PathExtension
+
+services:
+    btn_admin.twig.path:
+        class: %btn_admin.twig.path.class%
+        arguments:
+            urlGenerator: @btn_admin.routing.url_generator
+        tags:
+            - { name: twig.extension }
