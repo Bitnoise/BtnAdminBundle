@@ -118,6 +118,14 @@ textarea,
     margin-top: 25px;
 }
 
+.right-offset {
+    margin-right: 15px;
+}
+
+.left-offset {
+    margin-left: 15px;
+}
+
 .no-left-padding {
     padding-left: 0;
 }
