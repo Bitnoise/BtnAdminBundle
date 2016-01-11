@@ -250,6 +250,10 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
 .select2-search input {
     background: url('../../../bundles/btnadmin/vendor/select2/css/select2.png') no-repeat 100% -22px !important;
 }
+
+.form-inline .select2-container.form-control {
+    display: inline-block;
+}
 /*************************
  *
  * Fix breadcrumb styles
