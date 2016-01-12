@@ -254,6 +254,10 @@ th.btn-admin-column-action.btn-admin-column-action-lg {
 .form-inline .select2-container.form-control {
     display: inline-block;
 }
+
+form[name="filter"] .select2-container {
+    min-width: 170px;
+}
 /*************************
  *
  * Fix breadcrumb styles
