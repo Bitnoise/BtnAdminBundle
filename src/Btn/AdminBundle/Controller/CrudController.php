@@ -49,14 +49,19 @@ class CrudController extends AbstractCrudController
      */
     public function createAction(Request $request)
     {
-        $entity = $this->getEntityProvider()->create();
+        $entityProvider = $this->getEntityProvider();
+        $entity = $entityProvider->create();
 
         $form = $this->createForm($this->crudSettings->getFormAlias(), $entity, array(
             'legend' => $this->getTransKeyFromRoute(),
             'action' => $this->generatePrefixedUrl('create'),
         ));
 
-        if ($this->handleForm($form, $request)) {
+        if (($result = $this->handleForm($form, $request))) {
+            if (is_object($result) && $entityProvider->supports($result)) {
+                $entity = $result;
+            }
+
             $this->setFlash('btn_admin.flash.created');
 
             $this->get('event_dispatcher')->dispatch(CrudEvents::ENTITY_CREATED, new CrudEvent($entity));
@@ -84,14 +89,19 @@ class CrudController extends AbstractCrudController
      */
     public function updateAction(Request $request, $id)
     {
-        $entity = $this->findEntityOr404($this->getEntityProvider()->getClass(), $id);
+        $entityProvider = $this->getEntityProvider();
+        $entity = $this->findEntityOr404($entityProvider->getClass(), $id);
 
         $form = $this->createForm($this->crudSettings->getFormAlias(), $entity, array(
             'legend' => $this->getTransKeyFromRoute(),
             'action' => $this->generatePrefixedUrl('update', array('id' => $id)),
         ));
 
-        if ($this->handleForm($form, $request)) {
+        if (($result = $this->handleForm($form, $request))) {
+            if (is_object($result) && $entityProvider->supports($result)) {
+                $entity = $result;
+            }
+
             $this->setFlash('btn_admin.flash.updated');
 
             $this->get('event_dispatcher')->dispatch(CrudEvents::ENTITY_UPDATED, new CrudEvent($entity));
