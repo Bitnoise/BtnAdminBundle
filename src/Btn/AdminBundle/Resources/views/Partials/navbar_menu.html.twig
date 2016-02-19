@@ -11,8 +11,12 @@
             {% if is_granted(btn_admin.user.role_manage) %}
                 <li><a href="{{ path('btn_admin_usercontrol_index') }}">{{ gi('th-list') }} {% trans %}btn_admin.users_list{% endtrans %}</a></li>
             {% endif %}
-            <li><a href="{{ path('btn_admin_usercontrol_profile') }}">{{ gi('user') }} {% trans %}btn_admin.profile{% endtrans %}</a></li>
-            <li><a href="{{ path('btn_admin_usercontrol_changepassword') }}">{{ gi('pencil') }} {% trans %}btn_admin.change_password{% endtrans %}</a></li>
+            {% if btn_admin.menu.profile %}
+                <li><a href="{{ path('btn_admin_usercontrol_profile') }}">{{ gi('user') }} {% trans %}btn_admin.profile{% endtrans %}</a></li>
+            {% endif %}
+            {% if btn_admin.menu.change_password %}
+                <li><a href="{{ path('btn_admin_usercontrol_changepassword') }}">{{ gi('pencil') }} {% trans %}btn_admin.change_password{% endtrans %}</a></li>
+            {% endif %}
             <li class="divider"></li>
             <li><a href="{{ path('fos_user_security_logout') }}">{{ gi('off') }} {% trans %}btn_admin.logout{% endtrans %}</a></li>
         </ul>

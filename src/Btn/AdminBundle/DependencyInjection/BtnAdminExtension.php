@@ -25,6 +25,8 @@ class BtnAdminExtension extends AbstractExtension
         $container->setParameter('btn_admin.app.name', $config['app']['name']);
         $container->setParameter('btn_admin.app.year', $config['app']['year']);
         $container->setParameter('btn_admin.menu.navbar', $config['menu']['navbar']);
+        $container->setParameter('btn_admin.menu.profile', $config['menu']['profile']);
+        $container->setParameter('btn_admin.menu.change_password', $config['menu']['change_password']);
         $container->setParameter('btn_admin.list.per_page', $config['list']['per_page']);
         $container->setParameter('btn_admin.list.col_act_class', $config['list']['col_act_class']);
         $container->setParameter('btn_admin.locales', $config['locales']);
@@ -111,6 +113,8 @@ class BtnAdminExtension extends AbstractExtension
                         ),
                         'menu' => array(
                             'navbar' => $config['menu']['navbar'],
+                            'profile' => $config['menu']['profile'],
+                            'change_password' => $config['menu']['change_password'],
                         ),
                     ),
                 ),
