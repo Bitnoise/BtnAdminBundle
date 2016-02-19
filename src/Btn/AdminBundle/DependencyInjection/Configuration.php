@@ -50,6 +50,8 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('navbar')->defaultValue('btn_admin.menu_navbar')->end()
+                        ->booleanNode('profile')->defaultValue(true)->end()
+                        ->booleanNode('change_password')->defaultValue(true)->end()
                     ->end()
                 ->end()
 
