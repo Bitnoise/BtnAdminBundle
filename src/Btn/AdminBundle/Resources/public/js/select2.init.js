@@ -47,6 +47,10 @@
             }
 
             element.select2(options);
+
+            if (element.attr('readonly')) {
+                element.select2('readonly', true);
+            }
         });
     };
 
