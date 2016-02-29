@@ -11,6 +11,10 @@ class CrudController extends AbstractCrudController
 {
     /**
      * @Route("/", methods={"GET", "POST"})
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function indexAction(Request $request)
     {
@@ -38,6 +42,9 @@ class CrudController extends AbstractCrudController
 
     /**
      * @Route("/new", methods={"GET"})
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -46,6 +53,10 @@ class CrudController extends AbstractCrudController
 
     /**
      * @Route("/create", methods={"POST"})
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function createAction(Request $request)
     {
@@ -78,6 +89,10 @@ class CrudController extends AbstractCrudController
 
     /**
      * @Route("/{id}/edit", requirements={"id" = "\d+"}, methods={"GET"}))
+     * @param Request $request
+     * @param integer $id
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, $id)
     {
@@ -86,11 +101,21 @@ class CrudController extends AbstractCrudController
 
     /**
      * @Route("/{id}/update", requirements={"id" = "\d+"}, methods={"POST"}))
+     * @param Request $request
+     * @param integer $id
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function updateAction(Request $request, $id)
     {
         $entityProvider = $this->getEntityProvider();
-        $entity = $this->findEntityOr404($entityProvider->getClass(), $id);
+        $entity = $entityProvider->find($id);
+        if (!$entity) {
+            return $this->createNotFoundException(
+                sprintf('The %s entity with %s was not found.', $entityProvider->getClass(), $id)
+            );
+        }
 
         $form = $this->createForm($this->crudSettings->getFormAlias(), $entity, array(
             'legend' => $this->getTransKeyFromRoute(),
@@ -119,6 +144,12 @@ class CrudController extends AbstractCrudController
 
     /**
      * @Route("/{id}/delete/{csrf_token}", requirements={"id" = "\d+"}, methods={"GET"})
+     * @param Request $request
+     * @param integer $id
+     * @param string  $csrf_token
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Exception
      */
     public function deleteAction(Request $request, $id, $csrf_token)
     {
