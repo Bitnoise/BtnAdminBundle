@@ -24,7 +24,9 @@ class AbstractControlController extends AbstractController
     protected $filter;
 
     /**
+     * @param int $perPage
      *
+     * @return $this
      */
     public function setPerPage($perPage)
     {
@@ -34,7 +36,9 @@ class AbstractControlController extends AbstractController
     }
 
     /**
+     * @param FormHandlerInterface $formHandler
      *
+     * @return $this
      */
     public function setFormHandler(FormHandlerInterface $formHandler)
     {
@@ -44,7 +48,9 @@ class AbstractControlController extends AbstractController
     }
 
     /**
+     * @param EntityProvider $entityProvider
      *
+     * @return $this
      */
     public function setEntityProvider(EntityProvider $entityProvider)
     {
@@ -80,7 +86,9 @@ class AbstractControlController extends AbstractController
     }
 
     /**
+     * @param FilterInterface $filter
      *
+     * @return $this
      */
     public function setFilter(FilterInterface $filter)
     {
@@ -110,7 +118,11 @@ class AbstractControlController extends AbstractController
     }
 
     /**
+     * @param FormInterface $form
+     * @param Request       $request
      *
+     * @return
+     * @throws \Exception
      */
     public function handleForm(FormInterface $form, Request $request)
     {
@@ -122,7 +134,12 @@ class AbstractControlController extends AbstractController
     }
 
     /**
+     * @param       $target
+     * @param null  $page
+     * @param null  $limit
+     * @param array $options
      *
+     * @return \Knp\Component\Pager\Pagination\PaginationInterface
      */
     public function paginate($target, $page = null, $limit = null, array $options = null)
     {
