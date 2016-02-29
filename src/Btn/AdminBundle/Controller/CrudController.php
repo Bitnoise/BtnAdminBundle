@@ -110,7 +110,12 @@ class CrudController extends AbstractCrudController
     public function updateAction(Request $request, $id)
     {
         $entityProvider = $this->getEntityProvider();
-        $entity = $this->findEntityOr404($entityProvider->getClass(), $id);
+        $entity = $entityProvider->find($id);
+        if (!$entity) {
+            return $this->createNotFoundException(
+                sprintf('The %s entity with %s was not found.', $entityProvider->getClass(), $id)
+            );
+        }
 
         $form = $this->createForm($this->crudSettings->getFormAlias(), $entity, array(
             'legend' => $this->getTransKeyFromRoute(),
