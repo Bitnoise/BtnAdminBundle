@@ -1,5 +1,5 @@
 /* global BtnApp, jQuery */
-(function ($) {
+(function ($, undefined) {
     'use strict';
     var collectionSelector   = '[data-prototype]',
         addButtonSelector    = 'add-button',
@@ -7,6 +7,9 @@
         defaultFormsLimit    = 0;
 
     function addEmbeddedFormDeleteTrigger(formContainer, button) {
+        if (undefined !== formContainer.find('> div[id]').attr('data-disallow-delete')) {
+            return;
+        }
         formContainer.append(button);
 
         button.on('click btnRemove', function(e) {
