@@ -85,3 +85,13 @@ btn_admin_usercontrol_profile: 'Profile edit'
 btn_admin_usercontrol_changepassword: 'Change password'
 
 btn_admin.menu_navbar.modules.label: 'Modules'
+
+# Types
+
+btn_admin.youtube_thumbnail_size: Youtube thumbnail size
+btn_admin.youtube_thumbnail_size.placeholder: Youtube thumbnail size
+btn_admin.youtube_thumbnail_size.default: Default thumbnail (the one seen on Youtube itself)
+btn_admin.youtube_thumbnail_size.hqdefault: High Quality default image
+btn_admin.youtube_thumbnail_size.mqdefault: Medium Quality default image
+btn_admin.youtube_thumbnail_size.sddefault: Standard definition thumbnail
+btn_admin.youtube_thumbnail_size.maxresdefault: The largest size thumbnail available
