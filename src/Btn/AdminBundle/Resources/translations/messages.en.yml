@@ -95,3 +95,9 @@ btn_admin.youtube_thumbnail_size.hqdefault: High Quality default image
 btn_admin.youtube_thumbnail_size.mqdefault: Medium Quality default image
 btn_admin.youtube_thumbnail_size.sddefault: Standard definition thumbnail
 btn_admin.youtube_thumbnail_size.maxresdefault: The largest size thumbnail available
+
+btn_admin.vimeo_thumbnail_size: Vimeo thumbnail size
+btn_admin.vimeo_thumbnail_size.placeholder: Vimeo thumbnail size
+btn_admin.vimeo_thumbnail_size.thumbnail_small: Small
+btn_admin.vimeo_thumbnail_size.thumbnail_medium: Medium
+btn_admin.vimeo_thumbnail_size.thumbnail_large: Large

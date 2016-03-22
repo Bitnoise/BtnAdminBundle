@@ -18,6 +18,8 @@ parameters:
     btn_admin.form.type.select2.class: Btn\AdminBundle\Form\Type\Select2Type
     btn_admin.form.type.youtube.class: Btn\AdminBundle\Form\Type\YoutubeType
     btn_admin.form.type.youtube_thumbnail_size.class: Btn\AdminBundle\Form\Type\YoutubeThumbnailSizeType
+    btn_admin.form.type.vimeo.class: Btn\AdminBundle\Form\Type\VimeoType
+    btn_admin.form.type.vimeo_thumbnail_size.class: Btn\AdminBundle\Form\Type\VimeoThumbnailSizeType
     btn_admin.form.type.translation.class: Btn\AdminBundle\Form\Type\TranslationType
     btn_admin.form.type.hr.class: Btn\AdminBundle\Form\Type\HrType
     btn_admin.form.user_control.class: Btn\AdminBundle\Form\UserControlForm
@@ -198,6 +200,16 @@ services:
         class: %btn_admin.form.type.youtube_thumbnail_size.class%
         tags:
             - { name: form.type, alias: btn_youtube_thumbnail_size }
+
+    btn_admin.form.type.vimeo:
+        class: %btn_admin.form.type.vimeo.class%
+        tags:
+            - { name: form.type, alias: btn_vimeo }
+
+    btn_admin.form.type.vimeo_thumbnail_size:
+      class: %btn_admin.form.type.vimeo_thumbnail_size.class%
+      tags:
+            - { name: form.type, alias: btn_vimeo_thumbnail_size }
 
     btn_admin.form.type.translation:
         class: %btn_admin.form.type.translation.class%

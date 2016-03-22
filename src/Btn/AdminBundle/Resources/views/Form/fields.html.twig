@@ -72,6 +72,13 @@
     {% endif %}
 {% endblock %}
 
+{% block btn_vimeo_widget %}
+    {{ block('form_widget_simple') }}
+    {% if value and value.videoId|default() and preview|default() %}
+        <iframe width="{{ preview_width }}" height="{{ preview_height }}" src="{{ preview_url }}{{ value.videoId }}" frameborder="0" allowfullscreen class="btn-preview btn-preview-vimeo"></iframe>
+    {% endif %}
+{% endblock %}
+
 {% block btn_hr_widget %}
     <hr>
 {% endblock %}
