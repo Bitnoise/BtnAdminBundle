@@ -9,15 +9,21 @@
                 var condGroup = element.attr('btn-has-conditional-rows');
                 // hide all from group
                 var condRows = $('[btn-conditional-row-name='+condGroup+']');
+                var referenceValue = element.val()
+                var condRowsFiltered = referenceValue ? condRows.filter('[btn-conditional-row-value='+referenceValue+']') : null
                 if (element.attr('type') === 'checkbox') {
                     if (element.attr('readonly') && !element.is(':checked')) {
-                        // don't react on disableing readonly field
+                        // don't react on disabling readonly field
+                    } else if (condRowsFiltered) {
+                        condRowsFiltered.toggleClass('hidden', !element.is(':checked'));
                     } else {
-                        condRows.filter('[btn-conditional-row-value='+element.val()+']').toggleClass('hidden', !element.is(':checked'));
+                        condRows.addClass('hidden');
                     }
                 } else {
                     condRows.addClass('hidden');
-                    condRows.filter('[btn-conditional-row-value='+element.val()+']').removeClass('hidden');
+                    if (condRowsFiltered) {
+                        condRowsFiltered.removeClass('hidden');
+                    }
                 }
             }).trigger('change');
         });
