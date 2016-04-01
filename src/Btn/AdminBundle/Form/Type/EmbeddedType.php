@@ -2,6 +2,7 @@
 
 namespace Btn\AdminBundle\Form\Type;
 
+use Btn\AdminBundle\Form\EventListener\EmbeddedTypeSortableSubscriber;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
@@ -20,6 +21,7 @@ class EmbeddedType extends AbstractType
 
         if ($options['sortable']) {
             $this->assetLoader->load('btn_admin_jquery_ui');
+            $builder->addEventSubscriber(new EmbeddedTypeSortableSubscriber());
         }
     }
 
