@@ -2,7 +2,7 @@
 (function(app, $, undefined){
     'use strict';
     var addEvents = function(context) {
-        // conditional rows mechanizm
+        // conditional rows mechanism
         app.tools.findOnce('btn-has-conditional-rows', context).each(function() {
             $(this).on('change', function () {
                 var element = $(this);
