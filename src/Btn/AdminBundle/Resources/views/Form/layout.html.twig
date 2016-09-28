@@ -61,7 +61,7 @@
             btn-conditional-row-name="{{ conditional_row_name }}"
         {%- endif %}
         {%- if conditional_row_value is not null -%}
-            btn-conditional-row-value="{{ conditional_row_value }}"
+            btn-conditional-row-value="{{ conditional_row_value is iterable ? '|' ~ conditional_row_value|join('|') ~ '|' : conditional_row_value }}"
         {%- endif -%}
      >
         {% set rowClass = form.vars.label is sameas(false) ? 'col-sm-12' : field_size|default('col-sm-10') %}
