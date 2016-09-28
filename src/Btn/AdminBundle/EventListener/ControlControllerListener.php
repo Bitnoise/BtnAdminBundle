@@ -70,7 +70,7 @@ class ControlControllerListener
             $reflectionClass = $this->bundleHelper->getReflectionClass($controller[0]);
             $entityProvider  = $this->annotationReader->getClassAnnotation($reflectionClass, $entityProviderClass);
             if ($entityProvider) {
-                // if provider id is not set then generate automaticly from controller
+                // if provider id is not set then generate automatically from controller
                 if (null === $entityProvider->getProviderId()) {
                     $providerId = $this->bundleHelper->getProviderId($controller[0]);
                     $entityProvider->setProviderId($providerId);
@@ -85,23 +85,23 @@ class ControlControllerListener
             $reflectionClass = $this->bundleHelper->getReflectionClass($controller[0]);
             $crudSettings    = $this->annotationReader->getClassAnnotation($reflectionClass, $crudSettingsClass);
             if ($crudSettings) {
-                // if index template is not set then generate automaticly from controller
+                // if index template is not set then generate automatically from controller
                 if (null === $crudSettings->getIndexTemplate()) {
                     $templatePrefix = $this->bundleHelper->getTemplatePrefix($controller[0]);
                     $indexTemplate  = $templatePrefix.'index.html.twig';
                     $crudSettings->setIndexTemplate($indexTemplate);
                 }
-                // if provider id is not set then generate automaticly from controller
+                // if provider id is not set then generate automatically from controller
                 if (null === $crudSettings->getProviderId()) {
                     $providerId = $this->bundleHelper->getProviderId($controller[0]);
                     $crudSettings->setProviderId($providerId);
                 }
-                // if form id is not set then generate automaticly from controller
+                // if form id is not set then generate automatically from controller
                 if (null === $crudSettings->getFormAlias()) {
                     $formAlias = $this->bundleHelper->getFormAlias($controller[0]);
                     $crudSettings->setFormAlias($formAlias);
                 }
-                // if route prefix is not set then generate automaticly from controller
+                // if route prefix is not set then generate automatically from controller
                 if (null === $crudSettings->getRoutePrefix()) {
                     $routePrefix = $this->bundleHelper->getRoutePrefix($controller[0]);
                     $crudSettings->setRoutePrefix($routePrefix);
