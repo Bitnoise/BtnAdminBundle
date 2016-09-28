@@ -24,7 +24,9 @@ class CrudSettings extends EntityProvider
     protected $updateTemplate = 'BtnAdminBundle:Crud:update.html.twig';
 
     /**
+     * @param string
      *
+     * @return CrudSettings
      */
     public function setFormAlias($formAlias)
     {
@@ -34,7 +36,7 @@ class CrudSettings extends EntityProvider
     }
 
     /**
-     *
+     * @return string|null
      */
     public function getFormAlias()
     {
@@ -42,7 +44,9 @@ class CrudSettings extends EntityProvider
     }
 
     /**
+     * @param string
      *
+     * @return CrudSettings
      */
     public function setFormHandlerId($formHandlerId)
     {
@@ -52,7 +56,7 @@ class CrudSettings extends EntityProvider
     }
 
     /**
-     *
+     * @return string
      */
     public function getFormHandlerId()
     {
@@ -60,7 +64,7 @@ class CrudSettings extends EntityProvider
     }
 
     /**
-     *
+     * @param string
      */
     public function setFilterId($filterId)
     {
@@ -68,7 +72,7 @@ class CrudSettings extends EntityProvider
     }
 
     /**
-     *
+     * @return string
      */
     public function getFilterId()
     {
@@ -76,7 +80,9 @@ class CrudSettings extends EntityProvider
     }
 
     /**
+     * @param string
      *
+     * @return CrudSettings
      */
     public function setRoutePrefix($routePrefix)
     {
@@ -102,7 +108,7 @@ class CrudSettings extends EntityProvider
     }
 
     /**
-     *
+     * @return string
      */
     public function getIndexTemplate()
     {
@@ -110,7 +116,7 @@ class CrudSettings extends EntityProvider
     }
 
     /**
-     *
+     * @return string
      */
     public function getCreateTemplate()
     {
@@ -118,7 +124,7 @@ class CrudSettings extends EntityProvider
     }
 
     /**
-     *
+     * @return string
      */
     public function getUpdateTemplate()
     {
