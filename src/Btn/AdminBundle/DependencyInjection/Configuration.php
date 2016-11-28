@@ -60,7 +60,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('list')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->integerNode('per_page')->cannotBeEmpty()->defaultValue(10)->end()
+                        ->integerNode('per_page')->defaultValue(10)->end()
                         ->scalarNode('date_format')->defaultValue('Y-m-d')->end()
                         ->scalarNode('time_format')->defaultValue('H:i:s')->end()
                         ->scalarNode('date_time_format')->defaultValue('Y-m-d H:i:s')->end()

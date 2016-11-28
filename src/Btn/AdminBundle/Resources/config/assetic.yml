@@ -25,24 +25,24 @@ assetic:
             inputs:
                 # - @BtnAdminBundle/Resources/public/vendor/bootflat/css/bootflat.css
                 - bundles/btnadmin/vendor/bootflat/css/bootflat.css
-                - @BtnAdminBundle/Resources/public/css/bootflat-custom.css
+                - '@BtnAdminBundle/Resources/public/css/bootflat-custom.css'
             filters:
                 - cssrewrite
             output: css/btn_admin.bootstrap-flat.css
 
         btn_admin_bootstrap_theme_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/bootstrap/css/bootstrap-theme.css
+                - '@BtnAdminBundle/Resources/public/vendor/bootstrap/css/bootstrap-theme.css'
             output: css/btn_admin.bootstrap-theme.css
 
         btn_admin_ladda_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/ladda-bootstrap/css/ladda-themeless.css
+                - '@BtnAdminBundle/Resources/public/vendor/ladda-bootstrap/css/ladda-themeless.css'
             output: css/btn_admin.ladda.css
 
         btn_admin_loading_css:
             inputs:
-                - @btn_admin_ladda_css
+                - '@btn_admin_ladda_css'
             output: css/btn-admin.loading.css
 
         btn_admin_jstree_css:
@@ -55,19 +55,19 @@ assetic:
 
         btn_admin_colorpicker_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/pick-a-color/css/pick-a-color-1.2.3.css
+                - '@BtnAdminBundle/Resources/public/vendor/pick-a-color/css/pick-a-color-1.2.3.css'
             output: css/btn_admin.colorpicker.css
 
         btn_admin_datetimepicker_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css
+                - '@BtnAdminBundle/Resources/public/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css'
             output: css/btn_admin.datetimepicker.css
 
         btn_admin_jquery_ui_css:
             inputs:
                 # - @BtnAdminBundle/Resources/public/vendor/jquery-ui/css/jquery-ui.css
-                - @BtnAdminBundle/Resources/public/vendor/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.custom.css
-                - @BtnAdminBundle/Resources/public/vendor/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.theme.css
+                - '@BtnAdminBundle/Resources/public/vendor/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.custom.css'
+                - '@BtnAdminBundle/Resources/public/vendor/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.theme.css'
             output: css/btn_admin.jquery-ui.css
 
         btn_admin_select2_css:
@@ -81,108 +81,108 @@ assetic:
 
         btn_admin_sortable_css:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/jquery-sortable/css/jquery-sortable.css
+                - '@BtnAdminBundle/Resources/public/vendor/jquery-sortable/css/jquery-sortable.css'
             output: css/btn_admin.sortable.css
 
         # JS SECTION ###########################################################
 
         btn_admin_jquery_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/jquery/js/jquery-1.11.1.js
+                - '@BtnAdminBundle/Resources/public/vendor/jquery/js/jquery-1.11.1.js'
             output: js/btn_admin.jquery.js
 
         btn_admin_bootstrap_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/bootstrap/js/bootstrap.js
+                - '@BtnAdminBundle/Resources/public/vendor/bootstrap/js/bootstrap.js'
             output: js/btn_admin.bootstrap.js
 
         btn_admin_confirm_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/bootbox.js/js/bootbox.js
-                - @BtnAdminBundle/Resources/public/vendor/bootstrap-confirm-button/bootstrap-confirm-button.js
-                - @BtnAdminBundle/Resources/public/js/confirm.init.js
+                - '@BtnAdminBundle/Resources/public/vendor/bootbox.js/js/bootbox.js'
+                - '@BtnAdminBundle/Resources/public/vendor/bootstrap-confirm-button/bootstrap-confirm-button.js'
+                - '@BtnAdminBundle/Resources/public/js/confirm.init.js'
             output: js/btn_admin.confirm.js
 
         btn_admin_spin_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/spin.js/js/spin.js
-                - @BtnAdminBundle/Resources/public/vendor/spin.js/js/jquery.spin.js
-                - @BtnAdminBundle/Resources/public/js/spin.init.js
+                - '@BtnAdminBundle/Resources/public/vendor/spin.js/js/spin.js'
+                - '@BtnAdminBundle/Resources/public/vendor/spin.js/js/jquery.spin.js'
+                - '@BtnAdminBundle/Resources/public/js/spin.init.js'
             output: js/btn_admin.spin.js
 
         btn_admin_ladda_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/ladda-bootstrap/js/ladda.js
-                - @BtnAdminBundle/Resources/public/js/ladda.init.js
+                - '@BtnAdminBundle/Resources/public/vendor/ladda-bootstrap/js/ladda.js'
+                - '@BtnAdminBundle/Resources/public/js/ladda.init.js'
             output: js/btn_admin.ladda.js
 
         btn_admin_loading_js:
             inputs:
-                - @btn_admin_spin_js
-                - @btn_admin_ladda_js
+                - '@btn_admin_spin_js'
+                - '@btn_admin_ladda_js'
             output: js/btn_admin.loading.js
 
         btn_admin_jstree_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/jstree/js/jstree.js
-                - @BtnAdminBundle/Resources/public/js/jstree.init.js
+                - '@BtnAdminBundle/Resources/public/vendor/jstree/js/jstree.js'
+                - '@BtnAdminBundle/Resources/public/js/jstree.init.js'
             output: js/btn_admin.jstree.js
 
         btn_admin_colorpicker_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/tinycolor/js/tinycolor.js
-                - @BtnAdminBundle/Resources/public/vendor/pick-a-color/js/pick-a-color.1.2.3.js
-                - @BtnAdminBundle/Resources/public/js/colorpicker.init.js
+                - '@BtnAdminBundle/Resources/public/vendor/tinycolor/js/tinycolor.js'
+                - '@BtnAdminBundle/Resources/public/vendor/pick-a-color/js/pick-a-color.1.2.3.js'
+                - '@BtnAdminBundle/Resources/public/js/colorpicker.init.js'
             output: js/btn_admin.colorpicker.js
 
         btn_admin_datetimepicker_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js
-                - @BtnAdminBundle/Resources/public/js/datetimepicker.init.js
+                - '@BtnAdminBundle/Resources/public/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'
+                - '@BtnAdminBundle/Resources/public/js/datetimepicker.init.js'
             output: js/btn_admin.datetimepicker.js
 
         btn_admin_jquery_ui_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/jquery-ui/js/jquery-ui.js
+                - '@BtnAdminBundle/Resources/public/vendor/jquery-ui/js/jquery-ui.js'
             output: js/btn_admin.jquery-ui.js
 
         btn_admin_embedded_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/embedded.js
+                - '@BtnAdminBundle/Resources/public/js/embedded.js'
             output: js/btn_admin.embedded.js
 
         btn_admin_slugify_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/jq.slugify.js
-                - @BtnAdminBundle/Resources/public/js/jq.slugify.init.js
+                - '@BtnAdminBundle/Resources/public/js/jq.slugify.js'
+                - '@BtnAdminBundle/Resources/public/js/jq.slugify.init.js'
             output: js/btn_admin.slugify.js
 
         btn_admin_addresspicker_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/jquery-addresspicker/js/jquery.ui.addresspicker.js
+                - '@BtnAdminBundle/Resources/public/vendor/jquery-addresspicker/js/jquery.ui.addresspicker.js'
             output: js/btn_admin.addresspicker.js
 
         btn_admin_select2_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/select2/js/select2.js
+                - '@BtnAdminBundle/Resources/public/vendor/select2/js/select2.js'
                 # - @BtnAdminBundle/Resources/public/vendor/select2/js/select2_locale_pl.js
-                - @BtnAdminBundle/Resources/public/js/select2.init.js
+                - '@BtnAdminBundle/Resources/public/js/select2.init.js'
             output: js/btn_admin.select2.js
 
         btn_admin_sortable_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/vendor/jquery-sortable/js/jquery-sortable.js
-                - @BtnAdminBundle/Resources/public/js/sortable.init.js
+                - '@BtnAdminBundle/Resources/public/vendor/jquery-sortable/js/jquery-sortable.js'
+                - '@BtnAdminBundle/Resources/public/js/sortable.init.js'
             output: js/btn_admin.sortable.js
 
         btn_admin_ajax_reload_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/ajax-reload.init.js
+                - '@BtnAdminBundle/Resources/public/js/ajax-reload.init.js'
             output: js/btn_admin.ajax-reload.js
 
         btn_admin_conditional_row_js:
             inputs:
-                - @BtnAdminBundle/Resources/public/js/conditional_row.init.js
+                - '@BtnAdminBundle/Resources/public/js/conditional_row.init.js'
             output: js/btn_admin.conditional_row.js
 
         btn_admin_translator_js:

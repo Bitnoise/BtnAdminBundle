@@ -2,14 +2,9 @@
 
 namespace Btn\AdminBundle\Form\Button;
 
-use Btn\AdminBundle\Form\Type\AbstractType;
-use Symfony\Component\Form\SubmitButtonTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- *
- */
-class FilterButton extends AbstractType implements SubmitButtonTypeInterface
+class FilterButton extends AbstractButton
 {
     /**
      * {@inheritdoc}
@@ -24,14 +19,6 @@ class FilterButton extends AbstractType implements SubmitButtonTypeInterface
                 'class' => 'btn btn-info btn-filter',
             ),
         ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getParent()
-    {
-        return 'submit';
     }
 
     /**

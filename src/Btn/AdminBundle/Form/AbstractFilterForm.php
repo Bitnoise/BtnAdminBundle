@@ -17,7 +17,11 @@ class AbstractFilterForm extends BaseAbstractFilterForm
     {
         parent::buildForm($builder, $options);
 
-        $builder->addEventSubscriber(new AddFilterButtonSubscriber());
+        $addFilterButtonSubscriber = new AddFilterButtonSubscriber();
+        if ($this->formRegistry) {
+            $addFilterButtonSubscriber->setFormRegistry($this->formRegistry);
+        }
+        $builder->addEventSubscriber($addFilterButtonSubscriber);
     }
 
     /**

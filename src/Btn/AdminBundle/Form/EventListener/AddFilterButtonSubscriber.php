@@ -4,9 +4,8 @@ namespace Btn\AdminBundle\Form\EventListener;
 
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class AddFilterButtonSubscriber implements EventSubscriberInterface
+class AddFilterButtonSubscriber extends AbstractButtonSubscriber
 {
     /**
      * {@inheritDoc}
@@ -25,9 +24,9 @@ class AddFilterButtonSubscriber implements EventSubscriberInterface
     {
         $form = $event->getForm();
 
-        // if form is missing save button than add automaticly
+        // if form is missing save button than add automatically
         if (!$form->has('submit')) {
-            $form->add('submit', 'btn_filter', array(
+            $form->add('submit', $this->getType('btn_filter'), array(
                 'row' => false,
             ));
         }

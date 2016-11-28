@@ -2,14 +2,9 @@
 
 namespace Btn\AdminBundle\Form\Button;
 
-use Btn\AdminBundle\Form\Type\AbstractType;
-use Symfony\Component\Form\SubmitButtonTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- *
- */
-class SaveButton extends AbstractType implements SubmitButtonTypeInterface
+class SaveButton extends AbstractButton
 {
     /**
      * {@inheritdoc}
@@ -24,14 +19,6 @@ class SaveButton extends AbstractType implements SubmitButtonTypeInterface
                 'class' => 'btn btn-success btn-save',
             ),
         ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getParent()
-    {
-        return 'submit';
     }
 
     /**

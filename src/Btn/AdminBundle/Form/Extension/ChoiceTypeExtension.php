@@ -3,9 +3,11 @@
 namespace Btn\AdminBundle\Form\Extension;
 
 use Btn\BaseBundle\Form\Type\AbstractTypeExtension;
+use Btn\BaseBundle\Util\Form;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ChoiceTypeExtension extends AbstractTypeExtension
 {
@@ -47,6 +49,9 @@ class ChoiceTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'choice';
+        return Form::getFormName(array(
+            'alias' => 'choice',
+            'class' => ChoiceType::class,
+        ));
     }
 }

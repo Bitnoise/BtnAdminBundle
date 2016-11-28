@@ -3,6 +3,8 @@
 namespace Btn\AdminBundle\Form\Extension;
 
 use Btn\BaseBundle\Form\Type\AbstractTypeExtension;
+use Btn\BaseBundle\Util\Form;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -74,6 +76,9 @@ class FormTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'form';
+        return Form::getFormName(array(
+            'alias' => 'form',
+            'class' => FormType::class,
+        ));
     }
 }

@@ -63,7 +63,7 @@ class CrudController extends AbstractCrudController
         $entityProvider = $this->getEntityProvider();
         $entity = $entityProvider->create();
 
-        $form = $this->createForm($this->crudSettings->getFormAlias(), $entity, array(
+        $form = $this->createForm($this->crudSettings->getFormName(), $entity, array(
             'legend' => $this->getTransKeyFromRoute(),
             'action' => $this->generatePrefixedUrl('create'),
         ));
@@ -88,7 +88,7 @@ class CrudController extends AbstractCrudController
     }
 
     /**
-     * @Route("/{id}/edit", requirements={"id" = "\d+"}, methods={"GET"}))
+     * @Route("/{id}/edit", methods={"GET"}))
      * @param Request $request
      * @param integer $id
      *
@@ -100,7 +100,7 @@ class CrudController extends AbstractCrudController
     }
 
     /**
-     * @Route("/{id}/update", requirements={"id" = "\d+"}, methods={"POST"}))
+     * @Route("/{id}/update", methods={"POST"}))
      * @param Request $request
      * @param integer $id
      *
@@ -117,7 +117,7 @@ class CrudController extends AbstractCrudController
             );
         }
 
-        $form = $this->createForm($this->crudSettings->getFormAlias(), $entity, array(
+        $form = $this->createForm($this->crudSettings->getFormName(), $entity, array(
             'legend' => $this->getTransKeyFromRoute(),
             'action' => $this->generatePrefixedUrl('update', array('id' => $id)),
         ));
@@ -143,7 +143,7 @@ class CrudController extends AbstractCrudController
     }
 
     /**
-     * @Route("/{id}/delete/{csrf_token}", requirements={"id" = "\d+"}, methods={"GET"})
+     * @Route("/{id}/delete/{csrf_token}", methods={"GET"})
      * @param Request $request
      * @param integer $id
      * @param string  $csrf_token

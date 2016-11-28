@@ -7,7 +7,9 @@ use Symfony\Component\Form\DataTransformerInterface;
 class ColorTransformer implements DataTransformerInterface
 {
     /**
+     * @param mixed $color
      *
+     * @return mixed|string
      */
     public function transform($color)
     {
@@ -19,7 +21,9 @@ class ColorTransformer implements DataTransformerInterface
     }
 
     /**
+     * @param mixed $color
      *
+     * @return mixed|string|void
      */
     public function reverseTransform($color)
     {

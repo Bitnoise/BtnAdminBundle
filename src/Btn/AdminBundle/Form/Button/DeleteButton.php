@@ -2,14 +2,9 @@
 
 namespace Btn\AdminBundle\Form\Button;
 
-use Btn\AdminBundle\Form\Type\AbstractType;
-use Symfony\Component\Form\SubmitButtonTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- *
- */
-class DeleteButton extends AbstractType implements SubmitButtonTypeInterface
+class DeleteButton extends AbstractButton
 {
     /**
      * {@inheritdoc}
@@ -25,14 +20,6 @@ class DeleteButton extends AbstractType implements SubmitButtonTypeInterface
                 'data-confirm' => $this->translator->trans('btn_admin.confirm_delete'),
             ),
         ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getParent()
-    {
-        return 'submit';
     }
 
     /**
