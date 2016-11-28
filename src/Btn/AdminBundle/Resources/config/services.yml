@@ -6,15 +6,15 @@ parameters:
 
 services:
     btn_admin.provider.user:
-        class: %btn_base.provider.entity.class%
+        class: '%btn_base.provider.entity.class%'
         parent: btn_base.provider.abstract_entity
-        arguments: [%btn_admin.user.class%]
+        arguments: ['%btn_admin.user.class%']
 
     btn_admin.event_listener.control_controller_listener:
-        class: %btn_admin.event_listener.control_controller_listener.class%
+        class: '%btn_admin.event_listener.control_controller_listener.class%'
         arguments:
-            annotationReader: @annotation_reader
-            bundleHelper: @btn_base.helper.bundle
+            annotationReader: '@annotation_reader'
+            bundleHelper: '@btn_base.helper.bundle'
         calls:
             - [setPerPage, ['%btn_admin.list.per_page%']]
             - [setFormHandler, ['@btn_admin.form.handler.entity_form']]
@@ -22,19 +22,19 @@ services:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
 
     btn_admin.event_listener.resetting_subscriber:
-        class: %btn_admin.event_listener.resetting_subscriber.class%
+        class: '%btn_admin.event_listener.resetting_subscriber.class%'
         arguments:
-            router: @router
+            router: '@router'
         tags:
             - { name: kernel.event_subscriber }
 
     btn_admin.event_listener.index_state_store_subscriber:
-        class: %btn_admin.event_listener.index_state_store_subscriber.class%
+        class: '%btn_admin.event_listener.index_state_store_subscriber.class%'
         tags:
             - { name: kernel.event_subscriber }
 
     btn_admin.routing.url_generator:
-        class: %btn_admin.routing.url_generator.class%
+        class: '%btn_admin.routing.url_generator.class%'
         arguments:
-            router: @router
-            session: @session
+            router: '@router'
+            session: '@session'

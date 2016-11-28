@@ -2,10 +2,12 @@
 
 namespace Btn\AdminBundle\Form\Extension;
 
+use Btn\BaseBundle\Util\Form;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class TextTypeExtension extends AbstractTypeExtension
 {
@@ -44,6 +46,9 @@ class TextTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'text';
+        return Form::getFormName(array(
+            'alias' => 'text',
+            'class' => TextType::class,
+        ));
     }
 }

@@ -2,10 +2,13 @@
 
 namespace Btn\AdminBundle\Form\Type;
 
+use Btn\BaseBundle\Util\Form;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\Options;
 use Btn\AdminBundle\Form\DataTransformer\ColorTransformer;
 use Btn\AdminBundle\Validator\Constraints as BtnAssert;
 
@@ -40,9 +43,11 @@ class ColorType extends AbstractType
             'show_spectrum' => null,
             'show_advanced' => null,
             'show_basic'    => null,
-            'constraints'   => array(
-                new BtnAssert\Color(),
-            ),
+            'constraints'   => function(Options $options, $value) {
+                $value[] = new BtnAssert\Color();
+
+                return $value;
+            },
             'attr' => array(
                 'btn-colorpicker' => true,
                 'class'           => 'btn-colorpicker',
@@ -80,7 +85,10 @@ class ColorType extends AbstractType
      */
     public function getParent()
     {
-        return 'text';
+        return Form::getFormName(array(
+            'alias' => 'text',
+            'class' => TextType::class,
+        ));
     }
 
     /**

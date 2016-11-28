@@ -2,10 +2,11 @@
 
 namespace Btn\AdminBundle\Form\Extension;
 
+use Btn\BaseBundle\Util\Form;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class SubmitTypeExtension extends AbstractTypeExtension
 {
@@ -45,6 +46,9 @@ class SubmitTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'submit';
+        return Form::getFormName(array(
+            'alias' => 'submit',
+            'class' => SubmitType::class,
+        ));
     }
 }

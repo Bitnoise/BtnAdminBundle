@@ -7,29 +7,8 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class Select2Type extends AbstractType
+abstract class Select2Type extends AbstractType
 {
-    /** @var array $avliableParents */
-    protected $avliableParents = array('choice', 'hidden', 'entity');
-    /** @var string $parent */
-    protected $parent;
-
-    /**
-     *
-     */
-    public function setParent($parent)
-    {
-        if (!in_array($parent, $this->avliableParents)) {
-            throw new \InvalidArgumentException(sprintf(
-                'Parent can be only on of: "%s", "%s" is given.',
-                implode('", "', $this->avliableParents),
-                $parent
-            ));
-        }
-
-        $this->parent = $parent;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -60,6 +39,8 @@ class Select2Type extends AbstractType
         ));
     }
 
+    abstract public function getAlias();
+
     /**
      * {@inheritdoc}
      */
@@ -68,7 +49,7 @@ class Select2Type extends AbstractType
         parent::buildView($view, $form, $options);
 
         $view->vars['attr']['btn-select2'] = null;
-        $view->vars['attr']['btn-select2-'.$this->parent] = null;
+        $view->vars['attr']['btn-select2-'.$this->getAlias()] = null;
 
         if (false === $options['searchable']) {
             $view->vars['attr']['btn-select2-minimum-results-for-search'] = '-1';
@@ -77,23 +58,12 @@ class Select2Type extends AbstractType
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getParent()
-    {
-        if (!$this->parent) {
-            throw new \Exception('Parent was not set via setParent() setter method.');
-        }
-
-        return $this->parent;
-    }
 
     /**
      * {@inheritdoc}
      */
     public function getName()
     {
-        return 'btn_select2_'.$this->parent;
+        return 'btn_select2_'.$this->getAlias();
     }
 }

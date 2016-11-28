@@ -27,4 +27,12 @@ class HrType extends AbstractType
     {
         return 'btn_hr';
     }
+
+    /**
+     * @return string
+     */
+    public function getBlockPrefix()
+    {
+        return $this->getName();
+    }
 }

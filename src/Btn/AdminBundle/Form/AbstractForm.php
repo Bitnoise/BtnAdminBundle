@@ -22,7 +22,11 @@ abstract class AbstractForm extends AbstractType
         parent::buildForm($builder, $options);
 
         if ($this->addSaveButtonSubscriber) {
-            $builder->addEventSubscriber(new AddSaveButtonSubscriber());
+            $addSaveButtonSubscriber = new AddSaveButtonSubscriber();
+            if ($this->formRegistry) {
+                $addSaveButtonSubscriber->setFormRegistry($this->formRegistry);
+            }
+            $builder->addEventSubscriber($addSaveButtonSubscriber);
         }
 
         if ($options['loading']) {

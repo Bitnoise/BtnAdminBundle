@@ -16,6 +16,9 @@ parameters:
     btn_admin.form.type.hidden_entity.class: Btn\AdminBundle\Form\Type\HiddenEntityType
     btn_admin.form.type.google_map.class: Btn\AdminBundle\Form\Type\GoogleMapType
     btn_admin.form.type.select2.class: Btn\AdminBundle\Form\Type\Select2Type
+    btn_admin.form.type.select2_choice.class: Btn\AdminBundle\Form\Type\Select2ChoiceType
+    btn_admin.form.type.select2_hidden.class: Btn\AdminBundle\Form\Type\Select2HiddenType
+    btn_admin.form.type.select2_entity.class: Btn\AdminBundle\Form\Type\Select2EntityType
     btn_admin.form.type.youtube.class: Btn\AdminBundle\Form\Type\YoutubeType
     btn_admin.form.type.youtube_thumbnail_size.class: Btn\AdminBundle\Form\Type\YoutubeThumbnailSizeType
     btn_admin.form.type.vimeo.class: Btn\AdminBundle\Form\Type\VimeoType
@@ -31,219 +34,223 @@ parameters:
     btn_admin.form.extension.form_type.class: Btn\AdminBundle\Form\Extension\FormTypeExtension
 
 services:
+
     # Handlers
     btn_admin.form.handler.entity_form:
-        class: %btn_admin.form.handler.entity_form.class%
+        class: '%btn_admin.form.handler.entity_form.class%'
         arguments:
-            em: @doctrine.orm.entity_manager
+            em: '@doctrine.orm.entity_manager'
 
-    btn_admin.form_handler: @btn_admin.form.handler.entity_form
+    btn_admin.form_handler: '@btn_admin.form.handler.entity_form'
 
     btn_admin.form.handler.user_form:
-        class: %btn_admin.form.handler.user_form.class%
+        class: '%btn_admin.form.handler.user_form.class%'
         arguments:
-            userManager: @fos_user.user_manager
+            userManager: '@fos_user.user_manager'
 
     # Forms
     btn_admin.form.abstract:
         abstract: true
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
+            - [setFormRegistry, ['@btn_base.form.registry']]
+
+    btn_admin.form.abstract_filter:
+        abstract: true
+        calls:
+            - [setFormRegistry, ['@btn_base.form.registry']]
 
     btn_admin.form.user_control:
-        class: %btn_admin.form.user_control.class%
+        class: '%btn_admin.form.user_control.class%'
         parent: btn_admin.form.abstract
         calls:
-            - [setClass, [%btn_admin.user.class%]]
+            - [setClass, ['%btn_admin.user.class%']]
         tags:
             - { name: form.type, alias: btn_admin_form_user_control }
 
     btn_admin.form.profile_control:
-        class: %btn_admin.form.profile_control.class%
+        class: '%btn_admin.form.profile_control.class%'
         parent: btn_admin.form.abstract
         calls:
-            - [setClass, [%btn_admin.user.class%]]
+            - [setClass, ['%btn_admin.user.class%']]
         tags:
             - { name: form.type, alias: btn_admin_form_profile_control }
 
     btn_admin.form.change_password_control:
-        class: %btn_admin.form.change_password_control.class%
+        class: '%btn_admin.form.change_password_control.class%'
         parent: btn_admin.form.abstract
         calls:
-            - [setClass, [%btn_admin.user.class%]]
+            - [setClass, ['%btn_admin.user.class%']]
         tags:
             - { name: form.type, alias: btn_admin_form_change_password_control }
 
     # Types
     btn_admin.form.button.create:
-        class: %btn_admin.form.button.create.class%
+        class: '%btn_admin.form.button.create.class%'
         tags:
             - { name: form.type, alias: btn_create }
 
     btn_admin.form.button.delete:
-        class: %btn_admin.form.button.delete.class%
+        class: '%btn_admin.form.button.delete.class%'
         calls:
             - [setTranslator, ['@translator']]
         tags:
             - { name: form.type, alias: btn_delete }
 
     btn_admin.form.button.save:
-        class: %btn_admin.form.button.save.class%
+        class: '%btn_admin.form.button.save.class%'
         tags:
             - { name: form.type, alias: btn_save }
 
     btn_admin.form.button.update:
-        class: %btn_admin.form.button.update.class%
+        class: '%btn_admin.form.button.update.class%'
         tags:
             - { name: form.type, alias: btn_update }
 
     btn_admin.form.button.filter:
-        class: %btn_admin.form.button.filter.class%
+        class: '%btn_admin.form.button.filter.class%'
         tags:
             - { name: form.type, alias: btn_filter }
 
     btn_admin.form.type.color:
-        class: %btn_admin.form.type.color.class%
+        class: '%btn_admin.form.type.color.class%'
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
             - { name: form.type, alias: btn_color }
 
     btn_admin.form.type.date_time:
-        class: %btn_admin.form.type.date_time.class%
+        class: '%btn_admin.form.type.date_time.class%'
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
             - { name: form.type, alias: btn_datetime }
 
     btn_admin.form.type.date:
-        class: %btn_admin.form.type.date.class%
+        class: '%btn_admin.form.type.date.class%'
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
             - { name: form.type, alias: btn_date }
 
     btn_admin.form.type.time:
-        class: %btn_admin.form.type.time.class%
+        class: '%btn_admin.form.type.time.class%'
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
             - { name: form.type, alias: btn_time }
 
     btn_admin.form.type.wysiwyg:
-        class: %btn_admin.form.type.wysiwyg.class%
+        class: '%btn_admin.form.type.wysiwyg.class%'
         tags:
             - { name: form.type, alias: btn_wysiwyg }
 
     btn_admin.form.type.embedded:
-        class: %btn_admin.form.type.embedded.class%
+        class: '%btn_admin.form.type.embedded.class%'
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
-            - [setTranslator, [@translator]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
+            - [setTranslator, ['@translator']]
         tags:
             - { name: form.type, alias: btn_embedded }
 
     btn_admin.form.type.slug:
-        class: %btn_admin.form.type.slug.class%
+        class: '%btn_admin.form.type.slug.class%'
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
             - { name: form.type, alias: btn_slug }
 
     btn_admin.form.type.hidden_entity:
-        class: %btn_admin.form.type.hidden_entity.class%
+        class: '%btn_admin.form.type.hidden_entity.class%'
         calls:
-            - [setEntityManager, [@doctrine.orm.entity_manager]]
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
         tags:
             - { name: form.type, alias: btn_hidden_entity }
 
     btn_admin.form.type.google_map:
-        class: %btn_admin.form.type.google_map.class%
+        class: '%btn_admin.form.type.google_map.class%'
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
             - { name: form.type, alias: btn_google_map }
 
     btn_admin.form.type.select2:
-        class: %btn_admin.form.type.select2.class%
+        class: '%btn_admin.form.type.select2.class%'
         abstract: true
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
 
     btn_admin.form.type.select2_choice:
+        class: '%btn_admin.form.type.select2_choice.class%'
         parent: btn_admin.form.type.select2
-        calls:
-            - [setParent, [choice]]
         tags:
             - { name: form.type, alias: btn_select2_choice }
 
     btn_admin.form.type.select2_hidden:
+        class: '%btn_admin.form.type.select2_hidden.class%'
         parent: btn_admin.form.type.select2
-        calls:
-            - [setParent, [hidden]]
         tags:
             - { name: form.type, alias: btn_select2_hidden }
 
     btn_admin.form.type.select2_entity:
+        class: '%btn_admin.form.type.select2_entity.class%'
         parent: btn_admin.form.type.select2
-        calls:
-            - [setParent, [entity]]
         tags:
             - { name: form.type, alias: btn_select2_entity }
 
     btn_admin.form.type.youtube:
-        class: %btn_admin.form.type.youtube.class%
+        class: '%btn_admin.form.type.youtube.class%'
         tags:
             - { name: form.type, alias: btn_youtube }
 
     btn_admin.form.type.youtube_thumbnail_size:
-        class: %btn_admin.form.type.youtube_thumbnail_size.class%
+        class: '%btn_admin.form.type.youtube_thumbnail_size.class%'
         tags:
             - { name: form.type, alias: btn_youtube_thumbnail_size }
 
     btn_admin.form.type.vimeo:
-        class: %btn_admin.form.type.vimeo.class%
+        class: '%btn_admin.form.type.vimeo.class%'
         tags:
             - { name: form.type, alias: btn_vimeo }
 
     btn_admin.form.type.vimeo_thumbnail_size:
-      class: %btn_admin.form.type.vimeo_thumbnail_size.class%
+      class: '%btn_admin.form.type.vimeo_thumbnail_size.class%'
       tags:
             - { name: form.type, alias: btn_vimeo_thumbnail_size }
 
     btn_admin.form.type.translation:
-        class: %btn_admin.form.type.translation.class%
+        class: '%btn_admin.form.type.translation.class%'
         calls:
-            - [ setLocales, [%btn_admin.locales%]]
+            - [ setLocales, ['%btn_admin.locales%']]
         tags:
             - { name: form.type, alias: btn_translation }
 
     btn_admin.form.type.hr:
-        class: %btn_admin.form.type.hr.class%
+        class: '%btn_admin.form.type.hr.class%'
         tags:
             - { name: form.type, alias: btn_hr }
 
     # Extensions
     btn_admin.form.extension.text_type:
-        class: %btn_admin.form.extension.text_type.class%
+        class: '%btn_admin.form.extension.text_type.class%'
         tags:
-            - { name: form.type_extension, alias: text }
+            - { name: form.type_extension, alias: text, extended_type: Symfony\Component\Form\Extension\Core\Type\TextType }
 
     btn_admin.form.extension.submit_type:
-        class: %btn_admin.form.extension.submit_type.class%
+        class: '%btn_admin.form.extension.submit_type.class%'
         tags:
-            - { name: form.type_extension, alias: submit }
+            - { name: form.type_extension, alias: submit, extended_type: Symfony\Component\Form\Extension\Core\Type\SubmitType }
 
     btn_admin.form.extension.choice_type:
-        class: %btn_admin.form.extension.choice_type.class%
+        class: '%btn_admin.form.extension.choice_type.class%'
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
-            - { name: form.type_extension, alias: choice }
+            - { name: form.type_extension, alias: choice, extended_type: Symfony\Component\Form\Extension\Core\Type\ChoiceType }
 
     btn_admin.form.extension.form_type:
-        class: %btn_admin.form.extension.form_type.class%
+        class: '%btn_admin.form.extension.form_type.class%'
         calls:
-            - [setAssetLoader, [@btn_base.asset_loader]]
+            - [setAssetLoader, ['@btn_base.asset_loader']]
         tags:
-            - { name: form.type_extension, alias: form }
+            - { name: form.type_extension, alias: form, extended_type: Symfony\Component\Form\Extension\Core\Type\FormType }

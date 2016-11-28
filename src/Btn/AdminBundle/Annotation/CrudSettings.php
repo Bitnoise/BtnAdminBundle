@@ -10,6 +10,7 @@ class CrudSettings extends EntityProvider
 {
     /** @var string $form form alias for create/update actions */
     protected $formAlias      = null;
+    protected $formName       = null;
     /** @var string $formHandlerId form handler service id */
     protected $formHandlerId  = 'btn_admin.form.handler.entity_form';
     /** @var string $filterId if of service that should handle list filtering */
@@ -41,6 +42,22 @@ class CrudSettings extends EntityProvider
     public function getFormAlias()
     {
         return $this->formAlias;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getFormName()
+    {
+        return $this->formName ? $this->formName : $this->getFormAlias();
+    }
+
+    /**
+     * @param $formName
+     */
+    public function setFormName($formName)
+    {
+        $this->formName = $formName;
     }
 
     /**
