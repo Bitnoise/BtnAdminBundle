@@ -16,11 +16,11 @@
     ],
     "require": {
         "doctrine/orm": "~2.2,>=2.2.3",
-        "stof/doctrine-extensions-bundle": "~1.1.0",
-        "knplabs/knp-menu-bundle": "~2.0.0",
-        "knplabs/knp-paginator-bundle": "~2.4.2",
-        "friendsofsymfony/user-bundle": "~2.0.1",
-        "egeloen/ckeditor-bundle": "~3.0.1",
+        "stof/doctrine-extensions-bundle": "~1.1",
+        "knplabs/knp-menu-bundle": "~2.0",
+        "knplabs/knp-paginator-bundle": "~2.4",
+        "friendsofsymfony/user-bundle": "~2.0",
+        "egeloen/ckeditor-bundle": "~3.0",
         "willdurand/js-translation-bundle": "~2.6",
         "bitnoise/base-bundle": "2.1.*"
     },
