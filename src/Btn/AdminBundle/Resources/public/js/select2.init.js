@@ -63,8 +63,8 @@
                         if (element.attr('btn-select2-ajax-cache')) {
                             var key = prefix + ' page:' + 1 + ' ' + params.data.q,
                                 cacheTimeout = 60000;
-                            if (typeof cache[key] === 'undefined' || (cacheTimeout && Date.now() >= cache[key].time)) {
-                                $.ajax(params).fail(failure).done(function(data) {
+                            if (typeof cache[key] == 'undefined' || (cacheTimeout && Date.now() >= cache[key].time)) {
+                                $.ajax(params).fail(failure).done(function (data) {
                                     cache[key] = {
                                         data: data,
                                         time: cacheTimeout ? Date.now() + cacheTimeout : null
@@ -88,7 +88,7 @@
 
                         if ($.isArray(data)) {
                             results = data;
-                        } else if (typeof data === 'object') {
+                        } else if (typeof data == 'object') {
                             // assume remote result was proper object
                             results = data.results;
                             more = data.more;
@@ -104,13 +104,13 @@
                 options.initSelection = function(element, callback) {
                     var id = element.attr('btn-select2-ajax-id'),
                         text = element.attr('btn-select2-ajax-text');
-                    if(typeof id !== 'undefined'){
+                    if(typeof id != 'undefined'){
                         element.val(id);
                         callback({ id: id, text: text });
                     }else{
                         callback();
                     }
-                };
+                }
             }
 
             element.select2(options);
