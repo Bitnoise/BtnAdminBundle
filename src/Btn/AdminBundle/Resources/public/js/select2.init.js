@@ -1,7 +1,7 @@
 /* global BtnApp, jQuery */
 (function(app, $, undefined) {
     'use strict';
-    var addEvents = function(context) {
+    var addEvents = function(context){
         app.tools.findOnce('btn-select2', context).each(function() {
             var element = $(this);
             var options = element.attr('btn-select2-options');
@@ -32,7 +32,7 @@
                     };
                 } else if (!('formatResult' in options)) {
                     options.formatResult = function(state) {
-                        return '<span btn-select2-value="' + state.id + '">' + state.text + '</span>';
+                        return '<span btn-select2-value="'+state.id+'">'+state.text+'</span>';
                     };
                 }
 
@@ -41,7 +41,7 @@
                         var parent = $(state.element).parent();
                         var text = state.text.replace(/^[\_|]+/, '');
                         if ('OPTGROUP' === parent.prop('tagName') && parent.attr('label')) {
-                            return text + ' <small class="optgroup">(' + parent.attr('label') + ')</small>';
+                            return text + ' <small class="optgroup">('+parent.attr('label')+')</small>';
                         }
 
                         return text;
