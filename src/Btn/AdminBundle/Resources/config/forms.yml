@@ -17,6 +17,7 @@ parameters:
     btn_admin.form.type.google_map.class: Btn\AdminBundle\Form\Type\GoogleMapType
     btn_admin.form.type.select2.class: Btn\AdminBundle\Form\Type\Select2Type
     btn_admin.form.type.select2_choice.class: Btn\AdminBundle\Form\Type\Select2ChoiceType
+    btn_admin.form.type.select2_ajax.class: Btn\AdminBundle\Form\Type\Select2AjaxType
     btn_admin.form.type.select2_hidden.class: Btn\AdminBundle\Form\Type\Select2HiddenType
     btn_admin.form.type.select2_entity.class: Btn\AdminBundle\Form\Type\Select2EntityType
     btn_admin.form.type.youtube.class: Btn\AdminBundle\Form\Type\YoutubeType
@@ -185,6 +186,15 @@ services:
         parent: btn_admin.form.type.select2
         tags:
             - { name: form.type, alias: btn_select2_choice }
+
+    btn_admin.form.type.select2_ajax:
+        class: '%btn_admin.form.type.select2_ajax.class%'
+        calls:
+            - [setAssetLoader, ['@btn_base.asset_loader']]
+            - [setRouter, ['@router']]
+        parent: btn_admin.form.type.select2
+        tags:
+            - { name: form.type, alias: btn_select2_ajax }
 
     btn_admin.form.type.select2_hidden:
         class: '%btn_admin.form.type.select2_hidden.class%'
