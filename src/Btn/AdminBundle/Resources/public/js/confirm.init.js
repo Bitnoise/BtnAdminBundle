@@ -48,4 +48,4 @@
         addEvents(data.context);
     });
 
-})(BtnApp, bootbox, jQuery, (typeof Translator !== 'undefined') ? Translator : null);
+})(BtnApp, bootbox, jQuery, (typeof Translator != 'undefined') ? Translator : null);
