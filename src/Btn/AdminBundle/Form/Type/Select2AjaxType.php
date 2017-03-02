@@ -31,10 +31,10 @@ class Select2AjaxType extends Select2Type
         /**
          * Route path should return ajax response:
          * [
-         *  {
-                id: 'id',
-                text: 'text'
-         * }
+         *    {
+         *      id: 'id',
+         *      text: 'text'
+         *    }
          * ]
          */
         $resolver->setAllowedTypes('data_route_path', array('string', 'null'));
