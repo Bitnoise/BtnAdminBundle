@@ -117,7 +117,7 @@ class CrudSettings extends EntityProvider
     }
 
     /**
-     *
+     * @param $indexTemplate
      */
     public function setIndexTemplate($indexTemplate)
     {
@@ -133,11 +133,27 @@ class CrudSettings extends EntityProvider
     }
 
     /**
+     * @param $createTemplate
+     */
+    public function setCreateTemplate($createTemplate)
+    {
+        $this->createTemplate = $createTemplate;
+    }
+
+    /**
      * @return string
      */
     public function getCreateTemplate()
     {
         return $this->createTemplate;
+    }
+
+    /**
+     * @param $updateTemplate
+     */
+    public function setUpdateTemplate($updateTemplate)
+    {
+        $this->updateTemplate = $updateTemplate;
     }
 
     /**
