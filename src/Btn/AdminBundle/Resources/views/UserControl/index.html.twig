@@ -12,7 +12,7 @@
     <td>{{ entity.username }}</td>
     <td>{{ entity.email }}</td>
     <td>{{ entity.enabled ? gi('ok') : gi('remove') }}</td>
-    <td>{{ entity.lastLogin|date(btn_admin.list.date_time_format) }}</td>
+    <td>{{ entity.lastLogin ? entity.lastLogin|date(btn_admin.list.date_time_format) }}</td>
 {% endblock %}
 
 {% block list_table_row_action_post %}
