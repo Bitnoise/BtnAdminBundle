@@ -2,6 +2,7 @@
 
 namespace Btn\AdminBundle\Form\Type;
 
+use Btn\BaseBundle\Util\Form;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -64,9 +65,20 @@ class DateTimeType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getParent()
+    public function getAlias()
     {
         return 'datetime';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getParent()
+    {
+        return Form::getFormName(array(
+            'alias' => $this->getAlias(),
+            'class' => \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class,
+        ));
     }
 
     /**
